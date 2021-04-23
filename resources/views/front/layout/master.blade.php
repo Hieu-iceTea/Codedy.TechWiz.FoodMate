@@ -77,7 +77,6 @@
                                     <ul class="dropdown-mega">
                                         <li><a href="../book-a-table">Book a table</a></li>
                                         <li><a href="../checkout">Checkout</a></li>
-                                        <li><a href="../offer">Offers</a></li>
                                     </ul>
                                     <div class="dropdown-image">
                                         <img src="data-images/photos/dropdown-more.jpg" alt="">

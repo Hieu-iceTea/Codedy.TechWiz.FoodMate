@@ -29,6 +29,11 @@ Route::prefix('')->group(function () {
         Route::get('{id}', [App\Http\Controllers\Front\MenuController::class, 'show']);
     });
 
+    Route::prefix('restaurant')->group(function () {
+        Route::get('', [App\Http\Controllers\Front\RestaurantController::class, 'index']);
+        Route::get('{id}', [App\Http\Controllers\Front\RestaurantController::class, 'show']);
+    });
+
     Route::prefix('checkout')->group(function () {
         Route::get('', [App\Http\Controllers\Front\CheckOutController::class, 'index']);
     });
