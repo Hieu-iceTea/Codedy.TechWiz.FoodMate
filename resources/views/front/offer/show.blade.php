@@ -20,7 +20,7 @@
                 <a href="index.html" class="btn btn-link"><span>Back</span></a>
             </div>
             <div class="image col-xl-8 col-md-7">
-                <div class="bg-image"><img src="../../assets.suelo.pl/soup/img/photos/offer-single.jpg" alt=""></div>
+                <div class="bg-image"><img src="data-images/photos/offer-single.jpg" alt=""></div>
             </div>
         </div>
     </section>
@@ -29,7 +29,7 @@
     <section class="section section-lg dark bg-dark">
 
         <!-- BG Image -->
-        <div class="bg-image bg-parallax"><img src="../../assets.suelo.pl/soup/img/photos/bg-croissant.jpg" alt="">
+        <div class="bg-image bg-parallax"><img src="data-images/photos/bg-croissant.jpg" alt="">
         </div>
 
         <div class="container text-center">

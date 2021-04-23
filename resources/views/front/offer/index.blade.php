@@ -21,7 +21,7 @@
         <div class="container">
             <!-- Special Offer -->
             <div class="special-offer mb-5 animated" data-animation="fadeIn">
-                <img src="../../assets.suelo.pl/soup/img/photos/special-burger.jpg" alt="" class="special-offer-image">
+                <img src="data-images/photos/special-burger.jpg" alt="" class="special-offer-image">
                 <div class="special-offer-content">
                     <h2 class="mb-2">Free Burger</h2>
                     <h5 class="text-muted mb-5">Get free burger from orders higher that $40!</h5>
@@ -34,7 +34,7 @@
             </div>
             <!-- Special Offer -->
             <div class="special-offer mb-5 animated" data-animation="fadeIn">
-                <img src="../../assets.suelo.pl/soup/img/photos/special-pizza.jpg" alt="" class="special-offer-image">
+                <img src="data-images/photos/special-pizza.jpg" alt="" class="special-offer-image">
                 <div class="special-offer-content">
                     <h2 class="mb-2">Free Small Pizza</h2>
                     <h5 class="text-muted mb-5">Get free burger from orders higher that $40!</h5>
@@ -46,7 +46,7 @@
             </div>
             <!-- Special Offer -->
             <div class="special-offer mb-5 animated" data-animation="fadeIn">
-                <img src="../../assets.suelo.pl/soup/img/photos/special-dish.jpg" alt="" class="special-offer-image">
+                <img src="data-images/photos/special-dish.jpg" alt="" class="special-offer-image">
                 <div class="special-offer-content">
                     <h2 class="mb-2">Chip Friday</h2>
                     <h5 class="text-muted mb-5">10% Off for all dishes!</h5>

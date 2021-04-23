@@ -20,7 +20,7 @@
     <section class="section section-bg-edge">
 
         <div class="image left bottom col-md-7">
-            <div class="bg-image"><img src="../../assets.suelo.pl/soup/img/photos/bg-chef.jpg" alt=""></div>
+            <div class="bg-image"><img src="data-images/photos/bg-chef.jpg" alt=""></div>
         </div>
 
         <div class="container">
@@ -48,7 +48,7 @@
     <section class="section section-lg dark bg-dark">
 
         <!-- BG Image -->
-        <div class="bg-image bg-parallax"><img src="../../assets.suelo.pl/soup/img/photos/bg-croissant.jpg" alt="">
+        <div class="bg-image bg-parallax"><img src="data-images/photos/bg-croissant.jpg" alt="">
         </div>
 
         <div class="container text-center">

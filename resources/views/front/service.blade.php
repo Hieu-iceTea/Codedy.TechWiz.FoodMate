@@ -26,7 +26,7 @@
                 <a href="page-contact.html" class="btn btn-outline-primary btn-lg"><span>Get a quote</span></a>
             </div>
             <div class="image col-xl-8 col-md-7">
-                <div class="bg-image"><img src="../../assets.suelo.pl/soup/img/photos/service-weddings.jpg" alt="">
+                <div class="bg-image"><img src="data-images/photos/service-weddings.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@
                 <a href="page-contact.html" class="btn btn-outline-primary btn-lg"><span>Get a quote</span></a>
             </div>
             <div class="image col-xl-8 col-md-7 order-md-first">
-                <div class="bg-image"><img src="../../assets.suelo.pl/soup/img/photos/service-engagement.jpg" alt="">
+                <div class="bg-image"><img src="data-images/photos/service-engagement.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@
                 <a href="page-contact.html" class="btn btn-outline-primary btn-lg"><span>Get a quote</span></a>
             </div>
             <div class="image col-xl-8 col-md-7">
-                <div class="bg-image"><img src="../../assets.suelo.pl/soup/img/photos/service-birthday.jpg" alt="">
+                <div class="bg-image"><img src="data-images/photos/service-birthday.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -67,7 +67,7 @@
     <!-- Section -->
     <section class="section section-lg dark bg-dark">
 
-        <div class="bg-image bg-parallax"><img src="../../assets.suelo.pl/soup/img/photos/bg-croissant.jpg" alt="">
+        <div class="bg-image bg-parallax"><img src="data-images/photos/bg-croissant.jpg" alt="">
         </div>
 
         <div class="container text-center">

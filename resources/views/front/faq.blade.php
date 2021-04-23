@@ -6,7 +6,7 @@
 
     <!-- Page Title -->
     <div class="page-title bg-light">
-        <div class="bg-image bg-parallax"><img src="../../assets.suelo.pl/soup/img/photos/bg-desk.jpg" alt=""></div>
+        <div class="bg-image bg-parallax"><img src="data-images/photos/bg-desk.jpg" alt=""></div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-4">

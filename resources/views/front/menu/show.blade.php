@@ -12,7 +12,7 @@
                     <!-- Product Single -->
                     <div class="product-single">
                         <div class="product-image">
-                            <img src="../../assets.suelo.pl/soup/img/photos/product-single.jpg" alt="">
+                            <img src="data-images/photos/product-single.jpg" alt="">
                         </div>
                         <div class="product-content">
                             <div class="product-header text-center">
@@ -171,7 +171,7 @@
                                 <p>The best paste I have ever ate in my entire life!</p>
                             </div>
                             <footer>
-                                <img src="../../assets.suelo.pl/soup/img/avatars/avatar03.jpg" alt="">
+                                <img src="data-images/avatars/avatar03.jpg" alt="">
                                 <span class="name">Kate Hudson<span class="text-muted">, LinkedIn</span></span>
                             </footer>
                         </blockquote>
@@ -184,7 +184,7 @@
                                 <p>Great food and great atmosphere!</p>
                             </div>
                             <footer>
-                                <img src="../../assets.suelo.pl/soup/img/avatars/avatar04.jpg" alt="">
+                                <img src="data-images/avatars/avatar04.jpg" alt="">
                                 <span class="name">Kate Hudson<span class="text-muted">, LinkedIn</span></span>
                             </footer>
                         </blockquote>
@@ -198,7 +198,7 @@
     <section class="section section-lg dark bg-dark">
 
         <!-- BG Image -->
-        <div class="bg-image bg-parallax"><img src="../../assets.suelo.pl/soup/img/photos/bg-croissant.jpg" alt="">
+        <div class="bg-image bg-parallax"><img src="data-images/photos/bg-croissant.jpg" alt="">
         </div>
 
         <div class="container text-center">
