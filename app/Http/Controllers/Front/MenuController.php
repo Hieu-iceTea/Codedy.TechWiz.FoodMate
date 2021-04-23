@@ -11,4 +11,9 @@ class MenuController extends Controller
     {
         return view('front.menu.index');
     }
+
+    public function show($id)
+    {
+        return view('front.menu.show');
+    }
 }
