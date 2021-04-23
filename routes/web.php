@@ -19,4 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('')->group(function () {
     Route::get('', [App\Http\Controllers\Front\HomeController::class, 'index']);
+
+    Route::prefix('menu')->group(function () {
+        Route::get('', [App\Http\Controllers\Front\MenuController::class, 'index']);
+    });
 });
