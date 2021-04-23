@@ -185,7 +185,6 @@ CREATE TABLE IF NOT EXISTS `restaurants`
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = #
 
 #Default password: 123456
-
 INSERT INTO User (id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, street, city, active)
 VALUE (4, 'Host', 'host.codedy@gmail.com', '$2y$10$oW..IGNT/CH2muKpN/8LAuNJ1ahnwLoyCBWRQyBj4p6ITOJFb.gs2', 1, '2020-08-08', 'host.jpg', 1, 'CODEDY', 'Host', '032 87 99 000', 'Ton That Thuyet', 'Ha Noi', TRUE);
 INSERT INTO User (id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, street, city, active)
@@ -285,13 +284,28 @@ VALUE (36, 6, 4, 'Beef Burger', 39.59, 'product-6-6.jpg', 'Viet Nam', 'Beef, che
 
 
 INSERT INTO restaurants (id, name, image, address, description)
-VALUE (1, 'Head Ha Noi', 'Head-Ha-Noi.jpg', 'Ha Noi', 'Head Ha Noi');
+VALUE (1, 'Head Ha Noi', 'Head-Ha-Noi.jpg', 'Ha Noi', '<ul class=""list-check text-lg mb-0"">
+                        <li>Only on Tuesdays</li>
+                        <li class=""false"">Order higher that $40</li>
+                        <li>Unless one burger ordered</li>
+                    </ul>');
 INSERT INTO restaurants (id, name, image, address, description)
-VALUE (2, 'Special Ho Chi Minh', 'Special-Ho-Chi-Minh.jpg', 'Ho Chi Minh', 'Special Ho Chi Minh');
+VALUE (2, 'Special Ho Chi Minh', 'Special-Ho-Chi-Minh.jpg', 'Ho Chi Minh', '<ul class=""list-check text-lg mb-0"">
+                        <li>Only on Weekends</li>
+                        <li class=""false"">Order higher that $40</li>
+                    </ul>');
 INSERT INTO restaurants (id, name, image, address, description)
-VALUE (3, 'Flagship Nghe An', 'Flagship-Nghe-An.jpg', 'Nghe An', 'Flagship Nghe An');
+VALUE (3, 'Flagship Nghe An', 'Flagship-Nghe-An.jpg', 'Nghe An', '<ul class=""list-check text-lg mb-0"">
+                        <li>Only on Friday</li>
+                        <li>All products</li>
+                        <li>Online order</li>
+                    </ul>');
 INSERT INTO restaurants (id, name, image, address, description)
-VALUE (4, 'Standard Da Nang', 'Standard-Da-Nang.jpg', 'Da Nang', 'Standard Da Nang');
+VALUE (4, 'Standard Da Nang', 'Standard-Da-Nang.jpg', 'Da Nang', '<ul class=""list-check text-lg mb-0"">
+                        <li>Only on Tuesdays</li>
+                        <li class=""false"">Order higher that $40</li>
+                        <li>Unless one burger ordered</li>
+                    </ul>');
 
 
 INSERT INTO orders (id, user_id, first_name, last_name, phone, street, city, payment_type, total_amount, status)
