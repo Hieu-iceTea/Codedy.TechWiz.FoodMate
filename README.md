@@ -2,10 +2,10 @@
     <a href="http://ars.codedy.epizy.com" target="_blank">
         <img src="https://raw.githubusercontent.com/Hieu-iceTea/ARS.CODEDY/master/public/img/logo/logo_animation.gif" height="100px">
     </a>
-    <h1 align="center">Codedy.TechWiz.eShop</h1>
+    <h1 align="center">Codedy.TechWiz.FoodMate</h1>
     <br>
     <p align="center">
-        <a href="http://github.com/Hieu-iceTea/Codedy.TechWiz.eShop"><img src="https://cdn.iconscout.com/icon/free/png-512/github-153-675523.png" height="25px"></a>
+        <a href="http://github.com/Hieu-iceTea/Codedy.TechWiz.FoodMate"><img src="https://cdn.iconscout.com/icon/free/png-512/github-153-675523.png" height="25px"></a>
     &nbsp;
         <a href="http://ars.hieu-icetea.epizy.com"><img src="https://lapcamerataihaiphong.com/wp-content/uploads/2018/02/website.png" height="25px"></a>
     &nbsp;
@@ -15,7 +15,7 @@
 
 ## Information
 
-eShop by CODEDY team - TechWiz, FPT Aptech
+FoodMate by CODEDY team - TechWiz, FPT Aptech
 
 The project has been deployed at the link: <b> [http://ars.hieu-icetea.epizy.com](http://ars.hieu-icetea.epizy.com). </b>
 
@@ -43,11 +43,17 @@ Contributors:
 
 2. Build the `.evn` file according to the `.env.example` file template.
 
-3. Building the database structure and sample data.
+3. Generate key.
 
-    Go to the folder `_Docs/DataBase_Script` in the project root directory, find the file `Codedy.TechWiz.eShop_ScriptDatabe_Create_Insert.sql` and run it with MyPHPAdmin.
+    ```bash
+    php artisan key:generate
+    ```
 
-4. Add shopping cart.
+4. Building the database structure and sample data.
+
+    Go to the folder `_Docs/DataBase_Script` in the project root directory, find the file `Codedy.TechWiz.FoodMate_ScriptDatabe_Create_Insert.sql` and run it with MyPHPAdmin.
+
+5. Add shopping cart.
 
     ```bash
     composer require bumbummen99/shoppingcart
@@ -96,4 +102,4 @@ Contributors:
 
 <> Web Deployed: [ars.hieu-icetea.epizy.com](http://ars.hieu-icetea.epizy.com)
 
-<> Link GitHub: [github.com/Hieu-iceTea/Codedy.TechWiz.eShop](http://github.com/Hieu-iceTea/Codedy.TechWiz.eShop)
+<> Link GitHub: [github.com/Hieu-iceTea/Codedy.TechWiz.FoodMate](http://github.com/Hieu-iceTea/Codedy.TechWiz.FoodMate)
