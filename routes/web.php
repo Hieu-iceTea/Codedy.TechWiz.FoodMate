@@ -17,6 +17,14 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
+
+/*
+|--------------------------------------------------------------------------
+| Front
+|--------------------------------------------------------------------------
+|
+*/
+
 Route::prefix('')->group(function () {
     Route::get('', [App\Http\Controllers\Front\HomeController::class, 'index']);
     Route::get('about', [App\Http\Controllers\Front\HomeController::class, 'about']);
@@ -37,4 +45,22 @@ Route::prefix('')->group(function () {
     Route::prefix('checkout')->group(function () {
         Route::get('', [App\Http\Controllers\Front\CheckOutController::class, 'index']);
     });
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| Admin
+|--------------------------------------------------------------------------
+|
+*/
+
+Route::prefix('admin')->group(function () {
+    Route::redirect('', 'admin/user'); //Chuyển hướng
+
+    Route::resource('category', App\Http\Controllers\Admin\CategoryController::class);
+    Route::resource('order', App\Http\Controllers\Admin\OrderController::class);
+    Route::resource('product', App\Http\Controllers\Admin\ProductController::class);
+    Route::resource('restaurant', App\Http\Controllers\Admin\RestaurantController::class);
+    Route::resource('user', App\Http\Controllers\Admin\UserController::class);
 });
