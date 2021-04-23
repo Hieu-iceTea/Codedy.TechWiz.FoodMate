@@ -182,7 +182,7 @@
                             <li>
                                 <a href="../admin/restaurant"
                                    class="{{ (request()->segment(2) == 'restaurant') ? 'mm-active' : '' }}">
-                                    <i class="metismenu-icon"></i>Brand
+                                    <i class="metismenu-icon"></i>Restaurant
                                 </a>
                             </li>
                         </ul>
