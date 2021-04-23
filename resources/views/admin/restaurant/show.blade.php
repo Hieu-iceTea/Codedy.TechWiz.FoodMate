@@ -66,14 +66,14 @@
                                 Name
                             </label>
                             <div class="col-md-9 col-xl-8">
-                                <p>CodeGym</p>
+                                <p>Codedy</p>
                             </div>
                         </div>
 
                         <div class="position-relative row form-group">
                             <label for="email" class="col-md-3 text-md-right col-form-label">Email</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>info@codegym.vn</p>
+                                <p>info@Codedy.vn</p>
                             </div>
                         </div>
 
@@ -82,7 +82,7 @@
                                 Company Name
                             </label>
                             <div class="col-md-9 col-xl-8">
-                                <p>CodeGym</p>
+                                <p>Codedy</p>
                             </div>
                         </div>
 

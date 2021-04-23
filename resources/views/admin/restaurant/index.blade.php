@@ -85,12 +85,12 @@
                                                 </div>
                                             </div>
                                             <div class="widget-content-left flex2">
-                                                <div class="widget-heading">CodeGym</div>
+                                                <div class="widget-heading">Codedy</div>
                                             </div>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="text-center">info@codegym.vn</td>
+                                <td class="text-center">info@Codedy.vn</td>
                                 <td class="text-center">
                                     Admin
                                 </td>
