@@ -15,18 +15,30 @@ class User extends Authenticatable
     protected $table = 'users';
     protected $primaryKey = 'id';
 
-    public  function orders(){
+    public function orders()
+    {
         return $this->hasMany(Order::class, 'user_id', 'id');
     }
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name',
+        'user_name',
         'email',
         'password',
+
+        'level',
+        'image',
+        'gender',
+        'first_name',
+        'last_name',
+        'phone',
+        'street',
+        'city',
+        'active',
     ];
 
     /**
