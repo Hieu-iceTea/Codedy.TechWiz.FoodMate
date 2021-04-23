@@ -23,4 +23,8 @@ Route::prefix('')->group(function () {
     Route::prefix('menu')->group(function () {
         Route::get('', [App\Http\Controllers\Front\MenuController::class, 'index']);
     });
+
+    Route::prefix('checkout')->group(function () {
+        Route::get('', [App\Http\Controllers\Front\CheckOutController::class, 'index']);
+    });
 });
