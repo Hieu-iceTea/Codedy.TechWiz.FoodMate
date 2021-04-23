@@ -1,0 +1,34 @@
+# Hiếu iceTea | 17:30 2020-07-28
+- - - - -
+
+0. Mở NotePad chế độ Admin > chọn "Open" để mở và sửa lần lượt 2 file sau:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+1. C:\Windows\System32\drivers\etc  -> chọn file: [host]
+
+
+127.0.0.1		localhost
+127.0.0.1		ARS.CODEDY
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+2. C:\xampp\apache\conf\extra  ->  chọn file: [httpd-vhosts.conf]
+
+
+
+<VirtualHost *:80>
+	DocumentRoot "C:/xampp/htdocs"
+	ServerName localhost
+</VirtualHost>
+
+<VirtualHost *:80>
+DocumentRoot "C:\xampp\htdocs\ARS.CODEDY\public"
+ServerName ARS.CODEDY
+</VirtualHost>
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
