@@ -20,65 +20,117 @@
     <!-- Page Content -->
     <div class="page-content">
         <div class="container">
+            <form action="" method="get" class="">
+                <div class="row text-lg">
+
+                    @foreach(\App\Utilities\Constant::$product_tags as $product_tag)
+                        <div class="col-md-3 col-sm-6 form-group">
+                            <label class="custom-control custom-radio">
+                                <input type="checkbox" class="custom-control-input"
+                                       name="tag[]"
+                                       value="{{ $product_tag }}"
+                                       {{  in_array($product_tag, (request("tag") ?? [])) || request("tag") == null ? 'checked' : '' }}
+                                       onchange="this.form.submit();">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">{{ $product_tag }}</span>
+                            </label>
+                        </div>
+                    @endforeach
+
+                </div>
+
+                <div class="row mb-4">
+                    <div class="form-group col-sm-12">
+                        <input type="text" name="search" value="{{ request('search') }}" placeholder="Search..."
+                               class="form-control">
+                    </div>
+                </div>
+            </form>
+
             <div class="row no-gutters">
                 <div class="col-md-3">
                     <!-- Menu Navigation -->
                     <nav id="menu-navigation" class="stick-to-content" data-local-scroll>
-                        <ul class="nav nav-menu bg-dark dark">
-                            @foreach($categories as $category)
-                                <li><a href="#{{ $category->name }}">{{ $category->name }}</a></li>
-                            @endforeach
-                        </ul>
+                        @if(count($products) > 0)
+                            <ul class="nav nav-menu bg-dark dark">
+                                @foreach($categories as $category)
+                                    <li><a href="#{{ $category->name }}">{{ $category->name }}</a></li>
+                                @endforeach
+                            </ul>
+                        @endif
                     </nav>
                 </div>
                 <div class="col-md-9">
 
-                @foreach($categories as $category)
                     <!-- Menu Category -->
-                        <div id="{{ $category->name }}" class="menu-category">
-                            <div class="menu-category-title">
-                                <div class="bg-image"><img
-                                        src="../front/data-images/categories/{{ $category->image }}" alt=""></div>
-                                <h2 class="title">{{ $category->name }}</h2>
-                            </div>
+                    @if(count($products) > 0)
+                        @foreach($categories as $category)
+                            @if(count($products->toQuery()->where('product_category_id', $category->id)->get()) > 0)
+                                <div id="{{ $category->name }}" class="menu-category">
+                                    <div class="menu-category-title">
+                                        <div class="bg-image"><img
+                                                src="../front/data-images/categories/{{ $category->image }}" alt="">
+                                        </div>
+                                        <h2 class="title">{{ $category->name }}</h2>
+                                    </div>
 
-                            <div class="menu-category-content padded">
-                                <div class="row gutters-sm">
-                                    @foreach($products as $product)
-                                        @if($product->product_category_id == $category->id)
-                                            <div class="col-lg-4 col-6">
-                                                <!-- Menu Item -->
-                                                <div class="menu-item menu-grid-item">
-                                                    <a href="../menu/{{ $product->id }}">
-                                                        <img class="mb-4"
-                                                             src="../front/data-images/products/{{ $product->image }}"
-                                                             alt="">
-                                                    </a>
+                                    <div class="menu-category-content padded">
+                                        <div class="row gutters-sm">
+                                            @foreach($products->toQuery()->where('product_category_id', $category->id)->get() as $product)
+                                                <div class="col-lg-4 col-6">
+                                                    <!-- Menu Item -->
+                                                    <div class="menu-item menu-grid-item">
+                                                        <a href="../menu/{{ $product->id }}">
+                                                            <img class="mb-4"
+                                                                 src="../front/data-images/products/{{ $product->image }}"
+                                                                 alt="">
+                                                        </a>
 
-                                                    <h6 class="mb-0">
-                                                        <a href="../menu/{{ $product->id }}">{{ $product->name }}</a>
-                                                    </h6>
-                                                    <span class="text-muted text-sm">{{ $product->ingredients }}</span>
-                                                    <div class="row align-items-center mt-4">
-                                                        <div class="col-sm-6"><span class="text-md mr-4"><span
-                                                                    class="text-muted">from</span> $<span
-                                                                    data-product-base-price>{{ $product->price }}</span></span>
-                                                        </div>
-                                                        <div class="col-sm-6 text-sm-right mt-2 mt-sm-0">
-                                                            <a href="../cart/add/{{ $product->id }}"
-                                                               class="btn btn-outline-secondary btn-sm">
-                                                                <span>Add to cart</span>
+                                                        <h6 class="mb-0">
+                                                            <a href="../menu/{{ $product->id }}">{{ $product->name }}</a>
+                                                        </h6>
+                                                        <span
+                                                            class="text-muted text-sm">{{ $product->ingredients }}</span>
+
+                                                        <h6 class="pt-1">
+                                                            <span class="text-muted text-sm">
+                                                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                                Restaurant:
+                                                            </span>
+                                                            <a href="../restaurant/{{ $product->restaurant->id }}">
+                                                                <span
+                                                                    class="text-sm">{{ $product->restaurant->name }}</span>
                                                             </a>
+                                                        </h6>
+
+
+                                                        <div class="row align-items-center mt-4">
+                                                            <div class="col-sm-6"><span class="text-md mr-4"><span
+                                                                        class="text-muted">from</span> $<span
+                                                                        data-product-base-price>{{ $product->price }}</span></span>
+                                                            </div>
+                                                            <div class="col-sm-6 text-sm-right mt-2 mt-sm-0">
+                                                                <a href="../cart/add/{{ $product->id }}"
+                                                                   class="btn btn-outline-secondary btn-sm">
+                                                                    <span>Add to cart</span>
+                                                                </a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        @endif
-                                    @endforeach
+                                            @endforeach
+                                        </div>
+                                    </div>
                                 </div>
+                            @endif
+                        @endforeach
+                    @else
+                        <div class="menu-category">
+                            <div class="menu-category-title">
+                                <h2 class="title">No data found</h2>
                             </div>
                         </div>
-                    @endforeach
+                    @endif
 
                 </div>
             </div>
