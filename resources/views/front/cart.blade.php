@@ -101,7 +101,13 @@
                         @endif
                     </div>
 
-                    <a href="../checkout" class="panel-cart-action btn btn-secondary btn-block btn-lg"><span>Go to checkout</span></a>
+                    @if(count(Cart::content()) > 0)
+                        <a href="../checkout" class="panel-cart-action btn btn-secondary btn-block btn-lg"><span>Go to checkout</span></a>
+                    @else
+                        <a href="../menu" class="panel-cart-action btn btn-secondary btn-block btn-lg">
+                            <span>Go to menu</span>
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>

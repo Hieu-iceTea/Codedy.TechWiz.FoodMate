@@ -270,8 +270,8 @@
                 @endif
             </div>
         </div>
-        <a href="../checkout"
-           class="panel-cart-action btn btn-secondary btn-block btn-lg"><span>Go to checkout</span></a>
+        <a href="../cart"
+           class="panel-cart-action btn btn-secondary btn-block btn-lg"><span>Go to cart</span></a>
     </div>
 
     <!-- Panel Mobile -->
