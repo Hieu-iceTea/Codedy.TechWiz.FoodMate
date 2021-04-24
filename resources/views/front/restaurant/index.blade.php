@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-4">
-                    <h1 class="mb-0">Restaurants</h1>
+                    <h1 class="mb-0">Restaurans</h1>
                     <h4 class="text-muted mb-0">Some informations about our restaurant</h4>
                 </div>
             </div>
@@ -22,13 +22,11 @@
             @foreach($restaurants as $restaurant)
             <!-- Special Offer -->
             <div class="special-offer mb-5 animated" data-animation="fadeIn">
-                <img src="../front/data-images/restaurants/{{$restaurant->image}}" alt="" class="special-offer-image">
+              <img src="../front/data-images/restaurants/{{$restaurant->image}}" alt="" class="special-offer-image">
                 <div class="special-offer-content">
-                    <h2 class="mb-2">{{$restaurant->name}}</h2>
-                    <h5 class="text-muted mb-5">Adress: {{$restaurant->address}}</h5>
-                    <ul class="list-check text-lg mb-0">
-                        <li>{{$restaurant->description}}</li>
-                    </ul>
+                    <a href="../restaurant/{{$restaurant->id}}"><h2 class="mb-2">{{$restaurant->name}}</h2></a>
+                    <h5 class="text-muted mb-5">{{$restaurant->address}}</h5>
+                    {!!$restaurant->description!!}
                 </div>
             </div>
                 @endforeach
