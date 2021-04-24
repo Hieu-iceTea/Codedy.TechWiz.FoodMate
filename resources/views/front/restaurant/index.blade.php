@@ -22,9 +22,9 @@
             @foreach($restaurants as $restaurant)
             <!-- Special Offer -->
             <div class="special-offer mb-5 animated" data-animation="fadeIn">
-                <img src="../front/data-images/restaurants/{{$restaurant->image}}" alt="" class="special-offer-image">
+              <img src="../front/data-images/restaurants/{{$restaurant->image}}" alt="" class="special-offer-image">
                 <div class="special-offer-content">
-                    <h2 class="mb-2">{{$restaurant->name}}</h2>
+                    <a href="../restaurant/{{$restaurant->id}}"><h2 class="mb-2">{{$restaurant->name}}</h2></a>
                     <h5 class="text-muted mb-5">{{$restaurant->address}}</h5>
                     {!!$restaurant->description!!}
                 </div>
