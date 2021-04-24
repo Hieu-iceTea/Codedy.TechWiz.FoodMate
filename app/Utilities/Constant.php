@@ -43,6 +43,14 @@ class Constant
         self::user_level_client => 'customer',
     ];
 
+    //user_gender
+    const user_gender_Male = 1;
+    const user_gender_Female = 2;
+    public static $user_genders = [
+        self::user_gender_Male => 'Male',
+        self::user_gender_Female => 'Female',
+    ];
+
     //product_tag
     const product_tag_Breakfast = 1;
     const product_tag_Lunch = 2;
