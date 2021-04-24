@@ -94,6 +94,7 @@ CREATE TABLE IF NOT EXISTS `product_categories`
     `id`         INT AUTO_INCREMENT,
 
     `name`       VARCHAR(64) NOT NULL,
+    `image`       CHAR(128) NOT NULL,
 
     `created_by` NVARCHAR(32) DEFAULT 'Codedy.TechWiz.FoodMate',
     `created_at` TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
@@ -185,6 +186,7 @@ CREATE TABLE IF NOT EXISTS `restaurants`
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = #
 
 #Default password: 123456
+
 INSERT INTO User (id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, street, city, active)
 VALUE (4, 'Host', 'host.codedy@gmail.com', '$2y$10$oW..IGNT/CH2muKpN/8LAuNJ1ahnwLoyCBWRQyBj4p6ITOJFb.gs2', 1, '2020-08-08', 'host.jpg', 1, 'CODEDY', 'Host', '032 87 99 000', 'Ton That Thuyet', 'Ha Noi', TRUE);
 INSERT INTO User (id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, street, city, active)
@@ -195,18 +197,18 @@ INSERT INTO User (id, user_name, email, password, level, email_verified_at, imag
 VALUE (1, 'Admin_Demo', 'admin_demo.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 2, '2020-08-08', 'admin_demo.jpg', 1, 'CODEDY', 'Admin_Demo', '0868 6633 15', 'Ton That Thuyet', 'Ha Noi', TRUE);
 
 
-INSERT INTO Product_Categories (Id, Name)
-VALUE (1, 'Burgers');
-INSERT INTO Product_Categories (Id, Name)
-VALUE (2, 'Pasta');
-INSERT INTO Product_Categories (Id, Name)
-VALUE (3, 'Pizza');
-INSERT INTO Product_Categories (Id, Name)
-VALUE (4, 'Sushi');
-INSERT INTO Product_Categories (Id, Name)
-VALUE (5, 'Desserts');
-INSERT INTO Product_Categories (Id, Name)
-VALUE (6, 'Drinks');
+INSERT INTO Product_Categories (Id, Name, Image)
+VALUE (1, 'Burgers', 'menu-title-burgers.jpg');
+INSERT INTO Product_Categories (Id, Name, Image)
+VALUE (2, 'Pasta', 'menu-title-pasta.jpg');
+INSERT INTO Product_Categories (Id, Name, Image)
+VALUE (3, 'Pizza', 'menu-title-pizza.jpg');
+INSERT INTO Product_Categories (Id, Name, Image)
+VALUE (4, 'Sushi', 'menu-title-sushi.jpg');
+INSERT INTO Product_Categories (Id, Name, Image)
+VALUE (5, 'Desserts', 'menu-title-desserts.jpg');
+INSERT INTO Product_Categories (Id, Name, Image)
+VALUE (6, 'Drinks', 'menu-title-drinks.jpg');
 
 
 INSERT INTO Products (Id, Product_Category_Id, Restaurant_Id, Name, Price, Image, Country, Description, Featured)
