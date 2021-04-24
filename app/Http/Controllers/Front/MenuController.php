@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
@@ -14,6 +15,8 @@ class MenuController extends Controller
 
     public function show($id)
     {
-        return view('front.menu.show');
+        $productDetails = Product::findOrFail($id);
+
+        return view('front.menu.show', compact('productDetails'));
     }
 }
