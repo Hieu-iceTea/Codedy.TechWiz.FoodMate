@@ -27,7 +27,15 @@
             <div class="col-md-12">
                 <div class="main-card mb-3 card">
                     <div class="card-body">
-
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <form method="post" action="../{{ request()->segment(3) == 'create' ? 'admin/product' : 'admin/product/' . $product->id }}" enctype="multipart/form-data">
                             @csrf
 
@@ -62,7 +70,7 @@
                                    class="col-md-3 text-md-right col-form-label">Name</label>
                             <div class="col-md-9 col-xl-8">
                                 <input required name="name" id="name" placeholder="Name" type="text"
-                                       class="form-control" value="{{ $product->name ?? '' }}">
+                                       class="form-control" value="{{ old('name') ?? $product->name ?? '' }}">
                             </div>
                         </div>
 
@@ -71,7 +79,7 @@
                                    class="col-md-3 text-md-right col-form-label">Category</label>
                             <div class="col-md-9 col-xl-8">
                                 <select name="product_category_id" id="product_category_id" class="form-control">
-                                    <option value="{{$product->category->id ?? ''}}">
+                                    <option value=" {{$product->category->id ?? ''}}">
                                         {{$product->category->name ?? ''}}
                                     </option>
                                     {{$i = 1}}
@@ -112,7 +120,7 @@
                                    class="col-md-3 text-md-right col-form-label">Price</label>
                             <div class="col-md-9 col-xl-8">
                                 <input required name="price" id="price"
-                                       placeholder="$ Price" type="text" class="form-control" value="{{ $product->price ?? '' }}">
+                                       placeholder="$ Price" type="text" class="form-control" value="{{ old('price') ?? $product->price ?? '' }}">
                             </div>
                         </div>
 
@@ -121,7 +129,7 @@
                                    class="col-md-3 text-md-right col-form-label">Ingredients</label>
                             <div class="col-md-9 col-xl-8">
                                 <input required name="ingredients" id="ingredients"
-                                       placeholder="ingredients" type="text" class="form-control" value="{{ $product->ingredients ?? '' }}">
+                                       placeholder="ingredients" type="text" class="form-control" value="{{ old('ingredients') ?? $product->ingredients ?? '' }}">
                             </div>
                         </div>
 
@@ -130,7 +138,7 @@
                                    class="col-md-3 text-md-right col-form-label">Country</label>
                             <div class="col-md-9 col-xl-8">
                                 <input required name="country" id="country"
-                                       placeholder="country" type="text" class="form-control" value="{{ $product->country ?? '' }}">
+                                       placeholder="country" type="text" class="form-control" value="{{ old('country') ?? $product->country ?? '' }}">
                             </div>
                         </div>
                             {{--Description--}}

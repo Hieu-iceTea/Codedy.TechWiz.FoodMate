@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Restaurant;
@@ -19,7 +20,6 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $products = Product::all();
-
         if($request->get('search')!=null){
         $products = $products->where('id', '=' ,$request->get('search'));
         }
@@ -48,7 +48,7 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
         $data = $request->all();
         unset($data['image_old']);
