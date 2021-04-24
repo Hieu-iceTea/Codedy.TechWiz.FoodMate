@@ -39,7 +39,7 @@
                                     <th class="text-right">Total</th>
                                     <th class="text-right">
                                         <button class="action-icon border-0 bg-transparent"
-                                           onclick="confirm('Delete all the cart?') === true ? window.location='./cart/destroy' : ''">
+                                                onclick="confirm('Delete all the cart?') === true ? window.location='./cart/destroy' : ''">
                                             <i class="ti ti-close"></i>
                                         </button>
                                     </th>
@@ -57,8 +57,12 @@
                                         </td>
                                         <td class="price">${{ $cart->price }}</td>
                                         <td class="price" style="width: 110px">
-                                            <input class="form-control border-light" style="font-weight: bold"
-                                                   type="number" value="{{ $cart->qty }}">
+                                            <form action="../cart/update/{{ $cart->rowId }}">
+                                                <input class="form-control border-light" style="font-weight: bold"
+                                                       type="number" name="qty" value="{{ $cart->qty }}"
+                                                       onchange="this.form.submit();">
+                                            </form>
+
                                         </td>
                                         <td class="price">${{ $cart->price * $cart->qty }}</td>
                                         <td class="actions">
