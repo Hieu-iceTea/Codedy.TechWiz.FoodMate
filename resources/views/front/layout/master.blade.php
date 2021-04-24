@@ -30,6 +30,8 @@
     <!-- CSS Theme -->
     <link id="theme" rel="stylesheet" href="dist/css/theme-beige.css"/>
 
+    <!-- CSS Custom -->
+    <link rel="stylesheet" href="dist/css/custom.css"/>
 </head>
 
 <body>
@@ -93,9 +95,9 @@
                     <a href="#" class="module module-cart right" data-toggle="panel-cart">
                         <span class="cart-icon">
                             <i class="ti ti-shopping-cart"></i>
-                            <span class="notification">0</span>
+                            <span class="notification">{{ Cart::count() }}</span>
                         </span>
-                        <span class="cart-value">$<span class="value">0.00</span></span>
+                        <span class="cart-value">$<span class="value-show">{{ Cart::total() }}</span></span>
                     </a>
                 </div>
             </div>
@@ -131,9 +133,9 @@
 
         <!--  MAIN HERE -->
 
-        @yield('body')
+    @yield('body')
 
-        <!--  end MAIN HERE -->
+    <!--  end MAIN HERE -->
 
 
         <!-- Footer -->
@@ -220,57 +222,56 @@
         <div class="panel-cart-container">
             <div class="panel-cart-title">
                 <h5 class="title">Your Cart</h5>
-                <button class="close" data-toggle="panel-cart"><i class="ti ti-close"></i></button>
+                <button class="close border-0 bg-transparent"
+                        onclick="confirm('Delete all the cart?') === true ? window.location='./cart/destroy' : ''">
+                    <i class="ti ti-close"></i>
+                </button>
             </div>
             <div class="panel-cart-content cart-details">
-                <table class="cart-table">
-                    <tr>
-                        <td class="title">
-                            <span class="name"><a href="#product-modal" data-toggle="modal">Beef Burger</a></span>
-                            <span class="caption text-muted">Large (500g)</span>
-                        </td>
-                        <td class="price">$9.00</td>
-                        <td class="actions">
-                            <a href="#product-modal" data-toggle="modal" class="action-icon"><i
-                                    class="ti ti-pencil"></i></a>
-                            <a href="#" class="action-icon"><i class="ti ti-close"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="title">
-                            <span class="name"><a href="#product-modal" data-toggle="modal">Extra Burger</a></span>
-                            <span class="caption text-muted">Small (200g)</span>
-                        </td>
-                        <td class="price text-success">$9.00</td>
-                        <td class="actions">
-                            <a href="#product-modal" data-toggle="modal" class="action-icon"><i
-                                    class="ti ti-pencil"></i></a>
-                            <a href="#" class="action-icon"><i class="ti ti-close"></i></a>
-                        </td>
-                    </tr>
-                </table>
-                <div class="cart-summary">
-                    <div class="row">
-                        <div class="col-7 text-right text-muted">Order total:</div>
-                        <div class="col-5"><strong>$<span class="cart-products-total">0.00</span></strong></div>
+                @if(count(Cart::content()) > 0)
+                    <table class="cart-table-show">
+                        @foreach(Cart::content() as $cart)
+                            <tr>
+                                <td class="title">
+                                    <span class="name">
+                                        <a href="#product-modal-hide" data-toggle="modal">{{ $cart->name }}</a></span>
+                                    <span class="caption text-muted">{{ $cart->qty }} item x ${{ $cart->price  }}</span>
+                                </td>
+                                <td class="price">${{ $cart->price *  $cart->qty }}</td>
+                                <td class="actions">
+                                    <a href="../cart/delete/{{ $cart->rowId }}" class="action-icon"><i
+                                            class="ti ti-close"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </table>
+                    <div class="cart-summary">
+                        <div class="row">
+                            <div class="col-7 text-right text-muted">Order total:</div>
+                            <div class="col-5"><strong>$<span
+                                        class="cart-products-total-show">{{ Cart::total() }}</span></strong></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-7 text-right text-muted">Devliery:</div>
+                            <div class="col-5"><strong>$<span class="cart-delivery-show">0.00</span></strong></div>
+                        </div>
+                        <hr class="hr-sm">
+                        <div class="row text-lg">
+                            <div class="col-7 text-right text-muted">Total:</div>
+                            <div class="col-5"><strong>$<span
+                                        class="cart-total-show">{{ Cart::total() }}</span></strong></div>
+                        </div>
                     </div>
-                    <div class="row">
-                        <div class="col-7 text-right text-muted">Devliery:</div>
-                        <div class="col-5"><strong>$<span class="cart-delivery">0.00</span></strong></div>
+                @else
+                    <div class="cart-empty">
+                        <i class="ti ti-shopping-cart"></i>
+                        <p>Your cart is empty...</p>
                     </div>
-                    <hr class="hr-sm">
-                    <div class="row text-lg">
-                        <div class="col-7 text-right text-muted">Total:</div>
-                        <div class="col-5"><strong>$<span class="cart-total">0.00</span></strong></div>
-                    </div>
-                </div>
-                <div class="cart-empty">
-                    <i class="ti ti-shopping-cart"></i>
-                    <p>Your cart is empty...</p>
-                </div>
+                @endif
             </div>
         </div>
-        <a href="checkout.html" class="panel-cart-action btn btn-secondary btn-block btn-lg"><span>Go to checkout</span></a>
+        <a href="../checkout"
+           class="panel-cart-action btn btn-secondary btn-block btn-lg"><span>Go to checkout</span></a>
     </div>
 
     <!-- Panel Mobile -->
@@ -481,6 +482,11 @@
 
 <!-- JS Core -->
 <script src="dist/js/core.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- JS Custom -->
+<script src="dist/js/custom.js"></script>
 
 </body>
 

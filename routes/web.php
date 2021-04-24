@@ -42,6 +42,14 @@ Route::prefix('')->group(function () {
         Route::get('{id}', [App\Http\Controllers\Front\RestaurantController::class, 'show']);
     });
 
+    Route::prefix('cart')->group(function () {
+        Route::get('/', [App\Http\Controllers\Front\CartController::class, 'index']);
+        Route::get('add/{id}', [App\Http\Controllers\Front\CartController::class, 'add']);
+        Route::get('delete/{rowId}', [App\Http\Controllers\Front\CartController::class, 'delete']);
+        Route::get('/destroy', [App\Http\Controllers\Front\CartController::class, 'destroy']);
+        Route::get('/update/{rowId}', [App\Http\Controllers\Front\CartController::class, 'update']);
+    });
+
     Route::prefix('checkout')->group(function () {
         Route::get('', [App\Http\Controllers\Front\CheckOutController::class, 'index']);
     });
