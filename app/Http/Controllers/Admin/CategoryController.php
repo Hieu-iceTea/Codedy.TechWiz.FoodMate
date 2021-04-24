@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ProductCategory;
+use App\Utilities\Common;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -14,7 +16,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.category.index');
+        $categories = ProductCategory::paginate(4);
+
+        return view('admin.category.index', compact('categories'));
     }
 
     /**
@@ -24,6 +28,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
+
         return view('admin.category.create-edit');
     }
 
@@ -35,7 +40,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        unset($data['image_old']);
+
+        //File
+        $file = $request->image;
+        $file_name = Common::uploadFile($file, 'front/data-images/categories/');
+        $data['image'] = $file_name;
+
+        $category = ProductCategory::create($data);
+
+        return redirect('admin/category/'.$category->id);
     }
 
     /**
@@ -46,7 +62,9 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        return view('admin.category.show');
+        $category = ProductCategory::findOrFail($id);
+
+        return view('admin.category.show', compact('category'));
     }
 
     /**
@@ -57,7 +75,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.category.create-edit');
+        $category = ProductCategory::findOrFail($id);
+
+        return view('admin.category.create-edit', compact('category'));
     }
 
     /**
@@ -69,7 +89,26 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        //Bỏ trường này khỏi $data
+        unset($data['image_old']);
+
+        //Xử lý file:
+        if ($request->hasFile('image')) {
+            //Thêm file mới:
+            $data['image'] = Common::uploadFile($request->file('image'), 'front/data-images/categories/');
+
+            //Xóa file cũ:
+            $file_name_old = $request->get('image_old');
+            if ($file_name_old != '') {
+                unlink('front/data-images/categories/' . $file_name_old);
+            }
+        }
+
+        ProductCategory::findOrFail($id)->update($data);
+
+        return redirect('admin/category/' . $id);
     }
 
     /**
@@ -80,6 +119,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data['deleted'] = true;
+
+        ProductCategory::findOrFail($id)->update($data);
+
+        return redirect('admin/category');
     }
 }
