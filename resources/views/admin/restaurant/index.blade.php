@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="page-title-actions">
-                    <a href="./user-create.html" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
+                    <a href="../admin/restaurant/create" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
                                     <span class="btn-icon-wrapper pr-2 opacity-7">
                                         <i class="fa fa-plus fa-w-20"></i>
                                     </span>
@@ -63,61 +63,65 @@
                             <thead>
                             <tr>
                                 <th class="text-center">ID</th>
-                                <th>Full Name</th>
-                                <th class="text-center">Email</th>
-                                <th class="text-center">Level</th>
+                                <th>Name</th>
+                                <th class="text-center">Address</th>
+                                <th class="text-center">Desctiption</th>
                                 <th class="text-center">Actions</th>
                             </tr>
                             </thead>
+                            `
                             <tbody>
-
-                            <tr>
-                                <td class="text-center text-muted">#01</td>
-                                <td>
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left mr-3">
-                                                <div class="widget-content-left">
-                                                    <img width="40" class="rounded-circle"
-                                                         data-toggle="tooltip" title="Image"
-                                                         data-placement="bottom"
-                                                         src="assets/images/_default-user.png" alt="">
+                            @foreach($restaurants as $restaurant)
+                                <tr>
+                                    <td class="text-center text-muted">#{{ $restaurant->id }}</td>
+                                    <td>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left mr-3">
+                                                    <div class="widget-content-left">
+                                                        <img width="40" class="rounded-circle"
+                                                             data-toggle="tooltip" title="Image"
+                                                             data-placement="bottom"
+                                                             src="../front/data-images/restaurants/{{ $restaurant->image }}"
+                                                             alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="widget-content-left flex2">
+                                                    <div class="widget-heading">{{ $restaurant->name }}</div>
                                                 </div>
                                             </div>
-                                            <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Codedy</div>
-                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class="text-center">info@Codedy.vn</td>
-                                <td class="text-center">
-                                    Admin
-                                </td>
-                                <td class="text-center">
-                                    <a href="./user-show.html"
-                                       class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
-                                        Details
-                                    </a>
-                                    <a href="./user-edit.html" data-toggle="tooltip" title="Edit"
-                                       data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
+                                    </td>
+                                    <td class="text-center">{{ $restaurant->address }}</td>
+                                    <td class="text-center">
+                                        {!! $restaurant->description !!}
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="{{ url()->current() . '/' . $restaurant->id }}"
+                                           class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
+                                            Details
+                                        </a>
+                                        <a href="{{ url()->current() . '/' . $restaurant->id . '/edit'}}" data-toggle="tooltip" title="Edit"
+                                           data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
                                                         <span class="btn-icon-wrapper opacity-8">
                                                             <i class="fa fa-edit fa-w-20"></i>
                                                         </span>
-                                    </a>
-                                    <form class="d-inline" action="" method="post">
-                                        <button class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"
-                                                type="submit" data-toggle="tooltip" title="Delete"
-                                                data-placement="bottom"
-                                                onclick="return confirm('Do you really want to delete this item?')">
+                                        </a>
+                                        <form class="d-inline" action="{{ url()->current() . '/' . $restaurant->id }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"
+                                                    type="submit" data-toggle="tooltip" title="Delete"
+                                                    data-placement="bottom"
+                                                    onclick="return confirm('Do you really want to delete this item?')">
                                                             <span class="btn-icon-wrapper opacity-8">
                                                                 <i class="fa fa-trash fa-w-20"></i>
                                                             </span>
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
 
                             </tbody>
                         </table>
@@ -138,62 +142,15 @@
                                 </a>
                             </div>
 
-                            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-                                <div>
-                                    <p class="text-sm text-gray-700 leading-5">
-                                        Showing
-                                        <span class="font-medium">1</span>
-                                        to
-                                        <span class="font-medium">5</span>
-                                        of
-                                        <span class="font-medium">9</span>
-                                        results
-                                    </p>
-                                </div>
 
-                                <div>
-                                                <span class="relative z-0 inline-flex shadow-sm rounded-md">
-                                                    <span aria-disabled="true" aria-label="&amp;laquo; Previous">
-                                                        <span
-                                                            class="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default rounded-l-md leading-5"
-                                                            aria-hidden="true">
-                                                            <svg class="w-5 h-5" fill="currentColor"
-                                                                 viewBox="0 0 20 20">
-                                                                <path fill-rule="evenodd"
-                                                                      d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                                                      clip-rule="evenodd"></path>
-                                                            </svg>
-                                                        </span>
-                                                    </span>
-
-                                                    <span aria-current="page">
-                                                        <span
-                                                            class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5">1</span>
-                                                    </span>
-                                                    <a href="#page=2"
-                                                       class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
-                                                       aria-label="Go to page 2">
-                                                        2
-                                                    </a>
-
-                                                    <a href="#page=2" rel="next"
-                                                       class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md leading-5 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150"
-                                                       aria-label="Next &amp;raquo;">
-                                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                                            <path fill-rule="evenodd"
-                                                                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                                                  clip-rule="evenodd"></path>
-                                                        </svg>
-                                                    </a>
-                                                </span>
-                                </div>
-                            </div>
                         </nav>
+                        {{ $restaurants -> links() }}
                     </div>
-
                 </div>
+
             </div>
         </div>
+    </div>
     </div>
     <!-- End Main -->
 
