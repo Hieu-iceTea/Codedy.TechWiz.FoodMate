@@ -41,7 +41,7 @@
                                 </div>
                             </div>
                             <div class="text-center mt-4">
-                                <a href="menu-list-collapse.html" class="btn btn-link">Back to menu</a>
+                                <a href="../menu" class="btn btn-link">Back to menu</a>
                             </div>
                         </div>
 
@@ -62,8 +62,8 @@
             <div class="col-lg-8 offset-lg-2">
                 <h2 class="mb-3">Would you like to visit Us?</h2>
                 <h5 class="text-muted">Book a table even right now or make an online order!</h5>
-                <a href="menu-list-navigation.html" class="btn btn-primary"><span>Order Online</span></a>
-                <a href="book-a-table.html" class="btn btn-outline-primary"><span>Book a table</span></a>
+                <a href="../menu" class="btn btn-primary"><span>Order Online</span></a>
+                <a href="../menu" class="btn btn-outline-primary"><span>Book a table</span></a>
             </div>
         </div>
 
