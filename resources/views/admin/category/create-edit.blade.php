@@ -27,12 +27,36 @@
             <div class="col-md-12">
                 <div class="main-card mb-3 card">
                     <div class="card-body">
-                        <form method="post" enctype="multipart/form-data">
+
+                        <form method="post" action="../{{ request()->segment(3) == 'create' ? 'admin/category' : 'admin/category/' . $category->id }}" enctype="multipart/form-data">
+                            @csrf
+
+                            @if(request()->segment(3) != 'create')
+                                @method('put')
+                            @endif
+
+                            <div class="position-relative row form-group">
+                                <label for="image"
+                                       class="col-md-3 text-md-right col-form-label">Avatar</label>
+                                <div class="col-md-9 col-xl-8">
+                                    <img style="height: 200px; cursor: pointer;"
+                                         class="thumbnail rounded-circle" data-toggle="tooltip"
+                                         title="Click to change the image" data-placement="bottom"
+                                         src="{{ isset($category->image) ? '../front/data-images/categories/' . $category->image : '../dashboard/assets/images/add-image-icon.jpg' }}" alt="Avatar">
+                                    <input name="image" type="file" onchange="changeImg(this)"
+                                           class="image form-control-file" style="display: none;" value="{{ old('image') ?? $category->image ?? ''}}">
+                                    <input type="hidden" name="image_old" value="{{ $category->image ?? '' }}">
+                                    <small class="form-text text-muted">
+                                        {{ isset($caetgory->image) ? 'Look at it, it looks great! (Click on the image to change)' : 'No images, upload them! (Click on the image to change)' }}
+                                    </small>
+                                </div>
+                            </div>
+
                             <div class="position-relative row form-group">
                                 <label for="name" class="col-md-3 text-md-right col-form-label">Name</label>
                                 <div class="col-md-9 col-xl-8">
                                     <input required name="name" id="name" placeholder="Name" type="text"
-                                           class="form-control" value="">
+                                           class="form-control" value="{{ old('name') ?? $category->name ?? '' }}">
                                 </div>
                             </div>
 
