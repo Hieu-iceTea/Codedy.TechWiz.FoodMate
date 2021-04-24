@@ -25,7 +25,7 @@
 
         <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
             <li class="nav-item">
-                <a href="./user-edit.html" class="nav-link">
+                <a href="{{ url()->current() . '/edit'}}" class="nav-link">
                                 <span class="btn-icon-wrapper pr-2 opacity-8">
                                     <i class="fa fa-edit fa-w-20"></i>
                                 </span>
@@ -34,7 +34,9 @@
             </li>
 
             <li class="nav-item delete">
-                <form action="" method="post">
+                <form action="{{ url()->current() . '/' }}" method="post">
+                    @csrf
+                    @method('DELETE')
                     <button class="nav-link btn" type="submit"
                             onclick="return confirm('Do you really want to delete this item?')">
                                     <span class="btn-icon-wrapper pr-2 opacity-8">
@@ -56,87 +58,82 @@
                                 <p>
                                     <img style="height: 200px;" class="rounded-circle" data-toggle="tooltip"
                                          title="Avatar" data-placement="bottom"
-                                         src="assets/images/_default-user.png" alt="Avatar">
+                                         src="../front/data-images/user/{{$user -> image}}" alt="Avatar">
                                 </p>
                             </div>
                         </div>
 
                         <div class="position-relative row form-group">
-                            <label for="name" class="col-md-3 text-md-right col-form-label">
-                                Name
+                            <label for="user_name" class="col-md-3 text-md-right col-form-label">
+                                User Name
                             </label>
                             <div class="col-md-9 col-xl-8">
-                                <p>Codedy</p>
+                                <p>{{ $user->user_name }}</p>
                             </div>
                         </div>
 
                         <div class="position-relative row form-group">
                             <label for="email" class="col-md-3 text-md-right col-form-label">Email</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>info@Codedy.vn</p>
+                                <p>{{ $user->email }}</p>
                             </div>
                         </div>
 
                         <div class="position-relative row form-group">
-                            <label for="company_name" class="col-md-3 text-md-right col-form-label">
-                                Company Name
-                            </label>
+                            <label for="email_verified_at"
+                                   class="col-md-3 text-md-right col-form-label">Level</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>Codedy</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="country"
-                                   class="col-md-3 text-md-right col-form-label">Country</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>Viet Nam</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="street_address" class="col-md-3 text-md-right col-form-label">
-                                Street Address</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>Mon City, Mỹ Đình 2, Nam Từ Liêm</p>
+                                <p>{{ \App\Utilities\Constant::$user_levels[$user->level] }}</p>
                             </div>
                         </div>
 
                         <div class="position-relative row form-group">
                             <label for="postcode_zip" class="col-md-3 text-md-right col-form-label">
-                                Postcode Zip</label>
+                                Gender</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>10000</p>
+                                <p>{{ \App\Utilities\Constant::$user_genders[$user->gender] }}</p>
                             </div>
                         </div>
 
                         <div class="position-relative row form-group">
-                            <label for="town_city" class="col-md-3 text-md-right col-form-label">
-                                Town City</label>
+                            <label for="first_name" class="col-md-3 text-md-right col-form-label">First Name</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>Ha Noi</p>
+                                <p>{{ $user->first_name }}</p>
+                            </div>
+                        </div>
+
+                        <div class="position-relative row form-group">
+                            <label for="last_name" class="col-md-3 text-md-right col-form-label">Last Name</label>
+                            <div class="col-md-9 col-xl-8">
+                                <p>{{ $user->last_name }}</p>
                             </div>
                         </div>
 
                         <div class="position-relative row form-group">
                             <label for="phone" class="col-md-3 text-md-right col-form-label">Phone</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>0123456789</p>
+                                <p>{{ $user->phone }}</p>
                             </div>
                         </div>
 
                         <div class="position-relative row form-group">
-                            <label for="level" class="col-md-3 text-md-right col-form-label">Level</label>
+                            <label for="city" class="col-md-3 text-md-right col-form-label">City</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>Admin</p>
+                                <p>{{ $user->city }}</p>
                             </div>
                         </div>
 
                         <div class="position-relative row form-group">
-                            <label for="description"
-                                   class="col-md-3 text-md-right col-form-label">Description</label>
+                            <label for="street" class="col-md-3 text-md-right col-form-label">Street</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>description</p>
+                                <p>{{ $user->street }}</p>
+                            </div>
+                        </div>
+
+                        <div class="position-relative row form-group">
+                            <label for="active" class="col-md-3 text-md-right col-form-label">Active</label>
+                            <div class="col-md-9 col-xl-8">
+                                <p>{{ $user->active == 1 ? 'Yes' : 'No' }}</p>
                             </div>
                         </div>
                     </div>
