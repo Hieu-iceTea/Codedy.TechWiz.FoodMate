@@ -24,8 +24,9 @@
         </div>
 
         <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
+
             <li class="nav-item">
-                <a href="./user-edit.html" class="nav-link">
+                <a href="{{ url()->current() . '/' . $restaurant->id . '/edit'}}" class="nav-link">
                                 <span class="btn-icon-wrapper pr-2 opacity-8">
                                     <i class="fa fa-edit fa-w-20"></i>
                                 </span>
@@ -34,12 +35,14 @@
             </li>
 
             <li class="nav-item delete">
-                <form action="" method="post">
+                <form action="{{ url()->current() . '/' }}" method="post">
+                    @csrf
+                    @method('DELETE')
                     <button class="nav-link btn" type="submit"
                             onclick="return confirm('Do you really want to delete this item?')">
-                                    <span class="btn-icon-wrapper pr-2 opacity-8">
-                                        <i class="fa fa-trash fa-w-20"></i>
-                                    </span>
+                    <span class="btn-icon-wrapper pr-2 opacity-8">
+                        <i class="fa fa-trash fa-w-20"></i>
+                    </span>
                         <span>Delete</span>
                     </button>
                 </form>
@@ -56,7 +59,7 @@
                                 <p>
                                     <img style="height: 200px;" class="rounded-circle" data-toggle="tooltip"
                                          title="Avatar" data-placement="bottom"
-                                         src="assets/images/_default-user.png" alt="Avatar">
+                                         src="../front/data-images/restaurants/{{ $restaurant->image }}" alt="Avatar">
                                 </p>
                             </div>
                         </div>
@@ -66,77 +69,23 @@
                                 Name
                             </label>
                             <div class="col-md-9 col-xl-8">
-                                <p>Codedy</p>
+                                <p>{{ $restaurant->name }}</p>
                             </div>
                         </div>
 
                         <div class="position-relative row form-group">
-                            <label for="email" class="col-md-3 text-md-right col-form-label">Email</label>
+                            <label for="email" class="col-md-3 text-md-right col-form-label">Address</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>info@Codedy.vn</p>
+                                <p>{{ $restaurant->address }}</p>
                             </div>
                         </div>
 
                         <div class="position-relative row form-group">
                             <label for="company_name" class="col-md-3 text-md-right col-form-label">
-                                Company Name
+                                Description
                             </label>
                             <div class="col-md-9 col-xl-8">
-                                <p>Codedy</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="country"
-                                   class="col-md-3 text-md-right col-form-label">Country</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>Viet Nam</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="street_address" class="col-md-3 text-md-right col-form-label">
-                                Street Address</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>Mon City, Mỹ Đình 2, Nam Từ Liêm</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="postcode_zip" class="col-md-3 text-md-right col-form-label">
-                                Postcode Zip</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>10000</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="town_city" class="col-md-3 text-md-right col-form-label">
-                                Town City</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>Ha Noi</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="phone" class="col-md-3 text-md-right col-form-label">Phone</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>0123456789</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="level" class="col-md-3 text-md-right col-form-label">Level</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>Admin</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="description"
-                                   class="col-md-3 text-md-right col-form-label">Description</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>description</p>
+                                <p>{!! $restaurant->description !!}</p>
                             </div>
                         </div>
                     </div>
