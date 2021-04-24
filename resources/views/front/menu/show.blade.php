@@ -17,6 +17,7 @@
                         <div class="product-content">
                             <div class="product-header text-center">
                                 <h1 class="product-title">{{$productDetails->name}}</h1>
+                                <span class="product-caption h3">{{$productDetails->country}}</span>
                                 <span class="product-caption text-muted">{{$productDetails->ingredients}}</span>
                             </div>
                             <p class="lead">{{$productDetails->description}}</p>
@@ -27,7 +28,7 @@
                                 </div>
                             </div>
                             <h5 class="text-center text-muted">Order now!</h5>
-                            <div class="product-price text-center">$28.98</div>
+                            <div class="product-price text-center">${{$productDetails->price}}</div>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group text-center">
