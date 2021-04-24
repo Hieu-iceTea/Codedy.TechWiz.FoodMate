@@ -38,7 +38,10 @@
                                     <th class="text-center">Qty</th>
                                     <th class="text-right">Total</th>
                                     <th class="text-right">
-                                        <a href="#" class="action-icon"><i class="ti ti-close"></i></a>
+                                        <button class="action-icon border-0 bg-transparent"
+                                           onclick="confirm('Delete all the cart?') === true ? window.location='./cart/destroy' : ''">
+                                            <i class="ti ti-close"></i>
+                                        </button>
                                     </th>
                                 </tr>
                                 @foreach(Cart::content() as $cart)
@@ -59,7 +62,8 @@
                                         </td>
                                         <td class="price">${{ $cart->price * $cart->qty }}</td>
                                         <td class="actions">
-                                            <a href="#" class="action-icon"><i class="ti ti-close"></i></a>
+                                            <a href="../cart/delete/{{ $cart->rowId }}" class="action-icon"><i
+                                                    class="ti ti-close"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
