@@ -25,7 +25,7 @@
 
                     <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
                         <li class="nav-item">
-                            <a href="./category-edit.html" class="nav-link">
+                            <a href="{{ url()->current() . '/edit'}}" class="nav-link">
                                 <span class="btn-icon-wrapper pr-2 opacity-8">
                                     <i class="fa fa-edit fa-w-20"></i>
                                 </span>
@@ -34,7 +34,9 @@
                         </li>
 
                         <li class="nav-item delete">
-                            <form action="" method="post">
+                            <form action="{{ url()->current() . '/' }}" method="post">
+                                @csrf
+                                @method('DELETE')
                                 <button class="nav-link btn" type="submit"
                                     onclick="return confirm('Do you really want to delete this item?')">
                                     <span class="btn-icon-wrapper pr-2 opacity-8">
@@ -50,13 +52,11 @@
                         <div class="col-md-12">
                             <div class="main-card mb-3 card">
                                 <div class="card-body display_data">
-                                    <div class="position-relative row form-group">
-                                        <label for="name" class="col-md-3 text-md-right col-form-label">
-                                            Name
-                                        </label>
-                                        <div class="col-md-9 col-xl-8">
-                                            <p>Men</p>
-                                        </div>
+                                    <div class="position-relative row form-group ">
+                                        <img class="img-fluid" src="../front/data-images/categories/{{ $category->image }}" alt="" width="600px" style="margin-left: 0px"><br>
+                                    </div>
+                                    <div for="name" class="text-xl-center col-md-3 text-md-right col-form-label">
+                                        Name : {{ $category->name }}
                                     </div>
                                 </div>
                             </div>
