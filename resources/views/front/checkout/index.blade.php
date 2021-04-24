@@ -28,7 +28,7 @@
                 <div class="col-xl-4 col-lg-5">
                     <div class="cart-details shadow bg-white stick-to-content mb-4">
                         <div class="bg-dark dark p-4"><h5 class="mb-0">You order</h5></div>
-                        <table class="cart-table">
+                        <table class="cart-table-show">
                             <tr>
                                 <td class="title">
                                     <span class="name"><a href="#product-modal"
