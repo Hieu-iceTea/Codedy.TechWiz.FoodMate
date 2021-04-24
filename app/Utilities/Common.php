@@ -9,6 +9,13 @@ use Illuminate\Support\Str;
 
 class Common
 {
+    /**
+     *
+     *
+     * @param $file 'Không để ký tự / ở đầu hoặc cuối'
+     * @param $path
+     * @return string
+     */
     public static function uploadFile($file, $path)
     {
         $file_name_original = $file->getClientOriginalName();
