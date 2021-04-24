@@ -23,9 +23,7 @@ class CartController extends Controller
             ],
         ]);
 
-        dd(Cart::content());
-
-        return back();
+        return redirect('cart');
     }
 
     public function index() {
