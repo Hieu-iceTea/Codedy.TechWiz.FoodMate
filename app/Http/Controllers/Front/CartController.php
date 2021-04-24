@@ -9,7 +9,8 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CartController extends Controller
 {
-    public function add ($id) {
+    public function add($id)
+    {
         $product = Product::findOrFail($id);
 
         Cart::add([
@@ -26,7 +27,8 @@ class CartController extends Controller
         return redirect('cart');
     }
 
-    public function index() {
+    public function index()
+    {
         $carts = Cart::content();
         $total = Cart::total();
         $subtotal = Cart::subtotal();
@@ -34,21 +36,24 @@ class CartController extends Controller
         return view('front.cart', compact('carts', 'total', 'subtotal'));
     }
 
-    public function delete($rowId) {
+    public function delete($rowId)
+    {
         Cart::remove($rowId);
 
         return back();
     }
 
-    public function destroy() {
+    public function destroy()
+    {
         Cart::destroy();
 
         return back();
     }
 
-    public function update(Request $request) {
-        if ($request->ajax()) {
-            Cart::update($request->rowId, $request->qty);
-        }
+    public function update($rowId, Request $request)
+    {
+        Cart::update($request->rowId, $request->qty);
+
+        return redirect()->back();
     }
 }

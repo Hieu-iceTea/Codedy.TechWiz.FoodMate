@@ -47,7 +47,7 @@ Route::prefix('')->group(function () {
         Route::get('add/{id}', [App\Http\Controllers\Front\CartController::class, 'add']);
         Route::get('delete/{rowId}', [App\Http\Controllers\Front\CartController::class, 'delete']);
         Route::get('/destroy', [App\Http\Controllers\Front\CartController::class, 'destroy']);
-        Route::get('/update', [App\Http\Controllers\Front\CartController::class, 'update']);
+        Route::get('/update/{rowId}', [App\Http\Controllers\Front\CartController::class, 'update']);
     });
 
     Route::prefix('checkout')->group(function () {
