@@ -222,7 +222,10 @@
         <div class="panel-cart-container">
             <div class="panel-cart-title">
                 <h5 class="title">Your Cart</h5>
-                <button class="close" data-toggle="panel-cart"><i class="ti ti-close"></i></button>
+                <button class="close border-0 bg-transparent"
+                        onclick="confirm('Delete all the cart?') === true ? window.location='./cart/destroy' : ''">
+                    <i class="ti ti-close"></i>
+                </button>
             </div>
             <div class="panel-cart-content cart-details">
                 @if(count(Cart::content()) > 0)
@@ -232,13 +235,12 @@
                                 <td class="title">
                                     <span class="name">
                                         <a href="#product-modal-hide" data-toggle="modal">{{ $cart->name }}</a></span>
-                                    <span class="caption text-muted">{{ $cart->qty }} item</span>
+                                    <span class="caption text-muted">{{ $cart->qty }} item x ${{ $cart->price  }}</span>
                                 </td>
-                                <td class="price">${{ $cart->price  }}</td>
+                                <td class="price">${{ $cart->price *  $cart->qty }}</td>
                                 <td class="actions">
-                                    <a href="#product-modal-hide" data-toggle="modal" class="action-icon"><i
-                                            class="ti ti-pencil"></i></a>
-                                    <a href="#" class="action-icon"><i class="ti ti-close"></i></a>
+                                    <a href="../cart/delete/{{ $cart->rowId }}" class="action-icon"><i
+                                            class="ti ti-close"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -246,7 +248,8 @@
                     <div class="cart-summary">
                         <div class="row">
                             <div class="col-7 text-right text-muted">Order total:</div>
-                            <div class="col-5"><strong>$<span class="cart-products-total-show">{{ Cart::total() }}</span></strong></div>
+                            <div class="col-5"><strong>$<span
+                                        class="cart-products-total-show">{{ Cart::total() }}</span></strong></div>
                         </div>
                         <div class="row">
                             <div class="col-7 text-right text-muted">Devliery:</div>
@@ -255,7 +258,8 @@
                         <hr class="hr-sm">
                         <div class="row text-lg">
                             <div class="col-7 text-right text-muted">Total:</div>
-                            <div class="col-5"><strong>$<span class="cart-total-show">{{ Cart::total() }}</span></strong></div>
+                            <div class="col-5"><strong>$<span
+                                        class="cart-total-show">{{ Cart::total() }}</span></strong></div>
                         </div>
                     </div>
                 @else
@@ -266,7 +270,8 @@
                 @endif
             </div>
         </div>
-        <a href="../checkout" class="panel-cart-action btn btn-secondary btn-block btn-lg"><span>Go to checkout</span></a>
+        <a href="../checkout"
+           class="panel-cart-action btn btn-secondary btn-block btn-lg"><span>Go to checkout</span></a>
     </div>
 
     <!-- Panel Mobile -->
