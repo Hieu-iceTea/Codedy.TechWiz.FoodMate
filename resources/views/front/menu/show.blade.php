@@ -17,6 +17,7 @@
                         <div class="product-content">
                             <div class="product-header text-center">
                                 <h1 class="product-title">{{$productDetails->name}}</h1>
+                                <span class="product-caption h3">{{$productDetails->country}}</span>
                                 <span class="product-caption text-muted">{{$productDetails->ingredients}}</span>
                             </div>
                             <p class="lead">{{$productDetails->description}}</p>
@@ -27,7 +28,7 @@
                                 </div>
                             </div>
                             <h5 class="text-center text-muted">Order now!</h5>
-                            <div class="product-price text-center">$28.98</div>
+                            <div class="product-price text-center">${{$productDetails->price}}</div>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group text-center">
@@ -40,7 +41,7 @@
                                 </div>
                             </div>
                             <div class="text-center mt-4">
-                                <a href="menu-list-collapse.html" class="btn btn-link">Back to menu</a>
+                                <a href="../menu" class="btn btn-link">Back to menu</a>
                             </div>
                         </div>
 
@@ -61,8 +62,8 @@
             <div class="col-lg-8 offset-lg-2">
                 <h2 class="mb-3">Would you like to visit Us?</h2>
                 <h5 class="text-muted">Book a table even right now or make an online order!</h5>
-                <a href="menu-list-navigation.html" class="btn btn-primary"><span>Order Online</span></a>
-                <a href="book-a-table.html" class="btn btn-outline-primary"><span>Book a table</span></a>
+                <a href="../menu" class="btn btn-primary"><span>Order Online</span></a>
+                <a href="../menu" class="btn btn-outline-primary"><span>Book a table</span></a>
             </div>
         </div>
 
