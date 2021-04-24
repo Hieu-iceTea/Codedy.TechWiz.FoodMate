@@ -118,8 +118,9 @@ CREATE TABLE IF NOT EXISTS `orders`
 
     `first_name`   VARCHAR(64),
     `last_name`    VARCHAR(64),
+    `email`        VARCHAR(64),
     `phone`        VARCHAR(64),
-    `street`       VARCHAR(64),
+    `street`       VARCHAR(128),
     `city`         VARCHAR(64),
     `payment_type` INT UNSIGNED         NOT NULL,
     `total_amount` DECIMAL(16) UNSIGNED NOT NULL,
@@ -146,8 +147,8 @@ CREATE TABLE IF NOT EXISTS `order_details`
     `order_id`     INT UNSIGNED         NOT NULL,
     `product_id`   INT UNSIGNED         NOT NULL,
 
-    `location`     VARCHAR(64),
     `qty`          INT(16) UNSIGNED     NOT NULL,
+    `amount`       DECIMAL(16) UNSIGNED NOT NULL,
     `total_amount` DECIMAL(16) UNSIGNED NOT NULL,
 
     `created_by`   NVARCHAR(32) DEFAULT 'Codedy.TechWiz.FoodMate',
@@ -331,19 +332,20 @@ VALUE (4, 'Standard Da Nang', 'Standard-Da-Nang.jpg', 'Da Nang', '<ul class=""li
                     </ul>');
 
 
-INSERT INTO orders (id, user_id, first_name, last_name, phone, street, city, payment_type, total_amount, status)
-VALUE (1, 2, 'Nguyễn Đình', 'Hiếu', '0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 300, 1);
-INSERT INTO orders (id, user_id, first_name, last_name, phone, street, city, payment_type, total_amount, status)
-VALUE (2, 2, 'Nông', 'Hùng', '0868 6633 15', '9 Ton That Thuyet', 'Ha Noi',2, 100, 2);
-INSERT INTO orders (id, user_id, first_name, last_name, phone, street, city, payment_type, total_amount, status)
-VALUE (3, NULL, 'Nguyễn', 'Trung Anh', '0987 6543 10', '10 Ton That Thuyet', 'Ha Noi',1, 400, 3);
-INSERT INTO orders (id, user_id, first_name, last_name, phone, street, city, payment_type, total_amount, status)
-VALUE (4, NULL, 'Vũ', 'Quang Huy', '0987 6543 11', '11 Ton That Thuyet', 'Ha Noi',2, 200, 4);
+INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
+VALUE (1, 2, 'Nguyễn Đình', 'Hiếu', 'DinhHieu8896gmail.com','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 300, 1);
+INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
+VALUE (2, NULL, 'Vũ Quang', 'Huy', 'HuyVQTH1909003@fpt.edu.vn','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',2, 100, 2);
+INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
+VALUE (3, 2, 'Nông Phan Mạnh', 'Hùng', 'HungNPMTH1908050@fpt.edu.vn','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 400, 3);
+INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
+VALUE (4, NULL, 'Nguyễn Trung', 'Anh', 'AnhNTTH1908059@fpt.edu.vn','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',2, 200, 4);
 
 
-INSERT INTO order_details (id, order_id, product_id, location, qty, total_amount)
-VALUE (1, 1, 1, 'Viet Nam', 2, 200);
-INSERT INTO order_details (id, order_id, product_id, location, qty, total_amount)
-VALUE (2, 1, 2, 'Viet Nam', 1, 100);
-INSERT INTO order_details (id, order_id, product_id, location, qty, total_amount)
-VALUE (3, 2, 3, 'Viet Nam', 1, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (1, 1, 1, 2, 100, 200);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (2, 1, 2, 1, 100, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (3, 2, 3, 1, 100, 100);
+
