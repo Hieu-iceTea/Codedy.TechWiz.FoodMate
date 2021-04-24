@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Utilities\Common;
+use App\Utilities\Constant;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -14,7 +17,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.user.index');
+        $users = User::paginate();
+
+        return view('admin.user.index', compact('users'));
     }
 
     /**
@@ -24,6 +29,7 @@ class UserController extends Controller
      */
     public function create()
     {
+
         return view('admin.user.create-edit');
     }
 
@@ -35,7 +41,23 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        unset($data['image_old']);
+
+        //Xử lý mật khẩu:
+        $data['password'] = bcrypt($request->get('password'));
+
+        //Xử lý file:
+        if ($request->hasFile('image')) {
+            $file = $request->image;
+            $file_name = Common::uploadFile($file, 'front/data-images/user/');
+            $data['image'] = $file_name;
+        }
+
+        $user = User::create($data);
+
+        return redirect('admin/user/'.$user->id);
     }
 
     /**
@@ -46,7 +68,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return view('admin.user.show');
+        $user = User::findOrFail($id);
+        return view('admin.user.show', compact('user'));
     }
 
     /**
@@ -57,7 +80,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.user.create-edit');
+        $user = User::findOrFail($id);
+        return view('admin.user.create-edit', compact('user'));
     }
 
     /**
@@ -69,7 +93,34 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        //Bỏ trường này khỏi $data
+        unset($data['image_old']);
+
+        //Xử lý mật khẩu:
+        if ($request->get('password') != null) {
+            $data['password'] = bcrypt($request->get('password'));
+        } else {
+            //Bỏ trường này khỏi $data
+            unset($data['password']);
+        }
+
+        //Xử lý file:
+        if ($request->hasFile('image')) {
+            //Thêm file mới:
+            $data['image'] = Common::uploadFile($request->file('image'), 'front/data-images/user/');
+
+            //Xóa file cũ:
+            $file_name_old = $request->get('image_old');
+            if ($file_name_old != '') {
+                unlink('front/data-images/user/' . $file_name_old);
+            }
+        }
+
+        User::findOrFail($id)->update($data);
+
+        return redirect('admin/user/' . $id);
     }
 
     /**
@@ -80,6 +131,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data['deleted'] = true;
+
+        User::findOrFail($id)->update($data);
+
+        return redirect('admin/user');
     }
 }

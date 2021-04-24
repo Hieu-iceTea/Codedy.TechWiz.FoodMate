@@ -39,6 +39,8 @@ class User extends Authenticatable
         'street',
         'city',
         'active',
+
+        'deleted',
     ];
 
     /**
