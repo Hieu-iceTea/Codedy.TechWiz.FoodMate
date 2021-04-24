@@ -37,9 +37,21 @@ class Constant
     const user_level_host = 1;
     const user_level_admin = 2;
     const user_level_client = 3;
-    public static $user_level = [
+    public static $user_levels = [
         self::user_level_host => 'host',
         self::user_level_admin => 'admin',
         self::user_level_client => 'customer',
+    ];
+
+    //product_tag
+    const product_tag_Breakfast = 1;
+    const product_tag_Lunch = 2;
+    const product_tag_Dinner = 3;
+    const product_tag_Snacks = 4;
+    public static $product_tags = [
+        self::product_tag_Breakfast => 'Breakfast',
+        self::product_tag_Lunch => 'Lunch',
+        self::product_tag_Dinner => 'Dinner',
+        self::product_tag_Snacks => 'Snacks',
     ];
 }

@@ -199,17 +199,25 @@ VALUE (1, 'Admin_Demo', 'admin_demo.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3w
 
 
 INSERT INTO Product_Categories (Id, Name, Image)
-VALUE (1, 'Burgers', 'menu-title-burgers.jpg');
+VALUE (1, 'Vegetarian', 'Vegetarian.jpg');
 INSERT INTO Product_Categories (Id, Name, Image)
-VALUE (2, 'Pasta', 'menu-title-pasta.jpg');
+VALUE (2, 'Vegan', 'Vegan.jpg');
 INSERT INTO Product_Categories (Id, Name, Image)
-VALUE (3, 'Pizza', 'menu-title-pizza.jpg');
+VALUE (3, 'Chinese', 'Chinese.jpg');
 INSERT INTO Product_Categories (Id, Name, Image)
-VALUE (4, 'Sushi', 'menu-title-sushi.jpg');
+VALUE (4, 'Mexican', 'Mexican.jpg');
 INSERT INTO Product_Categories (Id, Name, Image)
-VALUE (5, 'Desserts', 'menu-title-desserts.jpg');
+VALUE (5, 'Burgers', 'menu-title-burgers.jpg');
 INSERT INTO Product_Categories (Id, Name, Image)
-VALUE (6, 'Drinks', 'menu-title-drinks.jpg');
+VALUE (6, 'Pasta', 'menu-title-pasta.jpg');
+INSERT INTO Product_Categories (Id, Name, Image)
+VALUE (7, 'Pizza', 'menu-title-pizza.jpg');
+INSERT INTO Product_Categories (Id, Name, Image)
+VALUE (8, 'Sushi', 'menu-title-sushi.jpg');
+INSERT INTO Product_Categories (Id, Name, Image)
+VALUE (9, 'Desserts', 'menu-title-desserts.jpg');
+INSERT INTO Product_Categories (Id, Name, Image)
+VALUE (10, 'Drinks', 'menu-title-drinks.jpg');
 
 
 INSERT INTO Products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Description, Featured)
@@ -267,23 +275,35 @@ VALUE (26, 5, 2, 'Broccoli', 'Beef, cheese, potato, onion, fries',19.90, 'produc
 INSERT INTO Products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Description, Featured)
 VALUE (27, 5, 3, 'Chicken wings', 'Beef, cheese, potato, onion, fries',39.90, 'product-5-3.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
 INSERT INTO Products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Description, Featured)
-VALUE (28, 5, 4, 'Nigiri-sushi', 'Beef, cheese, potato, onion, fries',49.90, 'product-5-4.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
+VALUE (28, 6, 4, 'Nigiri-sushi', 'Beef, cheese, potato, onion, fries',49.90, 'product-6-1.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
 INSERT INTO Products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Description, Featured)
-VALUE (29, 5, 1, 'Creste di Galli', 'Beef, cheese, potato, onion, fries',29.90, 'product-5-5.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
+VALUE (29, 6, 1, 'Creste di Galli', 'Beef, cheese, potato, onion, fries',29.90, 'product-6-2.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
 INSERT INTO Products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Description, Featured)
-VALUE (30, 5, 2, 'Beef Burger', 'Beef, cheese, potato, onion, fries',39.59, 'product-5-6.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
+VALUE (30, 6, 2, 'Beef Burger', 'Beef, cheese, potato, onion, fries',39.59, 'product-6-3.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
 INSERT INTO Products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Description, Featured)
-VALUE (31, 6, 3, 'Chicken Burger', 'Beef, cheese, potato, onion, fries',39.90, 'product-6-1.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
+VALUE (31, 7, 3, 'Chicken Burger', 'Beef, cheese, potato, onion, fries',39.90, 'product-7-1.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
 INSERT INTO Products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Description, Featured)
-VALUE (32, 6, 4, 'Broccoli', 'Beef, cheese, potato, onion, fries',19.90, 'product-6-2.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
+VALUE (32, 7, 4, 'Broccoli', 'Beef, cheese, potato, onion, fries',19.90, 'product-7-2.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
 INSERT INTO Products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Description, Featured)
-VALUE (33, 6, 1, 'Chicken wings', 'Beef, cheese, potato, onion, fries',39.90, 'product-6-3.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
+VALUE (33, 7, 1, 'Chicken wings', 'Beef, cheese, potato, onion, fries',39.90, 'product-7-3.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
 INSERT INTO Products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Description, Featured)
-VALUE (34, 6, 2, 'Nigiri-sushi', 'Beef, cheese, potato, onion, fries',49.90, 'product-6-4.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
+VALUE (34, 8, 2, 'Nigiri-sushi', 'Beef, cheese, potato, onion, fries',49.90, 'product-8-1.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
 INSERT INTO Products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Description, Featured)
-VALUE (35, 6, 3, 'Creste di Galli', 'Beef, cheese, potato, onion, fries',29.90, 'product-6-5.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
+VALUE (35, 8, 3, 'Creste di Galli', 'Beef, cheese, potato, onion, fries',29.90, 'product-8-2.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
 INSERT INTO Products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Description, Featured)
-VALUE (36, 6, 4, 'Beef Burger', 'Beef, cheese, potato, onion, fries',39.59, 'product-6-6.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
+VALUE (36, 8, 4, 'Beef Burger', 'Beef, cheese, potato, onion, fries',39.59, 'product-8-3.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
+INSERT INTO Products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Description, Featured)
+VALUE (37, 9, 3, 'Chicken Burger', 'Beef, cheese, potato, onion, fries',39.90, 'product-9-1.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
+INSERT INTO Products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Description, Featured)
+VALUE (38, 9, 4, 'Broccoli', 'Beef, cheese, potato, onion, fries',19.90, 'product-9-2.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
+INSERT INTO Products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Description, Featured)
+VALUE (39, 9, 1, 'Chicken wings', 'Beef, cheese, potato, onion, fries',39.90, 'product-9-3.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
+INSERT INTO Products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Description, Featured)
+VALUE (40, 10, 2, 'Nigiri-sushi', 'Beef, cheese, potato, onion, fries',49.90, 'product-10-1.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
+INSERT INTO Products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Description, Featured)
+VALUE (41, 10, 3, 'Creste di Galli', 'Beef, cheese, potato, onion, fries',29.90, 'product-10-2.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
+INSERT INTO Products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Description, Featured)
+VALUE (42, 10, 4, 'Beef Burger', 'Beef, cheese, potato, onion, fries',39.59, 'product-10-3.jpg', 'Viet Nam', 'Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.', FALSE);
 
 
 INSERT INTO restaurants (id, name, image, address, description)
