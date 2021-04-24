@@ -25,7 +25,7 @@
 
         <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
             <li class="nav-item">
-                <a href="./product-edit.html" class="nav-link">
+                <a href="{{ '../admin/product/' . $product->id . '/edit'}}" class="nav-link">
                                 <span class="btn-icon-wrapper pr-2 opacity-8">
                                     <i class="fa fa-edit fa-w-20"></i>
                                 </span>
@@ -34,13 +34,16 @@
             </li>
 
             <li class="nav-item delete">
-                <form action="" method="post">
-                    <button class="nav-link btn" type="submit"
+                <form class="d-inline" action="{{ url()->current() }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn nav-link"
+                            type="submit" data-toggle="tooltip" title="Delete"
+                            data-placement="bottom"
                             onclick="return confirm('Do you really want to delete this item?')">
-                                    <span class="btn-icon-wrapper pr-2 opacity-8">
-                                        <i class="fa fa-trash fa-w-20"></i>
-                                    </span>
-                        <span>Delete</span>
+                                                            <span class="btn-icon-wrapper opacity-8">
+                                                                <i class="fa fa-trash fa-w-20"></i>
+                                                            </span>
                     </button>
                 </form>
             </li>
@@ -51,12 +54,12 @@
                 <div class="main-card mb-3 card">
                     <div class="card-body display_data">
                         <div class="position-relative row form-group">
-                            <label for="image" class="col-md-3 text-md-right col-form-label">Avatar</label>
+                            <label for="image" class="col-md-3 text-md-right col-form-label">Image</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>
-                                    <img style="height: 200px;" class="rounded-circle" data-toggle="tooltip"
+                                    <img style="height: 200px;" class="" data-toggle="tooltip"
                                          title="Avatar" data-placement="bottom"
-                                         src="assets/images/_default-user.png" alt="Avatar">
+                                         src="/front/data-images/products/{{$product->image}}" alt="Avatar">
                                 </p>
                             </div>
                         </div>
@@ -66,79 +69,61 @@
                                 Name
                             </label>
                             <div class="col-md-9 col-xl-8">
-                                <p>CodeGym</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="email" class="col-md-3 text-md-right col-form-label">Email</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>info@codegym.vn</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="description"
-                                   class="col-md-3 text-md-right col-form-label">Description</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>description</p>
+                                <p>{{$product->name}}</p>
                             </div>
                         </div>
 
                         <div class="position-relative row form-group">
                             <label for="company_name" class="col-md-3 text-md-right col-form-label">
-                                Company Name
+                                Category
                             </label>
                             <div class="col-md-9 col-xl-8">
-                                <p>CodeGym</p>
+                                <p>{{$product->category->name}}</p>
                             </div>
                         </div>
+                        <div class="position-relative row form-group">
+                            <label for="email" class="col-md-3 text-md-right col-form-label">Restaurant</label>
+                            <div class="col-md-9 col-xl-8">
+                                <p>{{$product->restaurant->name}}</p>
+                            </div>
+                        </div>
+
+                        <div class="position-relative row form-group">
+                            <label for="description"
+                                   class="col-md-3 text-md-right col-form-label">Price</label>
+                            <div class="col-md-9 col-xl-8">
+                                <p>${{$product->price}}</p>
+                            </div>
+                        </div>
+
+                        <div class="position-relative row form-group">
+                            <label for="description"
+                                   class="col-md-3 text-md-right col-form-label">Ingredients</label>
+                            <div class="col-md-9 col-xl-8">
+                                <p>{{$product->ingredients}}</p>
+                            </div>
+                        </div>
+
 
                         <div class="position-relative row form-group">
                             <label for="country"
                                    class="col-md-3 text-md-right col-form-label">Country</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>Viet Nam</p>
+                                <p>{{$product->country}}</p>
                             </div>
                         </div>
 
                         <div class="position-relative row form-group">
                             <label for="street_address" class="col-md-3 text-md-right col-form-label">
-                                Street Address</label>
+                                Description</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>Mon City, Mỹ Đình 2, Nam Từ Liêm</p>
+                                {!!$product->description!!}
                             </div>
                         </div>
+                        <a class="nav-link btn" type="submit" href="../admin/product/">
 
-                        <div class="position-relative row form-group">
-                            <label for="postcode_zip" class="col-md-3 text-md-right col-form-label">
-                                Postcode Zip</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>10000</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="town_city" class="col-md-3 text-md-right col-form-label">
-                                Town City</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>Ha Noi</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="phone" class="col-md-3 text-md-right col-form-label">Phone</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>0123456789</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="level" class="col-md-3 text-md-right col-form-label">Level</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>Admin</p>
-                            </div>
-                        </div>
+                            <span>Back</span>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -50,7 +50,7 @@ class Constant
         self::user_gender_Male => 'Male',
         self::user_gender_Female => 'Female',
     ];
-
+  
     //product_tag
     const product_tag_Breakfast = 1;
     const product_tag_Lunch = 2;
@@ -61,5 +61,15 @@ class Constant
         self::product_tag_Lunch => 'Lunch',
         self::product_tag_Dinner => 'Dinner',
         self::product_tag_Snacks => 'Snacks',
+    ];
+
+    //product_pay_type
+    const product_pay_type_Cash = 1;
+    const product_pay_type_VnPay = 2;
+    const product_pay_type_CreditCard = 3;
+    public static $product_pay_types = [
+        self::product_pay_type_Cash => 'Cash',
+        self::product_pay_type_VnPay => 'VnPay',
+        self::product_pay_type_CreditCard => 'Credit Card',
     ];
 }

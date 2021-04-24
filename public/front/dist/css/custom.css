@@ -1,0 +1,39 @@
+/* Tùy biến CSS */
+
+
+
+.cart-table-show {
+    line-height: 1.25;
+    width: 100%
+}
+
+.cart-table-show td, .cart-table-show th {
+    vertical-align: middle;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e0e0e0
+}
+
+.cart-table-show .title .name {
+    font-weight: 500;
+    display: block
+}
+
+.cart-table-show .price {
+    font-weight: 500;
+    text-align: right;
+    width: 95px
+}
+
+.cart-table-show .actions {
+    white-space: nowrap;
+    text-align: right
+}
+
+.cart-table-show .actions button {
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    padding: 0;
+    text-align: left;
+    text-align: initial
+}

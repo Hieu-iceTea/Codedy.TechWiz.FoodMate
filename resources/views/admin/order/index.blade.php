@@ -21,7 +21,8 @@
                 </div>
 
                 <div class="page-title-actions">
-                    <a href="./order-create.html" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
+                    <a href="{{ url()->current() . '/create' }}"
+                       class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
                                     <span class="btn-icon-wrapper pr-2 opacity-7">
                                         <i class="fa fa-plus fa-w-20"></i>
                                     </span>
@@ -39,23 +40,16 @@
 
                         <form>
                             <div class="input-group">
-                                <input type="search" name="search" id="search"
+                                <input type="search" name="search" id="search" value="{{ request('search') }}"
                                        placeholder="Search everything" class="form-control">
                                 <span class="input-group-append">
-                                                <button type="submit" class="btn btn-primary">
-                                                    <i class="fa fa-search"></i>&nbsp;
-                                                    Search
-                                                </button>
-                                            </span>
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fa fa-search"></i>&nbsp;
+                                            Search
+                                        </button>
+                                    </span>
                             </div>
                         </form>
-
-                        <div class="btn-actions-pane-right">
-                            <div role="group" class="btn-group-sm btn-group">
-                                <button class="btn btn-focus">This week</button>
-                                <button class="active btn btn-focus">Anytime</button>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="table-responsive">
@@ -63,71 +57,60 @@
                             <thead>
                             <tr>
                                 <th class="text-center">ID</th>
-                                <th>Customer / Products</th>
-                                <th class="text-center">Email</th>
-                                <th class="text-center">Amount</th>
+                                <th>Full Name</th>
+                                <th class="text-center">User Name</th>
+                                <th class="text-center">Phone</th>
+                                <th class="text-center">Street</th>
+                                <th class="text-center">City</th>
+                                <th class="text-center">Payment Type</th>
+                                <th class="text-center">Total Amount</th>
                                 <th class="text-center">Status</th>
                                 <th class="text-center">Actions</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            <tr>
-                                <td class="text-center text-muted">#01</td>
-                                <td>
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left mr-3">
-                                                <div class="widget-content-left">
-                                                    <img style="height: 60px;"
-                                                         data-toggle="tooltip" title="Image"
-                                                         data-placement="bottom"
-                                                         src="assets/images/_default-product.jpg" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Nguyen Van A</div>
-                                                <div class="widget-subheading opacity-7">
-                                                    Pure Pineapple
-                                                    (and 3 other products)
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-center">
-                                    info@codegym.vn
-                                </td>
-                                <td class="text-center">$599.00</td>
-                                <td class="text-center">
-                                    <div class="badge badge-success mt-2">
-                                        Active
-                                    </div>
-                                </td>
-                                <td class="text-center">
-                                    <a href="./order-show.html"
-                                       class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
-                                        Details
-                                    </a>
-                                    <a href="./order-edit.html" data-toggle="tooltip" title="Edit"
-                                       data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
+                            @foreach($orders as $order)
+                                <tr>
+                                    <td class="text-center text-muted">#{{ $order->id }}</td>
+                                    <td>
+                                        {{ $order->last_name }}, {{ $order->first_name }}
+                                    </td>
+                                    <td class="text-center">{{ $order->user->user_name ?? '' }}</td>
+                                    <td class="text-center">{{ $order->phone }}</td>
+                                    <td class="text-center">{{ $order->street }}</td>
+                                    <td class="text-center">{{ $order->city }}</td>
+                                    <td class="text-center">{{ \App\Utilities\Constant::$product_pay_types[$order->payment_type] }}</td>
+                                    <td class="text-center">{{ $order->total_amount }}$</td>
+                                    <td class="text-center">{{ \App\Utilities\Constant::$order_status[$order->status] }}</td>
+                                    <td class="text-center">
+                                        <a href="{{ url()->current() . '/' . $order->id }}"
+                                           class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
+                                            Details
+                                        </a>
+                                        <a href="{{ url()->current() . '/' . $order->id . '/edit'}}"
+                                           data-toggle="tooltip" title="Edit"
+                                           data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
                                                         <span class="btn-icon-wrapper opacity-8">
                                                             <i class="fa fa-edit fa-w-20"></i>
                                                         </span>
-                                    </a>
-                                    <form class="d-inline" action="" method="post">
-                                        <button class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"
-                                                type="submit" data-toggle="tooltip" title="Delete"
-                                                data-placement="bottom"
-                                                onclick="return confirm('Do you really want to delete this item?')">
+                                        </a>
+                                        <form class="d-inline" action="{{ url()->current() . '/' . $order->id }}"
+                                              method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"
+                                                    type="submit" data-toggle="tooltip" title="Delete"
+                                                    data-placement="bottom"
+                                                    onclick="return confirm('Do you really want to delete this item?')">
                                                             <span class="btn-icon-wrapper opacity-8">
                                                                 <i class="fa fa-trash fa-w-20"></i>
                                                             </span>
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
 
                             </tbody>
                         </table>
@@ -147,58 +130,8 @@
                                     Next »
                                 </a>
                             </div>
-
-                            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-                                <div>
-                                    <p class="text-sm text-gray-700 leading-5">
-                                        Showing
-                                        <span class="font-medium">1</span>
-                                        to
-                                        <span class="font-medium">5</span>
-                                        of
-                                        <span class="font-medium">9</span>
-                                        results
-                                    </p>
-                                </div>
-
-                                <div>
-                                                <span class="relative z-0 inline-flex shadow-sm rounded-md">
-                                                    <span aria-disabled="true" aria-label="&amp;laquo; Previous">
-                                                        <span
-                                                            class="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default rounded-l-md leading-5"
-                                                            aria-hidden="true">
-                                                            <svg class="w-5 h-5" fill="currentColor"
-                                                                 viewBox="0 0 20 20">
-                                                                <path fill-rule="evenodd"
-                                                                      d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                                                      clip-rule="evenodd"></path>
-                                                            </svg>
-                                                        </span>
-                                                    </span>
-
-                                                    <span aria-current="page">
-                                                        <span
-                                                            class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5">1</span>
-                                                    </span>
-                                                    <a href="#page=2"
-                                                       class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
-                                                       aria-label="Go to page 2">
-                                                        2
-                                                    </a>
-
-                                                    <a href="#page=2" rel="next"
-                                                       class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md leading-5 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150"
-                                                       aria-label="Next &amp;raquo;">
-                                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                                            <path fill-rule="evenodd"
-                                                                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                                                  clip-rule="evenodd"></path>
-                                                        </svg>
-                                                    </a>
-                                                </span>
-                                </div>
-                            </div>
                         </nav>
+                        {{ $orders -> links() }}
                     </div>
 
                 </div>
