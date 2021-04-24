@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="page-title-actions">
-                    <a href="./product-create.html" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
+                    <a href="../admin/product/create" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
                                     <span class="btn-icon-wrapper pr-2 opacity-7">
                                         <i class="fa fa-plus fa-w-20"></i>
                                     </span>
@@ -40,7 +40,7 @@
                         <form>
                             <div class="input-group">
                                 <input type="search" name="search" id="search"
-                                       placeholder="Search everything" class="form-control">
+                                       placeholder="Search by Id" class="form-control">
                                 <span class="input-group-append">
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="fa fa-search"></i>&nbsp;
@@ -50,12 +50,7 @@
                             </div>
                         </form>
 
-                        <div class="btn-actions-pane-right">
-                            <div role="group" class="btn-group-sm btn-group">
-                                <button class="btn btn-focus">This week</button>
-                                <button class="active btn btn-focus">Anytime</button>
-                            </div>
-                        </div>
+
                     </div>
 
                     <div class="table-responsive">
@@ -63,18 +58,22 @@
                             <thead>
                             <tr>
                                 <th class="text-center">ID</th>
-                                <th>Name / Brand</th>
+                                <th>Name</th>
                                 <th class="text-center">Price</th>
-                                <th class="text-center">Qty</th>
                                 <th class="text-center">Featured</th>
                                 <th class="text-center">Actions</th>
                             </tr>
                             </thead>
 
                             <tbody>
-
+                            @foreach($products as $product)
                             <tr>
-                                <td class="text-center text-muted">#01</td>
+
+                                <td class="text-center text-muted">#
+
+                                    {{ $product->id < 10 ? '0'.$product->id : $product->id }}
+                                </td>
+
                                 <td>
                                     <div class="widget-content p-0">
                                         <div class="widget-content-wrapper">
@@ -83,37 +82,36 @@
                                                     <img style="height: 60px;"
                                                          data-toggle="tooltip" title="Image"
                                                          data-placement="bottom"
-                                                         src="assets/images/_default-product.jpg" alt="">
+                                                         src="/front/data-images/products/{{$product->image}}" alt="">
                                                 </div>
                                             </div>
                                             <div class="widget-content-left flex2">
-                                                <div class="widget-heading">Pure Pineapple</div>
-                                                <div class="widget-subheading opacity-7">
-                                                    Calvin Klein
-                                                </div>
+                                                <div class="widget-heading">{{$product->name}}</div>
+
                                             </div>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="text-center">$599.00</td>
-                                <td class="text-center">25</td>
+                                <td class="text-center">${{$product->price}}</td>
                                 <td class="text-center">
                                     <div class="badge badge-success mt-2">
-                                        True
+                                        {{$product->featured == 1 ? 'true' : 'false'}}
                                     </div>
                                 </td>
                                 <td class="text-center">
-                                    <a href="./product-show.html"
+                                    <a href="../admin/product/{{$product->id}}"
                                        class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
                                         Details
                                     </a>
-                                    <a href="./product-edit.html" data-toggle="tooltip" title="Edit"
+                                    <a href="{{ url()->current() . '/' . $product->id . '/edit'}}" data-toggle="tooltip" title="Edit"
                                        data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
                                                         <span class="btn-icon-wrapper opacity-8">
                                                             <i class="fa fa-edit fa-w-20"></i>
                                                         </span>
                                     </a>
-                                    <form class="d-inline" action="" method="post">
+                                    <form class="d-inline" action="{{ url()->current() . '/' . $product->id }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
                                         <button class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"
                                                 type="submit" data-toggle="tooltip" title="Delete"
                                                 data-placement="bottom"
@@ -125,7 +123,7 @@
                                     </form>
                                 </td>
                             </tr>
-
+                            @endforeach
 
                             </tbody>
                         </table>
