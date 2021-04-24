@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -12,9 +14,18 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.order.index');
+        $keyword = $request->get('search');
+
+        $orders=Order::where('id','=',$keyword)
+            ->orWhere('id','like','%'.$keyword.'%')
+            ->orderBy('id','desc')
+            ->paginate();
+
+        //giúp chuyển trang page sẽ đính kèm theo từ khóa search của người dùng:
+        $orders->appends(['search' => $keyword]);
+        return view('admin.order.index',compact('orders'));
     }
 
     /**
@@ -46,7 +57,9 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        return view('admin.order.show');
+        $order = Order::findOrFail($id);
+
+        return view('admin.order.show', compact('order'));
     }
 
     /**

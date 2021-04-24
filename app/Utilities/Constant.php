@@ -54,4 +54,14 @@ class Constant
         self::product_tag_Dinner => 'Dinner',
         self::product_tag_Snacks => 'Snacks',
     ];
+
+    //product_pay_type
+    const product_pay_type_Cash = 1;
+    const product_pay_type_VnPay = 2;
+    const product_pay_type_CreditCard = 3;
+    public static $product_pay_types = [
+        self::product_pay_type_Cash => 'Cash',
+        self::product_pay_type_VnPay => 'VnPay',
+        self::product_pay_type_CreditCard => 'Credit Card',
+    ];
 }
