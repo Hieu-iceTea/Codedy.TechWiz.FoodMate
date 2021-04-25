@@ -55,6 +55,13 @@ Route::prefix('')->group(function () {
         Route::post('/', [\App\Http\Controllers\Front\CheckOutController::class, 'addOrder']);
         Route::get('/result', [\App\Http\Controllers\Front\CheckOutController::class, 'result']);
     });
+
+    Route::prefix('account')->group(function () {
+        Route::prefix('my-order')->group(function () {
+            Route::get('', [App\Http\Controllers\Front\AccountController::class, 'index']);
+            Route::get('{id}', [\App\Http\Controllers\Front\AccountController::class, 'show']);
+        });
+    });
 });
 
 
