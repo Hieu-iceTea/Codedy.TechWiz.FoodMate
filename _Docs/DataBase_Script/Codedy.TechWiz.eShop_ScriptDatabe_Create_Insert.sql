@@ -30,9 +30,9 @@ CREATE TABLE IF NOT EXISTS `User`
     `id`                  INT AUTO_INCREMENT,
 
     `user_name`           VARCHAR(64) UNIQUE         NOT NULL,
-    `email`               VARCHAR(64)                NOT NULL,
+    `email`               VARCHAR(64) UNIQUE         NOT NULL,
     `password`            VARCHAR(128)               NOT NULL,
-    `level`               TINYINT UNSIGNED DEFAULT 3 NOT NULL,
+    `level`               TINYINT UNSIGNED NOT NULL,
 
     `email_verified_at`   DATETIME,
     `verification_code`   VARCHAR(8)       DEFAULT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `User`
     `remember_token`      VARCHAR(128)     DEFAULT NULL,
 
     `image`               VARCHAR(128),
-    `gender`              BOOLEAN                    NOT NULL,
+    `gender`              BOOLEAN,
     `first_name`          VARCHAR(64),
     `last_name`           VARCHAR(64),
     `phone`               VARCHAR(16),

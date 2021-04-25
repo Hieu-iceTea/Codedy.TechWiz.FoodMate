@@ -57,17 +57,19 @@ Route::prefix('')->group(function () {
     });
 
     Route::prefix('account')->group(function () {
-        Route::get('login', [\App\Http\Controllers\Front\AccountController::class, 'login']);
-        Route::post('login', [\App\Http\Controllers\Front\AccountController::class, 'checkLogin']);
+        Route::redirect('/', '/account/my-order'); //Chuyển hướng
 
-        Route::get('logout', [\App\Http\Controllers\Front\AccountController::class, 'logout']);
+        Route::get('/login', [\App\Http\Controllers\Front\AccountController::class, 'login']);
+        Route::post('/login', [\App\Http\Controllers\Front\AccountController::class, 'checkLogin']);
 
-        Route::get('register', [\App\Http\Controllers\Front\AccountController::class, 'register']);
-        Route::post('register', [\App\Http\Controllers\Front\AccountController::class, 'postRegister']);
+        Route::get('/logout', [\App\Http\Controllers\Front\AccountController::class, 'logout']);
 
-        Route::prefix('my-order')->group(function () {
-            Route::get('', [App\Http\Controllers\Front\AccountController::class, 'myOrderIndex']);
-            Route::get('{id}', [\App\Http\Controllers\Front\AccountController::class, 'myOrderShow']);
+        Route::get('/register', [\App\Http\Controllers\Front\AccountController::class, 'register']);
+        Route::post('/register', [\App\Http\Controllers\Front\AccountController::class, 'postRegister']);
+
+        Route::prefix('/my-order')->middleware('CheckMemberLogin')->group(function () {
+            Route::get('/', [App\Http\Controllers\Front\AccountController::class, 'myOrderIndex']);
+            Route::get('/{id}', [\App\Http\Controllers\Front\AccountController::class, 'myOrderShow']);
         });
     });
 });

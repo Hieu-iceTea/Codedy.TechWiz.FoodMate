@@ -90,6 +90,7 @@
                                 @csrf
 
                                 @include('components.errors')
+                                @include('components.notifications')
 
                                 <div class="form-row">
                                     <div class="col-md-6">

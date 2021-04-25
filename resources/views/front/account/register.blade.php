@@ -33,7 +33,11 @@
                                     class="text-success">few seconds</span> to create your account</span>
                         </h4>
                         <div>
-                            <form class="">
+                            <form method="post" class="">
+                                @csrf
+
+                                @include('components.errors')
+
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
@@ -45,7 +49,8 @@
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <label for="exampleName" class="">Name</label>
-                                            <input name="text" id="exampleName" placeholder="Name here..." type="text"
+                                            <input name="user_name" id="exampleName" placeholder="Username here..."
+                                                   type="text"
                                                    class="form-control">
                                         </div>
                                     </div>
@@ -61,20 +66,18 @@
                                         <div class="position-relative form-group">
                                             <label for="examplePasswordRep" class=""><span class="text-danger">*</span>
                                                 Repeat Password</label>
-                                            <input name="passwordrep" id="examplePasswordRep"
+                                            <input name="password_confirmation" id="examplePasswordRep"
                                                    placeholder="Repeat Password here..." type="password"
                                                    class="form-control">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mt-3 position-relative form-check">
-                                    <input name="check" id="exampleCheck" type="checkbox" class="form-check-input">
-                                    <label for="exampleCheck" class="form-check-label">Accept our <a
-                                            href="javascript:void(0);">Terms and Conditions</a>.</label>
-                                </div>
                                 <div class="mt-4 d-flex align-items-center">
-                                    <h5 class="mb-0">Already have an account? <a href="javascript:void(0);"
-                                                                                 class="text-primary">Sign in</a></h5>
+                                    <h5 class="mb-0">Already have an account?
+                                        <a href="../account/login" class="text-primary">
+                                            Sign in
+                                        </a>
+                                    </h5>
                                     <div class="ml-auto">
                                         <button
                                             class="btn-wide btn-pill btn-shadow btn-hover-shine btn btn-primary btn-lg">
