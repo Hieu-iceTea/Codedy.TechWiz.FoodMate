@@ -72,13 +72,22 @@
                             </li>
                             <li><a href="../menu">Menu</a></li>
                             <li><a href="../restaurant">Restaurant</a></li>
-                            <li><a href="../contact">Contact</a></li>
                             <li class="has-dropdown">
-                                <a href="#">More</a>
+                                <a href="#">Account</a>
                                 <div class="dropdown-container">
                                     <ul class="dropdown-mega">
-                                        <li><a href="../book-a-table">Book a table</a></li>
-                                        <li><a href="../checkout">Checkout</a></li>
+                                        <li>
+                                            <div class="mt-2 mb-3">
+                                                <img style="height: 80px;" class="rounded-circle" src="https://scontent.fhph1-2.fna.fbcdn.net/v/t1.6435-9/175540607_4045840518855351_1333050005205584204_n.jpg?_nc_cat=109&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=CMjwXFCBk48AX9-Lwr2&_nc_ht=scontent.fhph1-2.fna&oh=4fd80fe2cf36e24599c5e6a7f71736c7&oe=60A852C8" alt="">
+                                            </div>
+                                            <div class="mb-4">
+                                                <span style="text-transform: none">Hello, Hieu_iceTea</span>
+                                            </div>
+                                        </li>
+
+
+                                        <li><a href="../account/login">Login</a></li>
+                                        <li><a href="../account/my-order">My Order</a></li>
                                     </ul>
                                     <div class="dropdown-image">
                                         <img src="data-images/photos/dropdown-more.jpg" alt="">
@@ -88,7 +97,7 @@
                         </ul>
                     </nav>
                     <div class="module left">
-                        <a href="menu-list-navigation.html" class="btn btn-outline-secondary"><span>Order</span></a>
+                        <a href="../contact" class="btn btn-outline-secondary"><span>Contact</span></a>
                     </div>
                 </div>
                 <div class="col-md-2">
