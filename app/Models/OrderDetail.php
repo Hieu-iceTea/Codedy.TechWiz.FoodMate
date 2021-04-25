@@ -13,6 +13,7 @@ class OrderDetail extends Model
     protected $table = 'order_details';
     protected $primaryKey = 'id';
     protected $guarded = [];
+    protected $perPage = 5;
 
     public function product(){
         return $this->belongsTo(Product::class, 'product_id', 'id');
