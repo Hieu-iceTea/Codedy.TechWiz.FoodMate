@@ -185,6 +185,12 @@
                                     <i class="metismenu-icon"></i>Restaurant
                                 </a>
                             </li>
+                            <li>
+                                <a href="../admin/contact"
+                                   class="{{ (request()->segment(2) == 'contact') ? 'mm-active' : '' }}">
+                                    <i class="metismenu-icon"></i>Contact
+                                </a>
+                            </li>
                         </ul>
 
                     </ul>
