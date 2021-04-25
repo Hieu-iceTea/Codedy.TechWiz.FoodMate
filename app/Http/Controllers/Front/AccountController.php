@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use App\Models\User;
 use App\Utilities\Constant;
 use Illuminate\Http\Request;
@@ -70,5 +71,23 @@ class AccountController extends Controller
 
         return redirect('account/login')
             ->with('notification', 'Register Success! Please login.');
+    }
+
+    public function myOrderIndex()
+    {
+        $orders = Order::where('user_id', Auth::id())->get();
+
+        return view('front.account.my-order.index', compact('orders'));
+    }
+
+    public function myOrderShow($id)
+    {
+        $order = Order::findOrFail($id);
+
+        if ($order->user_id != Auth::id()) {
+            return redirect('account/my-order');
+        }
+
+        return view('front.account.my-order.show', compact('order'));
     }
 }
