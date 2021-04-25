@@ -64,7 +64,7 @@ Route::prefix('')->group(function () {
 */
 
 Route::prefix('admin')->group(function () {
-    Route::redirect('', 'admin/user'); //Chuyển hướng
+    Route::get('/', [App\Http\Controllers\admin\HomeController::class, 'index']);
 
     Route::resource('category', App\Http\Controllers\Admin\CategoryController::class);
     Route::resource('order', App\Http\Controllers\Admin\OrderController::class);
