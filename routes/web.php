@@ -57,9 +57,19 @@ Route::prefix('')->group(function () {
     });
 
     Route::prefix('account')->group(function () {
-        Route::prefix('my-order')->group(function () {
-            Route::get('', [App\Http\Controllers\Front\AccountController::class, 'index']);
-            Route::get('{id}', [\App\Http\Controllers\Front\AccountController::class, 'show']);
+        Route::redirect('/', '/account/my-order'); //Chuyển hướng
+
+        Route::get('/login', [\App\Http\Controllers\Front\AccountController::class, 'login']);
+        Route::post('/login', [\App\Http\Controllers\Front\AccountController::class, 'checkLogin']);
+
+        Route::get('/logout', [\App\Http\Controllers\Front\AccountController::class, 'logout']);
+
+        Route::get('/register', [\App\Http\Controllers\Front\AccountController::class, 'register']);
+        Route::post('/register', [\App\Http\Controllers\Front\AccountController::class, 'postRegister']);
+
+        Route::prefix('/my-order')->middleware('CheckMemberLogin')->group(function () {
+            Route::get('/', [App\Http\Controllers\Front\AccountController::class, 'myOrderIndex']);
+            Route::get('/{id}', [\App\Http\Controllers\Front\AccountController::class, 'myOrderShow']);
         });
     });
 });

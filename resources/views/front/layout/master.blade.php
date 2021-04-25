@@ -64,20 +64,28 @@
                                 <a href="#">Account</a>
                                 <div class="dropdown-container">
                                     <ul class="dropdown-mega">
-                                        <li>
-                                            <div class="mt-2 mb-3">
-                                                <img style="height: 80px;" class="rounded-circle"
-                                                     src="https://scontent.fhph1-2.fna.fbcdn.net/v/t1.6435-9/175540607_4045840518855351_1333050005205584204_n.jpg?_nc_cat=109&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=CMjwXFCBk48AX9-Lwr2&_nc_ht=scontent.fhph1-2.fna&oh=4fd80fe2cf36e24599c5e6a7f71736c7&oe=60A852C8"
-                                                     alt="">
-                                            </div>
-                                            <div class="mb-4">
-                                                <span style="text-transform: none">Hello, Hieu_iceTea</span>
-                                            </div>
-                                        </li>
 
+                                        @if(Auth::check())
+                                            <li>
+                                                <div class="mt-2 mb-3">
+                                                    <img style="height: 80px;" class="rounded-circle"
+                                                         src="../front/data-images/user/{{ Auth::user()->image ?? '_default-user.png' }}"
+                                                         alt="">
+                                                </div>
+                                                <div class="mb-4">
+                                                <span
+                                                    style="text-transform: none">Hello, {{ Auth::user()->user_name ?? '' }}</span>
+                                                </div>
+                                            </li>
 
-                                        <li><a href="../account/login">Login</a></li>
+                                            <li><a href="../account/logout">Logout</a></li>
+                                        @else
+                                            <li><a href="../account/login">Login</a></li>
+                                            <li><a href="../account/register">Register</a></li>
+                                        @endif
+
                                         <li><a href="../account/my-order">My Order</a></li>
+
                                     </ul>
                                     <div class="dropdown-image">
                                         <img src="data-images/photos/dropdown-more.jpg" alt="">

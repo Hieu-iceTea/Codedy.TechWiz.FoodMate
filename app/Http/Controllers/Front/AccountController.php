@@ -3,17 +3,73 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Utilities\Constant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AccountController extends Controller
 {
-    public function index()
+
+    public function __construct()
     {
-        return view('front.account.my-order.index');
+        //$this->middleware('guest')->except('logout');
     }
 
-    public function show($id)
+    public function login()
     {
-        return view('front.account.my-order.show');
+        return view('front.account.login');
+    }
+
+    public function checkLogin(Request $request)
+    {
+        $fieldType = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'user_name';
+
+        $credentials = [
+            $fieldType => $request->email,
+            'password' => $request->password,
+            'level' => Constant::user_level_customer, //Tài khoản cấp độ khách hàng bình thường.
+        ];
+
+        $remember = $request->remember;
+
+        if (Auth::attempt($credentials, $remember)) {
+            return redirect()->intended(''); //Mặc định là: trang chủ
+        } else {
+            return back()->withErrors('ERROR: Email or password is wrong');
+        }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return back();
+    }
+
+    public function register()
+    {
+        return view('front.account.register');
+    }
+
+    public function postRegister(Request $request)
+    {
+        if ($request->password != $request->password_confirmation) {
+            return back()->withErrors('ERROR: Confirm password does not match');
+        }
+
+        $data = [
+            'user_name' => $request->user_name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+
+            'level' => Constant::user_level_customer, //đăng ký tài khoản cấp: khách hàng bình thường.
+            'active' => true, //TODO: Tính năng kích hoạt tài khoản bằng email chưa có, nên để mặc định khi tạo là active=true.
+        ];
+
+        User::create($data);
+
+        return redirect('account/login')
+            ->with('notification', 'Register Success! Please login.');
     }
 }
