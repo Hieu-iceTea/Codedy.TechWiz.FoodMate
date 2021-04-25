@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Auth;
 
 class AccountController extends Controller
 {
+
+    public function __construct()
+    {
+        //$this->middleware('guest')->except('logout');
+    }
+
     public function login()
     {
         return view('front.account.login');
@@ -16,8 +22,10 @@ class AccountController extends Controller
 
     public function checkLogin(Request $request)
     {
+        $fieldType = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'user_name';
+
         $credentials = [
-            'email' => $request->email,
+            $fieldType => $request->email,
             'password' => $request->password,
             'level' => Constant::user_level_client, //Tài khoản cấp độ khách hàng bình thường.
         ];
@@ -25,11 +33,9 @@ class AccountController extends Controller
         $remember = $request->remember;
 
         if (Auth::attempt($credentials, $remember)) {
-            //return redirect(''); //trang chủ
             return redirect()->intended(''); //Mặc định là: trang chủ
         } else {
-            return back()
-                ->with('notification', 'ERROR: Email or password is wrong');
+            return back()->withErrors('ERROR: Email or password is wrong');
         }
     }
 

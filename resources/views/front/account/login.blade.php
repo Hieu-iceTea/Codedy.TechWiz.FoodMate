@@ -86,13 +86,17 @@
                         </h6>
                         <div class="divider row"></div>
                         <div>
-                            <form class="">
+                            <form method="post" class="">
+                                @csrf
+
+                                @include('components.errors')
+
                                 <div class="form-row">
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
-                                            <label for="exampleEmail" class="">Email</label>
+                                            <label for="exampleEmail" class="">Email or username</label>
                                             <input name="email" id="exampleEmail" placeholder="Email here..."
-                                                   type="email" class="form-control">
+                                                   type="text" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -104,7 +108,7 @@
                                     </div>
                                 </div>
                                 <div class="position-relative form-check">
-                                    <input name="check" id="exampleCheck" type="checkbox" class="form-check-input">
+                                    <input name="remember" id="exampleCheck" type="checkbox" class="form-check-input">
                                     <label for="exampleCheck" class="form-check-label">Keep me logged in</label>
                                 </div>
                                 <div class="divider row"></div>
