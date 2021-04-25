@@ -13,6 +13,7 @@ class Contact extends Model
     protected $table = 'contacts';
     protected $primaryKey = 'id';
     protected $guarded = [];
+    protected $perPage = 5;
 
     public function user(){
         return $this->belongsTo(User::class, 'user_id', 'id');

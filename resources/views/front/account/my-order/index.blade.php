@@ -37,24 +37,35 @@
                                     Action
                                 </th>
                             </tr>
-                            <tr>
-                                <td>
-                                    <img src="../front/data-images/products/Spaghetti Squash Burrito Bowls.jpg"
-                                         style="height: 80px" alt="">
-                                </td>
-                                <td class="title">
+
+
+                            @foreach($orders as $order)
+                                <tr>
+                                    <td>
+                                        <img
+                                            src="../front/data-images/products/{{ $order->orderDetails[0]->product->image }}"
+                                            style="height: 80px" alt="">
+                                    </td>
+                                    <td class="title">
                                         <span class="name">
-                                                Spaghetti Squash Burrito Bowls (and 3 other items)
+                                            {{ $order->orderDetails[0]->product->name }}
+
+                                            @if(count($order->orderDetails) > 1)
+                                                (and {{ count($order->orderDetails) - 1  }} other items)
+                                            @endif
                                         </span>
-                                </td>
-                                <td class="price">$50.59</td>
-                                <td class="actions">
-                                    <a href="../account/my-order/1" class="action-icon">
-                                        <i class="ti ti-eye"></i>
-                                        Detail
-                                    </a>
-                                </td>
-                            </tr>
+                                    </td>
+                                    <td class="price">{{ $order->orderDetails[0]->product->price }}$</td>
+                                    <td class="actions">
+                                        <a href="../account/my-order/{{ $order->id }}" class="action-icon">
+                                            <i class="ti ti-eye"></i>
+                                            Detail
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+
+
                         </table>
 
                     </div>
