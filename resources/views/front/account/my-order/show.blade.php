@@ -28,23 +28,27 @@
                 <div class="col-xl-4 col-lg-5">
                     <div class="cart-details shadow bg-white stick-to-content mb-4">
                         <div class="bg-dark dark p-4"><h5 class="mb-0">Products list</h5></div>
-                        <table class="cart-table-show">
+                        <table class="cart-table-show ">
+
+                            @foreach($order->orderDetails as $orderDetail)
                                 <tr>
                                     <td class="title">
                                         <span class="name">
-                                                Spaghetti Squash Burrito Bowls
+                                                {{ $orderDetail->product->name }}
                                         </span>
                                         <span
-                                            class="caption text-muted">1 item x $50.59</span>
+                                            class="caption text-muted">{{ $orderDetail->qty }} item x ${{ $orderDetail->amount }}</span>
                                     </td>
-                                    <td class="price">$100.59</td>
+                                    <td class="price">${{ $orderDetail->total_amount }} </td>
                                 </tr>
+                            @endforeach
+
                         </table>
                         <div class="cart-summary">
                             <div class="row">
                                 <div class="col-7 text-right text-muted">Order total:</div>
                                 <div class="col-5"><strong>$<span
-                                            class="cart-products-total-show">100.59</span></strong>
+                                            class="cart-products-total-show">{{ $order->total_amount }}</span></strong>
                                 </div>
                             </div>
                             <div class="row">
@@ -56,7 +60,8 @@
                             <div class="row text-lg">
                                 <div class="col-7 text-right text-muted">Total:</div>
                                 <div class="col-5"><strong>$<span
-                                            class="cart-total-show">100.59</span></strong></div>
+                                            class="cart-total-show">{{ $order->total_amount }}</span></strong>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -75,27 +80,27 @@
                             <div class="row mb-5">
                                 <div class="form-group col-sm-6">
                                     <label>First Name:</label>
-                                    <input disabled type="text" class="form-control" name="first_name" required>
+                                    <p>{{ $order->first_name }}</p>
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <label>Last Name:</label>
-                                    <input disabled type="text" class="form-control" name="last_name" required>
+                                    <p>{{ $order->last_name }}</p>
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <label>Street and number:</label>
-                                    <input disabled type="text" class="form-control" name="street" required>
+                                    <p>{{ $order->street }}</p>
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <label>City:</label>
-                                    <input disabled type="text" class="form-control" name="city" required>
+                                    <p>{{ $order->city }}</p>
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <label>Phone number:</label>
-                                    <input disabled type="text" class="form-control" name="phone" required>
+                                    <p>{{ $order->phone }}</p>
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <label>E-mail address:</label>
-                                    <input disabled type="email" class="form-control" name="email" required>
+                                    <p>{{ $order->email }}</p>
                                 </div>
                             </div>
 
