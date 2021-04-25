@@ -79,7 +79,7 @@
                                             <div class="widget-content-wrapper">
                                                 <div class="widget-content-left mr-3">
                                                     <div class="widget-content-left">
-                                                        <img width="40" class="rounded-circle"
+                                                        <img width="40"
                                                              data-toggle="tooltip" title="Image"
                                                              data-placement="bottom"
                                                              src="../front/data-images/restaurants/{{ $restaurant->image }}"
@@ -94,7 +94,11 @@
                                     </td>
                                     <td class="text-center">{{ $restaurant->address }}</td>
                                     <td class="text-center">
-                                        {!! $restaurant->description !!}
+                                        @if(strlen($restaurant->description) > 50)
+                                            {!! substr($restaurant->description, 0, 50)  . ' ...' !!}
+                                        @else
+                                            {!! $restaurant->description !!}
+                                        @endif
                                     </td>
                                     <td class="text-center">
                                         <a href="{{ url()->current() . '/' . $restaurant->id }}"
