@@ -57,7 +57,7 @@
                             <label for="image" class="col-md-3 text-md-right col-form-label">Avatar</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>
-                                    <img style="height: 200px;" class="rounded-circle" data-toggle="tooltip"
+                                    <img style="height: 200px;" data-toggle="tooltip"
                                          title="Avatar" data-placement="bottom"
                                          src="../front/data-images/restaurants/{{ $restaurant->image }}" alt="Avatar">
                                 </p>
