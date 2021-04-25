@@ -59,8 +59,8 @@ Route::prefix('')->group(function () {
         Route::get('', [App\Http\Controllers\Front\ContactController::class, 'index']);
         Route::post('/', [App\Http\Controllers\Front\ContactController::class, 'addContact']);
         Route::get('/result', [App\Http\Controllers\Front\ContactController::class, 'result']);
-      });
-  
+    });
+
     Route::prefix('account')->group(function () {
         Route::redirect('/', '/account/my-order'); //Chuyển hướng
 
@@ -87,7 +87,7 @@ Route::prefix('')->group(function () {
 |
 */
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('CheckAdminLogin')->group(function () {
     Route::redirect('', 'admin/user'); //Chuyển hướng
 
     Route::resource('category', App\Http\Controllers\Admin\CategoryController::class);
@@ -96,4 +96,11 @@ Route::prefix('admin')->group(function () {
     Route::resource('restaurant', App\Http\Controllers\Admin\RestaurantController::class);
     Route::resource('user', App\Http\Controllers\Admin\UserController::class);
     Route::resource('contact', App\Http\Controllers\Admin\ContactController::class);
+
+    Route::prefix('login')->group(function () {
+        Route::get('', [\App\Http\Controllers\Admin\HomeController::class, 'getLogin'])->withoutMiddleware('CheckAdminLogin');
+        Route::post('', [App\Http\Controllers\Admin\HomeController::class, 'postLogin'])->withoutMiddleware('CheckAdminLogin');
+    });
+
+    Route::get('logout', [App\Http\Controllers\Admin\HomeController::class, 'logout']);
 });

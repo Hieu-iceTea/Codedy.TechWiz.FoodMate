@@ -417,13 +417,23 @@ VALUE (9, 'Xian Famous Foods', 'xianfood.png', '328 E 78th St,New York, NY 10075
 
 
 INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
-VALUE (1, 2, 'Nguyễn Đình', 'Hiếu', 'DinhHieu8896gmail.com','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 300, 1);
+VALUE (1, 6, 'Nguyễn Đình', 'Hiếu', 'DinhHieu8896gmail.com','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 600, 1);
 INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
-VALUE (2, NULL, 'Vũ Quang', 'Huy', 'HuyVQTH1909003@fpt.edu.vn','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',2, 100, 2);
+VALUE (2, 6, 'Nông Phan Mạnh', 'Hùng', 'HuyVQTH1909003@fpt.edu.vn','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 100, 2);
 INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
-VALUE (3, 2, 'Nông Phan Mạnh', 'Hùng', 'HungNPMTH1908050@fpt.edu.vn','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 400, 3);
+VALUE (3, 6, 'Vũ Quang', 'Huy', 'HungNPMTH1908050@fpt.edu.vn','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 100, 3);
 INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
-VALUE (4, NULL, 'Nguyễn Trung', 'Anh', 'AnhNTTH1908059@fpt.edu.vn','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',2, 200, 4);
+VALUE (4, 6, 'Nguyễn Trung', 'Anh', 'AnhNTTH1908059@fpt.edu.vn','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 100, 4);
+INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
+VALUE (5, NULL, 'Phạm Thị Mai', 'Hoa', 'Hoa@gmail.com','032 8799000', '8 Ton That Thuyet', 'Ha Noi',1, 100, 5);
+INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
+VALUE (6, NULL, 'Nguyễn', 'Tuân', 'A@gmail.com','032 8799000', '8 Ton That Thuyet', 'Ha Noi',1, 100, 6);
+INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
+VALUE (7, NULL, 'Phạm', 'Tú', 'B@gmail.com','032 8799000', '8 Ton That Thuyet', 'Ha Noi',1, 100, 0);
+INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
+VALUE (8, 6, 'Cao Trung', 'Kiên', 'Kien@gmail.com','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 300, 1);
+INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
+VALUE (9, 6, 'Dang Kim', 'Thi', 'ThiDK@gmail.com','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 100, 2);
 
 
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
@@ -431,7 +441,31 @@ VALUE (1, 1, 1, 2, 100, 200);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
 VALUE (2, 1, 2, 1, 100, 100);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (3, 2, 3, 1, 100, 100);
+VALUE (3, 1, 3, 1, 100, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (4, 1, 4, 1, 100, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (5, 1, 5, 1, 100, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (6, 2, 6, 1, 100, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (7, 3, 7, 1, 100, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (8, 4, 8, 1, 100, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (9, 5, 9, 1, 100, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (10, 6, 10, 1, 100, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (11, 7, 1, 1, 100, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (12, 8, 8, 2, 100, 200);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (13, 8, 9, 1, 100, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (14, 8, 10, 1, 100, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (15, 9, 9, 1, 100, 100);
 
 
 INSERT INTO contacts (id, user_id, name, email, message)
