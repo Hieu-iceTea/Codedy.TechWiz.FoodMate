@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `orders`
     `last_name`    VARCHAR(64),
     `email`        VARCHAR(64),
     `phone`        VARCHAR(64),
-    `street`       VARCHAR(64),
+    `street`       VARCHAR(128),
     `city`         VARCHAR(64),
     `payment_type` INT UNSIGNED         NOT NULL,
     `total_amount` DECIMAL(16) UNSIGNED NOT NULL,
@@ -416,6 +416,7 @@ INSERT INTO restaurants (id, name, image, address, description)
 VALUE (9, 'Xian Famous Foods', 'xianfood.png', '328 E 78th St,New York, NY 10075', 'The original location of this full-on empire from restaurateur Jason Wang opened in Flushing. As its reputation grew, branches started popping up all over the city with its spicy, fragrant style of cooking from northwestern China, inflected with Middle Eastern spices. Try any of the hand-pulled noodles and the spicy cumin lamb burger — the meat is rich, the bread has a crunchy sear on the outside, and the bun is soft enough inside to soak up plenty of lamb juices.');
 
 
+
 INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
 VALUE (1, 2, 'Nguyễn Đình', 'Hiếu', 'DinhHieu8896gmail.com','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 300, 1);
 INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
@@ -432,7 +433,6 @@ INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
 VALUE (2, 1, 2, 1, 100, 100);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
 VALUE (3, 2, 3, 1, 100, 100);
-
 
 INSERT INTO contacts (id, user_id, name, email, message)
 VALUE (1, 6, 'Nguyễn Đình Hiếu', 'DinhHieu8896gmail.com', 'Very excellent products.');INSERT INTO contacts (id, user_id, name, email, message)
