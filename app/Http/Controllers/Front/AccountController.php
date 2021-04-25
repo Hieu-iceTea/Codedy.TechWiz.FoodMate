@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Utilities\Constant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +28,7 @@ class AccountController extends Controller
         $credentials = [
             $fieldType => $request->email,
             'password' => $request->password,
-            'level' => Constant::user_level_client, //Tài khoản cấp độ khách hàng bình thường.
+            'level' => Constant::user_level_customer, //Tài khoản cấp độ khách hàng bình thường.
         ];
 
         $remember = $request->remember;
@@ -62,10 +63,10 @@ class AccountController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'level' => Constant::user_level_client, //đăng ký tài khoản cấp: khách hàng bình thường.
+            'level' => Constant::user_level_customer, //đăng ký tài khoản cấp: khách hàng bình thường.
         ];
 
-        $this->userService->create($data);
+        User::create($data);
 
         return redirect('account/login')
             ->with('notification', 'Register Success! Please login.');
