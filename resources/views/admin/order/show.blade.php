@@ -120,9 +120,25 @@
                         <div class="position-relative row form-group">
                             <label for="town_city" class="col-md-3 text-md-right col-form-label">
                                 Status</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>{{ \App\Utilities\Constant::$order_status[$order->status] }}</p>
-                            </div>
+                            <form method="post" action="{{ url()->current() }}" >
+                                @csrf
+                                @method('put')
+                                <div class="position-relative row form-group">
+                                    <div class="col-md-9 col-xl-8">
+                                        <select name="status" id="status" class="form-control w-auto" onchange="this.form.submit()">
+
+                                            @foreach(\App\Utilities\Constant::$order_status as $order_status)
+                                                <option
+                                                    value = {{ array_search($order_status, \App\Utilities\Constant::$order_status) }}
+                                                    {{ (old('status') ?? $order->status ?? '') == array_search($order_status, \App\Utilities\Constant::$order_status) ? 'selected' : '' }}>
+                                                    {{ $order_status }}
+                                                </option>
+                                            @endforeach
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
 
 

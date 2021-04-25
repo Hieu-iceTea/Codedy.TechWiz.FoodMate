@@ -51,7 +51,7 @@
                             </div>
 
                             <div class="position-relative row form-group">
-                                <label for="user_name" class="col-md-3 text-md-right col-form-label">User_Name</label>
+                                <label for="user_name" class="col-md-3 text-md-right col-form-label">User Name</label>
                                 <div class="col-md-9 col-xl-8">
                                     <input required name="user_name" id="user_name" placeholder="User_name" type="text"
                                            class="form-control" value="{{ old('user_name') ?? $user->user_name ?? '' }}">
