@@ -41,7 +41,7 @@
                         <form>
                             <div class="input-group">
                                 <input type="search" name="search" id="search" value="{{ request('search') }}"
-                                       placeholder="Search everything" class="form-control">
+                                       placeholder="Search By Email" class="form-control">
                                 <span class="input-group-append">
                                         <button type="submit" class="btn btn-primary">
                                             <i class="fa fa-search"></i>&nbsp;
