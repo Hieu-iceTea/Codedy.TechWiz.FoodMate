@@ -19,6 +19,15 @@
     <!-- Page Content -->
     <div class="page-content bg-light">
         <div class="container">
+            <form action="" method="get" class="">
+
+                <div class="row mb-4">
+                    <div class="form-group col-sm-12">
+                        <input type="text" name="search" value="{{ request('search') }}" placeholder="Enter location or name of restaurant..."
+                               class="form-control">
+                    </div>
+                </div>
+            </form>
             @foreach($restaurants as $restaurant)
             <!-- Special Offer -->
             <div class="special-offer mb-5 animated" data-animation="fadeIn">
@@ -27,6 +36,10 @@
                     <a href="../restaurant/{{$restaurant->id}}"><h2 class="mb-2">{{$restaurant->name}}</h2></a>
                     <h5 class="text-muted mb-5">{{$restaurant->address}}</h5>
                     {!!$restaurant->description!!}
+                    <br>
+                    <a href="../menu/?search={{$restaurant->id}}" class="btn btn-outline-primary btn-lg mt-5"></i><span>Visit Now</span></a>
+                    <a href="../restaurant/{{$restaurant->id}}" class="btn btn-outline-primary btn-lg mt-5"></i><span>Details</span></a>
+
                 </div>
             </div>
                 @endforeach
