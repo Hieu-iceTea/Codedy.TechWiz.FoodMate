@@ -19,10 +19,12 @@ class Constant
     const order_status_Unconfirmed = 1;
     const order_status_Accept = 2;
     const order_status_Reject = 3;
+    const order_status_CanceledByCustomer = 4;
     public static $order_status = [
         self::order_status_Unconfirmed => 'Unconfirmed',
         self::order_status_Accept => 'Accept',
         self::order_status_Reject => 'Reject',
+        self::order_status_CanceledByCustomer => 'Canceled by customer',
     ];
 
     //User

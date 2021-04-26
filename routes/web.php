@@ -78,6 +78,7 @@ Route::prefix('')->middleware('CheckMemberLogin')->group(function () {
         Route::prefix('/my-order')->group(function () {
             Route::get('/', [App\Http\Controllers\Front\AccountController::class, 'myOrderIndex']);
             Route::get('/{id}', [\App\Http\Controllers\Front\AccountController::class, 'myOrderShow']);
+            Route::put('/{id}', [\App\Http\Controllers\Front\AccountController::class, 'myOrderUpdate']);
         });
     });
 
