@@ -59,14 +59,11 @@ class AccountController extends Controller
             return back()->withErrors('ERROR: Confirm password does not match');
         }
 
-        $data = [
-            'user_name' => $request->user_name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
+        $data = $request->all();
 
-            'level' => Constant::user_level_customer, //đăng ký tài khoản cấp: khách hàng bình thường.
-            'active' => true, //TODO: Tính năng kích hoạt tài khoản bằng email chưa có, nên để mặc định khi tạo là active=true.
-        ];
+        $data['password'] = bcrypt($request->password);
+        $data['level'] = Constant::user_level_customer; //đăng ký tài khoản cấp: khách hàng bình thường.
+        $data['active'] = true; //TODO: Tính năng kích hoạt tài khoản bằng email chưa có, nên để mặc định khi tạo là active=true.
 
         User::create($data);
 
