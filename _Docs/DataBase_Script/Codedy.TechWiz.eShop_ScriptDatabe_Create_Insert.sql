@@ -191,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `feedbacks`
     `name`       VARCHAR(64),
     `email`      CHAR(128),
     `message`    TEXT,
-    `star`    integer,
+    `rating`     INT,
 
     `created_by` NVARCHAR(32) DEFAULT 'Codedy.TechWiz.FoodMate',
     `created_at` TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
