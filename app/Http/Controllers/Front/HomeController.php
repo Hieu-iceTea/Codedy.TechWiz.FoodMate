@@ -3,13 +3,19 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
+use App\Models\ProductCategory;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('front.index');
+        $product_categories=ProductCategory::all();
+        $products=Product::all();
+        $restaurants=Restaurant::all();
+        return view('front.index',compact('product_categories','products','restaurants'));
     }
 
     public function service()

@@ -30,9 +30,8 @@
                             <h4 class="text-muted">New product!</h4>
                             <h1>Boscaiola Pasta</h1>
                             <div class="btn-group">
-                                <button class="btn btn-outline-primary btn-lg" data-action="open-cart-modal"
-                                        data-id="1"><span>Add to cart</span></button>
-                                <span class="price price-lg">from $9.98</span>
+                                <a href="../menu"
+                                   class="btn btn-outline-primary btn-lg"><span>Place an Order</span></a>
                             </div>
                         </div>
                         <div class="content-inner">
@@ -44,7 +43,7 @@
                         <div class="content-inner">
                             <h1>Delicious Desserts</h1>
                             <h5 class="text-muted mb-5">Order it online even now!</h5>
-                            <a href="menu-list-collapse.html"
+                            <a href="../menu"
                                class="btn btn-outline-primary btn-lg"><span>Order now!</span></a>
                         </div>
                     </div>
@@ -116,9 +115,8 @@
                     <div class="feature feature-1 mb-md-0">
                         <div class="feature-icon icon icon-primary"><i class="ti ti-shopping-cart"></i></div>
                         <div class="feature-content">
-                            <h4 class="mb-2"><a href="menu-list-collapse.html">Pick a dish</a></h4>
-                            <p class="text-muted mb-0">Vivamus volutpat leo dictum risus ullamcorper
-                                condimentum.</p>
+                            <h4 class="mb-2"><a href="../menu">Pick a dish</a></h4>
+                            <p class="text-muted mb-0">Please choose a delicious dish that you like from our menu.</p>
                         </div>
                     </div>
                 </div>
@@ -128,8 +126,7 @@
                         <div class="feature-icon icon icon-primary"><i class="ti ti-wallet"></i></div>
                         <div class="feature-content">
                             <h4 class="mb-2">Make a payment</h4>
-                            <p class="text-muted mb-0">Vivamus volutpat leo dictum risus ullamcorper
-                                condimentum.</p>
+                            <p class="text-muted mb-0">Pay for the food you order from our restaurant.</p>
                         </div>
                     </div>
                 </div>
@@ -139,8 +136,7 @@
                         <div class="feature-icon icon icon-primary"><i class="ti ti-package"></i></div>
                         <div class="feature-content">
                             <h4 class="mb-2">Recieve your food!</h4>
-                            <p class="text-muted mb-3">Vivamus volutpat leo dictum risus ullamcorper
-                                condimentum.</p>
+                            <p class="text-muted mb-3">Pay for the food you order from our restaurant.</p>
                         </div>
                     </div>
                 </div>
@@ -179,47 +175,17 @@
                 ]
             }'>
             <!-- Menu Sample -->
-            <div class="menu-sample">
-                <a href="menu-list-navigation.html#Burgers">
-                    <img src="data-images/photos/menu-sample-burgers.jpg" alt="" class="image">
-                    <h3 class="title">Burgers</h3>
-                </a>
-            </div>
-            <!-- Menu Sample -->
-            <div class="menu-sample">
-                <a href="menu-list-navigation.html#Pizza">
-                    <img src="data-images/photos/menu-sample-pizza.jpg" alt="" class="image">
-                    <h3 class="title">Pizza</h3>
-                </a>
-            </div>
-            <!-- Menu Sample -->
-            <div class="menu-sample">
-                <a href="menu-list-navigation.html#Sushi">
-                    <img src="data-images/photos/menu-sample-sushi.jpg" alt="" class="image">
-                    <h3 class="title">Sushi</h3>
-                </a>
-            </div>
-            <!-- Menu Sample -->
-            <div class="menu-sample">
-                <a href="menu-list-navigation.html#Pasta">
-                    <img src="data-images/photos/menu-sample-pasta.jpg" alt="" class="image">
-                    <h3 class="title">Pasta</h3>
-                </a>
-            </div>
-            <!-- Menu Sample -->
-            <div class="menu-sample">
-                <a href="menu-list-navigation.html#Desserts">
-                    <img src="data-images/photos/menu-sample-dessert.jpg" alt="" class="image">
-                    <h3 class="title">Desserts</h3>
-                </a>
-            </div>
-            <!-- Menu Sample -->
-            <div class="menu-sample">
-                <a href="menu-list-navigation.html#Drinks">
-                    <img src="data-images/photos/menu-sample-drinks.jpg" alt="" class="image">
-                    <h3 class="title">Drinks</h3>
-                </a>
-            </div>
+            @if(count($products) > 0)
+                @foreach($product_categories as $product_categories)
+                    <div class="menu-sample">
+                        <a href="../menu#{{ $product_categories->name }}">
+                            <img src="../front/data-images/products/{{ $product_categories->products[0]->image }}"
+                                 alt="" class="image">
+                            <h3 class="title">{{ $product_categories->name }}</h3>
+                        </a>
+                    </div>
+                @endforeach
+            @endif
         </div>
 
     </section>
@@ -231,46 +197,20 @@
             <h1 class="text-center mb-6">Special offers</h1>
             <div class="carousel" data-slick='{"dots": true}'>
                 <!-- Special Offer -->
-                <div class="special-offer">
-                    <img src="data-images/photos/special-burger.jpg" alt=""
-                         class="special-offer-image">
-                    <div class="special-offer-content">
-                        <h2 class="mb-2">Free Burger</h2>
-                        <h5 class="text-muted mb-5">Get free burger from orders higher that $40!</h5>
-                        <ul class="list-check text-lg mb-0">
-                            <li>Only on Tuesdays</li>
-                            <li class="false">Order higher that $40</li>
-                            <li>Unless one burger ordered</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Special Offer -->
-                <div class="special-offer">
-                    <img src="data-images/photos/special-pizza.jpg" alt=""
-                         class="special-offer-image">
-                    <div class="special-offer-content">
-                        <h2 class="mb-2">Free Small Pizza</h2>
-                        <h5 class="text-muted mb-5">Get free burger from orders higher that $40!</h5>
-                        <ul class="list-check text-lg mb-0">
-                            <li>Only on Weekends</li>
-                            <li class="false">Order higher that $40</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Special Offer -->
-                <div class="special-offer">
-                    <img src="data-images/photos/special-dish.jpg" alt=""
-                         class="special-offer-image">
-                    <div class="special-offer-content">
-                        <h2 class="mb-2">Chip Friday</h2>
-                        <h5 class="text-muted mb-5">10% Off for all dishes!</h5>
-                        <ul class="list-check text-lg mb-0">
-                            <li>Only on Friday</li>
-                            <li>All products</li>
-                            <li>Online order</li>
-                        </ul>
-                    </div>
-                </div>
+
+                @foreach($restaurants as $restaurant)
+                    <a href="../restaurant/{{ $restaurant->id }}">
+                        <div class="special-offer">
+                            <img src="../front/data-images/restaurants/{{ $restaurant->image }}" alt=""
+                                 class="special-offer-image">
+                            <div class="special-offer-content">
+                                <h2 class="mb-2">{{ $restaurant->name }}</h2>
+                                <h5 class="text-muted mb-5">{{ $restaurant->address }}</h5>
+                                <h5>{{ $restaurant->description }}</h5>
+                            </div>
+                        </div>
+                    </a>
+                @endforeach
             </div>
         </div>
 
@@ -286,10 +226,7 @@
         <div class="container text-center">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <h2 class="mb-3">Check our promo video!</h2>
-                    <h5 class="text-muted">Book a table even right now or make an online order!</h5>
-                    <button class="btn-play" data-toggle="video-modal" data-target="#modalVideo"
-                            data-video="https://www.youtube.com/embed/uVju5--RqtY"></button>
+                    <h2 class="mb-3">Thank you for using our service!</h2>
                 </div>
             </div>
         </div>
