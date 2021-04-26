@@ -48,7 +48,7 @@
                     <!-- Logo -->
                     <div class="module module-logo dark">
                         <a href="../">
-                            <img src="assets/img/logo-light.svg" alt="" width="88">
+                            <img src="assets/img/logo-cloud-kitchen.png" alt="" width="120">
                         </a>
                     </div>
                 </div>
