@@ -45,10 +45,12 @@ limit 10');
 
     public function postLogin(Request $request)
     {
+        $fieldType = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'user_name';
+
         $credentials = [
-            'email' => $request->email,
+            $fieldType => $request->email,
             'password' => $request->password,
-            'level' => [Constant::user_level_host, Constant::user_level_admin],
+            'level' => [Constant::user_level_host, Constant::user_level_admin, Constant::user_level_staff],
         ];
 
         $remember = $request->remember;
@@ -56,8 +58,7 @@ limit 10');
         if (Auth::attempt($credentials, $remember)) {
             return redirect()->intended('admin'); //Mặc định là: trang chủ
         } else {
-            return back()
-                ->with('notification', 'ERROR: Email or password is wrong');
+            return back()->withErrors('ERROR: Email or password is wrong');
         }
     }
 

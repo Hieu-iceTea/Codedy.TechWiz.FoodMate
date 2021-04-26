@@ -14,10 +14,16 @@ class User extends Authenticatable
 
     protected $table = 'user';
     protected $primaryKey = 'id';
+    protected $perPage = 5;
 
     public function orders()
     {
         return $this->hasMany(Order::class, 'user_id', 'id');
+    }
+
+    public function contacts()
+    {
+        return $this->hasMany(Contact::class, 'user_id', 'id');
     }
 
     /**
