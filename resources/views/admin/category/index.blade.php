@@ -50,12 +50,6 @@
                             </div>
                         </form>
 
-                        <div class="btn-actions-pane-right">
-                            <div role="group" class="btn-group-sm btn-group">
-                                <button class="btn btn-focus">This week</button>
-                                <button class="active btn btn-focus">Anytime</button>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="table-responsive">
@@ -71,14 +65,14 @@
 
                             @foreach($categories as $category)
                                 <tr>
-                                    <td class="text-center text-muted">{{$category -> id}}</td>
+                                    <td class="text-center text-muted" >#{{$category -> id}}</td>
                                     <td class="text-center text-muted">{{$category -> name}}</td>
                                     <td class="text-center">
                                         <div class="widget-content p-0">
                                             <div class="widget-content-wrapper">
                                                 <div class="widget-content-left flex2">
                                                     <div class="widget-heading">
-                                                        <img class="figure-img" src="../front/data-images/categories/{{$category -> image}}" alt="" width="300px"></div>
+                                                        <img class="figure-img" src="../front/data-images/categories/{{$category -> image}}" width="150px" alt=""></div>
                                                 </div>
                                             </div>
                                         </div>
