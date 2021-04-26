@@ -87,16 +87,17 @@ Route::prefix('')->middleware('CheckMemberLogin')->group(function () {
 |
 */
 
-    
+
 Route::prefix('admin')->middleware('CheckAdminLogin')->group(function () {
     Route::get('/', [App\Http\Controllers\admin\HomeController::class, 'index']);
-  
+
     Route::resource('category', App\Http\Controllers\Admin\CategoryController::class);
     Route::resource('order', App\Http\Controllers\Admin\OrderController::class);
     Route::resource('product', App\Http\Controllers\Admin\ProductController::class);
     Route::resource('restaurant', App\Http\Controllers\Admin\RestaurantController::class);
     Route::resource('user', App\Http\Controllers\Admin\UserController::class);
     Route::resource('contact', App\Http\Controllers\Admin\ContactController::class);
+    Route::resource('report', App\Http\Controllers\Admin\ReportController::class);
 
     Route::prefix('login')->group(function () {
         Route::get('', [\App\Http\Controllers\Admin\HomeController::class, 'getLogin'])->withoutMiddleware('CheckAdminLogin');
