@@ -26,6 +26,7 @@ class CheckOutController extends Controller
             //Chạy vòng lặp duyệt theo từng nhà hàng:
             foreach (Cart::content()->groupBy('options.restaurant_id') as $carts) {
                 //01. Thêm Đơn Hàng
+                $data_order['restaurant_id'] = $carts[0]->options->restaurant_id;
                 $order = Order::create($data_order);
 
                 //02. Thêm chi tiết đơn hàng
