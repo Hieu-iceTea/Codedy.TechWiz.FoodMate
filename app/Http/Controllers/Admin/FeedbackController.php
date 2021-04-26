@@ -81,7 +81,11 @@ class FeedbackController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        Feedback::findOrFail($id)->update($data);
+
+        return back();
     }
 
     /**
