@@ -60,6 +60,7 @@
                             <li><a href="../menu">Menu</a></li>
                             <li><a href="../restaurant">Restaurant</a></li>
                             <li><a href="../about">About</a></li>
+                            <li><a href="../feedback">Feedback</a></li>
                             <li class="has-dropdown">
                                 <a href="#">Account</a>
                                 <div class="dropdown-container">
@@ -73,18 +74,21 @@
                                                          alt="">
                                                 </div>
                                                 <div class="mb-4">
-                                                <span
-                                                    style="text-transform: none">Hello, {{ Auth::user()->user_name ?? '' }}</span>
+                                                <span style="text-transform: none" class="font-weight-bold">
+                                                    Welcome, {{ Auth::user()->user_name ?? '' }}
+                                                </span>
                                                 </div>
                                             </li>
 
+                                            <li><a href="../account/profile">Profile</a></li>
+                                            <li><a href="../account/my-order">My Order</a></li>
                                             <li><a href="../account/logout">Logout</a></li>
                                         @else
+                                            <li><a href="../account/my-order">My Order</a></li>
                                             <li><a href="../account/login">Login</a></li>
                                             <li><a href="../account/register">Register</a></li>
                                         @endif
 
-                                        <li><a href="../account/my-order">My Order</a></li>
 
                                     </ul>
                                     <div class="dropdown-image">
