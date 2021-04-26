@@ -157,50 +157,60 @@
                 <div class="footer-first-row row">
                     <div class="col-lg-3 text-center">
                         <a href="../"><img src="assets/img/logo-light.svg" alt="" width="88"
-                                                  class="mt-5 mb-5"></a>
+                                           class="mt-5 mb-5"></a>
                     </div>
-                    <div class="col-lg-4 col-md-6">
-                        <h5 class="text-muted">Latest news</h5>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="text-muted">Get Started</h4>
                         <ul class="list-posts">
                             <li>
-                                <a href="../" class="title">How to create effective webdeisign?</a>
-                                <span class="date">February 14, 2015</span>
+                                <h5><a href="../" class="title">Home</a></h5>
                             </li>
                             <li>
-                                <a href="../" class="title">Awesome weekend in Polish mountains!</a>
-                                <span class="date">February 14, 2015</span>
+                                <h5><a href="../menu" class="title">Order</a></h5>
                             </li>
                             <li>
-                                <a href="../" class="title">How to create effective webdeisign?</a>
-                                <span class="date">February 14, 2015</span>
+                                <h5><a href="../restaurant" class="title">Restaurant</a></h5>
+                            </li>
+                            <li>
+                                <h5><a href="../about" class="title">Abount</a></h5>
+                            </li>
+                            <li>
+                                <h5><a href="../feedback" class="title">Feedback</a></h5>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-lg-5 col-md-6">
-                        <h5 class="text-muted">Subscribe Us!</h5>
-                        <!-- MailChimp Form -->
-                        <form
-                            action="http://suelo.us12.list-manage.com/subscribe/post-json?u=ed47dbfe167d906f2bc46a01b&amp;id=24ac8a22ad"
-                            id="sign-up-form" class="sign-up-form validate-form mb-5" method="POST">
-                            <div class="input-group">
-                                <input name="EMAIL" id="mce-EMAIL" type="email" class="form-control"
-                                       placeholder="Tap your e-mail..." required>
-                                <span class="input-group-btn">
-                                    <button class="btn btn-primary btn-submit" type="submit">
-                                        <span class="description">Subscribe</span>
-                                        <span class="success">
-                                            <svg x="0px" y="0px" viewBox="0 0 32 32"><path
-                                                    stroke-dasharray="19.79 19.79" stroke-dashoffset="19.79" fill="none"
-                                                    stroke="#FFFFFF" stroke-width="2" stroke-linecap="square"
-                                                    stroke-miterlimit="10"
-                                                    d="M9,17l3.9,3.9c0.1,0.1,0.2,0.1,0.3,0L23,11"/></svg>
-                                        </span>
-                                        <span class="error">Try again...</span>
-                                    </button>
-                                </span>
-                            </div>
-                        </form>
-                        <h5 class="text-muted mb-3">Social Media</h5>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="text-muted">Account Information</h4>
+                        <ul class="list-posts">
+                            @if(Auth::check())
+                                <li><h5><a href="../account/profile" class="title">Profile</a></h5></li>
+                                <li><h5><a href="../account/my-order" class="title">My Order</a></h5></li>
+                            @else
+                                <li><h5><a href="../account/my-order" class="title">My Order</a></h5></li>
+                                <li><h5><a href="../account/login" class="title">Login</a></h5></li>
+                            @endif
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+
+                        <h4 class="text-muted">Contact Us</h4>
+                        <ul class="list-posts">
+                            <li>
+                                <h5>Could Kitchen</h5>
+                            </li>
+                            <li>
+                                <h5>So 8, Ton That Thuyet, My Dinh, Ha Noi</h5>
+                            </li>
+                            <li>
+                                <h5 style="font-variant: lining-nums;"><strong>Phone: </strong>+48 21200 2122 221</h5>
+                            </li>
+                            <li>
+                                <h5><strong>Email: </strong>codedy@gmail.com</h5>
+                            </li>
+
+                        </ul>
+
                         <a href="../" class="icon icon-social icon-circle icon-sm icon-facebook"><i
                                 class="fa fa-facebook"></i></a>
                         <a href="../" class="icon icon-social icon-circle icon-sm icon-google"><i
