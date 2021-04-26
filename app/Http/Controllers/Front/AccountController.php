@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Utilities\Constant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AccountController extends Controller
 {
@@ -19,8 +20,7 @@ class AccountController extends Controller
 
     public function login()
     {
-        if(!session()->has('url.intended'))
-        {
+        if (!session()->has('url.intended')) {
             session(['url.intended' => url()->previous()]);
         }
 
@@ -50,7 +50,7 @@ class AccountController extends Controller
     {
         Auth::logout();
 
-        return back();
+        return redirect()->intended(''); //Mặc định là: trang chủ
     }
 
     public function register()
@@ -61,17 +61,14 @@ class AccountController extends Controller
     public function postRegister(Request $request)
     {
         if ($request->password != $request->password_confirmation) {
-            return back()->withErrors('ERROR: Confirm password does not match');
+            return back()->withErrors('ERROR: Confirm password does not match.');
         }
 
-        $data = [
-            'user_name' => $request->user_name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
+        $data = $request->all();
 
-            'level' => Constant::user_level_customer, //đăng ký tài khoản cấp: khách hàng bình thường.
-            'active' => true, //TODO: Tính năng kích hoạt tài khoản bằng email chưa có, nên để mặc định khi tạo là active=true.
-        ];
+        $data['password'] = bcrypt($request->password);
+        $data['level'] = Constant::user_level_customer; //đăng ký tài khoản cấp: khách hàng bình thường.
+        $data['active'] = true; //TODO: Tính năng kích hoạt tài khoản bằng email chưa có, nên để mặc định khi tạo là active=true.
 
         User::create($data);
 
@@ -95,5 +92,63 @@ class AccountController extends Controller
         }
 
         return view('front.account.my-order.show', compact('order'));
+    }
+
+    public function profileShow()
+    {
+        $user = User::findOrFail(Auth::id());
+
+        return view('front.account.profile.show', compact('user'));
+    }
+
+    public function profileEdit()
+    {
+        $user = User::findOrFail(Auth::id());
+
+        return view('front.account.profile.edit', compact('user'));
+    }
+
+    public function profileChangePassword()
+    {
+        $user = User::findOrFail(Auth::id());
+
+        return view('front.account.profile.change-password', compact('user'));
+    }
+
+    public function profileUpdate(Request $request)
+    {
+        $data = $request->all();
+
+        //Đổi mật khẩu:
+        if ($request->get('new_password') != null) {
+            if ($request->get('new_password') != $request->get('new_password_confirmation')) {
+                return back()->withErrors('ERROR: Confirm password does not match.');
+            }
+
+            if (!Hash::check($request->old_password, Auth::user()->password)) {
+                return back()->withErrors('ERROR: Old password does not match.');
+            }
+
+            if (Hash::check($request->new_password, Auth::user()->password)) {
+                return back()->withErrors('ERROR: New passwords must be different for old passwords.');
+            }
+
+            $data['password'] = bcrypt($request->new_password);
+        }
+
+        User::findOrFail(Auth::id())->update($data);
+
+        return redirect('account/profile');
+    }
+
+    public function profileDestroy()
+    {
+        $data['deleted'] = true;
+
+        User::findOrFail(Auth::id())->update($data);
+
+        Auth::logout();
+
+        return redirect('');
     }
 }
