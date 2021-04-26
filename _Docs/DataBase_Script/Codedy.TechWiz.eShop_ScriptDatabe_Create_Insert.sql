@@ -421,17 +421,17 @@ VALUE (2, 6, 2, '8, Ton That Thuyet',1, 100, 2);
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
 VALUE (3, 6, 1, '8, Ton That Thuyet',1, 100, 3);
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
-VALUE (4, 6, 1, '8, Ton That Thuyet',1, 100, 4);
+VALUE (4, 6, 1, '8, Ton That Thuyet',1, 100, 1);
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
-VALUE (5, NULL, 1, '8, Ton That Thuyet',1, 100, 5);
+VALUE (5, NULL, 1, '8, Ton That Thuyet',1, 100, 2);
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
-VALUE (6, NULL, 1, '8, Ton That Thuyet',1, 100, 6);
+VALUE (6, NULL, 1, '8, Ton That Thuyet',1, 100, 3);
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
-VALUE (7, NULL, 1, '8, Ton That Thuyet',1, 100, 0);
+VALUE (7, NULL, 1, '8, Ton That Thuyet',1, 100, 1);
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
-VALUE (8, 6, 1, '8, Ton That Thuyet',1, 300, 1);
+VALUE (8, 6, 1, '8, Ton That Thuyet',1, 300, 2);
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
-VALUE (9, 6, 1, '8, Ton That Thuyet',1, 100, 2);
+VALUE (9, 6, 1, '8, Ton That Thuyet',1, 100, 3);
 
 
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
@@ -474,5 +474,4 @@ INSERT INTO feedbacks (id, user_id, name, email, message, rating)
 VALUE (3, NULL, 'Nông Phan Mạnh Hùng', 'HungNPMTH1908050@fpt.edu.vn', 'The software has every feature that my company needs.', 5);
 INSERT INTO feedbacks (id, user_id, name, email, message, rating)
 VALUE (4, NULL, 'Nguyễn Trung Anh', 'AnhNTTH1908059@fpt.edu.vn', 'Thanks a lot of development team. I used the product and very satisfied.', 3);
-
 

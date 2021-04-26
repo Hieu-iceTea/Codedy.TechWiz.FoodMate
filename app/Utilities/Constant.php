@@ -16,21 +16,13 @@ class Constant
 
 
     //Order
-    const order_status_ReceiveOrders = 1;
-    const order_status_Unconfirmed = 2;
-    const order_status_Confirmed = 3;
-    const order_status_Paid = 4;
-    const order_status_Processing = 5;
-    const order_status_Finish = 6;
-    const order_status_Cancel = 0;
+    const order_status_Unconfirmed = 1;
+    const order_status_Accept = 2;
+    const order_status_Reject = 3;
     public static $order_status = [
-        self::order_status_ReceiveOrders => 'Receive Orders',
         self::order_status_Unconfirmed => 'Unconfirmed',
-        self::order_status_Confirmed => 'Confirmed',
-        self::order_status_Paid => 'Paid',
-        self::order_status_Processing => 'Processing',
-        self::order_status_Finish => 'Finish',
-        self::order_status_Cancel => 'Cancel',
+        self::order_status_Accept => 'Accept',
+        self::order_status_Reject => 'Reject',
     ];
 
     //User
