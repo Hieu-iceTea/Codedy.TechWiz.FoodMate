@@ -29,6 +29,8 @@ CREATE TABLE IF NOT EXISTS `User`
 (
     `id`                  INT AUTO_INCREMENT,
 
+    `restaurant_id`       INT UNSIGNED,
+
     `user_name`           VARCHAR(64) UNIQUE NOT NULL,
     `email`               VARCHAR(64) UNIQUE NOT NULL,
     `password`            VARCHAR(128)       NOT NULL,
@@ -210,26 +212,26 @@ CREATE TABLE IF NOT EXISTS `feedbacks`
 
 #Default password: 123456
 
-INSERT INTO User (id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (10, 'Host', 'host.codedy@gmail.com', '$2y$10$oW..IGNT/CH2muKpN/8LAuNJ1ahnwLoyCBWRQyBj4p6ITOJFb.gs2', 1, '2020-08-08', 'host.jpg', 1, 'CODEDY', 'Host', '032 87 99 000', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
-INSERT INTO User (id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (9, 'Admin', 'admin.codedy@gmail.com', '$2y$10$/AmOQGhkVS8otOSJbAv.6OHxseW/AOdVw7wxNbopMHgy0Btbp3Anu', 2, '2020-08-08', 'admin.jpg', 1, 'CODEDY', 'Admin', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
-INSERT INTO User (id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (8, 'Staff_B', 'staff_b.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'staff_b.jpg', 2, 'CODEDY', 'Staff B', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
-INSERT INTO User (id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (7, 'Staff_A', 'staff_a.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'staff_a.jpg', 1, 'CODEDY', 'Staff A', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
-INSERT INTO User (id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (6, 'Customer', 'customer.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2020-08-08', 'member.jpg', 1, 'CODEDY', 'Customer', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
-INSERT INTO User (id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (5, 'DinhHieu8896', 'DinhHieu8896gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'DinhHieu8896.jpg', 1, 'Nguyễn Đình', 'Hiếu', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
-INSERT INTO User (id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (4, 'HuyVQTH1909003', 'HuyVQTH1909003@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'HuyVQTH1909003.jpg', 1, 'Vũ Quang', 'Huy', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
-INSERT INTO User (id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (3, 'HungNPMTH1908050', 'HungNPMTH1908050@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'HungNPMTH1908050.jpg', 1, 'Nông Phan Mạnh', 'Hùng', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
-INSERT INTO User (id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (2, 'AnhNTTH1908059', 'AnhNTTH1908059@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'AnhNTTH1908059.jpg', 1, 'Nguyễn Trung', 'Anh', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
-INSERT INTO User (id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (1, 'Admin_Demo', 'admin_demo.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 2, '2020-08-08', 'admin_demo.jpg', 1, 'CODEDY', 'Admin_Demo', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', FALSE);
+INSERT INTO User (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
+VALUE (10, NULL, 'Host', 'host.codedy@gmail.com', '$2y$10$oW..IGNT/CH2muKpN/8LAuNJ1ahnwLoyCBWRQyBj4p6ITOJFb.gs2', 1, '2020-08-08', 'host.jpg', 1, 'CODEDY', 'Host', '032 87 99 000', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+INSERT INTO User (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
+VALUE (9, NULL, 'Admin', 'admin.codedy@gmail.com', '$2y$10$/AmOQGhkVS8otOSJbAv.6OHxseW/AOdVw7wxNbopMHgy0Btbp3Anu', 2, '2020-08-08', 'admin.jpg', 1, 'CODEDY', 'Admin', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+INSERT INTO User (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
+VALUE (8, 3, 'Staff_B', 'staff_b.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'staff_b.jpg', 2, 'CODEDY', 'Staff B', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+INSERT INTO User (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
+VALUE (7, 1, 'Staff_A', 'staff_a.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'staff_a.jpg', 1, 'CODEDY', 'Staff A', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+INSERT INTO User (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
+VALUE (6, NULL, 'Customer', 'customer.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2020-08-08', 'member.jpg', 1, 'CODEDY', 'Customer', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+INSERT INTO User (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
+VALUE (5, NULL, 'DinhHieu8896', 'DinhHieu8896gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'DinhHieu8896.jpg', 1, 'Nguyễn Đình', 'Hiếu', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+INSERT INTO User (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
+VALUE (4, NULL, 'HuyVQTH1909003', 'HuyVQTH1909003@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'HuyVQTH1909003.jpg', 1, 'Vũ Quang', 'Huy', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+INSERT INTO User (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
+VALUE (3, NULL, 'HungNPMTH1908050', 'HungNPMTH1908050@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'HungNPMTH1908050.jpg', 1, 'Nông Phan Mạnh', 'Hùng', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+INSERT INTO User (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
+VALUE (2, NULL, 'AnhNTTH1908059', 'AnhNTTH1908059@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'AnhNTTH1908059.jpg', 1, 'Nguyễn Trung', 'Anh', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+INSERT INTO User (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
+VALUE (1, NULL, 'Admin_Demo', 'admin_demo.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 2, '2020-08-08', 'admin_demo.jpg', 1, 'CODEDY', 'Admin_Demo', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', FALSE);
 
 
 INSERT INTO Product_Categories (Id, Name, Image)
