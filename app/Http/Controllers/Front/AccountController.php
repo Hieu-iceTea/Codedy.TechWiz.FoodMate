@@ -19,6 +19,11 @@ class AccountController extends Controller
 
     public function login()
     {
+        if(!session()->has('url.intended'))
+        {
+            session(['url.intended' => url()->previous()]);
+        }
+
         return view('front.account.login');
     }
 

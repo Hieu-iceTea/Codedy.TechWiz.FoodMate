@@ -18,26 +18,29 @@ class CheckOutController extends Controller
 
     public function addOrder(Request $request)
     {
+        $data_order = $request->all();
+        $data_order['status'] = Constant::order_status_ReceiveOrders;
+
+        //Nếu chọn hình thức thanh toán: Tiền mặt (Cash):
         if ($request->get('payment_type') == Constant::product_pay_type_Cash) {
-            //01. Thêm Đơn Hàng
-            $data = $request->all();
-            $data['status'] = Constant::order_status_ReceiveOrders;
-            $order = Order::create($data);
+            //Chạy vòng lặp duyệt theo từng nhà hàng:
+            foreach (Cart::content()->groupBy('options.restaurant_id') as $carts) {
+                //01. Thêm Đơn Hàng
+                $data_order['restaurant_id'] = $carts[0]->options->restaurant_id;
+                $order = Order::create($data_order);
 
-            //02. Thêm chi tiết đơn hàng
-            $carts = Cart::content();
+                //02. Thêm chi tiết đơn hàng
+                foreach ($carts as $cart) {
+                    $data_orderDetail = [
+                        'order_id' => $order->id,
+                        'product_id' => $cart->id,
 
-            foreach ($carts as $cart) {
-                $data = [
-                    'order_id' => $order->id,
-                    'product_id' => $cart->id,
-
-                    'qty' => $cart->qty,
-                    'amount' => $cart->price,
-                    'total_amount' => $cart->qty * $cart->price,
-                ];
-
-                OrderDetail::create($data);
+                        'qty' => $cart->qty,
+                        'amount' => $cart->price,
+                        'total_amount' => $cart->qty * $cart->price,
+                    ];
+                    OrderDetail::create($data_orderDetail);
+                }
             }
 
             //Gửi email:
