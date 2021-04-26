@@ -136,6 +136,18 @@
                         </div>
                     @endif
 
+                    @if(count(Cart::content()->groupBy('options.restaurant_id')) > 1)
+                        <div class="mb-3 mr-1 text-right">
+                        <span class="text-warning font-weight-bold" style="font-size: 110%">
+                           * Note: Your cart is separated into
+                            <span style="text-decoration: underline;">
+                                 {{ count(Cart::content()->groupBy('options.restaurant_id')) }} orders
+                            </span>
+                            because you have selected the product of many different restaurants.
+                        </span>
+                        </div>
+                    @endif
+
                     @if(count(Cart::content()) > 0)
                         <a href="../checkout" class="panel-cart-action btn btn-secondary btn-block btn-lg"><span>Go to checkout</span></a>
                     @else
