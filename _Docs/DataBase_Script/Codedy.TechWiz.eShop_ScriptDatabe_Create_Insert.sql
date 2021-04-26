@@ -184,9 +184,9 @@ CREATE TABLE IF NOT EXISTS `restaurants`
 ) ENGINE InnoDB;
 
 
-#Create Table contacts
-DROP TABLE IF EXISTS `contacts`;
-CREATE TABLE IF NOT EXISTS `contacts`
+#Create Table feedbacks
+DROP TABLE IF EXISTS `feedbacks`;
+CREATE TABLE IF NOT EXISTS `feedbacks`
 (
     `id`         INT AUTO_INCREMENT,
 
@@ -468,8 +468,11 @@ INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
 VALUE (15, 9, 9, 1, 100, 100);
 
 
-INSERT INTO contacts (id, user_id, name, email, message)
-VALUE (1, 6, 'Nguyễn Đình Hiếu', 'DinhHieu8896gmail.com', 'Very excellent products.');INSERT INTO contacts (id, user_id, name, email, message)
-VALUE (2, 6, 'Vũ Quang Huy', 'HuyVQTH1909003@fpt.edu.vn', 'Best solution for online food sale.');INSERT INTO contacts (id, user_id, name, email, message)
-VALUE (3, NULL, 'Nông Phan Mạnh Hùng', 'HungNPMTH1908050@fpt.edu.vn', 'The software has every feature that my company needs.');INSERT INTO contacts (id, user_id, name, email, message)
+INSERT INTO feedbacks (id, user_id, name, email, message)
+VALUE (1, 6, 'Nguyễn Đình Hiếu', 'DinhHieu8896gmail.com', 'Very excellent products.');
+INSERT INTO feedbacks (id, user_id, name, email, message)
+VALUE (2, 6, 'Vũ Quang Huy', 'HuyVQTH1909003@fpt.edu.vn', 'Best solution for online food sale.');
+INSERT INTO feedbacks (id, user_id, name, email, message)
+VALUE (3, NULL, 'Nông Phan Mạnh Hùng', 'HungNPMTH1908050@fpt.edu.vn', 'The software has every feature that my company needs.');
+INSERT INTO feedbacks (id, user_id, name, email, message)
 VALUE (4, NULL, 'Nguyễn Trung Anh', 'AnhNTTH1908059@fpt.edu.vn', 'Thanks a lot of development team. I used the product and very satisfied.');
