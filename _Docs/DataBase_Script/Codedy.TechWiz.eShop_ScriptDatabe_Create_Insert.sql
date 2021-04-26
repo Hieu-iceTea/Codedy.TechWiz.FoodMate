@@ -191,6 +191,7 @@ CREATE TABLE IF NOT EXISTS `feedbacks`
     `name`       VARCHAR(64),
     `email`      CHAR(128),
     `message`    TEXT,
+    `star`    integer,
 
     `created_by` NVARCHAR(32) DEFAULT 'Codedy.TechWiz.FoodMate',
     `created_at` TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
@@ -473,5 +474,6 @@ INSERT INTO feedbacks (id, user_id, name, email, message)
     VALUE (3, NULL, 'Nông Phan Mạnh Hùng', 'HungNPMTH1908050@fpt.edu.vn', 'The software has every feature that my company needs.');
 INSERT INTO feedbacks (id, user_id, name, email, message)
     VALUE (4, NULL, 'Nguyễn Trung Anh', 'AnhNTTH1908059@fpt.edu.vn', 'Thanks a lot of development team. I used the product and very satisfied.');
+
 
 
