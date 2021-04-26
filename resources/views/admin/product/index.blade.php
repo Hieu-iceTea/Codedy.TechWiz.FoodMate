@@ -40,7 +40,7 @@
                         <form>
                             <div class="input-group">
                                 <input type="search" name="search" id="search"
-                                       placeholder="Search by Id" class="form-control">
+                                       placeholder="Search everything" class="form-control">
                                 <span class="input-group-append">
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="fa fa-search"></i>&nbsp;
@@ -49,8 +49,6 @@
                                             </span>
                             </div>
                         </form>
-
-
                     </div>
 
                     <div class="table-responsive">
@@ -67,62 +65,64 @@
 
                             <tbody>
                             @foreach($products as $product)
-                            <tr>
+                                <tr>
+                                    <td class="text-center text-muted">#
 
-                                <td class="text-center text-muted">#
+                                        {{ $product->id < 10 ? '0'.$product->id : $product->id }}
+                                    </td>
 
-                                    {{ $product->id < 10 ? '0'.$product->id : $product->id }}
-                                </td>
+                                    <td>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left mr-3">
+                                                    <div class="widget-content-left">
+                                                        <img style="height: 60px;"
+                                                             data-toggle="tooltip" title="Image"
+                                                             data-placement="bottom"
+                                                             src="../front/data-images/products/{{$product->image}}"
+                                                             alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="widget-content-left flex2">
+                                                    <div class="widget-heading">{{$product->name}}</div>
 
-                                <td>
-                                    <div class="widget-content p-0">
-                                        <div class="widget-content-wrapper">
-                                            <div class="widget-content-left mr-3">
-                                                <div class="widget-content-left">
-                                                    <img style="height: 60px;"
-                                                         data-toggle="tooltip" title="Image"
-                                                         data-placement="bottom"
-                                                         src="/front/data-images/products/{{$product->image}}" alt="">
                                                 </div>
                                             </div>
-                                            <div class="widget-content-left flex2">
-                                                <div class="widget-heading">{{$product->name}}</div>
-
-                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class="text-center">${{$product->price}}</td>
-                                <td class="text-center">
-                                    <div class="badge badge-success mt-2">
-                                        {{$product->featured == 1 ? 'true' : 'false'}}
-                                    </div>
-                                </td>
-                                <td class="text-center">
-                                    <a href="../admin/product/{{$product->id}}"
-                                       class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
-                                        Details
-                                    </a>
-                                    <a href="{{ url()->current() . '/' . $product->id . '/edit'}}" data-toggle="tooltip" title="Edit"
-                                       data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
+                                    </td>
+                                    <td class="text-center">${{$product->price}}</td>
+                                    <td class="text-center">
+                                        <div class="badge badge-success mt-2">
+                                            {{$product->featured == 1 ? 'true' : 'false'}}
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="../admin/product/{{$product->id}}"
+                                           class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
+                                            Details
+                                        </a>
+                                        <a href="{{ url()->current() . '/' . $product->id . '/edit'}}"
+                                           data-toggle="tooltip" title="Edit"
+                                           data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
                                                         <span class="btn-icon-wrapper opacity-8">
                                                             <i class="fa fa-edit fa-w-20"></i>
                                                         </span>
-                                    </a>
-                                    <form class="d-inline" action="{{ url()->current() . '/' . $product->id }}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"
-                                                type="submit" data-toggle="tooltip" title="Delete"
-                                                data-placement="bottom"
-                                                onclick="return confirm('Do you really want to delete this item?')">
+                                        </a>
+                                        <form class="d-inline" action="{{ url()->current() . '/' . $product->id }}"
+                                              method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"
+                                                    type="submit" data-toggle="tooltip" title="Delete"
+                                                    data-placement="bottom"
+                                                    onclick="return confirm('Do you really want to delete this item?')">
                                                             <span class="btn-icon-wrapper opacity-8">
                                                                 <i class="fa fa-trash fa-w-20"></i>
                                                             </span>
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
                             @endforeach
 
                             </tbody>
@@ -144,57 +144,8 @@
                                 </a>
                             </div>
 
-                            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-                                <div>
-                                    <p class="text-sm text-gray-700 leading-5">
-                                        Showing
-                                        <span class="font-medium">1</span>
-                                        to
-                                        <span class="font-medium">5</span>
-                                        of
-                                        <span class="font-medium">9</span>
-                                        results
-                                    </p>
-                                </div>
-
-                                <div>
-                                                <span class="relative z-0 inline-flex shadow-sm rounded-md">
-                                                    <span aria-disabled="true" aria-label="&amp;laquo; Previous">
-                                                        <span
-                                                            class="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default rounded-l-md leading-5"
-                                                            aria-hidden="true">
-                                                            <svg class="w-5 h-5" fill="currentColor"
-                                                                 viewBox="0 0 20 20">
-                                                                <path fill-rule="evenodd"
-                                                                      d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                                                      clip-rule="evenodd"></path>
-                                                            </svg>
-                                                        </span>
-                                                    </span>
-
-                                                    <span aria-current="page">
-                                                        <span
-                                                            class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5">1</span>
-                                                    </span>
-                                                    <a href="#page=2"
-                                                       class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 hover:text-gray-500 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150"
-                                                       aria-label="Go to page 2">
-                                                        2
-                                                    </a>
-
-                                                    <a href="#page=2" rel="next"
-                                                       class="relative inline-flex items-center px-2 py-2 -ml-px text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-r-md leading-5 hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500 transition ease-in-out duration-150"
-                                                       aria-label="Next &amp;raquo;">
-                                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                                            <path fill-rule="evenodd"
-                                                                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                                                  clip-rule="evenodd"></path>
-                                                        </svg>
-                                                    </a>
-                                                </span>
-                                </div>
-                            </div>
                         </nav>
+                        {{$products -> links()}}
                     </div>
 
                 </div>
