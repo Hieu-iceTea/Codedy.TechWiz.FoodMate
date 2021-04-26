@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -16,17 +17,21 @@ class OrderController extends Controller
      */
     public function index(Request $request)
     {
-        $keyword = $request->get('search');
+        //Truy vấn theo nhà hàng:
+        $restaurant_id = Auth::user()->restaurant_id;
+        $orders = Order::Where('restaurant_id', $restaurant_id);
 
-        $orders=Order::where('id','=',$keyword)
-            ->orWhere('id','like','%'.$keyword.'%')
-            ->orderBy('id','desc')
-            ->paginate();
+        //Tìm theo ID:
+        $keyword = $request->get('search');
+        $orders = $orders->Where('id', 'like', '%' . $keyword . '%');
+
+        //Sắp xếp & phân trang:
+        $orders = $orders->orderBy('id', 'desc')->paginate();
 
         //giúp chuyển trang page sẽ đính kèm theo từ khóa search của người dùng:
         $orders->appends(['search' => $keyword]);
 
-        return view('admin.order.index',compact('orders'));
+        return view('admin.order.index', compact('orders'));
     }
 
     /**
@@ -42,7 +47,7 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -53,7 +58,7 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -66,7 +71,7 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -77,8 +82,8 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -94,7 +99,7 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

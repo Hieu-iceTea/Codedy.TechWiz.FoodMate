@@ -57,14 +57,12 @@
                             <thead>
                             <tr>
                                 <th class="text-center">ID</th>
-                                <th>Full Name</th>
-                                <th class="text-center">User Name</th>
+                                <th>Products</th>
+                                <th class="text-center">Full name</th>
                                 <th class="text-center">Phone</th>
-                                <th class="text-center">Street</th>
-                                <th class="text-center">City</th>
-                                <th class="text-center">Payment Type</th>
-                                <th class="text-center">Total Amount</th>
-                                <th>Status</th>
+                                <th class="text-center">Address</th>
+                                <th class="text-center">Amount</th>
+                                <th class="text-center">Status</th>
                                 <th class="text-center">Actions</th>
                             </tr>
                             </thead>
@@ -72,62 +70,49 @@
 
                             @foreach($orders as $order)
                                 <tr>
-                                    <td class="text-center text-muted">#{{ $order->id }}</td>
+                                    <td class="text-center text-muted">
+                                        #{{ $order->id < 10 ? '0' . $order->id : $order->id }}</td>
                                     <td>
-                                        {{ $order->last_name }}, {{ $order->first_name }}
-                                    </td>
-                                    <td class="text-center">{{ $order->user->user_name ?? '' }}</td>
-                                    <td class="text-center">{{ $order->phone }}</td>
-                                    <td class="text-center">{{ $order->street }}</td>
-                                    <td class="text-center">{{ $order->city }}</td>
-                                    <td class="text-center">{{ \App\Utilities\Constant::$product_pay_types[$order->payment_type] }}</td>
-                                    <td class="text-center">{{ $order->total_amount }}$</td>
-                                    <td>
-                                    <form method="post" action="{{ url()->current() . '/' . $order->id }}" >
-                                        @csrf
-                                        @method('PUT')
-                                        <div class="position-relative row form-group">
-                                            <div class="col-md-9 col-xl-8">
-                                                <select name="status" id="status" class="form-control w-auto" onchange="this.form.submit()">
-
-                                                 @foreach(\App\Utilities\Constant::$order_status as $order_status)
-                                                        <option
-                                                            value = {{ array_search($order_status, \App\Utilities\Constant::$order_status) }}
-                                                            {{ (old('status') ?? $order->status ?? '') == array_search($order_status, \App\Utilities\Constant::$order_status) ? 'selected' : '' }}>
-                                                            {{ $order_status }}
-                                                        </option>
-                                                  @endforeach
-
-                                                </select>
+                                        <div class="widget-content p-0">
+                                            <div class="widget-content-wrapper">
+                                                <div class="widget-content-left mr-3">
+                                                    <div class="widget-content-left">
+                                                        <img width="80"
+                                                             data-toggle="tooltip" title="Image"
+                                                             data-placement="bottom"
+                                                             src="../front/data-images/products/{{ $order->orderDetails[0]->product->image }}"
+                                                             alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="widget-content-left flex2">
+                                                    <div class="widget-heading">
+                                                        {{ $order->orderDetails[0]->product->name }}
+                                                        @if(count($order->orderDetails) > 1)
+                                                            (and {{ count($order->orderDetails) - 1 }} other items)
+                                                        @endif
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </form>
+                                    </td>
+                                    <td class="text-center">{{ $order->user->last_name ?? '' }}, {{ $order->user->first_name ?? '' }}</td>
+                                    <td class="text-center">
+                                        {{ $order->user->phone ?? '' }}
                                     </td>
                                     <td class="text-center">
-                                        <a href="{{ url()->current() . '/' . $order->id }}"
+                                        {{ $order->delivery_address }}
+                                    </td>
+                                    <td class="text-center">
+                                        ${{ $order->total_amount }}
+                                    </td>
+                                    <td class="text-center">
+                                        {{ \App\Utilities\Constant::$order_status[$order->status] }}
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="../admin/order/{{ $order->id }}"
                                            class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
                                             Details
                                         </a>
-                                        <a href="{{ url()->current() . '/' . $order->id . '/edit'}}"
-                                           data-toggle="tooltip" title="Edit"
-                                           data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
-                                                        <span class="btn-icon-wrapper opacity-8">
-                                                            <i class="fa fa-edit fa-w-20"></i>
-                                                        </span>
-                                        </a>
-                                        <form class="d-inline" action="{{ url()->current() . '/' . $order->id }}"
-                                              method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"
-                                                    type="submit" data-toggle="tooltip" title="Delete"
-                                                    data-placement="bottom"
-                                                    onclick="return confirm('Do you really want to delete this item?')">
-                                                            <span class="btn-icon-wrapper opacity-8">
-                                                                <i class="fa fa-trash fa-w-20"></i>
-                                                            </span>
-                                            </button>
-                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
