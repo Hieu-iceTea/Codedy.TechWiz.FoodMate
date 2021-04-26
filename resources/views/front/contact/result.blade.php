@@ -13,7 +13,7 @@
                         <h1 class="mb-2">Thank you!</h1>
                         <h4 class="text-muted mb-5">{{ $notification }}</h4>
                         <a href="../" class="btn btn-outline-secondary">
-                            <span>Go menu</span>
+                            <span>Go Home</span>
                         </a>
                     </div>
                 @endif

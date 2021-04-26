@@ -86,7 +86,7 @@
                                 {{--button--}}
                                 <div class="position-relative row form-group mb-1">
                                     <div class="col-md-9 col-xl-8 offset-md-2">
-                                        <a href="#" class="border-0 btn btn-outline-danger mr-1">
+                                        <a href="../admin/restaurant/" class="border-0 btn btn-outline-danger mr-1">
                                                     <span class="btn-icon-wrapper pr-1 opacity-8">
                                                         <i class="fa fa-times fa-w-20"></i>
                                                     </span>
