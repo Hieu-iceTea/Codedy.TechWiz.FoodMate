@@ -12,37 +12,42 @@
                     <!-- Product Single -->
                     <div class="product-single">
                         <div class="product-image">
-                            <img src="../front/data-images/products/{{$productDetails->image}}" alt="" style="height: 600px;">
+                            <img src="../front/data-images/products/{{$productDetails->image}}" alt=""
+                                 style="height: 600px;">
                         </div>
                         <div class="product-content">
-                            <div class="product-header text-center">
-                                <h1 class="product-title">{{$productDetails->name}}</h1>
-                                <span class="product-caption h3">{{$productDetails->country}}</span>
-                                <span class="product-caption text-muted">{{$productDetails->ingredients}}</span>
-                            </div>
-                            <p class="lead">{{$productDetails->description}}</p>
-                            <hr class="hr-primary">
-                            <div class="row">
-                                <div class="col-md-6">
-
+                            <form action="../cart/add/{{ $productDetails->id }}">
+                                <div class="product-header text-center">
+                                    <h1 class="product-title">{{$productDetails->name}}</h1>
+                                    <span class="product-caption h3">{{$productDetails->country}}</span>
+                                    <span class="product-caption text-muted">{{$productDetails->ingredients}}</span>
                                 </div>
-                            </div>
-                            <h5 class="text-center text-muted">Order now!</h5>
-                            <div class="product-price text-center">${{$productDetails->price}}</div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group text-center">
-                                        <input type="number" class="form-control input-qty form-control-lg" value="1">
+                                <p class="lead">{{$productDetails->description}}</p>
+                                <hr class="hr-primary">
+                                <div class="row">
+                                    <div class="col-md-6">
+
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <button class="btn btn-outline-primary btn-lg btn-block"><span>Add to cart</span>
-                                    </button>
+                                <h5 class="text-center text-muted">Order now!</h5>
+                                <div class="product-price text-center">${{$productDetails->price}}</div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group text-center">
+                                            <input type="number" name="qty"
+                                                   class="form-control input-qty form-control-lg" value="1">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <button type="submit" class="btn btn-outline-primary btn-lg btn-block">
+                                            <span>Add to cart</span>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="text-center mt-4">
-                                <a href="../menu" class="btn btn-link">Back to menu</a>
-                            </div>
+                                <div class="text-center mt-4">
+                                    <a href="../menu" class="btn btn-link">Back to menu</a>
+                                </div>
+                            </form>
                         </div>
 
                     </div>

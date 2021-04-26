@@ -9,14 +9,15 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CartController extends Controller
 {
-    public function add($id)
+    public function add(Request $request, $id)
     {
+        $qty = $request->get('qty');
         $product = Product::findOrFail($id);
 
         Cart::add([
             'id' => $id,
             'name' => $product->name,
-            'qty' => 1,
+            'qty' => $qty ?? 1,
             'price' => $product->discount ?? $product->price,
             'weight' => $product->weight ?? 0,
             'options' => [
