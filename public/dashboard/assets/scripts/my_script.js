@@ -17,3 +17,5 @@ $(document).ready(function () {
         $(this).siblings('.image').click();
     });
 });
+
+$('.modal-appendTo-body').appendTo("body")

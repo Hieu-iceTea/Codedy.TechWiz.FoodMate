@@ -125,6 +125,7 @@ CREATE TABLE IF NOT EXISTS `orders`
     `total_amount`     DECIMAL(16) UNSIGNED NOT NULL,
 
     `status`           INT UNSIGNED         NOT NULL,
+    `reason_reject`    VARCHAR(128),
 
     `created_by`       NVARCHAR(32) DEFAULT 'Codedy.TechWiz.FoodMate',
     `created_at`       TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,

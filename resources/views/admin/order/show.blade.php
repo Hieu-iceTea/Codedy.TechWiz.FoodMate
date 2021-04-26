@@ -66,7 +66,7 @@
                             <label for="description"
                                    class="col-md-3 text-md-right col-form-label">Phone</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>{{ $order->user->phone }}</p>
+                                <p>{{ $order->user->phone ?? '' }}</p>
                             </div>
                         </div>
 
@@ -74,7 +74,7 @@
                             <label for="description"
                                    class="col-md-3 text-md-right col-form-label">Email</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>{{ $order->user->email }}</p>
+                                <p>{{ $order->user->email ?? '' }}</p>
                             </div>
                         </div>
 
@@ -83,7 +83,7 @@
                                 Delivery address
                             </label>
                             <div class="col-md-9 col-xl-8">
-                                <p>{{ $order->delivery_address }}</p>
+                                <p>{{ $order->delivery_address ?? '' }}</p>
                             </div>
                         </div>
 
@@ -91,7 +91,7 @@
                             <label for="postcode_zip" class="col-md-3 text-md-right col-form-label">
                                 Total Amount</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>{{ $order->total_amount }}$</p>
+                                <p>{{ $order->total_amount ?? '' }}$</p>
                             </div>
                         </div>
 
@@ -103,43 +103,78 @@
                             </div>
                         </div>
 
-                        <div class="position-relative row form-group text-center">
+                        @if($order->status == \App\Utilities\Constant::order_status_Unconfirmed)
+                            <div class="position-relative row form-group text-center">
 
-                            <div class="col-12">
-                                <form method="post" action="{{ url()->current() }}" class="d-inline-block">
-                                    @csrf
-                                    @method('put')
-                                    <input type="hidden" name="status" value="{{ \App\Utilities\Constant::order_status_Accept }}">
-                                    <div class="position-relative row form-group">
-                                        <div class="col-md-9 col-xl-8">
-                                            <button type="submit" class="btn btn-outline-success">Accept</button>
+                                <div class="col-12">
+                                    <form method="post" action="{{ url()->current() }}" class="d-inline-block">
+                                        @csrf
+                                        @method('put')
+                                        <input type="hidden" name="status"
+                                               value="{{ \App\Utilities\Constant::order_status_Accept }}">
+                                        <div class="position-relative row form-group">
+                                            <div class="col-md-9 col-xl-8">
+                                                <button type="submit" class="btn btn-outline-success">Accept</button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-outline-danger d-inline-block ml-3"
+                                            data-toggle="modal" data-target="#rejectModal">
+                                        Reject
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade modal-appendTo-body" id="rejectModal" tabindex="-1"
+                                         role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <form method="post" action="{{ url()->current() }}">
+                                                    @csrf
+                                                    @method('put')
+                                                    <div class="form-group">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">
+                                                                Reason reject
+                                                            </h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                        <textarea id="reason_reject" name="reason_reject"
+                                                                  class="form-control"
+                                                                  placeholder="Enter reason reject ..."></textarea>
+                                                        </div>
+
+                                                        <input type="hidden" name="status"
+                                                               value="{{ \App\Utilities\Constant::order_status_Reject }}">
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Close
+                                                        </button>
+                                                        <button type="submit" class="btn btn-danger">Reject</button>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
 
-                                <form method="post" action="{{ url()->current() }}" class="d-inline-block ml-3">
-                                    @csrf
-                                    @method('put')
-                                    <input type="hidden" name="status" value="{{ \App\Utilities\Constant::order_status_Reject }}">
-                                    <div class="position-relative row form-group">
-                                        <div class="col-md-9 col-xl-8">
-                                            <button type="submit" class="btn btn-outline-danger">Reject</button>
-                                        </div>
-                                    </div>
-                                </form>
                             </div>
-
-                        </div>
-
+                        @endif
 
                         <h2 class="text-center mt-5">Order Detail</h2>
                         <hr>
-
                         <div class="table-responsive">
                             <table class="align-middle mb-0 table table-borderless table-striped table-hover">
                                 <thead>
                                 <tr>
-                                    <th >Product Name</th>
+                                    <th>Product Name</th>
                                     <th class="text-center">Quantity</th>
                                     <th class="text-center">Unit Price</th>
                                     <th class="text-center">Total Amount</th>
@@ -157,11 +192,13 @@
                                                             <img style="height: 60px;"
                                                                  data-toggle="tooltip" title="Image"
                                                                  data-placement="bottom"
-                                                                 src="../front/data-images/products/{{ $order->orderDetail->product->image }}" alt="">
+                                                                 src="../front/data-images/products/{{ $order->orderDetail->product->image }}"
+                                                                 alt="">
                                                         </div>
                                                     </div>
                                                     <div class="widget-content-left flex2">
-                                                        <div class="widget-heading">{{ $order->orderDetail->product->name }}</div>
+                                                        <div
+                                                            class="widget-heading">{{ $order->orderDetail->product->name }}</div>
                                                     </div>
                                                 </div>
                                             </div>
