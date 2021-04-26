@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 
-@section('title', 'Contact')
+@section('title', 'Feedback')
 
 @section('body')
 
@@ -58,14 +58,14 @@
                                 Name
                             </label>
                             <div class="col-md-9 col-xl-8">
-                                <p>{{ $contact->name }}</p>
+                                <p>{{ $feedback->name }}</p>
                             </div>
                         </div>
 
                         <div class="position-relative row form-group">
                             <label for="email" class="col-md-3 text-md-right col-form-label">Email</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>{{ $contact->email }}</p>
+                                <p>{{ $feedback->email }}</p>
                             </div>
                         </div>
 
@@ -73,7 +73,7 @@
                             <label for="description"
                                    class="col-md-3 text-md-right col-form-label">Message</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>{{ $contact->message }}</p>
+                                <p>{{ $feedback->message }}</p>
                             </div>
                         </div>
                     </div>

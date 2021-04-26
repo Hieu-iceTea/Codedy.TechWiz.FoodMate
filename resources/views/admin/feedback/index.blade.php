@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 
-@section('title', 'Contact')
+@section('title', 'Feedback')
 
 @section('body')
 
@@ -65,31 +65,31 @@
                             </thead>
                             <tbody>
 
-                            @foreach($contacts as $contact)
+                            @foreach($feedbacks as $feedback)
                                 <tr>
-                                    <td class="text-center text-muted">#{{ $contact->id }}</td>
-                                    <td >{{ $contact->name ?? '' }}</td>
-                                    <td class="text-center">{{ $contact->email }}</td>
+                                    <td class="text-center text-muted">#{{ $feedback->id }}</td>
+                                    <td >{{ $feedback->name ?? '' }}</td>
+                                    <td class="text-center">{{ $feedback->email }}</td>
                                     <td class="text-center">
-                                        @if(strlen($contact->message) > 50)
-                                            {{ substr($contact->message, 0, 50)  . ' ...' }}
+                                        @if(strlen($feedback->message) > 50)
+                                            {{ substr($feedback->message, 0, 50)  . ' ...' }}
                                         @else
-                                            {{ $contact->message }}
+                                            {{ $feedback->message }}
                                         @endif
                                     </td>
                                     <td class="text-center">
-                                        <a href="{{ url()->current() . '/' . $contact->id }}"
+                                        <a href="{{ url()->current() . '/' . $feedback->id }}"
                                            class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
                                             Details
                                         </a>
-                                        <a href="{{ url()->current() . '/' . $contact->id . '/edit'}}"
+                                        <a href="{{ url()->current() . '/' . $feedback->id . '/edit'}}"
                                            data-toggle="tooltip" title="Edit"
                                            data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
                                                         <span class="btn-icon-wrapper opacity-8">
                                                             <i class="fa fa-edit fa-w-20"></i>
                                                         </span>
                                         </a>
-                                        <form class="d-inline" action="{{ url()->current() . '/' . $contact->id }}"
+                                        <form class="d-inline" action="{{ url()->current() . '/' . $feedback->id }}"
                                               method="post">
                                             @csrf
                                             @method('DELETE')
@@ -125,7 +125,7 @@
                                 </a>
                             </div>
                         </nav>
-                        {{ $contacts -> links() }}
+                        {{ $feedbacks -> links() }}
                     </div>
 
                 </div>
