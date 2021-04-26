@@ -40,7 +40,7 @@
                         <form>
                             <div class="input-group">
                                 <input type="search" name="search" id="search"
-                                       placeholder="Search everything" class="form-control">
+                                       placeholder="Search by Id" class="form-control">
                                 <span class="input-group-append">
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="fa fa-search"></i>&nbsp;
@@ -49,13 +49,6 @@
                                             </span>
                             </div>
                         </form>
-
-                        <div class="btn-actions-pane-right">
-                            <div role="group" class="btn-group-sm btn-group">
-                                <button class="btn btn-focus">This week</button>
-                                <button class="active btn btn-focus">Anytime</button>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="table-responsive">
