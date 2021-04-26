@@ -24,7 +24,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-10 col-lg-12 m-auto">
-                    <form method="post">
+                    <div>
                         @csrf
                         <div class="cart-details shadow bg-white mb-4">
                             <div class="bg-dark dark p-4"><h5 class="mb-0">Profile</h5></div>
@@ -37,9 +37,20 @@
 
                                     <span class="float-right">
                                         <a href="../account/profile/edit" class="btn btn-sm btn-outline-primary">
-                                            <span class="mr-2 mb-1"><i class="ti ti-pencil-alt"></i></span>
-                                            <span>Edit</span>
+                                            <span>Edit info</span>
                                         </a>
+                                        <a href="../account/profile/change-password"
+                                           class="btn btn-sm btn-outline-primary">
+                                            <span>Change password</span>
+                                        </a>
+                                        <form action="../account/profile/destroy-account" method="post" class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-sm btn-outline-primary"
+                                                    onclick="return confirm('Do you really want to delete your account?')">
+                                                <span>Delete account</span>
+                                            </button>
+                                        </form>
                                     </span>
                                 </h4>
                                 <div class="row">
@@ -66,7 +77,7 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

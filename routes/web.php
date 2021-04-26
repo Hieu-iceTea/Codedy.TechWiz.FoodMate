@@ -70,7 +70,9 @@ Route::prefix('')->middleware('CheckMemberLogin')->group(function () {
         Route::prefix('/profile')->group(function () {
             Route::get('/', [App\Http\Controllers\Front\AccountController::class, 'profileShow']);
             Route::get('/edit', [\App\Http\Controllers\Front\AccountController::class, 'profileEdit']);
+            Route::get('/change-password', [\App\Http\Controllers\Front\AccountController::class, 'profileChangePassword']);
             Route::put('/', [\App\Http\Controllers\Front\AccountController::class, 'profileUpdate']);
+            Route::delete('/destroy-account', [\App\Http\Controllers\Front\AccountController::class, 'profileDestroy']);
         });
 
         Route::prefix('/my-order')->group(function () {
