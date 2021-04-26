@@ -30,6 +30,7 @@ Route::prefix('')->middleware('CheckMemberLogin')->group(function () {
     Route::get('about', [App\Http\Controllers\Front\HomeController::class, 'about']);
     Route::get('faq', [App\Http\Controllers\Front\HomeController::class, 'faq']);
     Route::get('service', [App\Http\Controllers\Front\HomeController::class, 'service']);
+    Route::get('contact', [App\Http\Controllers\Front\HomeController::class, 'contact']);
 
     Route::prefix('menu')->group(function () {
         Route::get('', [App\Http\Controllers\Front\MenuController::class, 'index']);
@@ -55,12 +56,6 @@ Route::prefix('')->middleware('CheckMemberLogin')->group(function () {
         Route::get('/result', [\App\Http\Controllers\Front\CheckOutController::class, 'result']);
     });
 
-    Route::prefix('contact')->group(function () {
-        Route::get('', [App\Http\Controllers\Front\ContactController::class, 'index']);
-        Route::post('/', [App\Http\Controllers\Front\ContactController::class, 'addContact']);
-        Route::get('/result', [App\Http\Controllers\Front\ContactController::class, 'result']);
-    });
-
     Route::prefix('account')->group(function () {
         Route::redirect('/', '/account/my-order'); //Chuyển hướng
 
@@ -77,6 +72,12 @@ Route::prefix('')->middleware('CheckMemberLogin')->group(function () {
             Route::get('/{id}', [\App\Http\Controllers\Front\AccountController::class, 'myOrderShow']);
         });
     });
+
+    Route::prefix('feedback')->group(function () {
+        Route::get('', [App\Http\Controllers\Front\FeedbackController::class, 'index']);
+        Route::post('/', [App\Http\Controllers\Front\FeedbackController::class, 'addFeedback']);
+        Route::get('/result', [App\Http\Controllers\Front\FeedbackController::class, 'result']);
+    });
 });
 
 
@@ -87,15 +88,16 @@ Route::prefix('')->middleware('CheckMemberLogin')->group(function () {
 |
 */
 
+
 Route::prefix('admin')->middleware('CheckAdminLogin')->group(function () {
-    Route::redirect('', 'admin/user'); //Chuyển hướng
+    Route::get('/', [App\Http\Controllers\admin\HomeController::class, 'index']);
 
     Route::resource('category', App\Http\Controllers\Admin\CategoryController::class);
     Route::resource('order', App\Http\Controllers\Admin\OrderController::class);
     Route::resource('product', App\Http\Controllers\Admin\ProductController::class);
     Route::resource('restaurant', App\Http\Controllers\Admin\RestaurantController::class);
     Route::resource('user', App\Http\Controllers\Admin\UserController::class);
-    Route::resource('contact', App\Http\Controllers\Admin\ContactController::class);
+    Route::resource('feedback', App\Http\Controllers\Admin\FeedbackController::class);
 
     Route::prefix('login')->group(function () {
         Route::get('', [\App\Http\Controllers\Admin\HomeController::class, 'getLogin'])->withoutMiddleware('CheckAdminLogin');

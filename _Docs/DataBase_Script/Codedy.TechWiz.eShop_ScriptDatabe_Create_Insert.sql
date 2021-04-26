@@ -432,6 +432,7 @@ INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, 
     VALUE (9, 6, 1, '8, Ton That Thuyet',1, 100, 2);
 
 
+
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
     VALUE (1, 1, 1, 2, 100, 200);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
@@ -472,4 +473,15 @@ INSERT INTO feedbacks (id, user_id, name, email, message)
     VALUE (3, NULL, 'Nông Phan Mạnh Hùng', 'HungNPMTH1908050@fpt.edu.vn', 'The software has every feature that my company needs.');
 INSERT INTO feedbacks (id, user_id, name, email, message)
     VALUE (4, NULL, 'Nguyễn Trung Anh', 'AnhNTTH1908059@fpt.edu.vn', 'Thanks a lot of development team. I used the product and very satisfied.');
+
+
+INSERT INTO feedbacks (id, user_id, name, email, message)
+VALUE (1, 6, 'Nguyễn Đình Hiếu', 'DinhHieu8896gmail.com', 'Very excellent products.');
+INSERT INTO feedbacks (id, user_id, name, email, message)
+VALUE (2, 6, 'Vũ Quang Huy', 'HuyVQTH1909003@fpt.edu.vn', 'Best solution for online food sale.');
+INSERT INTO feedbacks (id, user_id, name, email, message)
+VALUE (3, NULL, 'Nông Phan Mạnh Hùng', 'HungNPMTH1908050@fpt.edu.vn', 'The software has every feature that my company needs.');
+INSERT INTO feedbacks (id, user_id, name, email, message)
+VALUE (4, NULL, 'Nguyễn Trung Anh', 'AnhNTTH1908059@fpt.edu.vn', 'Thanks a lot of development team. I used the product and very satisfied.');
+
 
