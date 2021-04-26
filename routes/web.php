@@ -103,6 +103,7 @@ Route::prefix('admin')->middleware('CheckAdminLogin')->group(function () {
     Route::resource('restaurant', App\Http\Controllers\Admin\RestaurantController::class);
     Route::resource('user', App\Http\Controllers\Admin\UserController::class);
     Route::resource('contact', App\Http\Controllers\Admin\ContactController::class);
+    Route::resource('feedback', App\Http\Controllers\Admin\FeedbackController::class);
 
     Route::prefix('login')->group(function () {
         Route::get('', [\App\Http\Controllers\Admin\HomeController::class, 'getLogin'])->withoutMiddleware('CheckAdminLogin');
