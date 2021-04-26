@@ -15,9 +15,17 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::paginate();
+        $keyword = $request->get('search');
+
+        $users=User::where('id','=',$keyword)
+            ->orWhere('id','like','%'.$keyword.'%')
+            ->orderBy('id','desc')
+            ->paginate();
+
+        //giúp chuyển trang page sẽ đính kèm theo từ khóa search của người dùng:
+        $users->appends(['search' => $keyword]);
 
         return view('admin.user.index', compact('users'));
     }

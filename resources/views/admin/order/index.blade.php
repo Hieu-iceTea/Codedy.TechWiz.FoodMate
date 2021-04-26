@@ -41,7 +41,7 @@
                         <form>
                             <div class="input-group">
                                 <input type="search" name="search" id="search" value="{{ request('search') }}"
-                                       placeholder="Search everything" class="form-control">
+                                       placeholder="Search By Id" class="form-control">
                                 <span class="input-group-append">
                                         <button type="submit" class="btn btn-primary">
                                             <i class="fa fa-search"></i>&nbsp;
@@ -64,7 +64,7 @@
                                 <th class="text-center">City</th>
                                 <th class="text-center">Payment Type</th>
                                 <th class="text-center">Total Amount</th>
-                                <th class="text-center">Status</th>
+                                <th>Status</th>
                                 <th class="text-center">Actions</th>
                             </tr>
                             </thead>
@@ -82,7 +82,27 @@
                                     <td class="text-center">{{ $order->city }}</td>
                                     <td class="text-center">{{ \App\Utilities\Constant::$product_pay_types[$order->payment_type] }}</td>
                                     <td class="text-center">{{ $order->total_amount }}$</td>
-                                    <td class="text-center">{{ \App\Utilities\Constant::$order_status[$order->status] }}</td>
+                                    <td>
+                                    <form method="post" action="{{ url()->current() . '/' . $order->id }}" >
+                                        @csrf
+                                        @method('PUT')
+                                        <div class="position-relative row form-group">
+                                            <div class="col-md-9 col-xl-8">
+                                                <select name="status" id="status" class="form-control w-auto" onchange="this.form.submit()">
+
+                                                 @foreach(\App\Utilities\Constant::$order_status as $order_status)
+                                                        <option
+                                                            value = {{ array_search($order_status, \App\Utilities\Constant::$order_status) }}
+                                                            {{ (old('status') ?? $order->status ?? '') == array_search($order_status, \App\Utilities\Constant::$order_status) ? 'selected' : '' }}>
+                                                            {{ $order_status }}
+                                                        </option>
+                                                  @endforeach
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    </td>
                                     <td class="text-center">
                                         <a href="{{ url()->current() . '/' . $order->id }}"
                                            class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">

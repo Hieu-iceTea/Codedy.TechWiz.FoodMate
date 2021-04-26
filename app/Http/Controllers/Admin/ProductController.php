@@ -19,11 +19,13 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $products = Product::all();
-        if($request->get('search')!=null){
-        $products = $products->where('id', '=' ,$request->get('search'));
-        }
+        $products = Product::orderBy('id','desc')->paginate(10);
 
+        if($request->get('search')!=null){
+        $products = Product::where('name', 'Like', '%'. $request->get('search') .'%')
+            ->orWhere('id', 'Like', '%'. $request->get('search') .'%')
+            ->paginate(10);
+        }
 
         return view('admin.product.index',compact('products'));
     }

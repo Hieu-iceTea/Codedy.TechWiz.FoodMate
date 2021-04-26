@@ -30,9 +30,9 @@ CREATE TABLE IF NOT EXISTS `User`
     `id`                  INT AUTO_INCREMENT,
 
     `user_name`           VARCHAR(64) UNIQUE         NOT NULL,
-    `email`               VARCHAR(64)                NOT NULL,
+    `email`               VARCHAR(64) UNIQUE         NOT NULL,
     `password`            VARCHAR(128)               NOT NULL,
-    `level`               TINYINT UNSIGNED DEFAULT 3 NOT NULL,
+    `level`               TINYINT UNSIGNED NOT NULL,
 
     `email_verified_at`   DATETIME,
     `verification_code`   VARCHAR(8)       DEFAULT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `User`
     `remember_token`      VARCHAR(128)     DEFAULT NULL,
 
     `image`               VARCHAR(128),
-    `gender`              BOOLEAN                    NOT NULL,
+    `gender`              BOOLEAN,
     `first_name`          VARCHAR(64),
     `last_name`           VARCHAR(64),
     `phone`               VARCHAR(16),
@@ -217,19 +217,19 @@ VALUE (9, 'Host', 'host.codedy@gmail.com', '$2y$10$oW..IGNT/CH2muKpN/8LAuNJ1ahnw
 INSERT INTO User (id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, street, city, active)
 VALUE (8, 'Admin', 'admin.codedy@gmail.com', '$2y$10$/AmOQGhkVS8otOSJbAv.6OHxseW/AOdVw7wxNbopMHgy0Btbp3Anu', 2, '2020-08-08', 'admin.jpg', 1, 'CODEDY', 'Admin', '0868 6633 15', 'Ton That Thuyet', 'Ha Noi', TRUE);
 INSERT INTO User (id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, street, city, active)
-VALUE (7, 'Customer', 'customer.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'member.jpg', 1, 'CODEDY', 'Member', '0868 6633 15', 'Ton That Thuyet', 'Ha Noi', TRUE);
+VALUE (7, 'Staff', 'staff.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'staff.jpg', 2, 'CODEDY', 'Staff', '0868 6633 15', 'Ton That Thuyet', 'Ha Noi', TRUE);
 INSERT INTO User (id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, street, city, active)
-VALUE (6, 'Staff', 'staff.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2020-08-08', 'staff.jpg', 2, 'CODEDY', 'Staff', '0868 6633 15', 'Ton That Thuyet', 'Ha Noi', TRUE);
+VALUE (6, 'Customer', 'customer.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2020-08-08', 'member.jpg', 1, 'CODEDY', 'Customer', '0868 6633 15', 'Ton That Thuyet', 'Ha Noi', TRUE);
 INSERT INTO User (id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, street, city, active)
-VALUE (5, 'DinhHieu8896', 'DinhHieu8896gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2020-08-08', 'DinhHieu8896.jpg', 1, 'Nguyễn Đình', 'Hiếu', '0868 6633 15', 'Ton That Thuyet', 'Ha Noi', TRUE);
+VALUE (5, 'DinhHieu8896', 'DinhHieu8896gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'DinhHieu8896.jpg', 1, 'Nguyễn Đình', 'Hiếu', '0868 6633 15', 'Ton That Thuyet', 'Ha Noi', TRUE);
 INSERT INTO User (id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, street, city, active)
-VALUE (4, 'HuyVQTH1909003', 'HuyVQTH1909003@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2020-08-08', 'HuyVQTH1909003.jpg', 1, 'Vũ Quang', 'Huy', '0868 6633 15', 'Ton That Thuyet', 'Ha Noi', TRUE);
+VALUE (4, 'HuyVQTH1909003', 'HuyVQTH1909003@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'HuyVQTH1909003.jpg', 1, 'Vũ Quang', 'Huy', '0868 6633 15', 'Ton That Thuyet', 'Ha Noi', TRUE);
 INSERT INTO User (id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, street, city, active)
-VALUE (3, 'HungNPMTH1908050', 'HungNPMTH1908050@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2020-08-08', 'HungNPMTH1908050.jpg', 1, 'Nông Phan Mạnh', 'Hùng', '0868 6633 15', 'Ton That Thuyet', 'Ha Noi', TRUE);
+VALUE (3, 'HungNPMTH1908050', 'HungNPMTH1908050@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'HungNPMTH1908050.jpg', 1, 'Nông Phan Mạnh', 'Hùng', '0868 6633 15', 'Ton That Thuyet', 'Ha Noi', TRUE);
 INSERT INTO User (id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, street, city, active)
-VALUE (2, 'AnhNTTH1908059', 'AnhNTTH1908059@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2020-08-08', 'AnhNTTH1908059.jpg', 1, 'Nguyễn Trung', 'Anh', '0868 6633 15', 'Ton That Thuyet', 'Ha Noi', TRUE);
+VALUE (2, 'AnhNTTH1908059', 'AnhNTTH1908059@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'AnhNTTH1908059.jpg', 1, 'Nguyễn Trung', 'Anh', '0868 6633 15', 'Ton That Thuyet', 'Ha Noi', TRUE);
 INSERT INTO User (id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, street, city, active)
-VALUE (1, 'Admin_Demo', 'admin_demo.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 2, '2020-08-08', 'admin_demo.jpg', 1, 'CODEDY', 'Admin_Demo', '0868 6633 15', 'Ton That Thuyet', 'Ha Noi', TRUE);
+VALUE (1, 'Admin_Demo', 'admin_demo.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 2, '2020-08-08', 'admin_demo.jpg', 1, 'CODEDY', 'Admin_Demo', '0868 6633 15', 'Ton That Thuyet', 'Ha Noi', FALSE);
 
 
 INSERT INTO Product_Categories (Id, Name, Image)
@@ -416,15 +416,24 @@ INSERT INTO restaurants (id, name, image, address, description)
 VALUE (9, 'Xian Famous Foods', 'xianfood.png', '328 E 78th St,New York, NY 10075', 'The original location of this full-on empire from restaurateur Jason Wang opened in Flushing. As its reputation grew, branches started popping up all over the city with its spicy, fragrant style of cooking from northwestern China, inflected with Middle Eastern spices. Try any of the hand-pulled noodles and the spicy cumin lamb burger — the meat is rich, the bread has a crunchy sear on the outside, and the bun is soft enough inside to soak up plenty of lamb juices.');
 
 
-
 INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
-VALUE (1, 2, 'Nguyễn Đình', 'Hiếu', 'DinhHieu8896gmail.com','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 300, 1);
+VALUE (1, 6, 'Nguyễn Đình', 'Hiếu', 'DinhHieu8896gmail.com','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 600, 1);
 INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
-VALUE (2, NULL, 'Vũ Quang', 'Huy', 'HuyVQTH1909003@fpt.edu.vn','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',2, 100, 2);
+VALUE (2, 6, 'Nông Phan Mạnh', 'Hùng', 'HuyVQTH1909003@fpt.edu.vn','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 100, 2);
 INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
-VALUE (3, 2, 'Nông Phan Mạnh', 'Hùng', 'HungNPMTH1908050@fpt.edu.vn','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 400, 3);
+VALUE (3, 6, 'Vũ Quang', 'Huy', 'HungNPMTH1908050@fpt.edu.vn','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 100, 3);
 INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
-VALUE (4, NULL, 'Nguyễn Trung', 'Anh', 'AnhNTTH1908059@fpt.edu.vn','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',2, 200, 4);
+VALUE (4, 6, 'Nguyễn Trung', 'Anh', 'AnhNTTH1908059@fpt.edu.vn','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 100, 4);
+INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
+VALUE (5, NULL, 'Phạm Thị Mai', 'Hoa', 'Hoa@gmail.com','032 8799000', '8 Ton That Thuyet', 'Ha Noi',1, 100, 5);
+INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
+VALUE (6, NULL, 'Nguyễn', 'Tuân', 'A@gmail.com','032 8799000', '8 Ton That Thuyet', 'Ha Noi',1, 100, 6);
+INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
+VALUE (7, NULL, 'Phạm', 'Tú', 'B@gmail.com','032 8799000', '8 Ton That Thuyet', 'Ha Noi',1, 100, 0);
+INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
+VALUE (8, 6, 'Cao Trung', 'Kiên', 'Kien@gmail.com','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 300, 1);
+INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
+VALUE (9, 6, 'Dang Kim', 'Thi', 'ThiDK@gmail.com','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 100, 2);
 
 
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
@@ -432,7 +441,32 @@ VALUE (1, 1, 1, 2, 100, 200);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
 VALUE (2, 1, 2, 1, 100, 100);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (3, 2, 3, 1, 100, 100);
+VALUE (3, 1, 3, 1, 100, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (4, 1, 4, 1, 100, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (5, 1, 5, 1, 100, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (6, 2, 6, 1, 100, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (7, 3, 7, 1, 100, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (8, 4, 8, 1, 100, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (9, 5, 9, 1, 100, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (10, 6, 10, 1, 100, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (11, 7, 1, 1, 100, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (12, 8, 8, 2, 100, 200);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (13, 8, 9, 1, 100, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (14, 8, 10, 1, 100, 100);
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
+VALUE (15, 9, 9, 1, 100, 100);
+
 
 INSERT INTO feedbacks (id, user_id, name, email, message)
 VALUE (1, 6, 'Nguyễn Đình Hiếu', 'DinhHieu8896gmail.com', 'Very excellent products.');
