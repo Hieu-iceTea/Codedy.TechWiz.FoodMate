@@ -38,15 +38,15 @@
     text-align: initial
 }
 
-.rate {
+.rate-custom {
     float: left;
     height: 46px;
     padding: 0 10px;
 }
-.rate:not(:checked) > input {
+.rate-custom:not(:checked) > input {
     display: none;
 }
-.rate:not(:checked) > label {
+.rate-custom:not(:checked) > label {
     float:right;
     width:1em;
     overflow:hidden;
@@ -55,20 +55,20 @@
     font-size:30px;
     color:#ccc;
 }
-.rate:not(:checked) > label:before {
+.rate-custom:not(:checked) > label:before {
     content: '★ ';
 }
-.rate > input:checked ~ label {
+.rate-custom > input:checked ~ label {
     color: #ffc700;
 }
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
+.rate-custom:not(:checked) > label:hover,
+.rate-custom:not(:checked) > label:hover ~ label {
     color: #deb217;
 }
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
+.rate-custom > input:checked + label:hover,
+.rate-custom > input:checked + label:hover ~ label,
+.rate-custom > input:checked ~ label:hover,
+.rate-custom > input:checked ~ label:hover ~ label,
+.rate-custom > label:hover ~ input:checked ~ label {
     color: #c59b08;
 }

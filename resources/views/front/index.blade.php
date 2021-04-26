@@ -37,7 +37,7 @@
                         <div class="content-inner">
                             <h1>Get 10% off coupon</h1>
                             <h5 class="text-muted mb-5">and use it with your next order!</h5>
-                            <a href="page-offers.html"
+                            <a href="../menu"
                                class="btn btn-outline-primary btn-lg"><span>Get it now!</span></a>
                         </div>
                         <div class="content-inner">
@@ -69,9 +69,9 @@
                 <div class="rate mb-5 rate-lg"><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i
                         class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star"></i>
                 </div>
-                <h1>The best food in London!</h1>
-                <p class="lead text-muted mb-5">Donec a eros metus. Vivamus volutpat leo dictum risus ullamcorper
-                    condimentum. Cras sollicitudin varius condimentum. Praesent a dolor sem....</p>
+                <h2>What do people say about us?</h2>
+                <p class="lead text-muted mb-5">These are the reviews of the people who have used our services, the
+                    customer reviews tell us the quality of our service !</p>
                 <div class="blockquotes">
                     <!-- Blockquote -->
                     <blockquote class="blockquote light animated" data-animation="fadeInLeft">
@@ -178,7 +178,7 @@
             @if(count($products) > 0)
                 @foreach($product_categories as $product_categories)
                     <div class="menu-sample">
-                        <a href="../menu#{{ $product_categories->name }}">
+                        <a href="../{{ $product_categories->name }}">
                             <img src="../front/data-images/products/{{ $product_categories->products[0]->image }}"
                                  alt="" class="image">
                             <h3 class="title">{{ $product_categories->name }}</h3>
@@ -194,7 +194,7 @@
     <section class="section bg-light">
 
         <div class="container">
-            <h1 class="text-center mb-6">Special offers</h1>
+            <h1 class="text-center mb-6">Our chain of stores</h1>
             <div class="carousel" data-slick='{"dots": true}'>
                 <!-- Special Offer -->
 

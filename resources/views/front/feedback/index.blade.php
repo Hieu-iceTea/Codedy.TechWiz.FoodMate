@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="personal-rating">
                                     <h6>Your Rating</h6>
-                                    <div class="rate">
+                                    <div class="rate-custom">
                                         <input type="radio" id="star5" name="rating" value="5" />
                                         <label for="star5" title="text">5 stars</label>
                                         <input type="radio" id="star4" name="rating" value="4" />
