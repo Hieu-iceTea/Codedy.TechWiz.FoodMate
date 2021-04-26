@@ -68,66 +68,85 @@
                     </div>
                     <div class="col-xl-8 col-lg-7 order-lg-first">
 
-                        @include('components.errors')
-
-                        <form method="post">
-                            @csrf
-                            <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-                            <input type="hidden" name="total_amount" value="{{ Cart::total() }}">
-
+                        @if(\Illuminate\Support\Facades\Auth::guest())
                             <div class="bg-white p-4 p-md-5 mb-4">
-
                                 <h4 class="border-bottom pb-4">
                                     <i class="ti ti-user mr-3 text-primary"></i>
-                                    Your informations
+                                    Please login to continue...
                                 </h4>
                                 <div class="row">
-                                    <div class="form-group col-sm-6">
-                                        <label>First Name:</label>
-                                        <p class="font-weight-bold">{{ Auth::user()->first_name }}</p>
-                                    </div>
-                                    <div class="form-group col-sm-6">
-                                        <label>Last Name:</label>
-                                        <p class="font-weight-bold">{{ Auth::user()->last_name }}</p>
-                                    </div>
-                                    <div class="form-group col-sm-6">
-                                        <label>Phone number:</label>
-                                        <p class="font-weight-bold">{{ Auth::user()->phone }}</p>
-                                    </div>
-                                    <div class="form-group col-sm-6">
-                                        <label>E-mail address:</label>
-                                        <p class="font-weight-bold">{{ Auth::user()->email }}</p>
-                                    </div>
-                                    <div class="form-group col-sm-12">
-                                        <label>Delivery address:</label>
-                                        <textarea class="form-control" name="delivery_address" required>{{ Auth::user()->street }}, {{ Auth::user()->city }}</textarea>
-                                    </div>
-                                </div>
-
-                                <h4 class="border-bottom pb-4 mt-5 d-none">
-                                    <i class="ti ti-wallet mr-3 text-primary"></i>
-                                    Payment
-                                </h4>
-                                <div class="row text-lg d-none">
-                                    @foreach(\App\Utilities\Constant::$product_pay_types as $key => $value)
-                                        <div class="col-md-4 col-sm-6 form-group">
-                                            <label class="custom-control custom-radio">
-                                                <input type="radio"
-                                                       name="payment_type" value="{{ $key }}"
-                                                       {{ $value == \App\Utilities\Constant::$product_pay_types[\App\Utilities\Constant::product_pay_type_Cash] ? 'checked' : '' }}
-                                                       class="custom-control-input">
-                                                <span class="custom-control-indicator"></span>
-                                                <span class="custom-control-description">{{ $value }}</span>
-                                            </label>
+                                    <div class="col-sm-12">
+                                        <div class="text-center">
+                                            <a href="../account/login" class="btn btn-primary"><span>Login</span></a>
+                                            <a href="../account/register" class="btn btn-outline-primary"><span>Register now!</span></a>
                                         </div>
-                                    @endforeach
+                                    </div>
                                 </div>
+                            </div>
+                        @else
+                            @include('components.errors')
 
-                            </div>
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary btn-lg"><span>Order now!</span></button>
-                            </div>
-                        </form>
+                            <form method="post">
+                                @csrf
+                                <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                                <input type="hidden" name="total_amount" value="{{ Cart::total() }}">
+
+                                <div class="bg-white p-4 p-md-5 mb-4">
+
+                                    <h4 class="border-bottom pb-4">
+                                        <i class="ti ti-user mr-3 text-primary"></i>
+                                        Your informations
+                                    </h4>
+                                    <div class="row">
+                                        <div class="form-group col-sm-6">
+                                            <label>First Name:</label>
+                                            <p class="font-weight-bold">{{ Auth::user()->first_name ?? '' }}</p>
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            <label>Last Name:</label>
+                                            <p class="font-weight-bold">{{ Auth::user()->last_name  ?? ''}}</p>
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            <label>Phone number:</label>
+                                            <p class="font-weight-bold">{{ Auth::user()->phone  ?? ''}}</p>
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            <label>E-mail address:</label>
+                                            <p class="font-weight-bold">{{ Auth::user()->email  ?? ''}}</p>
+                                        </div>
+                                        <div class="form-group col-sm-12">
+                                            <label>Delivery address:</label>
+                                            <textarea class="form-control" name="delivery_address" required>{{ Auth::user()->street  ?? ''}}, {{ Auth::user()->city  ?? ''}}</textarea>
+                                        </div>
+                                    </div>
+
+                                    <h4 class="border-bottom pb-4 mt-5 d-none">
+                                        <i class="ti ti-wallet mr-3 text-primary"></i>
+                                        Payment
+                                    </h4>
+                                    <div class="row text-lg d-none">
+                                        @foreach(\App\Utilities\Constant::$product_pay_types as $key => $value)
+                                            <div class="col-md-4 col-sm-6 form-group">
+                                                <label class="custom-control custom-radio">
+                                                    <input type="radio"
+                                                           name="payment_type" value="{{ $key }}"
+                                                           {{ $value == \App\Utilities\Constant::$product_pay_types[\App\Utilities\Constant::product_pay_type_Cash] ? 'checked' : '' }}
+                                                           class="custom-control-input">
+                                                    <span class="custom-control-indicator"></span>
+                                                    <span class="custom-control-description">{{ $value }}</span>
+                                                </label>
+                                            </div>
+                                        @endforeach
+                                    </div>
+
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg"><span>Order now!</span>
+                                    </button>
+                                </div>
+                            </form>
+                        @endif
+
                     </div>
                 @else
                     <div class="col-xl-10 col-lg-12 m-auto">
