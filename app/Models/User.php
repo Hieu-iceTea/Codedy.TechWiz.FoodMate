@@ -21,7 +21,7 @@ class User extends Authenticatable
         return $this->hasMany(Order::class, 'user_id', 'id');
     }
 
-    public function contacts()
+    public function feedbacks()
     {
         return $this->hasMany(Contact::class, 'user_id', 'id');
     }
