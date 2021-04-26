@@ -28,8 +28,14 @@ class CategoryRequest extends FormRequest
         if ($this->is('admin/category/create')) {
             $rules['image'] = 'required|image';
         }
+        $id = $this->segment(3);
+        if (isset($id)) {
+            $except = ',' . $id . ',id,deleted,0'; //kiểm tra trùng lặp, loại bỏ ID hiện tại & deleted = 0 (Không bao gồm những bản ghi đã bị xóa)
+        } else {
+            $except = ',1,deleted'; //deleted <> 1 : Không bao gồm những bản ghi đã bị xóa
+        }
         $rules = [
-            'name' => 'required|max:255|unique:product_categories,name',
+            'name' => 'required|max:255|unique:product_categories,name'.$id,
         ];
         return $rules;
     }

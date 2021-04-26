@@ -25,6 +25,7 @@ class OrderController extends Controller
 
         //giúp chuyển trang page sẽ đính kèm theo từ khóa search của người dùng:
         $orders->appends(['search' => $keyword]);
+
         return view('admin.order.index',compact('orders'));
     }
 
@@ -82,7 +83,12 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //onchange status
+        $data = $request->all();
+
+        Order::findOrFail($id)->update($data);
+
+        return back();
     }
 
     /**

@@ -26,19 +26,24 @@ class ProductRequest extends FormRequest
         $rules = [];
 
 
-        //user/create
-        if ($this->is('admin/product/create')) {
+        //product/create
+        if ($this->is('admin/*/create')) {
             $rules['image'] = 'required|image';
         }
-
+        $id = $this->segment(3);
+        if (isset($id)) {
+            $except = ',' . $id . ',id,deleted,0'; //kiểm tra trùng lặp, loại bỏ ID hiện tại & deleted = 0 (Không bao gồm những bản ghi đã bị xóa)
+        } else {
+            $except = ',1,deleted'; //deleted <> 1 : Không bao gồm những bản ghi đã bị xóa
+        }
         $rules = [
             'product_category_id' => 'required',
             'restaurant_id' => 'required',
-            'name' => 'required|max:255|unique:products,name',
-            'ingredients' => 'required|max:255',
+            'name' => 'required|max:255|unique:products,name,'. $id,
+        'ingredients' => 'required|max:255',
             'price' => 'required|numeric',
             'country' => 'required|max:50',
-            'description' => 'required|max:255',
+            'description' => 'required',
             'featured' => 'required',
         ];
 

@@ -57,28 +57,35 @@
                     <nav class="module module-navigation left mr-4">
                         <ul id="nav-main" class="nav nav-main">
                             <li><a href="../">Home</a></li>
-                            <li class="has-dropdown">
-                                <a href="#">About</a>
-                                <div class="dropdown-container">
-                                    <ul class="dropdown-mega">
-                                        <li><a href="../about">About Us</a></li>
-                                        <li><a href="../services">Services</a></li>
-                                        <li><a href="../faq">FAQ</a></li>
-                                    </ul>
-                                    <div class="dropdown-image">
-                                        <img src="data-images/photos/dropdown-about.jpg" alt="">
-                                    </div>
-                                </div>
-                            </li>
                             <li><a href="../menu">Menu</a></li>
                             <li><a href="../restaurant">Restaurant</a></li>
-                            <li><a href="../contact">Contact</a></li>
+                            <li><a href="../about">About</a></li>
                             <li class="has-dropdown">
-                                <a href="#">More</a>
+                                <a href="#">Account</a>
                                 <div class="dropdown-container">
                                     <ul class="dropdown-mega">
-                                        <li><a href="../book-a-table">Book a table</a></li>
-                                        <li><a href="../checkout">Checkout</a></li>
+
+                                        @if(Auth::check())
+                                            <li>
+                                                <div class="mt-2 mb-3">
+                                                    <img style="height: 80px;" class="rounded-circle"
+                                                         src="../front/data-images/user/{{ Auth::user()->image ?? '_default-user.png' }}"
+                                                         alt="">
+                                                </div>
+                                                <div class="mb-4">
+                                                <span
+                                                    style="text-transform: none">Hello, {{ Auth::user()->user_name ?? '' }}</span>
+                                                </div>
+                                            </li>
+
+                                            <li><a href="../account/logout">Logout</a></li>
+                                        @else
+                                            <li><a href="../account/login">Login</a></li>
+                                            <li><a href="../account/register">Register</a></li>
+                                        @endif
+
+                                        <li><a href="../account/my-order">My Order</a></li>
+
                                     </ul>
                                     <div class="dropdown-image">
                                         <img src="data-images/photos/dropdown-more.jpg" alt="">
@@ -88,7 +95,7 @@
                         </ul>
                     </nav>
                     <div class="module left">
-                        <a href="menu-list-navigation.html" class="btn btn-outline-secondary"><span>Order</span></a>
+                        <a href="../contact" class="btn btn-outline-secondary"><span>Contact</span></a>
                     </div>
                 </div>
                 <div class="col-md-2">
@@ -222,10 +229,7 @@
         <div class="panel-cart-container">
             <div class="panel-cart-title">
                 <h5 class="title">Your Cart</h5>
-                <button class="close border-0 bg-transparent"
-                        onclick="confirm('Delete all the cart?') === true ? window.location='./cart/destroy' : ''">
-                    <i class="ti ti-close"></i>
-                </button>
+                <button class="close" data-toggle="panel-cart"><i class="ti ti-close"></i></button>
             </div>
             <div class="panel-cart-content cart-details">
                 @if(count(Cart::content()) > 0)
@@ -239,8 +243,10 @@
                                 </td>
                                 <td class="price">${{ $cart->price *  $cart->qty }}</td>
                                 <td class="actions">
-                                    <a href="../cart/delete/{{ $cart->rowId }}" class="action-icon"><i
-                                            class="ti ti-close"></i></a>
+                                    <button class="close border-0 bg-transparent"
+                                            onclick="confirm('Delete this item?') === true ? window.location='../cart/delete/{{ $cart->rowId }}' : ''">
+                                        <i class="ti ti-close"></i>
+                                    </button>
                                 </td>
                             </tr>
                         @endforeach
@@ -270,8 +276,8 @@
                 @endif
             </div>
         </div>
-        <a href="../checkout"
-           class="panel-cart-action btn btn-secondary btn-block btn-lg"><span>Go to checkout</span></a>
+        <a href="../cart"
+           class="panel-cart-action btn btn-secondary btn-block btn-lg"><span>Go to cart</span></a>
     </div>
 
     <!-- Panel Mobile -->

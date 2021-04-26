@@ -22,7 +22,7 @@ class CheckAdminLogin
             return redirect()->guest('admin/login');
         }
 
-        if (Auth::user()->level != Constant::user_level_host && Auth::user()->level !=  Constant::user_level_admin) {
+        if (Auth::user()->level != Constant::user_level_host && Auth::user()->level !=  Constant::user_level_admin && Auth::user()->level !=  Constant::user_level_staff) {
             Auth::logout();
 
             return redirect()->guest('admin/login');
