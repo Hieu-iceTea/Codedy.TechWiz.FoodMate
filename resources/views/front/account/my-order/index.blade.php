@@ -32,6 +32,7 @@
                             <tr>
                                 <th style="width: 160px">Image</th>
                                 <th>Items</th>
+                                <th>Status</th>
                                 <th class="text-right">Total</th>
                                 <th class="text-right">
                                     Action
@@ -55,6 +56,7 @@
                                             @endif
                                         </span>
                                     </td>
+                                    <td class="title">{{ \App\Utilities\Constant::$order_status[$order->status] }}</td>
                                     <td class="price">{{ $order->orderDetails[0]->product->price }}$</td>
                                     <td class="actions">
                                         <a href="../account/my-order/{{ $order->id }}" class="action-icon">
