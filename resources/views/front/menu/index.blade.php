@@ -23,16 +23,17 @@
             <form action="" method="get" class="">
                 <div class="row text-lg">
 
-                    @foreach(\App\Utilities\Constant::$product_tags as $product_tag)
+                    @foreach($productTag as $product_tag)
                         <div class="col-md-3 col-sm-6 form-group">
                             <label class="custom-control custom-radio">
                                 <input type="checkbox" class="custom-control-input"
                                        name="tag[]"
-                                       value="{{ $product_tag }}"
+                                       value="{{$product_tag}}"
                                        {{  in_array($product_tag, (request("tag") ?? [])) || request("tag") == null ? 'checked' : '' }}
                                        onchange="this.form.submit();">
                                 <span class="custom-control-indicator"></span>
                                 <span class="custom-control-description">{{ $product_tag }}</span>
+
                             </label>
                         </div>
                     @endforeach
