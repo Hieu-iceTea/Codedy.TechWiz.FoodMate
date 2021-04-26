@@ -11,7 +11,26 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-4">
                     <h1 class="mb-0">Menu</h1>
-                    <h4 class="text-muted mb-0">Some information about our restaurant</h4>
+
+                    @if(request('restaurant_id') != null)
+                        <h4 class="text-muted mb-0">
+                            For restaurant:
+                            <a href="../restaurant">
+                                <span style="font-size: 130%">
+                                    {{ $restaurant_name }}
+                                </span>
+                                (change)
+                            </a>
+                        </h4>
+                    @else
+                        <h4 class="text-muted mb-0">
+                            For all restaurant.
+                            <a href="../restaurant">
+                                (Select restaurant)
+                            </a>
+                        </h4>
+                    @endif
+
                 </div>
             </div>
         </div>
@@ -21,9 +40,10 @@
     <div class="page-content">
         <div class="container">
             <form action="" method="get" class="">
+                <input type="hidden" name="restaurant_id" value="{{ request('restaurant_id') }}">
                 <div class="row text-lg">
 
-                    @foreach($productTag as $product_tag)
+                    @foreach(\App\Utilities\Constant::$product_tags as $product_tag)
                         <div class="col-md-3 col-sm-6 form-group">
                             <label class="custom-control custom-radio">
                                 <input type="checkbox" class="custom-control-input"

@@ -15,7 +15,7 @@ class RestaurantController extends Controller
         $keyword = $request->search;
         $restaurants = Restaurant::where('name', 'like', '%' . $keyword . '%')
             ->orWhere('address', 'like', '%' . $keyword . '%')
-            ->orderBy('id', 'desc')->get();
+            ->get();
 
         return view('front.restaurant.index', compact('restaurants'));
     }
