@@ -90,6 +90,8 @@ Route::prefix('')->middleware('CheckMemberLogin')->group(function () {
 
 Route::prefix('admin')->middleware('CheckAdminLogin')->group(function () {
     Route::get('/', [App\Http\Controllers\admin\HomeController::class, 'index']);
+    Route::get('/view=all', [App\Http\Controllers\admin\HomeController::class, 'index']);
+    Route::get('/view=lastmonth', [App\Http\Controllers\admin\HomeController::class, 'index']);
 
     Route::resource('category', App\Http\Controllers\Admin\CategoryController::class);
     Route::resource('order', App\Http\Controllers\Admin\OrderController::class);
