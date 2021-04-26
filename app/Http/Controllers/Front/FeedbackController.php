@@ -4,20 +4,23 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
+use App\Models\Feedback;
 use Illuminate\Http\Request;
 
-class ContactController extends Controller
+class FeedbackController extends Controller
 {
-    public function index(){
-        return view('front.contact.index');
+    public function index()
+    {
+        return view('front.feedback.index');
     }
 
-    public function addContact(Request $request){
+    public function addFeedback(Request $request)
+    {
         $data = $request->all();
 
-        Contact::create($data);
+        Feedback::create($data);
 
-        return redirect('contact/result')
+        return redirect('feedback/result')
             ->with('notification', 'We take note of your feedback');
     }
 
@@ -30,6 +33,6 @@ class ContactController extends Controller
             return redirect('');
         }
 
-        return view('front.contact.result', compact('notification', 'error'));
+        return view('front.feedback.result', compact('notification', 'error'));
     }
 }

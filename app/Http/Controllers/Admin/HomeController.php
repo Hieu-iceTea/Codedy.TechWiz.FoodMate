@@ -57,8 +57,7 @@ where od.created_at < NOW() - INTERVAL 1 month
 group by product_id
 order by total desc
 limit 10');
-
-
+  
         $orderMonth = Order::whereMonth(
             'created_at', '=', Carbon::now()->subMonth()->month
         );

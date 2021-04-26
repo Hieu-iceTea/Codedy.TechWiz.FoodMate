@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Contact;
+use App\Models\Feedback;
 use Illuminate\Http\Request;
 
-class ContactController extends Controller
+class FeedbackController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,14 +17,14 @@ class ContactController extends Controller
     {
         $keyword = $request->get('search');
 
-        $contacts=Contact::where('id','=',$keyword)
+        $feedbacks=Feedback::where('id','=',$keyword)
             ->orWhere('email','like','%'.$keyword.'%')
             ->orderBy('id','desc')
             ->paginate();
 
         //giúp chuyển trang page sẽ đính kèm theo từ khóa search của người dùng:
-        $contacts->appends(['search' => $keyword]);
-        return view('admin.contact.index',compact('contacts'));
+        $feedbacks->appends(['search' => $keyword]);
+        return view('admin.feedback.index',compact('feedbacks'));
     }
 
     /**
@@ -56,9 +56,9 @@ class ContactController extends Controller
      */
     public function show($id)
     {
-        $contact = Contact::findOrFail($id);
+        $feedback = Feedback::findOrFail($id);
 
-        return view('admin.contact.show', compact('contact'));
+        return view('admin.feedback.show', compact('feedback'));
     }
 
     /**
