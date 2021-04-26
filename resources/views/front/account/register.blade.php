@@ -39,36 +39,74 @@
                                 @include('components.errors')
 
                                 <div class="form-row">
+                                    <div class="col-md-12">
+                                        <div class="position-relative form-group">
+                                            <label for="user_name" class="">
+                                                <span class="text-danger">*</span>
+                                                User name
+                                            </label>
+                                            <input required name="user_name" id="user_name" placeholder="Username here..."
+                                                   type="text"
+                                                   class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="position-relative form-group">
+                                            <label for="password" class=""><span class="text-danger">*</span>
+                                                Password</label>
+                                            <input required name="password" id="password" placeholder="Password here..."
+                                                   type="password" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="position-relative form-group">
+                                            <label for="password_confirmation" class=""><span
+                                                    class="text-danger">*</span>
+                                                Repeat Password</label>
+                                            <input required name="password_confirmation" id="password_confirmation"
+                                                   placeholder="Repeat Password here..." type="password"
+                                                   class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label for="first_name" class=""><span class="text-danger">*</span>
+                                                First name
+                                            </label>
+                                            <input required name="first_name" id="first_name" placeholder="First name here..."
+                                                   type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label for="last_name" class=""><span class="text-danger">*</span>
+                                                Last name
+                                            </label>
+                                            <input required name="last_name" id="last_name" placeholder="Last name here..."
+                                                   type="text" class="form-control">
+                                        </div>
+                                    </div>
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
                                             <label for="exampleEmail" class=""><span class="text-danger">*</span> Email</label>
-                                            <input name="email" id="exampleEmail" placeholder="Email here..."
+                                            <input required name="email" id="exampleEmail" placeholder="Email here..."
                                                    type="email" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="position-relative form-group">
-                                            <label for="exampleName" class="">Name</label>
-                                            <input name="user_name" id="exampleName" placeholder="Username here..."
-                                                   type="text"
-                                                   class="form-control">
+                                            <label for="phone" class=""><span class="text-danger">*</span>Phone</label>
+                                            <input required name="phone" id="phone" placeholder="Phone here..."
+                                                   type="tel" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="position-relative form-group">
-                                            <label for="examplePassword" class=""><span class="text-danger">*</span>
-                                                Password</label>
-                                            <input name="password" id="examplePassword" placeholder="Password here..."
-                                                   type="password" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="position-relative form-group">
-                                            <label for="examplePasswordRep" class=""><span class="text-danger">*</span>
-                                                Repeat Password</label>
-                                            <input name="password_confirmation" id="examplePasswordRep"
-                                                   placeholder="Repeat Password here..." type="password"
-                                                   class="form-control">
+                                            <label for="address" class=""><span class="text-danger">*</span>
+                                                Address
+                                            </label>
+                                            <textarea class="form-control" name="address" id="address"
+                                                      placeholder="Address here..." required></textarea>
                                         </div>
                                     </div>
                                 </div>

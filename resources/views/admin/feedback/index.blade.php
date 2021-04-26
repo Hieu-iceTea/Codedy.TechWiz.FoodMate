@@ -60,6 +60,7 @@
                                 <th>Name</th>
                                 <th class="text-center">Email</th>
                                 <th class="text-center">Message</th>
+                                <th class="text-center">Rating</th>
                                 <th class="text-center">Actions</th>
                             </tr>
                             </thead>
@@ -77,6 +78,7 @@
                                             {{ $feedback->message }}
                                         @endif
                                     </td>
+                                    <td class="text-center">{{ $feedback->rating }}</td>
                                     <td class="text-center">
                                         <a href="{{ url()->current() . '/' . $feedback->id }}"
                                            class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">

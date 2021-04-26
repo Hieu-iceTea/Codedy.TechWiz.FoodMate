@@ -76,6 +76,13 @@
                                 <p>{{ $feedback->message }}</p>
                             </div>
                         </div>
+
+                        <div class="position-relative row form-group">
+                            <label for="email" class="col-md-3 text-md-right col-form-label">Rating</label>
+                            <div class="col-md-9 col-xl-8">
+                                <p>{{ $feedback->rating }}</p>
+                            </div>
+                        </div>
                     </div>
 
                 </div>

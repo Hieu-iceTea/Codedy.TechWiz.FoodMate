@@ -25,7 +25,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Contact::class, 'user_id', 'id');
     }
-  
+
     /**
      * The attributes that are mass assignable.
      *
@@ -42,8 +42,7 @@ class User extends Authenticatable
         'first_name',
         'last_name',
         'phone',
-        'street',
-        'city',
+        'address',
         'active',
 
         'deleted',

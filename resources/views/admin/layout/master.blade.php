@@ -191,6 +191,12 @@
                                     <i class="metismenu-icon"></i>Feedback
                                 </a>
                             </li>
+                            <li>
+                                <a href="../admin/report"
+                                   class="{{ (request()->segment(2) == 'report') ? 'mm-active' : '' }}">
+                                    <i class="metismenu-icon"></i>Report
+                                </a>
+                            </li>
                         </ul>
 
                     </ul>

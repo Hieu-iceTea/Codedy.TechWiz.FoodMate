@@ -67,6 +67,14 @@ Route::prefix('')->middleware('CheckMemberLogin')->group(function () {
         Route::get('/register', [\App\Http\Controllers\Front\AccountController::class, 'register']);
         Route::post('/register', [\App\Http\Controllers\Front\AccountController::class, 'postRegister']);
 
+        Route::prefix('/profile')->group(function () {
+            Route::get('/', [App\Http\Controllers\Front\AccountController::class, 'profileShow']);
+            Route::get('/edit', [\App\Http\Controllers\Front\AccountController::class, 'profileEdit']);
+            Route::get('/change-password', [\App\Http\Controllers\Front\AccountController::class, 'profileChangePassword']);
+            Route::put('/', [\App\Http\Controllers\Front\AccountController::class, 'profileUpdate']);
+            Route::delete('/destroy-account', [\App\Http\Controllers\Front\AccountController::class, 'profileDestroy']);
+        });
+
         Route::prefix('/my-order')->group(function () {
             Route::get('/', [App\Http\Controllers\Front\AccountController::class, 'myOrderIndex']);
             Route::get('/{id}', [\App\Http\Controllers\Front\AccountController::class, 'myOrderShow']);
@@ -97,6 +105,8 @@ Route::prefix('admin')->middleware('CheckAdminLogin')->group(function () {
     Route::resource('product', App\Http\Controllers\Admin\ProductController::class);
     Route::resource('restaurant', App\Http\Controllers\Admin\RestaurantController::class);
     Route::resource('user', App\Http\Controllers\Admin\UserController::class);
+    Route::resource('contact', App\Http\Controllers\Admin\ContactController::class);
+    Route::resource('report', App\Http\Controllers\Admin\ReportController::class);
     Route::resource('feedback', App\Http\Controllers\Admin\FeedbackController::class);
 
     Route::prefix('login')->group(function () {
