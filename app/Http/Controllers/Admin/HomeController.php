@@ -3,12 +3,41 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use App\Models\OrderDetail;
+use App\Models\Product;
+use App\Models\Restaurant;
 use App\Utilities\Constant;
+use Carbon\Carbon;
+use Cassandra\Date;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use PHPUnit\Framework\Constraint\Callback;
 
 class HomeController extends Controller
 {
+    public function index(){
+        $restaurantId = DB::select('select r.name,r.image, price,r.address, count(*) as total from `codedy.techwiz.foodmate`.products
+join order_details od on products.id = od.product_id
+join restaurants r on products.restaurant_id = r.id
+group by product_id
+order by total desc
+limit 10');
+
+        $products = DB::select('select name,image, price,country , count(*) as total from `codedy.techwiz.foodmate`.products
+join order_details od on products.id = od.product_id
+group by product_id
+order by total desc
+limit 10');
+        $orderMonth = Order::whereMonth(
+            'created_at', '=', Carbon::now()->subMonth()->month
+        );
+        $restaurants = Restaurant::all();
+        $revenueMonth = $orderMonth->where('status',Constant::order_status_Finish)->sum('total_amount');
+        return view('admin.index', compact('orderMonth', 'restaurants','revenueMonth','products','restaurantId'));
+    }
     public function getLogin()
     {
         return view('admin.login');

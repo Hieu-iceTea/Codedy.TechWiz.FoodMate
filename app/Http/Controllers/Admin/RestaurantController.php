@@ -14,9 +14,17 @@ class RestaurantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $restaurants = Restaurant::orderBy('id', 'desc')->paginate();
+        $keyword = $request->get('search');
+
+        $restaurants = Restaurant::where('id', '=', $keyword)
+            ->orWhere('id', 'like', '%' . $keyword . '%')
+            ->orderBy('id', 'desc')
+            ->paginate();
+
+        //giúp chuyển trang page sẽ đính kèm theo từ khóa search của người dùng:
+        $restaurants->appends(['search' => $keyword]);
 
         return view('admin.restaurant.index', compact('restaurants'));
     }

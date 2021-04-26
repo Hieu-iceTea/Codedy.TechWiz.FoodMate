@@ -14,9 +14,17 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categories = ProductCategory::paginate(4);
+        $keyword = $request->get('search');
+
+        $categories=ProductCategory::where('id','=',$keyword)
+            ->orWhere('id','like','%'.$keyword.'%')
+            ->orderBy('id','desc')
+            ->paginate();
+
+        //giúp chuyển trang page sẽ đính kèm theo từ khóa search của người dùng:
+        $categories->appends(['search' => $keyword]);
 
         return view('admin.category.index', compact('categories'));
     }

@@ -21,6 +21,8 @@ class CartController extends Controller
             'weight' => $product->weight ?? 0,
             'options' => [
                 'image' => $product->image,
+                'restaurant_name' => $product->restaurant->name,
+                'restaurant_id' => $product->restaurant->id,
             ],
         ]);
 
@@ -33,6 +35,8 @@ class CartController extends Controller
         $total = Cart::total();
         $subtotal = Cart::subtotal();
 
+        $carts = Cart::content()->groupBy('options.restaurant_id');
+
         return view('front.cart', compact('carts', 'total', 'subtotal'));
     }
 
@@ -43,9 +47,15 @@ class CartController extends Controller
         return back();
     }
 
-    public function destroy()
+    public function destroy(Request $request)
     {
-        Cart::destroy();
+        if (count($request->rowIds) > 0) {
+            foreach ($request->rowIds as $rowId) {
+                Cart::remove($rowId);
+            }
+        } else {
+            Cart::destroy();
+        }
 
         return back();
     }
