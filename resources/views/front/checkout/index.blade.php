@@ -81,36 +81,34 @@
                                     <i class="ti ti-user mr-3 text-primary"></i>
                                     Your informations
                                 </h4>
-                                <div class="row mb-5">
+                                <div class="row">
                                     <div class="form-group col-sm-6">
                                         <label>First Name:</label>
-                                        <input type="text" class="form-control" name="first_name" required>
+                                        <p class="font-weight-bold">{{ Auth::user()->first_name }}</p>
                                     </div>
                                     <div class="form-group col-sm-6">
                                         <label>Last Name:</label>
-                                        <input type="text" class="form-control" name="last_name" required>
-                                    </div>
-                                    <div class="form-group col-sm-6">
-                                        <label>Street and number:</label>
-                                        <input type="text" class="form-control" name="street" required>
-                                    </div>
-                                    <div class="form-group col-sm-6">
-                                        <label>City:</label>
-                                        <input type="text" class="form-control" name="city" required>
+                                        <p class="font-weight-bold">{{ Auth::user()->last_name }}</p>
                                     </div>
                                     <div class="form-group col-sm-6">
                                         <label>Phone number:</label>
-                                        <input type="text" class="form-control" name="phone" required>
+                                        <p class="font-weight-bold">{{ Auth::user()->phone }}</p>
                                     </div>
                                     <div class="form-group col-sm-6">
                                         <label>E-mail address:</label>
-                                        <input type="email" class="form-control" name="email" required>
+                                        <p class="font-weight-bold">{{ Auth::user()->email }}</p>
+                                    </div>
+                                    <div class="form-group col-sm-12">
+                                        <label>Delivery address:</label>
+                                        <textarea class="form-control" name="delivery_address" required>{{ Auth::user()->street }}, {{ Auth::user()->city }}</textarea>
                                     </div>
                                 </div>
 
-                                <h4 class="border-bottom pb-4"><i class="ti ti-wallet mr-3 text-primary"></i>Payment
+                                <h4 class="border-bottom pb-4 mt-5 d-none">
+                                    <i class="ti ti-wallet mr-3 text-primary"></i>
+                                    Payment
                                 </h4>
-                                <div class="row text-lg">
+                                <div class="row text-lg d-none">
                                     @foreach(\App\Utilities\Constant::$product_pay_types as $key => $value)
                                         <div class="col-md-4 col-sm-6 form-group">
                                             <label class="custom-control custom-radio">
@@ -124,6 +122,7 @@
                                         </div>
                                     @endforeach
                                 </div>
+
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary btn-lg"><span>Order now!</span></button>
@@ -140,7 +139,8 @@
                                 <p>Your cart is empty...</p>
                             </div>
                         </div>
-                        <a href="../menu" class="panel-cart-action btn btn-secondary btn-block btn-lg"><span>Go to menu</span></a>
+                        <a href="../menu"
+                           class="panel-cart-action btn btn-secondary btn-block btn-lg"><span>Go to menu</span></a>
                     </div>
                 @endif
 

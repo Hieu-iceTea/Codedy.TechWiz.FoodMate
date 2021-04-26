@@ -29,15 +29,15 @@ CREATE TABLE IF NOT EXISTS `User`
 (
     `id`                  INT AUTO_INCREMENT,
 
-    `user_name`           VARCHAR(64) UNIQUE         NOT NULL,
-    `email`               VARCHAR(64) UNIQUE         NOT NULL,
-    `password`            VARCHAR(128)               NOT NULL,
-    `level`               TINYINT UNSIGNED NOT NULL,
+    `user_name`           VARCHAR(64) UNIQUE NOT NULL,
+    `email`               VARCHAR(64) UNIQUE NOT NULL,
+    `password`            VARCHAR(128)       NOT NULL,
+    `level`               TINYINT UNSIGNED   NOT NULL,
 
     `email_verified_at`   DATETIME,
-    `verification_code`   VARCHAR(8)       DEFAULT NULL,
-    `reset_password_code` VARCHAR(16)      DEFAULT NULL,
-    `remember_token`      VARCHAR(128)     DEFAULT NULL,
+    `verification_code`   VARCHAR(8)   DEFAULT NULL,
+    `reset_password_code` VARCHAR(16)  DEFAULT NULL,
+    `remember_token`      VARCHAR(128) DEFAULT NULL,
 
     `image`               VARCHAR(128),
     `gender`              BOOLEAN,
@@ -47,14 +47,14 @@ CREATE TABLE IF NOT EXISTS `User`
     `street`              VARCHAR(128),
     `city`                VARCHAR(128),
 
-    `active`              BOOLEAN          DEFAULT FALSE,
+    `active`              BOOLEAN      DEFAULT FALSE,
 
-    `created_by`          NVARCHAR(32)     DEFAULT 'Codedy.TechWiz.FoodMate',
-    `created_at`          TIMESTAMP        DEFAULT CURRENT_TIMESTAMP,
-    `updated_by`          NVARCHAR(32)     DEFAULT NULL,
-    `updated_at`          TIMESTAMP        DEFAULT CURRENT_TIMESTAMP,
-    `version`             INT              DEFAULT 1,
-    `deleted`             BOOLEAN          DEFAULT FALSE,
+    `created_by`          NVARCHAR(32) DEFAULT 'Codedy.TechWiz.FoodMate',
+    `created_at`          TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
+    `updated_by`          NVARCHAR(32) DEFAULT NULL,
+    `updated_at`          TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
+    `version`             INT          DEFAULT 1,
+    `deleted`             BOOLEAN      DEFAULT FALSE,
 
     PRIMARY KEY (`id`)
 ) ENGINE InnoDB;
@@ -112,27 +112,24 @@ CREATE TABLE IF NOT EXISTS `product_categories`
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE IF NOT EXISTS `orders`
 (
-    `id`           INT AUTO_INCREMENT,
+    `id`               INT AUTO_INCREMENT,
 
-    `user_id`      INT UNSIGNED,
+    `user_id`          INT UNSIGNED,
+    `restaurant_id`    INT UNSIGNED         NOT NULL,
 
-    `first_name`   VARCHAR(64),
-    `last_name`    VARCHAR(64),
-    `email`        VARCHAR(64),
-    `phone`        VARCHAR(64),
-    `street`       VARCHAR(128),
-    `city`         VARCHAR(64),
-    `payment_type` INT UNSIGNED         NOT NULL,
-    `total_amount` DECIMAL(16) UNSIGNED NOT NULL,
+    `delivery_address` VARCHAR(128)         NOT NULL,
 
-    `status`       INT UNSIGNED         NOT NULL,
+    `payment_type`     INT UNSIGNED         NOT NULL,
+    `total_amount`     DECIMAL(16) UNSIGNED NOT NULL,
 
-    `created_by`   NVARCHAR(32) DEFAULT 'Codedy.TechWiz.FoodMate',
-    `created_at`   TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
-    `updated_by`   NVARCHAR(32) DEFAULT NULL,
-    `updated_at`   TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
-    `version`      INT          DEFAULT 1,
-    `deleted`      BOOLEAN      DEFAULT FALSE,
+    `status`           INT UNSIGNED         NOT NULL,
+
+    `created_by`       NVARCHAR(32) DEFAULT 'Codedy.TechWiz.FoodMate',
+    `created_at`       TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
+    `updated_by`       NVARCHAR(32) DEFAULT NULL,
+    `updated_at`       TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
+    `version`          INT          DEFAULT 1,
+    `deleted`          BOOLEAN      DEFAULT FALSE,
 
     PRIMARY KEY (`id`)
 ) ENGINE InnoDB;
@@ -416,24 +413,24 @@ INSERT INTO restaurants (id, name, image, address, description)
 VALUE (9, 'Xian Famous Foods', 'xianfood.png', '328 E 78th St,New York, NY 10075', 'The original location of this full-on empire from restaurateur Jason Wang opened in Flushing. As its reputation grew, branches started popping up all over the city with its spicy, fragrant style of cooking from northwestern China, inflected with Middle Eastern spices. Try any of the hand-pulled noodles and the spicy cumin lamb burger — the meat is rich, the bread has a crunchy sear on the outside, and the bun is soft enough inside to soak up plenty of lamb juices.');
 
 
-INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
-VALUE (1, 6, 'Nguyễn Đình', 'Hiếu', 'DinhHieu8896gmail.com','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 600, 1);
-INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
-VALUE (2, 6, 'Nông Phan Mạnh', 'Hùng', 'HuyVQTH1909003@fpt.edu.vn','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 100, 2);
-INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
-VALUE (3, 6, 'Vũ Quang', 'Huy', 'HungNPMTH1908050@fpt.edu.vn','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 100, 3);
-INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
-VALUE (4, 6, 'Nguyễn Trung', 'Anh', 'AnhNTTH1908059@fpt.edu.vn','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 100, 4);
-INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
-VALUE (5, NULL, 'Phạm Thị Mai', 'Hoa', 'Hoa@gmail.com','032 8799000', '8 Ton That Thuyet', 'Ha Noi',1, 100, 5);
-INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
-VALUE (6, NULL, 'Nguyễn', 'Tuân', 'A@gmail.com','032 8799000', '8 Ton That Thuyet', 'Ha Noi',1, 100, 6);
-INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
-VALUE (7, NULL, 'Phạm', 'Tú', 'B@gmail.com','032 8799000', '8 Ton That Thuyet', 'Ha Noi',1, 100, 0);
-INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
-VALUE (8, 6, 'Cao Trung', 'Kiên', 'Kien@gmail.com','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 300, 1);
-INSERT INTO orders (id, user_id, first_name, last_name, email, phone, street, city, payment_type, total_amount, status)
-VALUE (9, 6, 'Dang Kim', 'Thi', 'ThiDK@gmail.com','0868 6633 15', '8 Ton That Thuyet', 'Ha Noi',1, 100, 2);
+INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
+VALUE (1, 6, 1, '8, Ton That Thuyet',1, 600, 1);
+INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
+VALUE (2, 6, 2, '8, Ton That Thuyet',1, 100, 2);
+INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
+VALUE (3, 6, 1, '8, Ton That Thuyet',1, 100, 3);
+INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
+VALUE (4, 6, 1, '8, Ton That Thuyet',1, 100, 4);
+INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
+VALUE (5, NULL, 1, '8, Ton That Thuyet',1, 100, 5);
+INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
+VALUE (6, NULL, 1, '8, Ton That Thuyet',1, 100, 6);
+INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
+VALUE (7, NULL, 1, '8, Ton That Thuyet',1, 100, 0);
+INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
+VALUE (8, 6, 1, '8, Ton That Thuyet',1, 300, 1);
+INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
+VALUE (9, 6, 1, '8, Ton That Thuyet',1, 100, 2);
 
 
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
@@ -476,3 +473,5 @@ INSERT INTO feedbacks (id, user_id, name, email, message)
 VALUE (3, NULL, 'Nông Phan Mạnh Hùng', 'HungNPMTH1908050@fpt.edu.vn', 'The software has every feature that my company needs.');
 INSERT INTO feedbacks (id, user_id, name, email, message)
 VALUE (4, NULL, 'Nguyễn Trung Anh', 'AnhNTTH1908059@fpt.edu.vn', 'Thanks a lot of development team. I used the product and very satisfied.');
+
+
