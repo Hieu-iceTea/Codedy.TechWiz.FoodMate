@@ -67,6 +67,12 @@ Route::prefix('')->middleware('CheckMemberLogin')->group(function () {
         Route::get('/register', [\App\Http\Controllers\Front\AccountController::class, 'register']);
         Route::post('/register', [\App\Http\Controllers\Front\AccountController::class, 'postRegister']);
 
+        Route::prefix('/profile')->group(function () {
+            Route::get('/', [App\Http\Controllers\Front\AccountController::class, 'profileShow']);
+            Route::get('/edit', [\App\Http\Controllers\Front\AccountController::class, 'profileEdit']);
+            Route::put('/', [\App\Http\Controllers\Front\AccountController::class, 'profileUpdate']);
+        });
+
         Route::prefix('/my-order')->group(function () {
             Route::get('/', [App\Http\Controllers\Front\AccountController::class, 'myOrderIndex']);
             Route::get('/{id}', [\App\Http\Controllers\Front\AccountController::class, 'myOrderShow']);

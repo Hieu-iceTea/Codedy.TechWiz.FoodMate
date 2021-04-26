@@ -19,8 +19,7 @@ class AccountController extends Controller
 
     public function login()
     {
-        if(!session()->has('url.intended'))
-        {
+        if (!session()->has('url.intended')) {
             session(['url.intended' => url()->previous()]);
         }
 
@@ -92,5 +91,28 @@ class AccountController extends Controller
         }
 
         return view('front.account.my-order.show', compact('order'));
+    }
+
+    public function profileShow()
+    {
+        $user = User::findOrFail(Auth::id());
+
+        return view('front.account.profile.show', compact('user'));
+    }
+
+    public function profileEdit()
+    {
+        $user = User::findOrFail(Auth::id());
+
+        return view('front.account.profile.edit', compact('user'));
+    }
+
+    public function profileUpdate(Request $request)
+    {
+        $data = $request->all();
+
+        User::findOrFail(Auth::id())->update($data);
+
+        return redirect('account/profile');
     }
 }
