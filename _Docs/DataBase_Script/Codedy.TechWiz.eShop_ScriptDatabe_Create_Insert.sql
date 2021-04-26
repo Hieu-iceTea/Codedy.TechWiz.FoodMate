@@ -192,6 +192,7 @@ CREATE TABLE IF NOT EXISTS `feedbacks`
     `name`       VARCHAR(64),
     `email`      CHAR(128),
     `message`    TEXT,
+    `star`    integer,
 
     `created_by` NVARCHAR(32) DEFAULT 'Codedy.TechWiz.FoodMate',
     `created_at` TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
@@ -465,13 +466,13 @@ INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
 VALUE (15, 9, 9, 1, 100, 100);
 
 
-INSERT INTO feedbacks (id, user_id, name, email, message)
-VALUE (1, 6, 'Nguyễn Đình Hiếu', 'DinhHieu8896gmail.com', 'Very excellent products.');
-INSERT INTO feedbacks (id, user_id, name, email, message)
-VALUE (2, 6, 'Vũ Quang Huy', 'HuyVQTH1909003@fpt.edu.vn', 'Best solution for online food sale.');
-INSERT INTO feedbacks (id, user_id, name, email, message)
-VALUE (3, NULL, 'Nông Phan Mạnh Hùng', 'HungNPMTH1908050@fpt.edu.vn', 'The software has every feature that my company needs.');
-INSERT INTO feedbacks (id, user_id, name, email, message)
-VALUE (4, NULL, 'Nguyễn Trung Anh', 'AnhNTTH1908059@fpt.edu.vn', 'Thanks a lot of development team. I used the product and very satisfied.');
+INSERT INTO feedbacks (id, user_id, name, email, message,star)
+VALUE (1, 6, 'Nguyễn Đình Hiếu', 'DinhHieu8896gmail.com', 'Very excellent products.',5);
+INSERT INTO feedbacks (id, user_id, name, email, message, star)
+VALUE (2, 6, 'Vũ Quang Huy', 'HuyVQTH1909003@fpt.edu.vn', 'Best solution for online food sale.',5);
+INSERT INTO feedbacks (id, user_id, name, email, message,star)
+VALUE (3, NULL, 'Nông Phan Mạnh Hùng', 'HungNPMTH1908050@fpt.edu.vn', 'The software has every feature that my company needs.',4);
+INSERT INTO feedbacks (id, user_id, name, email, message, star)
+VALUE (4, NULL, 'Nguyễn Trung Anh', 'AnhNTTH1908059@fpt.edu.vn', 'Thanks a lot of development team. I used the product and very satisfied.',5);
 
 
