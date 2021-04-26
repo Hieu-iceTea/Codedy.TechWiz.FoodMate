@@ -55,24 +55,10 @@
 
                         <div class="position-relative row form-group">
                             <label for="name" class="col-md-3 text-md-right col-form-label">
-                                First Name
+                                Full Name
                             </label>
                             <div class="col-md-9 col-xl-8">
-                                <p>{{ $order->first_name }}</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="email" class="col-md-3 text-md-right col-form-label">Last Name</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>{{ $order->last_name }}</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="email" class="col-md-3 text-md-right col-form-label">User Name</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>{{ $order->user->user_name ?? '' }}</p>
+                                <p>{{ $order->user->last_name ?? '' }}, {{ $order->user->first_name ?? '' }}</p>
                             </div>
                         </div>
 
@@ -80,32 +66,24 @@
                             <label for="description"
                                    class="col-md-3 text-md-right col-form-label">Phone</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>{{ $order->phone }}</p>
+                                <p>{{ $order->user->phone }}</p>
+                            </div>
+                        </div>
+
+                        <div class="position-relative row form-group">
+                            <label for="description"
+                                   class="col-md-3 text-md-right col-form-label">Email</label>
+                            <div class="col-md-9 col-xl-8">
+                                <p>{{ $order->user->email }}</p>
                             </div>
                         </div>
 
                         <div class="position-relative row form-group">
                             <label for="company_name" class="col-md-3 text-md-right col-form-label">
-                                Street
+                                Delivery address
                             </label>
                             <div class="col-md-9 col-xl-8">
-                                <p>{{ $order->street }}</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="country"
-                                   class="col-md-3 text-md-right col-form-label">City</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>{{ $order->city }}</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="street_address" class="col-md-3 text-md-right col-form-label">
-                                Payment Type</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>{{ \App\Utilities\Constant::$product_pay_types[$order->payment_type] }}</p>
+                                <p>{{ $order->delivery_address }}</p>
                             </div>
                         </div>
 
@@ -118,27 +96,39 @@
                         </div>
 
                         <div class="position-relative row form-group">
-                            <label for="town_city" class="col-md-3 text-md-right col-form-label">
-                                Status</label>
-                            <form method="post" action="{{ url()->current() }}" >
-                                @csrf
-                                @method('put')
-                                <div class="position-relative row form-group">
-                                    <div class="col-md-9 col-xl-8">
-                                        <select name="status" id="status" class="form-control w-auto" onchange="this.form.submit()">
+                            <label for="postcode_zip" class="col-md-3 text-md-right col-form-label">
+                                Total Amount</label>
+                            <div class="col-md-9 col-xl-8">
+                                <p>{{ \App\Utilities\Constant::$order_status[$order->status] }}</p>
+                            </div>
+                        </div>
 
-                                            @foreach(\App\Utilities\Constant::$order_status as $order_status)
-                                                <option
-                                                    value = {{ array_search($order_status, \App\Utilities\Constant::$order_status) }}
-                                                    {{ (old('status') ?? $order->status ?? '') == array_search($order_status, \App\Utilities\Constant::$order_status) ? 'selected' : '' }}>
-                                                    {{ $order_status }}
-                                                </option>
-                                            @endforeach
+                        <div class="position-relative row form-group text-center">
 
-                                        </select>
+                            <div class="col-12">
+                                <form method="post" action="{{ url()->current() }}" class="d-inline-block">
+                                    @csrf
+                                    @method('put')
+                                    <input type="hidden" name="status" value="{{ \App\Utilities\Constant::order_status_Accept }}">
+                                    <div class="position-relative row form-group">
+                                        <div class="col-md-9 col-xl-8">
+                                            <button type="submit" class="btn btn-outline-success">Accept</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
+
+                                <form method="post" action="{{ url()->current() }}" class="d-inline-block ml-3">
+                                    @csrf
+                                    @method('put')
+                                    <input type="hidden" name="status" value="{{ \App\Utilities\Constant::order_status_Reject }}">
+                                    <div class="position-relative row form-group">
+                                        <div class="col-md-9 col-xl-8">
+                                            <button type="submit" class="btn btn-outline-danger">Reject</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
                         </div>
 
 
