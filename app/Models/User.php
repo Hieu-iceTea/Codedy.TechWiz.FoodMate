@@ -21,7 +21,7 @@ class User extends Authenticatable
         return $this->hasMany(Order::class, 'user_id', 'id');
     }
 
-    public function contacts()
+    public function feedbacks()
     {
         return $this->hasMany(Contact::class, 'user_id', 'id');
     }
@@ -42,8 +42,7 @@ class User extends Authenticatable
         'first_name',
         'last_name',
         'phone',
-        'street',
-        'city',
+        'address',
         'active',
 
         'deleted',

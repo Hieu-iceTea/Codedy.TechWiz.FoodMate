@@ -30,6 +30,7 @@ Route::prefix('')->middleware('CheckMemberLogin')->group(function () {
     Route::get('about', [App\Http\Controllers\Front\HomeController::class, 'about']);
     Route::get('faq', [App\Http\Controllers\Front\HomeController::class, 'faq']);
     Route::get('service', [App\Http\Controllers\Front\HomeController::class, 'service']);
+    Route::get('contact', [App\Http\Controllers\Front\HomeController::class, 'contact']);
 
     Route::prefix('menu')->group(function () {
         Route::get('', [App\Http\Controllers\Front\MenuController::class, 'index']);
@@ -55,12 +56,6 @@ Route::prefix('')->middleware('CheckMemberLogin')->group(function () {
         Route::get('/result', [\App\Http\Controllers\Front\CheckOutController::class, 'result']);
     });
 
-    Route::prefix('contact')->group(function () {
-        Route::get('', [App\Http\Controllers\Front\ContactController::class, 'index']);
-        Route::post('/', [App\Http\Controllers\Front\ContactController::class, 'addContact']);
-        Route::get('/result', [App\Http\Controllers\Front\ContactController::class, 'result']);
-    });
-
     Route::prefix('account')->group(function () {
         Route::redirect('/', '/account/my-order'); //Chuyển hướng
 
@@ -72,10 +67,24 @@ Route::prefix('')->middleware('CheckMemberLogin')->group(function () {
         Route::get('/register', [\App\Http\Controllers\Front\AccountController::class, 'register']);
         Route::post('/register', [\App\Http\Controllers\Front\AccountController::class, 'postRegister']);
 
+        Route::prefix('/profile')->group(function () {
+            Route::get('/', [App\Http\Controllers\Front\AccountController::class, 'profileShow']);
+            Route::get('/edit', [\App\Http\Controllers\Front\AccountController::class, 'profileEdit']);
+            Route::get('/change-password', [\App\Http\Controllers\Front\AccountController::class, 'profileChangePassword']);
+            Route::put('/', [\App\Http\Controllers\Front\AccountController::class, 'profileUpdate']);
+            Route::delete('/destroy-account', [\App\Http\Controllers\Front\AccountController::class, 'profileDestroy']);
+        });
+
         Route::prefix('/my-order')->group(function () {
             Route::get('/', [App\Http\Controllers\Front\AccountController::class, 'myOrderIndex']);
             Route::get('/{id}', [\App\Http\Controllers\Front\AccountController::class, 'myOrderShow']);
         });
+    });
+
+    Route::prefix('feedback')->group(function () {
+        Route::get('', [App\Http\Controllers\Front\FeedbackController::class, 'index']);
+        Route::post('/', [App\Http\Controllers\Front\FeedbackController::class, 'addFeedback']);
+        Route::get('/result', [App\Http\Controllers\Front\FeedbackController::class, 'result']);
     });
 });
 
@@ -98,6 +107,7 @@ Route::prefix('admin')->middleware('CheckAdminLogin')->group(function () {
     Route::resource('user', App\Http\Controllers\Admin\UserController::class);
     Route::resource('contact', App\Http\Controllers\Admin\ContactController::class);
     Route::resource('report', App\Http\Controllers\Admin\ReportController::class);
+    Route::resource('feedback', App\Http\Controllers\Admin\FeedbackController::class);
 
     Route::prefix('login')->group(function () {
         Route::get('', [\App\Http\Controllers\Admin\HomeController::class, 'getLogin'])->withoutMiddleware('CheckAdminLogin');
