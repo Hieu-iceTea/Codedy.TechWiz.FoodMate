@@ -224,13 +224,13 @@ VALUE (7, 1, 'Staff_A', 'staff_a.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynr
 INSERT INTO User (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
 VALUE (6, NULL, 'Customer', 'customer.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2020-08-08', 'member.jpg', 1, 'CODEDY', 'Customer', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO User (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (5, NULL, 'DinhHieu8896', 'DinhHieu8896gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'DinhHieu8896.jpg', 1, 'Nguyễn Đình', 'Hiếu', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+VALUE (5, NULL, 'DinhHieu8896', 'DinhHieu8896gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2020-08-08', 'DinhHieu8896.jpg', 1, 'Nguyễn Đình', 'Hiếu', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO User (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (4, NULL, 'HuyVQTH1909003', 'HuyVQTH1909003@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'HuyVQTH1909003.jpg', 1, 'Vũ Quang', 'Huy', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+VALUE (4, NULL, 'HuyVQTH1909003', 'HuyVQTH1909003@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2020-08-08', 'HuyVQTH1909003.jpg', 1, 'Vũ Quang', 'Huy', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO User (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (3, NULL, 'HungNPMTH1908050', 'HungNPMTH1908050@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'HungNPMTH1908050.jpg', 1, 'Nông Phan Mạnh', 'Hùng', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+VALUE (3, NULL, 'HungNPMTH1908050', 'HungNPMTH1908050@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2020-08-08', 'HungNPMTH1908050.jpg', 1, 'Nông Phan Mạnh', 'Hùng', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO User (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (2, NULL, 'AnhNTTH1908059', 'AnhNTTH1908059@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'AnhNTTH1908059.jpg', 1, 'Nguyễn Trung', 'Anh', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+VALUE (2, NULL, 'AnhNTTH1908059', 'AnhNTTH1908059@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2020-08-08', 'AnhNTTH1908059.jpg', 1, 'Nguyễn Trung', 'Anh', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO User (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
 VALUE (1, NULL, 'Admin_Demo', 'admin_demo.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 2, '2020-08-08', 'admin_demo.jpg', 1, 'CODEDY', 'Admin_Demo', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', FALSE);
 
@@ -419,24 +419,24 @@ INSERT INTO restaurants (id, name, image, address, description)
 VALUE (9, 'Xian Famous Foods', 'xianfood.png', '328 E 78th St,New York, NY 10075', 'The original location of this full-on empire from restaurateur Jason Wang opened in Flushing. As its reputation grew, branches started popping up all over the city with its spicy, fragrant style of cooking from northwestern China, inflected with Middle Eastern spices. Try any of the hand-pulled noodles and the spicy cumin lamb burger — the meat is rich, the bread has a crunchy sear on the outside, and the bun is soft enough inside to soak up plenty of lamb juices.');
 
 
-INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
-VALUE (1, 6, 1, '8, Ton That Thuyet',1, 60, 1);
-INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
-VALUE (2, 6, 3, '8, Ton That Thuyet',1, 10, 2);
-INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
-VALUE (3, 6, 1, '8, Ton That Thuyet',1, 10, 3);
-INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
-VALUE (4, 6, 1, '8, Ton That Thuyet',1, 10, 1);
-INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
-VALUE (5, NULL, 1, '8, Ton That Thuyet',1, 10, 2);
-INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
-VALUE (6, NULL, 1, '8, Ton That Thuyet',1, 10, 3);
-INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
-VALUE (7, NULL, 1, '8, Ton That Thuyet',1, 10, 1);
-INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
-VALUE (8, 6, 1, '8, Ton That Thuyet',1, 30, 2);
-INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status)
-VALUE (9, 6, 1, '8, Ton That Thuyet',1, 10, 3);
+INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
+VALUE (1, 6, 1, '8, Ton That Thuyet',1, 60, 1, '');
+INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
+VALUE (2, 6, 3, '8, Ton That Thuyet',1, 10, 2, '');
+INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
+VALUE (3, 6, 1, '8, Ton That Thuyet',1, 10, 3, 'Not enough materials to make dishes.');
+INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
+VALUE (4, 6, 1, '8, Ton That Thuyet',1, 10, 4, '');
+INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
+VALUE (5, 5, 1, '8, Ton That Thuyet',1, 10, 1, '');
+INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
+VALUE (6, 4, 1, '8, Ton That Thuyet',1, 10, 2, '');
+INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
+VALUE (7, 3, 1, '8, Ton That Thuyet',1, 10, 3, 'Over service time.');
+INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
+VALUE (8, 6, 1, '8, Ton That Thuyet',1, 30, 4, '');
+INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
+VALUE (9, 6, 1, '8, Ton That Thuyet',1, 10, 1, '');
 
 
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
@@ -472,11 +472,11 @@ VALUE (15, 9, 52, 1, 10, 10);
 
 
 INSERT INTO feedbacks (id, user_id, name, email, message, rating)
-VALUE (1, 6, 'Nguyễn Đình Hiếu', 'DinhHieu8896gmail.com', 'Very excellent products.', 5);
+VALUE (1, 5, 'Nguyễn Đình Hiếu', 'DinhHieu8896gmail.com', 'Very excellent products.', 5);
 INSERT INTO feedbacks (id, user_id, name, email, message, rating)
-VALUE (2, 6, 'Vũ Quang Huy', 'HuyVQTH1909003@fpt.edu.vn', 'Best solution for online food sale.', 4);
+VALUE (2, NULL, 'Vũ Quang Huy', 'HuyVQTH1909003@fpt.edu.vn', 'Best solution for online food sale.', 4);
 INSERT INTO feedbacks (id, user_id, name, email, message, rating)
-VALUE (3, NULL, 'Nông Phan Mạnh Hùng', 'HungNPMTH1908050@fpt.edu.vn', 'The software has every feature that my company needs.', 5);
+VALUE (3, 3, 'Nông Phan Mạnh Hùng', 'HungNPMTH1908050@fpt.edu.vn', 'The software has every feature that my company needs.', 5);
 INSERT INTO feedbacks (id, user_id, name, email, message, rating)
 VALUE (4, NULL, 'Nguyễn Trung Anh', 'AnhNTTH1908059@fpt.edu.vn', 'Thanks a lot of development team. I used the product and very satisfied.', 3);
 

@@ -97,11 +97,21 @@
 
                         <div class="position-relative row form-group">
                             <label for="postcode_zip" class="col-md-3 text-md-right col-form-label">
-                                Total Amount</label>
+                                Status</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>{{ \App\Utilities\Constant::$order_status[$order->status] }}</p>
                             </div>
                         </div>
+
+                        @if($order->status == \App\Utilities\Constant::order_status_Reject)
+                            <div class="position-relative row form-group">
+                                <label for="postcode_zip" class="col-md-3 text-md-right col-form-label">
+                                    Reason reject</label>
+                                <div class="col-md-9 col-xl-8">
+                                    <p>{{ $order->reason_reject  }}</p>
+                                </div>
+                            </div>
+                        @endif
 
                         @if($order->status == \App\Utilities\Constant::order_status_Unconfirmed)
                             <div class="position-relative row form-group text-center">
@@ -177,7 +187,7 @@
                                     <th>Product Name</th>
                                     <th class="text-center">Quantity</th>
                                     <th class="text-center">Unit Price</th>
-                                    <th class="text-center">Total Amount</th>
+                                    <th class="text-center">Amount</th>
                                 </tr>
                                 </thead>
                                 <tbody>
