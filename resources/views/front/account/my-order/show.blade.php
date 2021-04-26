@@ -64,66 +64,88 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
                 <div class="col-xl-8 col-lg-7 order-lg-first">
 
                     @include('components.errors')
 
-                    <form>
-                        <div class="bg-white p-4 p-md-5 mb-4">
+                    <div class="bg-white p-4 p-md-5 mb-4">
 
-                            <h4 class="border-bottom pb-4">
-                                <i class="ti ti-user mr-3 text-primary"></i>
-                                Your informations
-                            </h4>
-                            <div class="row mb-5">
-                                <div class="form-group col-sm-6">
-                                    <label>First Name:</label>
-                                    <p>{{ $order->first_name }}</p>
-                                </div>
-                                <div class="form-group col-sm-6">
-                                    <label>Last Name:</label>
-                                    <p>{{ $order->last_name }}</p>
-                                </div>
-                                <div class="form-group col-sm-6">
-                                    <label>Street and number:</label>
-                                    <p>{{ $order->street }}</p>
-                                </div>
-                                <div class="form-group col-sm-6">
-                                    <label>City:</label>
-                                    <p>{{ $order->city }}</p>
-                                </div>
-                                <div class="form-group col-sm-6">
-                                    <label>Phone number:</label>
-                                    <p>{{ $order->phone }}</p>
-                                </div>
-                                <div class="form-group col-sm-6">
-                                    <label>E-mail address:</label>
-                                    <p>{{ $order->email }}</p>
-                                </div>
+                        <h4 class="border-bottom pb-4">
+                            <i class="ti ti-user mr-3 text-primary"></i>
+                            Your informations
+
+
+                            @if($order->status == \App\Utilities\Constant::order_status_Unconfirmed)
+                                <span class="float-right">
+                                    <form action="../account/my-order/{{ $order->id }}" method="post" class="d-inline"
+                                          style="margin-left: 125px">
+                                        @csrf
+                                        @method('PUT')
+                                        <button class="btn btn-sm btn-outline-primary"
+                                                onclick="return confirm('Do you really want to cancel this order?')">
+                                            <span>Cancel Order</span>
+                                        </button>
+                                    </form>
+                                </span>
+                            @else
+                                <span class="float-right">
+                                    Status:
+                                    <span class="font-weight-bold">
+                                        {{ \App\Utilities\Constant::$order_status[$order->status] }}
+                                    </span>
+                                </span>
+                            @endif
+
+
+                        </h4>
+                        <div class="row mb-5">
+                            <div class="form-group col-sm-6">
+                                <label>First Name:</label>
+                                <p>{{ $order->first_name }}</p>
                             </div>
-
-                            <h4 class="border-bottom pb-4"><i class="ti ti-wallet mr-3 text-primary"></i>Payment
-                            </h4>
-                            <div class="row text-lg">
-                                @foreach(\App\Utilities\Constant::$product_pay_types as $key => $value)
-                                    <div class="col-md-4 col-sm-6 form-group">
-                                        <label class="custom-control custom-radio">
-                                            <input disabled type="radio"
-                                                   name="payment_type" value="{{ $key }}"
-                                                   {{ $value == \App\Utilities\Constant::$product_pay_types[\App\Utilities\Constant::product_pay_type_Cash] ? 'checked' : '' }}
-                                                   class="custom-control-input">
-                                            <span class="custom-control-indicator"></span>
-                                            <span class="custom-control-description">{{ $value }}</span>
-                                        </label>
-                                    </div>
-                                @endforeach
+                            <div class="form-group col-sm-6">
+                                <label>Last Name:</label>
+                                <p>{{ $order->last_name }}</p>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label>Street and number:</label>
+                                <p>{{ $order->street }}</p>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label>City:</label>
+                                <p>{{ $order->city }}</p>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label>Phone number:</label>
+                                <p>{{ $order->phone }}</p>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label>E-mail address:</label>
+                                <p>{{ $order->email }}</p>
                             </div>
                         </div>
-                    </form>
-                </div>
 
+                        <h4 class="border-bottom pb-4"><i class="ti ti-wallet mr-3 text-primary"></i>Payment
+                        </h4>
+                        <div class="row text-lg">
+                            @foreach(\App\Utilities\Constant::$product_pay_types as $key => $value)
+                                <div class="col-md-4 col-sm-6 form-group">
+                                    <label class="custom-control custom-radio">
+                                        <input disabled type="radio"
+                                               name="payment_type" value="{{ $key }}"
+                                               {{ $value == \App\Utilities\Constant::$product_pay_types[\App\Utilities\Constant::product_pay_type_Cash] ? 'checked' : '' }}
+                                               class="custom-control-input">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">{{ $value }}</span>
+                                    </label>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

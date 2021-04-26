@@ -80,6 +80,8 @@ class AccountController extends Controller
     {
         $orders = Order::where('user_id', Auth::id())->get();
 
+
+
         return view('front.account.my-order.index', compact('orders'));
     }
 
@@ -139,6 +141,15 @@ class AccountController extends Controller
         User::findOrFail(Auth::id())->update($data);
 
         return redirect('account/profile');
+    }
+
+    public function myOrderUpdate($id)
+    {
+        $data['deleted'] = Constant::order_status_CanceledByCustomer;
+
+        Order::findOrFail($id)->update($data);
+
+        return redirect('../account/my-order');
     }
 
     public function profileDestroy()
