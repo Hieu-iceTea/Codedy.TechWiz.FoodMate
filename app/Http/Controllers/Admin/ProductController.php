@@ -19,7 +19,7 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $products = Product::paginate(10);
+        $products = Product::orderBy('id','desc')->paginate(10);
 
         if($request->get('search')!=null){
         $products = Product::where('name', 'Like', '%'. $request->get('search') .'%')
