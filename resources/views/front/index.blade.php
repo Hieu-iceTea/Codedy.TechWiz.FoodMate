@@ -76,27 +76,41 @@
                     <!-- Blockquote -->
                     <blockquote class="blockquote light animated" data-animation="fadeInLeft">
                         <div class="blockquote-content">
-                            <div class="rate rate-sm mb-3"><i class="fa fa-star active"></i><i
-                                    class="fa fa-star active"></i><i class="fa fa-star active"></i><i
-                                    class="fa fa-star active"></i><i class="fa fa-star"></i></div>
-                            <p>It’ was amazing feeling for my belly!</p>
+                            <div class="rate rate-sm mb-3">
+                                @for($i=1;$i<=$feedbacks[0]->rating;$i++)
+                                    <i class="fa fa-star active"></i>
+                                @endfor
+                                @for($j=1;$j<=5-$feedbacks[0]->rating;$j++)
+                                    <i class="fa fa-star"></i>
+                                @endfor
+                            </div>
+                            <p>{{ $feedbacks[0]->message }}</p>
                         </div>
+
                         <footer>
-                            <img src="data-images/avatars/avatar02.jpg" alt="">
-                            <span class="name">Mark Johnson<span class="text-muted">, Google</span></span>
+                            <img
+                                src="../front/data-images/user/{{ $feedbacks[0]->user_id != null ? $feedbacks[0]->user->image : '_default-user.png' }}"
+                                alt="">
+                            <span class="name">{{ $feedbacks[0]->name }}<span class="text-muted"></span></span>
                         </footer>
                     </blockquote>
                     <!-- Blockquote -->
                     <blockquote class="blockquote animated" data-animation="fadeInRight" data-animation-delay="300">
                         <div class="blockquote-content dark">
-                            <div class="rate rate-sm mb-3"><i class="fa fa-star active"></i><i
-                                    class="fa fa-star active"></i><i class="fa fa-star active"></i><i
-                                    class="fa fa-star active"></i><i class="fa fa-star"></i></div>
-                            <p>Great food and great atmosphere!</p>
+                            <div class="rate rate-sm mb-3">
+                                @for($i=1;$i<=$feedbacks[1]->rating;$i++)
+                                    <i class="fa fa-star active"></i>
+                                @endfor
+                                @for($j=1;$j<=5-$feedbacks[1]->rating;$j++)
+                                    <i class="fa fa-star"></i>
+                                @endfor
+                            </div>
+                            <p>{{ $feedbacks[1]->message }}</p>
                         </div>
                         <footer>
-                            <img src="data-images/avatars/avatar01.jpg" alt="">
-                            <span class="name">Kate Hudson<span class="text-muted">, LinkedIn</span></span>
+                            <img src="../front/data-images/user/{{ $feedbacks[1]->user->image ?? '_default-user.png' }}"
+                                 alt="">
+                            <span class="name">{{ $feedbacks[1]->name }}<span class="text-muted"></span></span>
                         </footer>
                     </blockquote>
                 </div>
@@ -178,7 +192,7 @@
             @if(count($products) > 0)
                 @foreach($product_categories as $product_categories)
                     <div class="menu-sample">
-                        <a href="../{{ $product_categories->name }}">
+                        <a href="../menu#{{ $product_categories->name }}">
                             <img src="../front/data-images/products/{{ $product_categories->products[0]->image }}"
                                  alt="" class="image">
                             <h3 class="title">{{ $product_categories->name }}</h3>

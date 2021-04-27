@@ -23,7 +23,7 @@ class User extends Authenticatable
 
     public function feedbacks()
     {
-        return $this->hasMany(Contact::class, 'user_id', 'id');
+        return $this->hasMany(Feedback::class, 'user_id', 'id');
     }
 
     /**
