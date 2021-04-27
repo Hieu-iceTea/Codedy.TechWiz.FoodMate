@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\User;
+use App\Utilities\Constant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,9 +18,13 @@ class OrderController extends Controller
      */
     public function index(Request $request)
     {
+        $orders = Order::all()->toQuery();
+
         //Truy vấn theo nhà hàng:
-        $restaurant_id = Auth::user()->restaurant_id;
-        $orders = Order::Where('restaurant_id', $restaurant_id);
+        if (Auth::user()->level == Constant::user_level_staff) {
+            $restaurant_id = Auth::user()->restaurant_id;
+            $orders = $orders->Where('restaurant_id', $restaurant_id);
+        }
 
         //Tìm theo ID:
         $keyword = $request->get('search');

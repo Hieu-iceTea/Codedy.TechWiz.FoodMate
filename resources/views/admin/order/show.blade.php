@@ -6,7 +6,7 @@
 
     <!-- Main -->
     <div class="app-main__inner">
-        <div class="app-page-title">
+        <div class="app-page-title mb-3">
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
                     <div class="page-title-icon">
@@ -20,33 +20,40 @@
                     </div>
                 </div>
 
+                <div class="page-title-actions mt-3">
+                @if($order->status == \App\Utilities\Constant::order_status_Unconfirmed)
+                        <!-- Button Accept -->
+                        <form method="post" action="{{ url()->current() }}" class="d-inline-block">
+                            @csrf
+                            @method('put')
+                            <input type="hidden" name="status"
+                                   value="{{ \App\Utilities\Constant::order_status_Accept }}">
+                            <div class="position-relative row form-group">
+                                <div class="col-md-9 col-xl-8">
+                                    <button type="submit" class="btn-shadow btn-hover-shine btn btn-success"
+                                            onclick="return confirm('Accept this order?')">
+                                        Accept
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Button trigger modal -->
+                        <button type="button"
+                                class="btn-shadow btn-hover-shine btn btn-outline-danger d-inline-block ml-3 mr-3"
+                                data-toggle="modal" data-target="#rejectModal">
+                            Reject
+                        </button>
+                    @else
+                        <div
+                            class="badge badge-{{ \App\Utilities\Constant::$order_status_badges[$order->status] }} opacity-9 mt-2 mr-3">
+                            {{ \App\Utilities\Constant::$order_status[$order->status] }}
+                        </div>
+                    @endif
+                </div>
+
             </div>
         </div>
-
-        <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
-            <li class="nav-item">
-                <a href="{{ url()->current() . '/edit'}}" class="nav-link">
-                                <span class="btn-icon-wrapper pr-2 opacity-8">
-                                    <i class="fa fa-edit fa-w-20"></i>
-                                </span>
-                    <span>Edit</span>
-                </a>
-            </li>
-
-            <li class="nav-item delete">
-                <form action="" action="{{ url()->current() . '/' }}">
-                    @csrf
-                    @method('DELETE')
-                    <button class="nav-link btn" type="submit"
-                            onclick="return confirm('Do you really want to delete this item?')">
-                                    <span class="btn-icon-wrapper pr-2 opacity-8">
-                                        <i class="fa fa-trash fa-w-20"></i>
-                                    </span>
-                        <span>Delete</span>
-                    </button>
-                </form>
-            </li>
-        </ul>
 
         <div class="row">
             <div class="col-md-12">
@@ -148,7 +155,10 @@
                             <label for="postcode_zip" class="col-md-3 text-md-right col-form-label">
                                 Status</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>{{ \App\Utilities\Constant::$order_status[$order->status] }}</p>
+                                <div
+                                    class="badge badge-{{ \App\Utilities\Constant::$order_status_badges[$order->status] }} opacity-9 mt-2">
+                                    {{ \App\Utilities\Constant::$order_status[$order->status] }}
+                                </div>
                             </div>
                         </div>
 
@@ -173,13 +183,16 @@
                                                value="{{ \App\Utilities\Constant::order_status_Accept }}">
                                         <div class="position-relative row form-group">
                                             <div class="col-md-9 col-xl-8">
-                                                <button type="submit" class="btn btn-outline-success">Accept</button>
+                                                <button type="submit"
+                                                        class="btn-shadow btn-hover-shine btn btn-success">Accept
+                                                </button>
                                             </div>
                                         </div>
                                     </form>
 
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-outline-danger d-inline-block ml-3"
+                                    <button type="button"
+                                            class="btn-shadow btn-hover-shine btn btn-outline-danger d-inline-block ml-3"
                                             data-toggle="modal" data-target="#rejectModal">
                                         Reject
                                     </button>
@@ -210,7 +223,6 @@
 
                                                         <input type="hidden" name="status"
                                                                value="{{ \App\Utilities\Constant::order_status_Reject }}">
-
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"

@@ -66,7 +66,8 @@
                                 <div class="btn-group">
                                     <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                        class="p-0 btn">
-                                        <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg"
+                                        <img width="42" class="rounded-circle"
+                                             src="../front/data-images/user/{{ Auth::user()->image ?? '_default-user.png' }}"
                                              alt="">
                                         <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                     </a>
@@ -82,12 +83,14 @@
                                                         <div class="widget-content-wrapper">
                                                             <div class="widget-content-left mr-3">
                                                                 <img width="42" class="rounded-circle"
-                                                                     src="assets/images/avatars/1.jpg" alt="">
+                                                                     src="../front/data-images/user/{{ Auth::user()->image ?? '_default-user.png' }}"
+                                                                     alt="">
                                                             </div>
                                                             <div class="widget-content-left">
-                                                                <div class="widget-heading">{{ Auth::user()->user_name }}</div>
+                                                                <div
+                                                                    class="widget-heading">{{ Auth::user()->user_name }}</div>
                                                                 <div class="widget-subheading opacity-8">
-                                                                    {{ Auth::user()->email }}
+                                                                    {{ Auth::user()->restaurant->name }}
                                                                 </div>
                                                             </div>
                                                             <div class="widget-content-right mr-2">
@@ -106,7 +109,12 @@
                             </div>
                             <div class="widget-content-left  ml-3 header-user-info">
                                 <div class="widget-heading">{{ Auth::user()->user_name }}</div>
-                                <div class="widget-subheading">{{ Auth::user()->email }}</div>
+                                <div class="widget-subheading">
+                                    Restaurant:
+                                    <span class="font-weight-bold">
+                                        {{ Auth::user()->restaurant->name }}
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -156,9 +164,15 @@
 
                         <ul>
                             <li>
-                                <a href="../admin/user"
-                                   class="{{ (request()->segment(2) == 'user') ? 'mm-active' : '' }}">
-                                    <i class="metismenu-icon"></i>User
+                                <a href="../admin"
+                                   class="{{ (request()->segment(2) == '') ? 'mm-active' : '' }}">
+                                    <i class="metismenu-icon"></i>Dashboard
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../admin/report"
+                                   class="{{ (request()->segment(2) == 'report') ? 'mm-active' : '' }}">
+                                    <i class="metismenu-icon"></i>Report
                                 </a>
                             </li>
                             <li>
@@ -192,9 +206,9 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="../admin/report"
-                                   class="{{ (request()->segment(2) == 'report') ? 'mm-active' : '' }}">
-                                    <i class="metismenu-icon"></i>Report
+                                <a href="../admin/user"
+                                   class="{{ (request()->segment(2) == 'user') ? 'mm-active' : '' }}">
+                                    <i class="metismenu-icon"></i>User
                                 </a>
                             </li>
                         </ul>

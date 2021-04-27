@@ -40,7 +40,7 @@
                         <form>
                             <div class="input-group">
                                 <input type="search" name="search" id="search"
-                                       placeholder="Search by Id" class="form-control">
+                                       placeholder="Search by Id" class="form-control" value="{{ request('search') }}">
                                 <span class="input-group-append">
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="fa fa-search"></i>&nbsp;
@@ -58,7 +58,6 @@
                                 <th class="text-center">ID</th>
                                 <th>Name</th>
                                 <th class="text-center">Address</th>
-                                <th class="text-center">Desctiption</th>
                                 <th class="text-center">Actions</th>
                             </tr>
                             </thead>
@@ -72,7 +71,7 @@
                                             <div class="widget-content-wrapper">
                                                 <div class="widget-content-left mr-3">
                                                     <div class="widget-content-left">
-                                                        <img width="40"
+                                                        <img width="80"
                                                              data-toggle="tooltip" title="Image"
                                                              data-placement="bottom"
                                                              src="../front/data-images/restaurants/{{ $restaurant->image }}"
@@ -87,24 +86,19 @@
                                     </td>
                                     <td class="text-center">{{ $restaurant->address }}</td>
                                     <td class="text-center">
-                                        @if(strlen($restaurant->description) > 50)
-                                            {!! substr($restaurant->description, 0, 50)  . ' ...' !!}
-                                        @else
-                                            {!! $restaurant->description !!}
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
                                         <a href="{{ url()->current() . '/' . $restaurant->id }}"
                                            class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
                                             Details
                                         </a>
-                                        <a href="{{ url()->current() . '/' . $restaurant->id . '/edit'}}" data-toggle="tooltip" title="Edit"
+                                        <a href="{{ url()->current() . '/' . $restaurant->id . '/edit'}}"
+                                           data-toggle="tooltip" title="Edit"
                                            data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
                                                         <span class="btn-icon-wrapper opacity-8">
                                                             <i class="fa fa-edit fa-w-20"></i>
                                                         </span>
                                         </a>
-                                        <form class="d-inline" action="{{ url()->current() . '/' . $restaurant->id }}" method="post">
+                                        <form class="d-inline" action="{{ url()->current() . '/' . $restaurant->id }}"
+                                              method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"

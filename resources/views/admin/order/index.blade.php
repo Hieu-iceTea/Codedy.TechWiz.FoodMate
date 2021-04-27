@@ -59,7 +59,6 @@
                                 <th class="text-center">ID</th>
                                 <th>Products</th>
                                 <th class="text-center">Full name</th>
-                                <th class="text-center">Phone</th>
                                 <th class="text-center">Address</th>
                                 <th class="text-center">Amount</th>
                                 <th class="text-center">Status</th>
@@ -87,26 +86,32 @@
                                                 <div class="widget-content-left flex2">
                                                     <div class="widget-heading">
                                                         {{ $order->orderDetails[0]->product->name }}
-                                                        @if(count($order->orderDetails) > 1)
-                                                            (and {{ count($order->orderDetails) - 1 }} other items)
-                                                        @endif
                                                     </div>
+
+                                                    @if(count($order->orderDetails) > 1)
+                                                        <div class="widget-subheading opacity-9">
+                                                            (and {{ count($order->orderDetails) - 1 }} other items)
+                                                        </div>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="text-center">{{ $order->user->last_name ?? '' }}, {{ $order->user->first_name ?? '' }}</td>
+                                    <td class="text-center">{{ $order->user->last_name ?? '' }},
+                                        {{ $order->user->first_name ?? '' }}</td>
                                     <td class="text-center">
-                                        {{ $order->user->phone ?? '' }}
-                                    </td>
-                                    <td class="text-center">
-                                        {{ $order->delivery_address }}
+                                        {{ strlen($order->delivery_address) > 25 ? substr($order->delivery_address, 0, 25) . ' ...' : $order->delivery_address }}
                                     </td>
                                     <td class="text-center">
                                         ${{ $order->total_amount }}
                                     </td>
                                     <td class="text-center">
-                                        {{ \App\Utilities\Constant::$order_status[$order->status] }}
+
+                                        <div
+                                            class="badge badge-{{ \App\Utilities\Constant::$order_status_badges[$order->status] }} opacity-9 mt-2">
+                                            {{ \App\Utilities\Constant::$order_status[$order->status] }}
+                                        </div>
+
                                     </td>
                                     <td class="text-center">
                                         <a href="../admin/order/{{ $order->id }}"

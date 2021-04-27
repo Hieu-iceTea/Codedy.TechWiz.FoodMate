@@ -40,7 +40,8 @@
                         <form>
                             <div class="input-group">
                                 <input type="search" name="search" id="search"
-                                       placeholder="Search everything" class="form-control">
+                                       placeholder="Search ..." class="form-control"
+                                       value="{{ request('search') }}">
                                 <span class="input-group-append">
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="fa fa-search"></i>&nbsp;
@@ -59,6 +60,7 @@
                                 <th class="text-center">ID</th>
                                 <th class="text-center">Name</th>
                                 <th class="text-center">Image</th>
+                                <th class="text-center">Actions</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -74,7 +76,7 @@
                                                     <div class="widget-heading">
                                                         <img class="figure-img"
                                                              src="../front/data-images/categories/{{$category -> image}}"
-                                                             width="150px" alt=""></div>
+                                                             width="80" alt=""></div>
                                                 </div>
                                             </div>
                                         </div>
