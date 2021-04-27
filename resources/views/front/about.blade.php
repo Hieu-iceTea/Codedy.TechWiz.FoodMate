@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-lg-7 offset-lg-5">
                     <h1 class="mb-0">About Us</h1>
-                    <h4 class="text-muted mb-0">Some informations about our restaurant</h4>
+                    <h4 class="text-muted mb-0">Some informations about Cloud Kitchen</h4>
                 </div>
             </div>
         </div>
@@ -26,19 +26,20 @@
         <div class="container">
             <div class="col-lg-5 offset-lg-5 col-md-9 offset-md-3">
                 <div class="rate mb-5 rate-lg"><i class="fa fa-star active"></i><i class="fa fa-star active"></i><i
-                        class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star"></i></div>
-                <h2>The best food in London!</h2>
-                <p class="lead">Donec a eros metus. Vivamus volutpat leo dictum risus ullamcorper condimentum. Cras
-                    sollicitudin varius condimentum. Praesent a dolor sem....</p>
-                <p>Nam eleifend elementum sapien et bibendum. Nunc ac diam efficitur, ultrices lorem quis, consectetur
-                    odio. Nullam vulputate, eros quis accumsan cursus, elit lectus bibendum nulla, sed dapibus ligula
-                    tellus at purus. Fusce id eros id mi cursus semper. Quisque efficitur bibendum nunc a consectetur.
-                    Maecenas vitae quam iaculis, scelerisque purus nec, varius purus. Nullam eget varius elit. Donec
-                    eget facilisis nunc, non rutrum lorem.</p>
+                        class="fa fa-star active"></i><i class="fa fa-star active"></i><i class="fa fa-star-half-full active"></i></div>
+                <h2> Enjoy delicious dishes at home</h2>
+                <p class="lead">Online Food Delivery web application</p>
+                <p>Our web application that will act as an online
+                    bridge between customers/end users and restaurant staff. It will
+                    enable end users to browse through restaurant menus online and
+                    order food online. It will enable staff to add/modify items in online
+                    menus, accept orders, and so on.
+                    The Web application will also enable users to register themselves,
+                    login to the application, look for food items, and place orders. Users
+                    can submit their feedback regarding the application using a feedback
+                    form.</p>
                 <h6>Mark Johnson, Chef</h6>
                 <img src="assets/img/svg/sign.svg" alt="" class="mb-5">
-                <h4>What people say about Us?</h4>
-                <a href="page-reviews.html" class="btn btn-outline-primary"><span>Check our reviews</span></a>
             </div>
         </div>
 
