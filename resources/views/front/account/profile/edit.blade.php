@@ -7,7 +7,7 @@
     <!-- Page Title -->
     <div class="page-title bg-dark dark">
         <!-- BG Image -->
-        <div class="bg-image bg-parallax"><img src="{{ asset('') }}front/data-images/photos/bg-croissant.jpg" alt="">
+        <div class="bg-image bg-parallax"><img src="data-images/photos/bg-croissant.jpg" alt="">
         </div>
         <div class="container">
             <div class="row">

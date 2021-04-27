@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <base href="{{ asset('') }}/dashboard/">
+    <base href="">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
@@ -15,7 +15,7 @@
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 
-    <link href="{{ asset('') }}main.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
 </head>
 
 <body>
@@ -112,7 +112,7 @@
                                 </div>
                                 <div class="mt-4 d-flex align-items-center">
                                     <h5 class="mb-0">Already have an account?
-                                        <a href="{{ asset('') }}account/login" class="text-primary">
+                                        <a href="../account/login" class="text-primary">
                                             Sign in
                                         </a>
                                     </h5>
@@ -135,7 +135,7 @@
                                     class="position-relative h-100 d-flex justify-content-center align-items-center bg-premium-dark"
                                     tabindex="-1">
                                     <div class="slide-img-bg"
-                                         style="background-image: url('assets/images/originals/restaurant-1.PNG');"></div>
+                                         style="background-image: url('../dashboard/assets/images/originals/restaurant-1.PNG');"></div>
                                     <div class="slider-content">
                                         <h3>Chestnut Restaurant & Sky Bar</h3>
                                         <p>
@@ -154,7 +154,7 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="{{ asset('') }}front/assets/scripts/main.js"></script>
+<script type="text/javascript" src="assets/scripts/main.js"></script>
 </body>
 
 </html>

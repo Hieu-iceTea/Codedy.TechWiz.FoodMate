@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="page-title-actions">
-                    <a href="{{ asset('') }}admin/user/create" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
+                    <a href="../admin/user/create" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
                                     <span class="btn-icon-wrapper pr-2 opacity-7">
                                         <i class="fa fa-plus fa-w-20"></i>
                                     </span>
@@ -79,7 +79,7 @@
                                                         <img style="height: 60px;"
                                                              data-toggle="tooltip" title="Image"
                                                              data-placement="bottom"
-                                                             src="{{ asset('') }}front/data-images/user/{{$user -> image}}" alt="">
+                                                             src="data-images/user/{{$user -> image}}" alt="">
                                                     </div>
                                                 </div>
                                                 <div class="widget-content-left flex2">
@@ -102,11 +102,11 @@
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <a href="{{ asset('') }}admin/user/{{ $user->id }}"
+                                        <a href="../admin/user/{{ $user->id }}"
                                            class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
                                             Details
                                         </a>
-                                        <a href="{{ asset('') }}{{ url()->current() . '/' . $user->id . '/edit'}}"
+                                        <a href="../{{ url()->current() . '/' . $user->id . '/edit'}}"
                                            data-toggle="tooltip" title="Edit"
                                            data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
                                                         <span class="btn-icon-wrapper opacity-8">
@@ -142,7 +142,7 @@
                                                 « Previous
                                             </span>
 
-                                <a href="{{ asset('') }}#page=2"
+                                <a href="../#page=2"
                                    class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
                                     Next »
                                 </a>

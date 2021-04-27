@@ -24,7 +24,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-4 offset-lg-1 col-md-6 mb-5 mb-md-0">
-                    <img src="{{ asset('') }}front/assets/img/logo-cloud-kitchen-black.png" alt="" class="mb-5" width="130">
+                    <img src="assets/img/logo-cloud-kitchen-black.png" alt="" class="mb-5" width="130">
                     <h4 class="mb-0">Cloud Kitchen</h4>
                     <span class="text-muted">So 8, Ton That Thuyet, My Dinh, Ha Noi</span>
                     <hr class="hr-md">
@@ -35,18 +35,18 @@
                         </div>
                         <div class="col-sm-6">
                             <h6 class="mb-1 text-muted">E-mail:</h6>
-                            <a href="{{ asset('') }}#">CloudKitchen@gmail.com</a>
+                            <a href="../#">CloudKitchen@gmail.com</a>
                         </div>
                     </div>
                     <hr class="hr-md">
                     <h6 class="mb-3 text-muted">Follow Us!</h6>
-                    <a href="{{ asset('') }}#" class="icon icon-social icon-circle icon-sm icon-facebook"><i
+                    <a href="../#" class="icon icon-social icon-circle icon-sm icon-facebook"><i
                             class="fa fa-facebook"></i></a>
-                    <a href="{{ asset('') }}#" class="icon icon-social icon-circle icon-sm icon-google"><i
+                    <a href="../#" class="icon icon-social icon-circle icon-sm icon-google"><i
                             class="fa fa-google"></i></a>
-                    <a href="{{ asset('') }}#" class="icon icon-social icon-circle icon-sm icon-twitter"><i class="fa fa-twitter"></i></a>
-                    <a href="{{ asset('') }}#" class="icon icon-social icon-circle icon-sm icon-youtube"><i class="fa fa-youtube"></i></a>
-                    <a href="{{ asset('') }}#" class="icon icon-social icon-circle icon-sm icon-instagram"><i
+                    <a href="../#" class="icon icon-social icon-circle icon-sm icon-twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="../#" class="icon icon-social icon-circle icon-sm icon-youtube"><i class="fa fa-youtube"></i></a>
+                    <a href="../#" class="icon icon-social icon-circle icon-sm icon-instagram"><i
                             class="fa fa-instagram"></i></a>
                 </div>
                 <div class="col-lg-5 offset-lg-2 col-md-6">

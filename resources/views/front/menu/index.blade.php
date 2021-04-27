@@ -15,7 +15,7 @@
                     @if(request('restaurant_id') != null)
                         <h4 class="text-muted mb-0">
                             For restaurant:
-                            <a href="{{ asset('') }}restaurant">
+                            <a href="../restaurant">
                                 <span style="font-size: 130%">
                                     {{ $restaurant_name }}
                                 </span>
@@ -25,7 +25,7 @@
                     @else
                         <h4 class="text-muted mb-0">
                             For all restaurant.
-                            <a href="{{ asset('') }}restaurant">
+                            <a href="../restaurant">
                                 (Select restaurant)
                             </a>
                         </h4>
@@ -75,7 +75,7 @@
                         @if(count($products) > 0)
                             <ul class="nav nav-menu bg-dark dark">
                                 @foreach($categories as $category)
-                                    <li><a href="{{ asset('') }}#{{ $category->name }}">{{ $category->name }}</a></li>
+                                    <li><a href="../#{{ $category->name }}">{{ $category->name }}</a></li>
                                 @endforeach
                             </ul>
                         @endif
@@ -90,7 +90,7 @@
                                 <div id="{{ $category->name }}" class="menu-category">
                                     <div class="menu-category-title">
                                         <div class="bg-image"><img
-                                                src="{{ asset('') }}front/data-images/categories/{{ $category->image }}" alt="">
+                                                src="data-images/categories/{{ $category->image }}" alt="">
                                         </div>
                                         <h2 class="title">{{ $category->name }}</h2>
                                     </div>
@@ -101,14 +101,14 @@
                                                 <div class="col-lg-4 col-6">
                                                     <!-- Menu Item -->
                                                     <div class="menu-item menu-grid-item">
-                                                        <a href="{{ asset('') }}menu/{{ $product->id }}">
+                                                        <a href="../menu/{{ $product->id }}">
                                                             <img class="mb-4"
-                                                                 src="{{ asset('') }}front/data-images/products/{{ $product->image }}"
+                                                                 src="data-images/products/{{ $product->image }}"
                                                                  alt="">
                                                         </a>
 
                                                         <h6 class="mb-0">
-                                                            <a href="{{ asset('') }}menu/{{ $product->id }}">
+                                                            <a href="../menu/{{ $product->id }}">
                                                                 {{ strlen($product->name) > 25 ? substr($product->name, 0, 25) . ' ...' : $product->name }}
                                                             </a>
                                                         </h6>
@@ -121,7 +121,7 @@
                                                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                                                                 Restaurant:
                                                             </span>
-                                                            <a href="{{ asset('') }}restaurant/{{ $product->restaurant->id }}">
+                                                            <a href="../restaurant/{{ $product->restaurant->id }}">
                                                                 <span class="text-sm">
                                                                     {{ strlen($product->restaurant->name) > 20 ? substr($product->restaurant->name, 0, 20) . ' ...' : $product->restaurant->name }}
                                                                 </span>
@@ -135,7 +135,7 @@
                                                                         data-product-base-price>{{ $product->price }}</span></span>
                                                             </div>
                                                             <div class="col-sm-6 text-sm-right mt-2 mt-sm-0">
-                                                                <a href="{{ asset('') }}cart/add/{{ $product->id }}"
+                                                                <a href="../cart/add/{{ $product->id }}"
                                                                    class="btn btn-outline-secondary btn-sm">
                                                                     <span>Add to cart</span>
                                                                 </a>
