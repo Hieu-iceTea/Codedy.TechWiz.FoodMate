@@ -13,10 +13,10 @@
                             <div class="widget-content-wrapper">
                                 <div class="widget-content-left">
                                     <div class="widget-heading">Total Orders</div>
-                                    <div class="widget-subheading">Last month</div>
+                                    <div class="widget-subheading">All Time</div>
                                 </div>
                                 <div class="widget-content-right">
-                                    <div class="widget-numbers text-success">{{$orderMonth->count()}}</div>
+                                    <div class="widget-numbers text-success">{{$orders->count()}}</div>
                                 </div>
                             </div>
                         </div>
@@ -42,11 +42,11 @@
                         <div class="widget-content-outer">
                             <div class="widget-content-wrapper">
                                 <div class="widget-content-left">
-                                    <div class="widget-heading">Items Sold</div>
-                                    <div class="widget-subheading">Last month revenue</div>
+                                    <div class="widget-heading">Total Customer</div>
+                                    <div class="widget-subheading">User</div>
                                 </div>
                                 <div class="widget-content-right">
-                                    <div class="widget-numbers text-warning">{{$revenueMonth}}</div>
+                                    <div class="widget-numbers text-warning">{{$users->count()}}</div>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                     <div class="btn-actions-pane-right">
                         <div role="group" class="btn-group-sm btn-group">
                             <a name="view" class="{{ request('view') == 'all' ? 'active' : '' }} btn btn-focus" href="../admin?view=all">All Time</a>
-                            <a name="view" class="{{ request('view') == 'last_month' ? 'active' : '' }} btn btn-focus" href="../admin?view=last_month">Last Month</a>
+                            <a name="view" class="{{ request('view') == 'last_month' ? 'active' : '' }} btn btn-focus" href="../admin?view=last_month">This Month</a>
                         </div>
                     </div>
                 </div>
@@ -115,11 +115,11 @@
         <div class="col-lg-6 col-xl-6 mb-lg-5">
             <div class="main-card mb-3 card">
                 <div class="card-header"><i class="header-icon lnr-store mr-3 text-muted opacity-6"> </i>
-                    Top Ordered Item
+                    Top Restaurant Selling
                     <div class="btn-actions-pane-right">
                         <div role="group" class="btn-group-sm btn-group">
-                            <button class="active btn btn-focus">All Time</button>
-                            <button class="btn btn-focus">Last Month</button>
+                            <a name="view" class="{{ request('view') == 'all' ? 'active' : '' }} btn btn-focus" href="../admin?view=all">All Time</a>
+                            <a name="view" class="{{ request('view') == 'last_month' ? 'active' : '' }} btn btn-focus" href="../admin?view=last_month">This Month</a>
                         </div>
                     </div>
                 </div>
