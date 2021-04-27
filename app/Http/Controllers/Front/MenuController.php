@@ -36,7 +36,7 @@ class MenuController extends Controller
             $products = $products->whereIn('tag', $tag);
         }
 
-        $products = $products->get();
+        $products = $products->orderBy('id', 'desc')->get();
 
         $categories = ProductCategory::whereIn('id', array_unique(array_column($products->toArray(), 'product_category_id')))->get();
         $restaurant_name = Restaurant::find($restaurant_id)->name ?? '';
