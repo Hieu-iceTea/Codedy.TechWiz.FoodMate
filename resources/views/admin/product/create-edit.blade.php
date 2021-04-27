@@ -27,21 +27,16 @@
             <div class="col-md-12">
                 <div class="main-card mb-3 card">
                     <div class="card-body">
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
+
                         <form method="post" action="../{{ request()->segment(3) == 'create' ? 'admin/product' : 'admin/product/' . $product->id }}" enctype="multipart/form-data">
                             @csrf
 
                             @if(request()->segment(3) != 'create')
                                 @method('PUT')
                             @endif
+
+                            @include('components.errors')
+                            @include('components.notifications')
 
                             <div class="position-relative row form-group">
                             <label for="" class="col-md-3 text-md-right col-form-label">Images</label>
