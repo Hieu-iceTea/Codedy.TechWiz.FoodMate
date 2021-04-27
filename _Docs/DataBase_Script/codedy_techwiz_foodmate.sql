@@ -9,8 +9,8 @@
 # SET @DATABASE_Name = 'codedy_techwiz_foodmate';
 
 # Create DataBase
-# DROP DATABASE IF EXISTS `codedy_techwiz_foodmate`;
-# CREATE DATABASE IF NOT EXISTS `codedy_techwiz_foodmate` CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+DROP DATABASE IF EXISTS `codedy_techwiz_foodmate`;
+CREATE DATABASE IF NOT EXISTS `codedy_techwiz_foodmate` CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 USE `codedy_techwiz_foodmate`;
 
