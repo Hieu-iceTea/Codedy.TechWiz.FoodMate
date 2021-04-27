@@ -41,7 +41,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view('admin.order.create-edit');
+        return redirect('admin/order');
     }
 
     /**
@@ -76,7 +76,7 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.order.create-edit');
+        return redirect('admin/order');
     }
 
     /**
