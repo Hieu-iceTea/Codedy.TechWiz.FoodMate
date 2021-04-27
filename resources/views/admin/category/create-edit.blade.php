@@ -45,7 +45,7 @@
                                     <img style="height: 200px; cursor: pointer;"
                                          class="thumbnail " data-toggle="tooltip"
                                          title="Click to change the image" data-placement="bottom"
-                                         src="{{ isset($category->image) ? '../front/data-images/categories/' . $category->image : '../dashboard/assets/images/add-image-icon.jpg' }}" alt="Avatar">
+                                         src="{{ asset('') }}{{ isset($category->image) ? '../front/data-images/categories/' . $category->image : '../dashboard/assets/images/add-image-icon.jpg' }}" alt="Avatar">
                                     <input name="image" type="file" onchange="changeImg(this)"
                                            class="image form-control-file" style="display: none;" value="{{ old('image') ?? $category->image ?? ''}}">
                                     <input type="hidden" name="image_old" value="{{ $category->image ?? '' }}">
@@ -65,7 +65,7 @@
 
                             <div class="position-relative row form-group mb-1">
                                 <div class="col-md-9 col-xl-8 offset-md-2">
-                                    <a href="../admin/category" class="border-0 btn btn-outline-danger mr-1">
+                                    <a href="{{ asset('') }}admin/category" class="border-0 btn btn-outline-danger mr-1">
                                                     <span class="btn-icon-wrapper pr-1 opacity-8">
                                                         <i class="fa fa-times fa-w-20"></i>
                                                     </span>

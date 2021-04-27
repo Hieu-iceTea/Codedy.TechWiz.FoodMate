@@ -25,7 +25,7 @@
 
                     <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
                         <li class="nav-item">
-                            <a href="{{ url()->current() . '/edit'}}" class="nav-link">
+                            <a href="{{ asset('') }}{{ url()->current() . '/edit'}}" class="nav-link">
                                 <span class="btn-icon-wrapper pr-2 opacity-8">
                                     <i class="fa fa-edit fa-w-20"></i>
                                 </span>
@@ -53,7 +53,7 @@
                             <div class="main-card mb-3 card">
                                 <div class="card-body display_data">
                                     <div class="position-relative row form-group ">
-                                        <img class="img-fluid" src="../front/data-images/categories/{{ $category->image }}" alt="" width="600px" style="margin-left: 0px"><br>
+                                        <img class="img-fluid" src="{{ asset('') }}front/data-images/categories/{{ $category->image }}" alt="" width="600px" style="margin-left: 0px"><br>
                                     </div>
                                     <div for="name" class="text-xl-center col-md-3 text-md-right col-form-label">
                                         Name : {{ $category->name }}

@@ -7,7 +7,7 @@
     <!-- Page Title -->
     <div class="page-title bg-dark dark">
         <!-- BG Image -->
-        <div class="bg-image bg-parallax"><img src="data-images/photos/bg-croissant.jpg" alt="">
+        <div class="bg-image bg-parallax"><img src="{{ asset('') }}front/data-images/photos/bg-croissant.jpg" alt="">
         </div>
         <div class="container">
             <div class="row">
@@ -44,7 +44,7 @@
                                 <tr>
                                     <td>
                                         <img
-                                            src="../front/data-images/products/{{ $order->orderDetails[0]->product->image }}"
+                                            src="{{ asset('') }}front/data-images/products/{{ $order->orderDetails[0]->product->image }}"
                                             style="height: 80px" alt="">
                                     </td>
                                     <td class="title">
@@ -59,7 +59,7 @@
                                     <td class="title">{{ \App\Utilities\Constant::$order_status[$order->status] }}</td>
                                     <td class="price">{{ $order->orderDetails[0]->product->price }}$</td>
                                     <td class="actions">
-                                        <a href="../account/my-order/{{ $order->id }}" class="action-icon">
+                                        <a href="{{ asset('') }}account/my-order/{{ $order->id }}" class="action-icon">
                                             <i class="ti ti-eye"></i>
                                             Detail
                                         </a>

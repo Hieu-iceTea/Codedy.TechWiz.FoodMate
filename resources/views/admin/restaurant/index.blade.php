@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="page-title-actions">
-                    <a href="../admin/restaurant/create" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
+                    <a href="{{ asset('') }}admin/restaurant/create" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
                                     <span class="btn-icon-wrapper pr-2 opacity-7">
                                         <i class="fa fa-plus fa-w-20"></i>
                                     </span>
@@ -74,7 +74,7 @@
                                                         <img width="80"
                                                              data-toggle="tooltip" title="Image"
                                                              data-placement="bottom"
-                                                             src="../front/data-images/restaurants/{{ $restaurant->image }}"
+                                                             src="{{ asset('') }}front/data-images/restaurants/{{ $restaurant->image }}"
                                                              alt="">
                                                     </div>
                                                 </div>
@@ -86,11 +86,11 @@
                                     </td>
                                     <td class="text-center">{{ $restaurant->address }}</td>
                                     <td class="text-center">
-                                        <a href="{{ url()->current() . '/' . $restaurant->id }}"
+                                        <a href="{{ asset('') }}{{ url()->current() . '/' . $restaurant->id }}"
                                            class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
                                             Details
                                         </a>
-                                        <a href="{{ url()->current() . '/' . $restaurant->id . '/edit'}}"
+                                        <a href="{{ asset('') }}{{ url()->current() . '/' . $restaurant->id . '/edit'}}"
                                            data-toggle="tooltip" title="Edit"
                                            data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
                                                         <span class="btn-icon-wrapper opacity-8">
@@ -127,7 +127,7 @@
                                                 « Previous
                                             </span>
 
-                                <a href="#page=2"
+                                <a href="{{ asset('') }}#page=2"
                                    class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
                                     Next »
                                 </a>

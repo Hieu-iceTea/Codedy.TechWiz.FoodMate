@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="page-title-actions">
-                    <a href="../admin/category/create" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
+                    <a href="{{ asset('') }}admin/category/create" class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
                                     <span class="btn-icon-wrapper pr-2 opacity-7">
                                         <i class="fa fa-plus fa-w-20"></i>
                                     </span>
@@ -75,7 +75,7 @@
                                                 <div class="widget-content-left flex2">
                                                     <div class="widget-heading">
                                                         <img class="figure-img"
-                                                             src="../front/data-images/categories/{{$category -> image}}"
+                                                             src="{{ asset('') }}front/data-images/categories/{{$category -> image}}"
                                                              width="80" alt=""></div>
                                                 </div>
                                             </div>
@@ -83,11 +83,11 @@
                                     </td>
 
                                     <td class="text-center">
-                                        <a href="../admin/category/{{ $category->id }}"
+                                        <a href="{{ asset('') }}admin/category/{{ $category->id }}"
                                            class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
                                             Details
                                         </a>
-                                        <a href="{{ url()->current() . '/' . $category->id . '/edit'}}"
+                                        <a href="{{ asset('') }}{{ url()->current() . '/' . $category->id . '/edit'}}"
                                            data-toggle="tooltip" title="Edit"
                                            data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
                                                         <span class="btn-icon-wrapper opacity-8">
@@ -126,7 +126,7 @@
                                                 « Previous
                                             </span>
 
-                                <a href="#page=2"
+                                <a href="{{ asset('') }}#page=2"
                                    class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
                                     Next »
                                 </a>
