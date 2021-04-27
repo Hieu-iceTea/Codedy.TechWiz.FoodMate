@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <base href="{{ asset('dashboard') }}/">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
@@ -13,10 +14,10 @@
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 
-    <link href="{{ asset('') }}dashboard/tailwind.min.css" rel="stylesheet">
+    <link href="tailwind.min.css" rel="stylesheet">
 
-    <link href="{{ asset('') }}dashboard/main.css" rel="stylesheet">
-    <link href="{{ asset('') }}dashboard/my_style.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+    <link href="my_style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -64,7 +65,7 @@
                                     <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                        class="p-0 btn">
                                         <img width="42" class="rounded-circle"
-                                             src="{{ asset('') }}front/data-images/user/{{ Auth::user()->image ?? '_default-user.png' }}"
+                                             src="data-images/user/{{ Auth::user()->image ?? '_default-user.png' }}"
                                              alt="">
                                         <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                     </a>
@@ -73,14 +74,14 @@
                                         <div class="dropdown-menu-header">
                                             <div class="dropdown-menu-header-inner bg-info">
                                                 <div class="menu-header-image opacity-2"
-                                                     style="background-image: url('{{ asset('') }}dashboard/assets/images/dropdown-header/city3.jpg');">
+                                                     style="background-image: url('../dashboard/assets/images/dropdown-header/city3.jpg');">
                                                 </div>
                                                 <div class="menu-header-content text-left">
                                                     <div class="widget-content p-0">
                                                         <div class="widget-content-wrapper">
                                                             <div class="widget-content-left mr-3">
                                                                 <img width="42" class="rounded-circle"
-                                                                     src="{{ asset('') }}front/data-images/user/{{ Auth::user()->image ?? '_default-user.png' }}"
+                                                                     src="data-images/user/{{ Auth::user()->image ?? '_default-user.png' }}"
                                                                      alt="">
                                                             </div>
                                                             <div class="widget-content-left">
@@ -91,7 +92,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="widget-content-right mr-2">
-                                                                <a href="{{ asset('') }}admin/logout"
+                                                                <a href="../admin/logout"
                                                                    class="btn-pill btn-shadow btn-shine btn btn-focus">
                                                                     Logout
                                                                 </a>
@@ -161,49 +162,49 @@
 
                         <ul>
                             <li>
-                                <a href="{{ asset('') }}admin"
+                                <a href="../admin"
                                    class="{{ (request()->segment(2) == '') ? 'mm-active' : '' }}">
                                     <i class="metismenu-icon"></i>Dashboard
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ asset('') }}admin/report"
+                                <a href="../admin/report"
                                    class="{{ (request()->segment(2) == 'report') ? 'mm-active' : '' }}">
                                     <i class="metismenu-icon"></i>Report
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ asset('') }}admin/order"
+                                <a href="../admin/order"
                                    class="{{ (request()->segment(2) == 'order') ? 'mm-active' : '' }}">
                                     <i class="metismenu-icon"></i>Order
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ asset('') }}admin/product"
+                                <a href="../admin/product"
                                    class="{{ (request()->segment(2) == 'product') ? 'mm-active' : '' }}">
                                     <i class="metismenu-icon"></i>Product
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ asset('') }}admin/category"
+                                <a href="../admin/category"
                                    class="{{ (request()->segment(2) == 'category') ? 'mm-active' : '' }}">
                                     <i class="metismenu-icon"></i>Category
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ asset('') }}admin/restaurant"
+                                <a href="../admin/restaurant"
                                    class="{{ (request()->segment(2) == 'restaurant') ? 'mm-active' : '' }}">
                                     <i class="metismenu-icon"></i>Restaurant
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ asset('') }}admin/feedback"
+                                <a href="../admin/feedback"
                                    class="{{ (request()->segment(2) == 'feedback') ? 'mm-active' : '' }}">
                                     <i class="metismenu-icon"></i>Feedback
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ asset('') }}admin/user"
+                                <a href="../admin/user"
                                    class="{{ (request()->segment(2) == 'user') ? 'mm-active' : '' }}">
                                     <i class="metismenu-icon"></i>User
                                 </a>
@@ -230,11 +231,11 @@
 </div>
 <div class="app-drawer-overlay d-none animated fadeIn"></div>
 
-<script src="{{ asset('') }}dashboard/assets/scripts/jquery-3.2.1.min.js"></script>
+<script src="assets/scripts/jquery-3.2.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<script type="text/javascript" src="{{ asset('') }}dashboard/assets/scripts/main.js"></script>
-<script type="text/javascript" src="{{ asset('') }}dashboard/assets/scripts/my_script.js"></script>
+<script type="text/javascript" src="assets/scripts/main.js"></script>
+<script type="text/javascript" src="assets/scripts/my_script.js"></script>
 </body>
 
 </html>

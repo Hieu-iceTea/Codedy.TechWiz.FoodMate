@@ -8,7 +8,7 @@
     <!-- Page Title -->
     <div class="page-title bg-dark dark">
         <!-- BG Image -->
-        <div class="bg-image bg-parallax"><img src="{{ asset('') }}front/data-images/photos/bg-croissant.jpg" alt="">
+        <div class="bg-image bg-parallax"><img src="data-images/photos/bg-croissant.jpg" alt="">
         </div>
         <div class="container">
             <div class="row">
@@ -35,7 +35,7 @@
                         <div class="cart-details shadow bg-white mb-4">
                             <div class="bg-white p-4 border-bottom">
                                 <h5 class="mb-0 text-warning">
-                                    <a href="{{ asset('') }}restaurant/{{ $carts[0]->options->restaurant_id }}">
+                                    <a href="../restaurant/{{ $carts[0]->options->restaurant_id }}">
                                         {{ $carts[0]->options->restaurant_name }}
                                         <i class="ti ti-angle-right" style="font-size: 80%"></i>
                                     </a>
@@ -68,12 +68,12 @@
                                     @foreach($carts as $cart)
                                         <tr>
                                             <td>
-                                                <img src="{{ asset('') }}front/data-images/products/{{ $cart->options->image }}"
+                                                <img src="data-images/products/{{ $cart->options->image }}"
                                                      style="height: 80px" alt="">
                                             </td>
                                             <td class="title">
                                         <span class="name">
-                                            <a href="{{ asset('') }}#product-modal-hide" data-toggle="modal">{{ $cart->name }}</a>
+                                            <a href="../#product-modal-hide" data-toggle="modal">{{ $cart->name }}</a>
                                         </span>
                                             </td>
                                             <td class="price">${{ $cart->price }}</td>
@@ -87,7 +87,7 @@
                                             </td>
                                             <td class="price">${{ $cart->price * $cart->qty }}</td>
                                             <td class="actions">
-                                                <a href="{{ asset('') }}cart/delete/{{ $cart->rowId }}" class="action-icon"><i
+                                                <a href="../cart/delete/{{ $cart->rowId }}" class="action-icon"><i
                                                         class="ti ti-close"></i></a>
                                             </td>
                                         </tr>
@@ -149,9 +149,9 @@
                     @endif
 
                     @if(count(Cart::content()) > 0)
-                        <a href="{{ asset('') }}checkout" class="panel-cart-action btn btn-secondary btn-block btn-lg"><span>Go to checkout</span></a>
+                        <a href="../checkout" class="panel-cart-action btn btn-secondary btn-block btn-lg"><span>Go to checkout</span></a>
                     @else
-                        <a href="{{ asset('') }}menu" class="panel-cart-action btn btn-secondary btn-block btn-lg">
+                        <a href="../menu" class="panel-cart-action btn btn-secondary btn-block btn-lg">
                             <span>Go to menu</span>
                         </a>
                     @endif

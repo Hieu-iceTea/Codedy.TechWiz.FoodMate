@@ -46,7 +46,7 @@
                                     <li class="d-inline-block" id="add-image-icon">
                                         <img id="thumbnail" style="height: 150px; cursor: pointer;" class="thumbnail"
                                              data-toggle="tooltip" title="Click to add image"
-                                             data-placement="bottom" src="{{ asset('') }}{{ request()->segment(3) != 'create' ? '/front/data-images/products/'.$product->image : 'assets/images/add-image-icon.jpg'}}"
+                                             data-placement="bottom" src="{{ request()->segment(3) != 'create' ? '/front/data-images/products/'.$product->image : 'assets/images/add-image-icon.jpg'}}"
                                              alt="Add Image">
                                         <input name="image" id="image" type="file" onchange="changeImg(this)"
                                                class="image form-control-file" style="display: none;">
@@ -186,7 +186,7 @@
 
                         <div class="position-relative row form-group mb-1">
                             <div class="col-md-9 col-xl-8 offset-md-2">
-                                <a href="{{ asset('') }}admin/product" class="border-0 btn btn-outline-danger mr-1">
+                                <a href="../admin/product" class="border-0 btn btn-outline-danger mr-1">
                                                     <span class="btn-icon-wrapper pr-1 opacity-8">
                                                         <i class="fa fa-times fa-w-20"></i>
                                                     </span>
@@ -211,7 +211,7 @@
     <!-- End Main -->
 
     {{-- ckeditor --}}
-    <script src="{{ asset('') }}https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
     <script>
         /*CKEDITOR.replace('description');*/
         // CKEDITOR.config.height = 100; //pixels wide.

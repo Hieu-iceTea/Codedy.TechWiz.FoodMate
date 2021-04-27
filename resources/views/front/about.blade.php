@@ -20,7 +20,7 @@
     <section class="section section-bg-edge">
 
         <div class="image left bottom col-md-7">
-            <div class="bg-image"><img src="{{ asset('') }}front/data-images/photos/bg-chef.jpg" alt=""></div>
+            <div class="bg-image"><img src="data-images/photos/bg-chef.jpg" alt=""></div>
         </div>
 
         <div class="container">
@@ -39,7 +39,7 @@
                     can submit their feedback regarding the application using a feedback
                     form.</p>
                 <h6>Mark Johnson, Chef</h6>
-                <img src="{{ asset('') }}front/assets/img/svg/sign.svg" alt="" class="mb-5">
+                <img src="assets/img/svg/sign.svg" alt="" class="mb-5">
             </div>
         </div>
 
@@ -49,15 +49,15 @@
     <section class="section section-lg dark bg-dark">
 
         <!-- BG Image -->
-        <div class="bg-image bg-parallax"><img src="{{ asset('') }}front/data-images/photos/bg-croissant.jpg" alt="">
+        <div class="bg-image bg-parallax"><img src="data-images/photos/bg-croissant.jpg" alt="">
         </div>
 
         <div class="container text-center">
             <div class="col-lg-8 offset-lg-2">
                 <h2 class="mb-3">Would you like to visit Us?</h2>
                 <h5 class="text-muted">Book a table even right now or make an online order!</h5>
-                <a href="{{ asset('') }}menu-list-navigation.html" class="btn btn-primary"><span>Order Online</span></a>
-                <a href="{{ asset('') }}book-a-table.html" class="btn btn-outline-primary"><span>Book a table</span></a>
+                <a href="../menu-list-navigation.html" class="btn btn-primary"><span>Order Online</span></a>
+                <a href="../book-a-table.html" class="btn btn-outline-primary"><span>Book a table</span></a>
             </div>
         </div>
 

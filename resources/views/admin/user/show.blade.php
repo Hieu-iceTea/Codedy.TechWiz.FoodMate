@@ -25,7 +25,7 @@
 
         <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
             <li class="nav-item">
-                <a href="{{ asset('') }}{{ url()->current() . '/edit'}}" class="nav-link">
+                <a href="../{{ url()->current() . '/edit'}}" class="nav-link">
                                 <span class="btn-icon-wrapper pr-2 opacity-8">
                                     <i class="fa fa-edit fa-w-20"></i>
                                 </span>
@@ -58,7 +58,7 @@
                                 <p>
                                     <img style="height: 200px;" class="rounded-circle" data-toggle="tooltip"
                                          title="Avatar" data-placement="bottom"
-                                         src="{{ asset('') }}front/data-images/user/{{$user -> image}}" alt="Avatar">
+                                         src="data-images/user/{{$user -> image}}" alt="Avatar">
                                 </p>
                             </div>
                         </div>

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <base href="{{ asset('') }}/dashboard/">
+    <base href="{{ asset('dashboard') }}/">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
@@ -15,7 +15,7 @@
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 
-    <link href="{{ asset('') }}dashboard/main.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
 </head>
 
 <body>
@@ -77,7 +77,7 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="{{ asset('') }}dashboard/assets/scripts/main.js"></script>
+<script type="text/javascript" src="assets/scripts/main.js"></script>
 </body>
 
 </html>

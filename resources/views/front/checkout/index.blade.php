@@ -7,7 +7,7 @@
     <!-- Page Title -->
     <div class="page-title bg-dark dark">
         <!-- BG Image -->
-        <div class="bg-image bg-parallax"><img src="{{ asset('') }}front/data-images/photos/bg-croissant.jpg" alt="">
+        <div class="bg-image bg-parallax"><img src="data-images/photos/bg-croissant.jpg" alt="">
         </div>
         <div class="container">
             <div class="row">
@@ -34,7 +34,7 @@
                                     <tr>
                                         <td class="title">
                                         <span class="name">
-                                            <a href="{{ asset('') }}#product-modal" data-toggle="modal">
+                                            <a href="../#product-modal" data-toggle="modal">
                                                 {{ $cart->name }}
                                             </a>
                                         </span>
@@ -77,8 +77,8 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="text-center">
-                                            <a href="{{ asset('') }}account/login" class="btn btn-primary"><span>Login</span></a>
-                                            <a href="{{ asset('') }}account/register" class="btn btn-outline-primary"><span>Register now!</span></a>
+                                            <a href="../account/login" class="btn btn-primary"><span>Login</span></a>
+                                            <a href="../account/register" class="btn btn-outline-primary"><span>Register now!</span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -158,7 +158,7 @@
                                 <p>Your cart is empty...</p>
                             </div>
                         </div>
-                        <a href="{{ asset('') }}menu"
+                        <a href="../menu"
                            class="panel-cart-action btn btn-secondary btn-block btn-lg"><span>Go to menu</span></a>
                     </div>
                 @endif

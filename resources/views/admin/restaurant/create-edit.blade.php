@@ -46,7 +46,7 @@
                                         <img style="height: 200px; cursor: pointer;"
                                              class="thumbnail circle" data-toggle="tooltip"
                                              title="Click to change the image" data-placement="bottom"
-                                             src="{{ asset('') }}{{ request()->segment(3) != 'create' ? '../front/data-images/restaurants/' . $restaurant->image : '../dashboard/assets/images/add-image-icon.jpg' }}" alt="Avatar">
+                                             src="{{ request()->segment(3) != 'create' ? '../front/data-images/restaurants/' . $restaurant->image : '../dashboard/assets/images/add-image-icon.jpg' }}" alt="Avatar">
                                         <input name="image" type="file" onchange="changeImg(this)"
                                                class="image form-control-file" style="display: none;" value="{{ old('image') ?? $restaurant->image ?? ''}}">
                                         <input type="hidden" name="image_old" value="{{ $restaurant->image ?? ''}}">
@@ -89,7 +89,7 @@
                                 {{--button--}}
                                 <div class="position-relative row form-group mb-1">
                                     <div class="col-md-9 col-xl-8 offset-md-2">
-                                        <a href="{{ asset('') }}admin/restaurant/" class="border-0 btn btn-outline-danger mr-1">
+                                        <a href="../admin/restaurant/" class="border-0 btn btn-outline-danger mr-1">
                                                     <span class="btn-icon-wrapper pr-1 opacity-8">
                                                         <i class="fa fa-times fa-w-20"></i>
                                                     </span>
@@ -115,7 +115,7 @@
 
 
     {{-- ckeditor --}}
-    <script src="{{ asset('') }}https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
     <script>
         /*CKEDITOR.replace('description');*/
         // CKEDITOR.config.height = 100; //pixels wide.

@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="page-title-actions d-none">
-                    <a href="{{ asset('') }}{{ url()->current() . '/create' }}"
+                    <a href="../{{ url()->current() . '/create' }}"
                        class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
                                     <span class="btn-icon-wrapper pr-2 opacity-7">
                                         <i class="fa fa-plus fa-w-20"></i>
@@ -79,7 +79,7 @@
                                                         <img width="80"
                                                              data-toggle="tooltip" title="Image"
                                                              data-placement="bottom"
-                                                             src="{{ asset('') }}front/data-images/products/{{ $order->orderDetails[0]->product->image }}"
+                                                             src="data-images/products/{{ $order->orderDetails[0]->product->image }}"
                                                              alt="">
                                                     </div>
                                                 </div>
@@ -114,7 +114,7 @@
 
                                     </td>
                                     <td class="text-center">
-                                        <a href="{{ asset('') }}admin/order/{{ $order->id }}"
+                                        <a href="../admin/order/{{ $order->id }}"
                                            class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
                                             Details
                                         </a>
@@ -135,7 +135,7 @@
                                                 « Previous
                                             </span>
 
-                                <a href="{{ asset('') }}#page=2"
+                                <a href="../#page=2"
                                    class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
                                     Next »
                                 </a>
