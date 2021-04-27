@@ -65,14 +65,16 @@
 
                             @foreach($categories as $category)
                                 <tr>
-                                    <td class="text-center text-muted" >#{{$category -> id}}</td>
+                                    <td class="text-center text-muted">#{{$category -> id}}</td>
                                     <td class="text-center text-muted">{{$category -> name}}</td>
                                     <td class="text-center">
                                         <div class="widget-content p-0">
                                             <div class="widget-content-wrapper">
                                                 <div class="widget-content-left flex2">
                                                     <div class="widget-heading">
-                                                        <img class="figure-img" src="../front/data-images/categories/{{$category -> image}}" width="150px" alt=""></div>
+                                                        <img class="figure-img"
+                                                             src="../front/data-images/categories/{{$category -> image}}"
+                                                             width="150px" alt=""></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -83,13 +85,15 @@
                                            class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
                                             Details
                                         </a>
-                                        <a href="{{ url()->current() . '/' . $category->id . '/edit'}}" data-toggle="tooltip" title="Edit"
+                                        <a href="{{ url()->current() . '/' . $category->id . '/edit'}}"
+                                           data-toggle="tooltip" title="Edit"
                                            data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
                                                         <span class="btn-icon-wrapper opacity-8">
                                                             <i class="fa fa-edit fa-w-20"></i>
                                                         </span>
                                         </a>
-                                        <form class="d-inline" action="{{ url()->current() . '/' . $category->id }}" method="post">
+                                        <form class="d-inline" action="{{ url()->current() . '/' . $category->id }}"
+                                              method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-hover-shine btn-outline-danger border-0 btn-sm"
@@ -107,6 +111,8 @@
 
                             </tbody>
                         </table>
+
+
                     </div>
 
                     <div class="d-block card-footer">
@@ -126,6 +132,13 @@
                         </nav>
 
                         {{$categories -> links()}}
+
+                        @if(count($categories) < 1)
+                            <div class="text-center font-weight-bold my-3" style="font-size: 120%">
+                                Data not found
+                            </div>
+                        @endif
+
 
                     </div>
 
