@@ -31,14 +31,14 @@
             @foreach($restaurants as $restaurant)
             <!-- Restaurant -->
             <div class="special-offer mb-5 animated" data-animation="fadeIn">
-              <img src="../front/data-images/restaurants/{{$restaurant->image}}" alt="" class="special-offer-image">
+              <img src="{{ asset('') }}front/data-images/restaurants/{{$restaurant->image}}" alt="" class="special-offer-image">
                 <div class="special-offer-content">
-                    <a href="../restaurant/{{$restaurant->id}}"><h2 class="mb-2">{{$restaurant->name}}</h2></a>
+                    <a href="{{ asset('') }}restaurant/{{$restaurant->id}}"><h2 class="mb-2">{{$restaurant->name}}</h2></a>
                     <h5 class="text-muted mb-5">{{$restaurant->address}}</h5>
                     {!!$restaurant->description!!}
                     <br>
-                    <a href="../menu/?restaurant_id={{$restaurant->id}}" class="btn btn-outline-primary btn-lg mt-5"></i><span>Visit Now</span></a>
-                    <a href="../restaurant/{{$restaurant->id}}" class="btn btn-outline-primary btn-lg mt-5"></i><span>Details</span></a>
+                    <a href="{{ asset('') }}menu/?restaurant_id={{$restaurant->id}}" class="btn btn-outline-primary btn-lg mt-5"></i><span>Visit Now</span></a>
+                    <a href="{{ asset('') }}restaurant/{{$restaurant->id}}" class="btn btn-outline-primary btn-lg mt-5"></i><span>Details</span></a>
 
                 </div>
             </div>

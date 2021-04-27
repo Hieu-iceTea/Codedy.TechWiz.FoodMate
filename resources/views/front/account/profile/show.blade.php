@@ -7,7 +7,7 @@
     <!-- Page Title -->
     <div class="page-title bg-dark dark">
         <!-- BG Image -->
-        <div class="bg-image bg-parallax"><img src="data-images/photos/bg-croissant.jpg" alt="">
+        <div class="bg-image bg-parallax"><img src="{{ asset('') }}front/data-images/photos/bg-croissant.jpg" alt="">
         </div>
         <div class="container">
             <div class="row">
@@ -36,10 +36,10 @@
                                     Your informations
 
                                     <span class="float-right">
-                                        <a href="../account/profile/edit" class="btn btn-sm btn-outline-primary">
+                                        <a href="{{ asset('') }}account/profile/edit" class="btn btn-sm btn-outline-primary">
                                             <span>Edit info</span>
                                         </a>
-                                        <a href="../account/profile/change-password"
+                                        <a href="{{ asset('') }}account/profile/change-password"
                                            class="btn btn-sm btn-outline-primary">
                                             <span>Change password</span>
                                         </a>

@@ -12,15 +12,15 @@
             <div class="slide-container">
                 <div id="section-main-1-carousel-image" class="image inner-controls">
                     <div class="slide">
-                        <div class="bg-image"><img src="data-images/photos/slider-pasta.jpg"
+                        <div class="bg-image"><img src="{{ asset('') }}front/data-images/photos/slider-pasta.jpg"
                                                    alt=""></div>
                     </div>
                     <div class="slide">
-                        <div class="bg-image"><img src="data-images/photos/slider-burger.jpg"
+                        <div class="bg-image"><img src="{{ asset('') }}front/data-images/photos/slider-burger.jpg"
                                                    alt=""></div>
                     </div>
                     <div class="slide">
-                        <div class="bg-image"><img src="data-images/photos/slider-dessert.jpg"
+                        <div class="bg-image"><img src="{{ asset('') }}front/data-images/photos/slider-dessert.jpg"
                                                    alt=""></div>
                     </div>
                 </div>
@@ -30,26 +30,26 @@
                             <h4 class="text-muted">New product!</h4>
                             <h1>Boscaiola Pasta</h1>
                             <div class="btn-group">
-                                <a href="../menu"
+                                <a href="{{ asset('') }}menu"
                                    class="btn btn-outline-primary btn-lg"><span>Place an Order</span></a>
                             </div>
                         </div>
                         <div class="content-inner">
                             <h1>Get 10% off coupon</h1>
                             <h5 class="text-muted mb-5">and use it with your next order!</h5>
-                            <a href="../menu"
+                            <a href="{{ asset('') }}menu"
                                class="btn btn-outline-primary btn-lg"><span>Get it now!</span></a>
                         </div>
                         <div class="content-inner">
                             <h1>Delicious Desserts</h1>
                             <h5 class="text-muted mb-5">Order it online even now!</h5>
-                            <a href="../menu"
+                            <a href="{{ asset('') }}menu"
                                class="btn btn-outline-primary btn-lg"><span>Order now!</span></a>
                         </div>
                     </div>
                     <nav class="content-nav">
-                        <a class="prev" href="#"><i class="ti ti-arrow-left"></i></a>
-                        <a class="next" href="#"><i class="ti ti-arrow-right"></i></a>
+                        <a class="prev" href="{{ asset('') }}#"><i class="ti ti-arrow-left"></i></a>
+                        <a class="next" href="{{ asset('') }}#"><i class="ti ti-arrow-right"></i></a>
                     </nav>
                 </div>
             </div>
@@ -61,7 +61,7 @@
     <section class="section section-bg-edge">
 
         <div class="image right col-md-6 offset-md-6">
-            <div class="bg-image"><img src="data-images/photos/bg-food.jpg" alt=""></div>
+            <div class="bg-image"><img src="{{ asset('') }}front/data-images/photos/bg-food.jpg" alt=""></div>
         </div>
 
         <div class="container">
@@ -89,7 +89,7 @@
 
                         <footer>
                             <img
-                                src="../front/data-images/user/{{ $feedbacks[0]->user_id != null ? $feedbacks[0]->user->image : '_default-user.png' }}"
+                                src="{{ asset('') }}front/data-images/user/{{ $feedbacks[0]->user_id != null ? $feedbacks[0]->user->image : '_default-user.png' }}"
                                 alt="">
                             <span class="name">{{ $feedbacks[0]->name }}<span class="text-muted"></span></span>
                         </footer>
@@ -108,7 +108,7 @@
                             <p>{{ $feedbacks[1]->message }}</p>
                         </div>
                         <footer>
-                            <img src="../front/data-images/user/{{ $feedbacks[1]->user->image ?? '_default-user.png' }}"
+                            <img src="{{ asset('') }}front/data-images/user/{{ $feedbacks[1]->user->image ?? '_default-user.png' }}"
                                  alt="">
                             <span class="name">{{ $feedbacks[1]->name }}<span class="text-muted"></span></span>
                         </footer>
@@ -129,7 +129,7 @@
                     <div class="feature feature-1 mb-md-0">
                         <div class="feature-icon icon icon-primary"><i class="ti ti-shopping-cart"></i></div>
                         <div class="feature-content">
-                            <h4 class="mb-2"><a href="../menu">Pick a dish</a></h4>
+                            <h4 class="mb-2"><a href="{{ asset('') }}menu">Pick a dish</a></h4>
                             <p class="text-muted mb-0">Please choose a delicious dish that you like from our menu.</p>
                         </div>
                     </div>
@@ -192,8 +192,8 @@
             @if(count($products) > 0)
                 @foreach($product_categories as $product_categories)
                     <div class="menu-sample " style="width: 100%; display: inline-block;">
-                        <a href="../menu#{{ $product_categories->name }}">
-                            <img style="opacity: 0.5; width: 100%; height: 350px; display: inline-block;" src="../front/data-images/categories/{{ $product_categories->image }}"
+                        <a href="{{ asset('') }}menu#{{ $product_categories->name }}">
+                            <img style="opacity: 0.5; width: 100%; height: 350px; display: inline-block;" src="{{ asset('') }}front/data-images/categories/{{ $product_categories->image }}"
                                  alt="" class="image">
                             <h3 class="title">{{ $product_categories->name }}</h3>
                         </a>
@@ -212,9 +212,9 @@
                 <!-- Special Offer -->
 
                 @foreach($restaurants as $restaurant)
-                    <a href="../restaurant/{{ $restaurant->id }}">
+                    <a href="{{ asset('') }}restaurant/{{ $restaurant->id }}">
                         <div class="special-offer">
-                            <img src="../front/data-images/restaurants/{{ $restaurant->image }}" alt=""
+                            <img src="{{ asset('') }}front/data-images/restaurants/{{ $restaurant->image }}" alt=""
                                  class="special-offer-image">
                             <div class="special-offer-content">
                                 <h2 class="mb-2">{{ $restaurant->name }}</h2>
@@ -233,7 +233,7 @@
     <section class="section section-lg dark bg-dark">
 
         <!-- BG Image -->
-        <div class="bg-image bg-parallax"><img src="data-images/photos/bg-croissant.jpg" alt="">
+        <div class="bg-image bg-parallax"><img src="{{ asset('') }}front/data-images/photos/bg-croissant.jpg" alt="">
         </div>
 
         <div class="container text-center">
