@@ -96,7 +96,7 @@ Route::prefix('')->middleware('CheckMemberLogin')->group(function () {
 */
 
 
-Route::prefix('admin')->middleware('CheckAdminLogin')->middleware('CheckAuthorizationAdmin')->group(function () {
+Route::prefix('admin')->middleware('CheckAdminLogin')->group(function () {
     Route::get('/', [App\Http\Controllers\admin\HomeController::class, 'index']);
 
     Route::resource('category', App\Http\Controllers\Admin\CategoryController::class);

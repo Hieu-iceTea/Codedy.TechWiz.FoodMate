@@ -18,7 +18,7 @@ class CheckAdminLogin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!$request->is('*/admin/*')) {
+        if ($request->is('admin') || $request->is('admin/*')) {
             //Nếu chưa đăng nhập
             if (Auth::guest()) {
                 return redirect()->guest('admin/login');
@@ -27,6 +27,16 @@ class CheckAdminLogin
                     Auth::logout();
 
                     return redirect()->guest('admin/login');
+                }
+            }
+
+            //CheckAuthorizationAdmin:
+            //Nếu tài khoản là Staff thì không được dùng user & restaurant:
+            if (Auth::check()) {
+                if (\Illuminate\Support\Facades\Auth::user()->level == \App\Utilities\Constant::user_level_staff) {
+                    if ($request->is('*/user') || $request->is('*/restaurant')) {
+                        return redirect('admin');
+                    }
                 }
             }
         }

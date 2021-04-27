@@ -88,7 +88,7 @@
                                                                 <div
                                                                     class="widget-heading">{{ Auth::user()->user_name }}</div>
                                                                 <div class="widget-subheading opacity-8">
-                                                                    {{ Auth::user()->restaurant->name }}
+                                                                    {{ Auth::user()->restaurant->name ?? '' }}
                                                                 </div>
                                                             </div>
                                                             <div class="widget-content-right mr-2">
@@ -110,7 +110,7 @@
                                 <div class="widget-subheading">
                                     Restaurant:
                                     <span class="font-weight-bold">
-                                        {{ Auth::user()->restaurant->name }}
+                                        {{ Auth::user()->restaurant->name ?? '' }}
                                     </span>
                                 </div>
                             </div>

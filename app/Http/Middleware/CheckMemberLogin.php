@@ -18,8 +18,7 @@ class CheckMemberLogin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!$request->is('*/admin/*')) {
-
+        if (!($request->is('admin') || $request->is('admin/*'))) {
             //Nếu chưa đăng nhập:
             if (Auth::guest()) {
                 if ($request->is('*/account') || $request->is('*/my-order')) {
