@@ -43,6 +43,9 @@
                                 @method('PUT')
                             @endif
 
+                            @include('components.errors')
+                            @include('components.notifications')
+
                             <div class="position-relative row form-group">
                             <label for="" class="col-md-3 text-md-right col-form-label">Images</label>
                             <div class="col-md-9 col-xl-8">

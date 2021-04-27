@@ -36,6 +36,9 @@
                                     @method('put')
                                 @endif
 
+                                @include('components.errors')
+                                @include('components.notifications')
+
                                 <div class="position-relative row form-group">
                                     <label for="image"
                                            class="col-md-3 text-md-right col-form-label">Avatar</label>
