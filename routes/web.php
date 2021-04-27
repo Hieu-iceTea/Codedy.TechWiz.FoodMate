@@ -57,7 +57,7 @@ Route::prefix('')->middleware('CheckMemberLogin')->group(function () {
     });
 
     Route::prefix('account')->group(function () {
-        Route::redirect('/', '/account/my-order'); //Chuyển hướng
+        Route::redirect('/', '/account/profile'); //Chuyển hướng
 
         Route::get('/login', [\App\Http\Controllers\Front\AccountController::class, 'login']);
         Route::post('/login', [\App\Http\Controllers\Front\AccountController::class, 'checkLogin']);
