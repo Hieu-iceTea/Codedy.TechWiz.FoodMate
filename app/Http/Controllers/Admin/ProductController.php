@@ -19,7 +19,7 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(ProductRequest $request)
+    public function index(Request $request)
     {
         $products = Product::all()->toQuery();
 

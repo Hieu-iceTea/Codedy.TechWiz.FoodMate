@@ -16,7 +16,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(UserRequest $request)
+    public function index(Request $request)
     {
         $keyword = $request->get('search');
 
