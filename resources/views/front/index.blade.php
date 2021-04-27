@@ -192,7 +192,7 @@
             @if(count($products) > 0)
                 @foreach($product_categories as $product_categories)
                     <div class="menu-sample">
-                        <a href="../{{ $product_categories->name }}">
+                        <a href="../menu#{{ $product_categories->name }}">
                             <img src="../front/data-images/products/{{ $product_categories->products[0]->image }}"
                                  alt="" class="image">
                             <h3 class="title">{{ $product_categories->name }}</h3>

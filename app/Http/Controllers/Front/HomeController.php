@@ -18,8 +18,6 @@ class HomeController extends Controller
         $products=Product::all();
         $restaurants=Restaurant::all();
         $feedbacks=Feedback::where('rating','>=',4)->get();
-//        dd($feedbacks->toArray());
-//        $feedbacks=DB::select('select * from `codedy.techwiz.foodmate`.feedbacks where rating >=4 order by rating desc limit 2');
 
 
         return view('front.index',compact('product_categories','products','restaurants','feedbacks'));
