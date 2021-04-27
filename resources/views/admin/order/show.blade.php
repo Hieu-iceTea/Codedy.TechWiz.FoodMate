@@ -53,6 +53,55 @@
                 <div class="main-card mb-3 card">
                     <div class="card-body display_data">
 
+                        <h3 class="text-center">Products list</h3>
+                        <hr>
+
+                        <div class="table-responsive">
+                            <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                                <thead>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th class="text-center">Quantity</th>
+                                    <th class="text-center">Unit Price</th>
+                                    <th class="text-center">Amount</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                @foreach($order->orderDetails as $order->orderDetail )
+                                    <tr>
+                                        <td>
+                                            <div class="widget-content p-0">
+                                                <div class="widget-content-wrapper">
+                                                    <div class="widget-content-left mr-3">
+                                                        <div class="widget-content-left">
+                                                            <img style="height: 60px;"
+                                                                 data-toggle="tooltip" title="Image"
+                                                                 data-placement="bottom"
+                                                                 src="../front/data-images/products/{{ $order->orderDetail->product->image }}"
+                                                                 alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="widget-content-left flex2">
+                                                        <div
+                                                            class="widget-heading">{{ $order->orderDetail->product->name }}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">{{ $order->orderDetail->qty }}</td>
+                                        <td class="text-center">{{ $order->orderDetail->product->price }}$</td>
+                                        <td class="text-center">{{ $order->orderDetail->total_amount }}$</td>
+                                    </tr>
+                                @endforeach
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3 class="text-center mt-5">Order info</h3>
+                        <hr>
+
                         <div class="position-relative row form-group">
                             <label for="name" class="col-md-3 text-md-right col-form-label">
                                 Full Name
@@ -177,52 +226,6 @@
 
                             </div>
                         @endif
-
-                        <h2 class="text-center mt-5">Order Detail</h2>
-                        <hr>
-                        <div class="table-responsive">
-                            <table class="align-middle mb-0 table table-borderless table-striped table-hover">
-                                <thead>
-                                <tr>
-                                    <th>Product Name</th>
-                                    <th class="text-center">Quantity</th>
-                                    <th class="text-center">Unit Price</th>
-                                    <th class="text-center">Amount</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-
-                                @foreach($order->orderDetails as $order->orderDetail )
-                                    <tr>
-                                        <td>
-                                            <div class="widget-content p-0">
-                                                <div class="widget-content-wrapper">
-                                                    <div class="widget-content-left mr-3">
-                                                        <div class="widget-content-left">
-                                                            <img style="height: 60px;"
-                                                                 data-toggle="tooltip" title="Image"
-                                                                 data-placement="bottom"
-                                                                 src="../front/data-images/products/{{ $order->orderDetail->product->image }}"
-                                                                 alt="">
-                                                        </div>
-                                                    </div>
-                                                    <div class="widget-content-left flex2">
-                                                        <div
-                                                            class="widget-heading">{{ $order->orderDetail->product->name }}</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="text-center">{{ $order->orderDetail->qty }}</td>
-                                        <td class="text-center">{{ $order->orderDetail->product->price }}$</td>
-                                        <td class="text-center">{{ $order->orderDetail->total_amount }}$</td>
-                                    </tr>
-                                @endforeach
-
-                                </tbody>
-                            </table>
-                        </div>
-
                     </div>
                 </div>
             </div>

@@ -142,6 +142,12 @@
                             </div>
                         </nav>
                         {{ $users -> links() }}
+
+                        @if(count($users) < 1)
+                            <div class="text-center font-weight-bold my-3" style="font-size: 120%">
+                                Data not found
+                            </div>
+                        @endif
                     </div>
 
             </div>

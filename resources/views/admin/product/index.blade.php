@@ -146,6 +146,12 @@
 
                         </nav>
                         {{$products -> links()}}
+
+                        @if(count($products) < 1)
+                            <div class="text-center font-weight-bold my-3" style="font-size: 120%">
+                                Data not found
+                            </div>
+                        @endif
                     </div>
 
                 </div>

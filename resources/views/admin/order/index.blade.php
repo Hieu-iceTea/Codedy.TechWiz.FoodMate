@@ -20,7 +20,7 @@
                     </div>
                 </div>
 
-                <div class="page-title-actions">
+                <div class="page-title-actions d-none">
                     <a href="{{ url()->current() . '/create' }}"
                        class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
                                     <span class="btn-icon-wrapper pr-2 opacity-7">
@@ -137,6 +137,12 @@
                             </div>
                         </nav>
                         {{ $orders -> links() }}
+
+                        @if(count($orders) < 1)
+                            <div class="text-center font-weight-bold my-3" style="font-size: 120%">
+                                Data not found
+                            </div>
+                        @endif
                     </div>
 
                 </div>
