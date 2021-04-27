@@ -32,7 +32,7 @@ class AccountController extends Controller
         $fieldType = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'user_name';
 
         $credentials = [
-            $fieldType => $request->email,
+            $fieldType => $request->user_name,
             'password' => $request->password,
             'level' => Constant::user_level_customer, //Tài khoản cấp độ khách hàng bình thường.
         ];

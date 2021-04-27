@@ -18,22 +18,20 @@ class CheckMemberLogin
      */
     public function handle(Request $request, Closure $next)
     {
-        //Nếu vào trang my-order:
-        if ($request->segment(2) == 'my-order') {
-            if (Auth::guest()) {
-                return redirect()->guest('account/login');
+        if (!$request->is('*/admin/*')) {
+            //Nếu vào trang my-order:
+            if ($request->is('*/my-order')) {
+                if (Auth::guest()) {
+                    return redirect()->guest('account/login');
+                }
             }
 
-            if (Auth::user()->level != Constant::user_level_customer) {
-                Auth::logout();
+            if ($request->is('*/account') || $request->is('*/checkout') || $request->is('*/my-order')) {
+                if (Auth::user()->level != Constant::user_level_customer) {
+                    Auth::logout();
 
-                return redirect()->guest('account/login');
-            }
-        }
-
-        if (Auth::check()) {
-            if (Auth::user()->level != Constant::user_level_customer) {
-                Auth::logout();
+                    return redirect()->guest('');
+                }
             }
         }
 
