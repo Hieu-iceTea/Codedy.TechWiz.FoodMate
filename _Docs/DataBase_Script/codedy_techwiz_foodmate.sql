@@ -98,6 +98,7 @@ CREATE TABLE IF NOT EXISTS `product_categories`
 
     `name`       VARCHAR(64) NOT NULL,
     `image`      CHAR(128)   NOT NULL,
+    `active`     BOOLEAN     DEFAULT TRUE,
 
     `created_by` NVARCHAR(32) DEFAULT 'codedy_techwiz_foodmate',
     `created_at` TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
@@ -216,7 +217,7 @@ CREATE TABLE IF NOT EXISTS `feedbacks`
 INSERT INTO User (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
 VALUE (10, NULL, 'Host', 'host.codedy@gmail.com', '$2y$10$oW..IGNT/CH2muKpN/8LAuNJ1ahnwLoyCBWRQyBj4p6ITOJFb.gs2', 1, '2020-08-08', 'host.jpg', 1, 'CODEDY', 'Host', '032 87 99 000', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO User (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (9, NULL, 'Admin', 'admin.codedy@gmail.com', '$2y$10$/AmOQGhkVS8otOSJbAv.6OHxseW/AOdVw7wxNbopMHgy0Btbp3Anu', 2, '2020-08-08', 'admin.jpg', 1, 'CODEDY', 'Admin', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+VALUE (9, NULL, 'Admin', 'admin.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 2, '2020-08-08', 'admin.jpg', 1, 'CODEDY', 'Admin', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO User (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
 VALUE (8, 3, 'Staff_B', 'staff_b.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'staff_b.jpg', 2, 'CODEDY', 'Staff B', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO User (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
@@ -235,26 +236,26 @@ INSERT INTO User (id, restaurant_id, user_name, email, password, level, email_ve
 VALUE (1, NULL, 'Admin_Demo', 'admin_demo.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 2, '2020-08-08', 'admin_demo.jpg', 1, 'CODEDY', 'Admin_Demo', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', FALSE);
 
 
-INSERT INTO Product_Categories (Id, Name, Image)
-VALUE (1, 'Vegetarian', 'Vegetarian.jpg');
-INSERT INTO Product_Categories (Id, Name, Image)
-VALUE (2, 'Vegan', 'Vegan.jpg');
-INSERT INTO Product_Categories (Id, Name, Image)
-VALUE (3, 'Chinese', 'Chinese.jpg');
-INSERT INTO Product_Categories (Id, Name, Image)
-VALUE (4, 'Mexican', 'Mexican.jpg');
-INSERT INTO Product_Categories (Id, Name, Image)
-VALUE (5, 'Burgers', 'menu-title-burgers.jpg');
-INSERT INTO Product_Categories (Id, Name, Image)
-VALUE (6, 'Pasta', 'menu-title-pasta.jpg');
-INSERT INTO Product_Categories (Id, Name, Image)
-VALUE (7, 'Pizza', 'menu-title-pizza.jpg');
-INSERT INTO Product_Categories (Id, Name, Image)
-VALUE (8, 'Sushi', 'menu-title-sushi.jpg');
-INSERT INTO Product_Categories (Id, Name, Image)
-VALUE (9, 'Desserts', 'menu-title-desserts.jpg');
-INSERT INTO Product_Categories (Id, Name, Image)
-VALUE (10, 'Drinks', 'menu-title-drinks.jpg');
+INSERT INTO Product_Categories (Id, Name, Image, Active)
+VALUE (1, 'Vegetarian', 'Vegetarian.jpg', TRUE);
+INSERT INTO Product_Categories (Id, Name, Image, Active)
+VALUE (2, 'Vegan', 'Vegan.jpg', TRUE);
+INSERT INTO Product_Categories (Id, Name, Image, Active)
+VALUE (3, 'Chinese', 'Chinese.jpg', TRUE);
+INSERT INTO Product_Categories (Id, Name, Image, Active)
+VALUE (4, 'Mexican', 'Mexican.jpg', TRUE);
+INSERT INTO Product_Categories (Id, Name, Image, Active)
+VALUE (5, 'Burgers', 'menu-title-burgers.jpg', TRUE);
+INSERT INTO Product_Categories (Id, Name, Image, Active)
+VALUE (6, 'Pasta', 'menu-title-pasta.jpg', TRUE);
+INSERT INTO Product_Categories (Id, Name, Image, Active)
+VALUE (7, 'Pizza', 'menu-title-pizza.jpg', FALSE);
+INSERT INTO Product_Categories (Id, Name, Image, Active)
+VALUE (8, 'Sushi', 'menu-title-sushi.jpg', FALSE);
+INSERT INTO Product_Categories (Id, Name, Image, Active)
+VALUE (9, 'Desserts', 'menu-title-desserts.jpg', FALSE);
+INSERT INTO Product_Categories (Id, Name, Image, Active)
+VALUE (10, 'Drinks', 'menu-title-drinks.jpg', FALSE);
 
 
 INSERT INTO Products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
@@ -602,4 +603,5 @@ INSERT INTO feedbacks (id, user_id, name, email, message, rating)
 VALUE (15, NULL, 'Truong Lam', 'truonglam@gmail.com', 'Fast delivery and very good food', 5);
 INSERT INTO feedbacks (id, user_id, name, email, message, rating)
 VALUE (16, NULL, 'Vu Thanh Lam', 'vuthanhlam@gmial.com', 'delicious food', 4);
+
 
