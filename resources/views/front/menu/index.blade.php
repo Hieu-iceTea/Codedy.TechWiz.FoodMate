@@ -108,10 +108,13 @@
                                                         </a>
 
                                                         <h6 class="mb-0">
-                                                            <a href="../menu/{{ $product->id }}">{{ $product->name }}</a>
+                                                            <a href="../menu/{{ $product->id }}">
+                                                                {{ strlen($product->name) > 25 ? substr($product->name, 0, 25) . ' ...' : $product->name }}
+                                                            </a>
                                                         </h6>
-                                                        <span
-                                                            class="text-muted text-sm">{{ $product->ingredients }}</span>
+                                                        <span class="text-muted text-sm">
+                                                            {{ strlen($product->ingredients) > 35 ? substr($product->ingredients, 0, 35) . ' ...' : $product->ingredients }}
+                                                        </span>
 
                                                         <h6 class="pt-1">
                                                             <span class="text-muted text-sm">
@@ -119,15 +122,16 @@
                                                                 Restaurant:
                                                             </span>
                                                             <a href="../restaurant/{{ $product->restaurant->id }}">
-                                                                <span
-                                                                    class="text-sm">{{ $product->restaurant->name }}</span>
+                                                                <span class="text-sm">
+                                                                    {{ strlen($product->restaurant->name) > 20 ? substr($product->restaurant->name, 0, 20) . ' ...' : $product->restaurant->name }}
+                                                                </span>
                                                             </a>
                                                         </h6>
 
 
                                                         <div class="row align-items-center mt-4">
                                                             <div class="col-sm-6"><span class="text-md mr-4"><span
-                                                                        class="text-muted">from</span> $<span
+                                                                        class="text-muted">price</span> $<span
                                                                         data-product-base-price>{{ $product->price }}</span></span>
                                                             </div>
                                                             <div class="col-sm-6 text-sm-right mt-2 mt-sm-0">
