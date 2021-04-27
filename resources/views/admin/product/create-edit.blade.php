@@ -49,7 +49,7 @@
                                              data-placement="bottom" src="{{ asset('') }}{{ request()->segment(3) != 'create' ? '/front/data-images/products/'.$product->image : 'assets/images/add-image-icon.jpg'}}"
                                              alt="Add Image">
                                         <input name="image" id="image" type="file" onchange="changeImg(this)"
-                                               class="image form-control-file" style="display: none;">
+                                               class="image form-control-file" style="display: none;" >
 
                                         <input type="hidden" name="image_old" value="{{$product->image ?? ''}}">
                                         <small class="form-text text-muted">
@@ -73,7 +73,9 @@
                             <label for="product_category_id"
                                    class="col-md-3 text-md-right col-form-label">Category</label>
                             <div class="col-md-9 col-xl-8">
-                                <select name="product_category_id" id="product_category_id" class="form-control">
+                                <select name="product_category_id" id="product_category_id" class="form-control" required>
+                                    <option value="">----Select Item----</option>
+
                                     <option value=" {{$product->category->id ?? ''}}">
                                         {{$product->category->name ?? ''}}
                                     </option>
@@ -95,6 +97,8 @@
                                        class="col-md-3 text-md-right col-form-label">Restaurant</label>
                                 <div class="col-md-9 col-xl-8">
                                     <select name="restaurant_id" id="restaurant_id" class="form-control">
+                                        <option value="">----Select Item----</option>
+
                                         <option value="{{$product->restaurant->id ?? ''}}">{{$product->restaurant->name ?? ''}}</option>
                                         {{$i = 0}}
                                         @foreach($restaurants ?? '' as $restaurant)
@@ -115,7 +119,7 @@
                                    class="col-md-3 text-md-right col-form-label">Price</label>
                             <div class="col-md-9 col-xl-8">
                                 <input required name="price" id="price"
-                                       placeholder="$ Price" type="text" class="form-control" value="{{ old('price') ?? $product->price ?? '' }}">
+                                       placeholder="$ Price" type="number" class="form-control" value="{{ old('price') ?? $product->price ?? '' }}">
                             </div>
                         </div>
 

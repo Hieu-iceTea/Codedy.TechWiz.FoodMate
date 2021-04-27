@@ -40,10 +40,10 @@
 
                             <div class="position-relative row form-group">
                                 <label for="image"
-                                       class="col-md-3 text-md-right col-form-label">Avatar</label>
+                                       class="col-md-3 text-md-right col-form-label">Image</label>
                                 <div class="col-md-9 col-xl-8">
                                     <img style="height: 200px; cursor: pointer;"
-                                         class="thumbnail rounded-circle" data-toggle="tooltip"
+                                         class="thumbnail " data-toggle="tooltip"
                                          title="Click to change the image" data-placement="bottom"
                                          src="{{ asset('') }}{{ isset($category->image) ? '../front/data-images/categories/' . $category->image : '../dashboard/assets/images/add-image-icon.jpg' }}" alt="Avatar">
                                     <input name="image" type="file" onchange="changeImg(this)"

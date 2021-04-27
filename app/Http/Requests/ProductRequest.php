@@ -24,12 +24,11 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         $rules = [];
-
-
         //product/create
-        if ($this->is('admin/*/create')) {
+        if ($this->isMethod('POST')) {
             $rules['image'] = 'required|image';
         }
+
         $id = $this->segment(3);
         if (isset($id)) {
             $except = ',' . $id . ',id,deleted,0'; //kiểm tra trùng lặp, loại bỏ ID hiện tại & deleted = 0 (Không bao gồm những bản ghi đã bị xóa)
@@ -45,6 +44,7 @@ class ProductRequest extends FormRequest
             'country' => 'required|max:50',
             'description' => 'required',
             'featured' => 'required',
+
         ];
 
         return $rules;
