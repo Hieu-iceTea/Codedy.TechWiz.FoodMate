@@ -150,7 +150,7 @@
                         <div class="feature-icon icon icon-primary"><i class="ti ti-package"></i></div>
                         <div class="feature-content">
                             <h4 class="mb-2">Recieve your food!</h4>
-                            <p class="text-muted mb-3">Pay for the food you order from our restaurant.</p>
+                            <p class="text-muted mb-3">Enjoy your meal.</p>
                         </div>
                     </div>
                 </div>

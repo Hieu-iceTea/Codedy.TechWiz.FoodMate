@@ -20,7 +20,7 @@
                 <a href="{{ asset('') }}restaurant" class="btn btn-link"><span>Back</span></a>
             </div>
             <div class="image left bottom col-md-7">
-                <div class="bg-image"><img src="{{ asset('') }}/front/data-images/restaurants/{{$restaurant->image}}" alt=""></div>
+                <div class="bg-image"><img src="{{ asset('') }}front/data-images/restaurants/{{$restaurant->image}}" alt=""></div>
             </div>
         </div>
     </div>
