@@ -17,7 +17,7 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(OrderRequest $request)
+    public function index(Request $request)
     {
         $orders = Order::all()->toQuery();
 

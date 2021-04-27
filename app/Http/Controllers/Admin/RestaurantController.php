@@ -15,7 +15,7 @@ class RestaurantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(RestaurantRequest $request)
+    public function index(Request $request)
     {
         $keyword = $request->get('search');
 
