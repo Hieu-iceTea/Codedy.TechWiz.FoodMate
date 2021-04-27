@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from preview.suelo.pl/soup-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Apr 2021 09:33:58 GMT -->
 <head>
 
     <!-- Meta -->
@@ -10,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <!-- Title -->
-    <title>@yield('title') | FoodMate Codedy</title>
+    <title>@yield('title') | Cloud Kitchen</title>
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="assets/img/favicon.png">
@@ -126,7 +125,7 @@
 
         <div class="module module-logo">
             <a href="index.html">
-                <img src="assets/img/logo-horizontal-dark.svg" alt="">
+                <img src="assets/img/logo-cloud-kitchen.png" alt="">
             </a>
         </div>
 
@@ -156,39 +155,34 @@
                 <!-- Footer 1st Row -->
                 <div class="footer-first-row row">
                     <div class="col-lg-3 text-center">
-                        <a href="../"><img src="assets/img/logo-light.svg" alt="" width="88"
+                        <a href="../"><img src="assets/img/logo-cloud-kitchen.png" alt="" width="88"
                                            class="mt-5 mb-5"></a>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h4 class="text-muted">Get Started</h4>
                         <ul class="list-posts">
                             <li>
-                                <h5><a href="../" class="title">Home</a></h5>
+                                <span><a href="../" class="title text-primary">Home</a></span>
                             </li>
                             <li>
-                                <h5><a href="../menu" class="title">Order</a></h5>
+                                <span><a href="../menu" class="title text-primary">Order</a></span>
                             </li>
                             <li>
-                                <h5><a href="../restaurant" class="title">Restaurant</a></h5>
+                                <span><a href="../restaurant" class="title text-primary">Restaurant</a></span>
                             </li>
                             <li>
-                                <h5><a href="../about" class="title">Abount</a></h5>
+                                <span><a href="../about" class="title text-primary">Abount</a></span>
                             </li>
                             <li>
-                                <h5><a href="../feedback" class="title">Feedback</a></h5>
+                                <span><a href="../feedback" class="title text-primary">Feedback</a></span>
                             </li>
                         </ul>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h4 class="text-muted">Account Information</h4>
                         <ul class="list-posts">
-                            @if(Auth::check())
-                                <li><h5><a href="../account/profile" class="title">Profile</a></h5></li>
-                                <li><h5><a href="../account/my-order" class="title">My Order</a></h5></li>
-                            @else
-                                <li><h5><a href="../account/my-order" class="title">My Order</a></h5></li>
-                                <li><h5><a href="../account/login" class="title">Login</a></h5></li>
-                            @endif
+                             <li><span><a href="../account/login" class="title text-primary">Login</a></span></li>
+                            <li><span><a href="../account/register" class="title text-primary">Register</a></span></li>
                         </ul>
                     </div>
 
@@ -197,16 +191,16 @@
                         <h4 class="text-muted">Contact Us</h4>
                         <ul class="list-posts">
                             <li>
-                                <h5>Could Kitchen</h5>
+                                <span class="title text-primary">Could Kitchen</span>
                             </li>
                             <li>
-                                <h5>So 8, Ton That Thuyet, My Dinh, Ha Noi</h5>
+                                <span class="title text-primary">So 8, Ton That Thuyet, My Dinh, Ha Noi</span>
                             </li>
                             <li>
-                                <h5 style="font-variant: lining-nums;"><strong>Phone: </strong>+48 21200 2122 221</h5>
+                                <span style="font-variant: lining-nums;" class="title text-primary"><strong>Phone: </strong>+48 21200 2122 221</span>
                             </li>
                             <li>
-                                <h5><strong>Email: </strong>codedy@gmail.com</h5>
+                                <span class="title text-primary"><strong>Email: </strong>codedy@gmail.com</span>
                             </li>
 
                         </ul>
@@ -298,7 +292,7 @@
     <nav id="panel-mobile">
         <div class="module module-logo bg-dark dark">
             <a href="#">
-                <img src="assets/img/logo-light.svg" alt="" width="88">
+                <img src="assets/img/logo-cloud-kitchen.png" alt="" width="88">
             </a>
             <button class="close" data-toggle="panel-mobile"><i class="ti ti-close"></i></button>
         </div>
@@ -477,28 +471,12 @@
             </div>
             <div class="modal-body">
                 <h3>We are COVID-19 safe!</h3>
-                <p>In sed massa tempus, dapibus est pulvinar, pellentesque tellus. Donec ultricies magna nec mauris
-                    ornare venenatis. Duis fermentum est diam, in molestie tellus venenatis id. In ut efficitur mi, vel
-                    hendrerit libero. Phasellus ac vulputate lorem, pharetra tempor leo. Fusce eu dui libero.</p>
                 <button class="btn btn-secondary" data-dismiss="modal"><span>Ok, thanks!</span></button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Cookies Bar -->
-<div id="cookies-bar" class="body-bar cookies-bar">
-    <div class="body-bar-container container">
-        <div class="body-bar-text">
-            <h4 class="mb-2">Cookies & GDPR</h4>
-            <p>This is a sample Cookies / GDPR information. You can use it easily on your site and even add link to <a
-                    href="#">Privacy Policy</a>.</p>
-        </div>
-        <div class="body-bar-action">
-            <button class="btn btn-primary" data-accept="cookies"><span>Accept</span></button>
-        </div>
-    </div>
-</div>
 
 <!-- JS Core -->
 <script src="dist/js/core.js"></script>

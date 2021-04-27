@@ -191,9 +191,9 @@
             <!-- Menu Sample -->
             @if(count($products) > 0)
                 @foreach($product_categories as $product_categories)
-                    <div class="menu-sample">
+                    <div class="menu-sample " style="width: 100%; display: inline-block;">
                         <a href="../menu#{{ $product_categories->name }}">
-                            <img src="../front/data-images/products/{{ $product_categories->products[0]->image }}"
+                            <img style="opacity: 0.5; width: 100%; height: 350px; display: inline-block;" src="../front/data-images/categories/{{ $product_categories->image }}"
                                  alt="" class="image">
                             <h3 class="title">{{ $product_categories->name }}</h3>
                         </a>
@@ -201,7 +201,6 @@
                 @endforeach
             @endif
         </div>
-
     </section>
 
     <!-- Section - Offers -->
