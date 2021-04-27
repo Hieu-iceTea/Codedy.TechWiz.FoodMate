@@ -53,15 +53,25 @@
                 </div>
                 <div class="col-md-7">
                     <!-- Navigation -->
-                    <nav class="module module-navigation left mr-4">
+                    <nav class="module module-navigation left">
                         <ul id="nav-main" class="nav nav-main">
                             <li><a href="../">Home</a></li>
                             <li><a href="../menu">Menu</a></li>
                             <li><a href="../restaurant">Restaurant</a></li>
                             <li><a href="../about">About</a></li>
                             <li><a href="../feedback">Feedback</a></li>
+                            <li><a href="../contact">Contact</a></li>
                             <li class="has-dropdown">
+                            @if(Auth::check())
+
+                                                <a href="#" style="text-transform: none" class="font-weight-bold">
+                                                    Welcome, {{ Auth::user()->user_name ?? '' }}
+                                                </a>
+
+                            @else
                                 <a href="#">Account</a>
+
+                            @endif
                                 <div class="dropdown-container">
                                     <ul class="dropdown-mega">
 
@@ -83,7 +93,6 @@
                                             <li><a href="../account/my-order">My Order</a></li>
                                             <li><a href="../account/logout">Logout</a></li>
                                         @else
-                                            <li><a href="../account/my-order">My Order</a></li>
                                             <li><a href="../account/login">Login</a></li>
                                             <li><a href="../account/register">Register</a></li>
                                         @endif
@@ -97,9 +106,7 @@
                             </li>
                         </ul>
                     </nav>
-                    <div class="module left">
-                        <a href="../contact" class="btn btn-outline-secondary"><span>Contact</span></a>
-                    </div>
+
                 </div>
                 <div class="col-md-2">
                     <a href="#" class="module module-cart right" data-toggle="panel-cart">
@@ -111,6 +118,7 @@
                     </a>
                 </div>
             </div>
+
         </div>
 
     </header>
@@ -181,7 +189,7 @@
                     <div class="col-lg-3 col-md-6">
                         <h4 class="text-muted">Account Information</h4>
                         <ul class="list-posts">
-                             <li><span><a href="../account/login" class="title text-primary">Login</a></span></li>
+                            <li><span><a href="../account/login" class="title text-primary">Login</a></span></li>
                             <li><span><a href="../account/register" class="title text-primary">Register</a></span></li>
                         </ul>
                     </div>
@@ -197,7 +205,8 @@
                                 <span class="title text-primary">So 8, Ton That Thuyet, My Dinh, Ha Noi</span>
                             </li>
                             <li>
-                                <span style="font-variant: lining-nums;" class="title text-primary"><strong>Phone: </strong>+48 21200 2122 221</span>
+                                <span style="font-variant: lining-nums;"
+                                      class="title text-primary"><strong>Phone: </strong>+48 21200 2122 221</span>
                             </li>
                             <li>
                                 <span class="title text-primary"><strong>Email: </strong>codedy@gmail.com</span>
