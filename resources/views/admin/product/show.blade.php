@@ -121,7 +121,7 @@
                                 {!!$product->description!!}
                             </div>
                         </div>
-                        <a class="nav-link btn" type="submit" href="admin/product/">
+                        <a class="nav-link btn" type="submit" href="../admin/product/">
 
                             <span>Back</span>
                         </a>

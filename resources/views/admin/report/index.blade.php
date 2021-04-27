@@ -21,10 +21,10 @@
 
         <div class="btn-actions-pane-right mb-3">
             <div role="group" class="btn-group-sm btn-group">
-                <a name="view" class="{{ request('view') == 'all' ? 'active' : '' }} btn btn-focus" href="admin/report?view=all">All Time</a>
-                <a name="view" class="{{ request('view') == 'this_month' ? 'active' : '' }} btn btn-success" href="admin/report?view=last_month">This Month</a>
-                <a name="view" class="{{ request('view') == 'last_month' ? 'active' : '' }} btn btn-primary" href="admin/report?view=last_month">Last Month</a>
-                <a name="view" class="{{ request('view') == 'this_year' ? 'active' : '' }} btn btn-gradient-primary" href="admin/report?view=last_month">This Year</a>
+                <a name="view" class="{{ request('view') == 'all' ? 'active' : '' }} btn btn-focus" href="../adminmin/report?view=all">All Time</a>
+                <a name="view" class="{{ request('view') == 'this_month' ? 'active' : '' }} btn btn-success" href="../admin/report?view=last_month">This Month</a>
+                <a name="view" class="{{ request('view') == 'last_month' ? 'active' : '' }} btn btn-primary" href="../admin/report?view=last_month">Last Month</a>
+                <a name="view" class="{{ request('view') == 'this_year' ? 'active' : '' }} btn btn-gradient-primary" href="../admin/report?view=last_month">This Year</a>
             </div>
         </div>
 
