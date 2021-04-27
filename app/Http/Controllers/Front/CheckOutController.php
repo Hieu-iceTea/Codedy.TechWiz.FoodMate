@@ -19,7 +19,7 @@ class CheckOutController extends Controller
     public function addOrder(Request $request)
     {
         $data_order = $request->all();
-        $data_order['status'] = Constant::order_status_ReceiveOrders;
+        $data_order['status'] = Constant::order_status_Unconfirmed;
 
         //Nếu chọn hình thức thanh toán: Tiền mặt (Cash):
         if ($request->get('payment_type') == Constant::product_pay_type_Cash) {
