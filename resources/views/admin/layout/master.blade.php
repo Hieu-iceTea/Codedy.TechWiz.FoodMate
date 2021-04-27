@@ -122,7 +122,7 @@
     </div>
 
     <div class="app-main">
-        <div class="app-sidebar sidebar-shadow">
+        <div class="app-sidebar sidebar-shadow" style="min-width: 250px; width: 250px">
             <div class="app-header__logo">
                 <div class="logo-src"></div>
                 <div class="header__pane ml-auto">
@@ -158,7 +158,7 @@
             <div class="scrollbar-sidebar">
                 <div class="app-sidebar__inner">
                     <ul class="vertical-nav-menu">
-                        <li class="app-sidebar__heading">Menu</li>
+                        <li class="app-sidebar__heading"></li>
 
                         <ul>
                             <li>
@@ -218,7 +218,7 @@
             </div>
         </div>
 
-        <div class="app-main__outer">
+        <div class="app-main__outer" style="padding-left: 250px">
 
 
             <!--  MAIN HERE -->
