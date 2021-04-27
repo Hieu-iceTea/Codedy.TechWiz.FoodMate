@@ -1,6 +1,6 @@
 @extends('front.layout.master')
 
-@section('title', 'Offer')
+@section('title', 'Restaurant')
 
 @section('body')
 
@@ -29,7 +29,7 @@
                 </div>
             </form>
             @foreach($restaurants as $restaurant)
-            <!-- Special Offer -->
+            <!-- Restaurant -->
             <div class="special-offer mb-5 animated" data-animation="fadeIn">
               <img src="../front/data-images/restaurants/{{$restaurant->image}}" alt="" class="special-offer-image">
                 <div class="special-offer-content">
