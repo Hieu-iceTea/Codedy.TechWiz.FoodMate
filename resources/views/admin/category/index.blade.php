@@ -57,9 +57,10 @@
                         <table class="align-middle mb-0 table table-borderless table-striped table-hover">
                             <thead>
                             <tr>
-                                <th class="text-center">ID</th>
-                                <th class="text-center">Name</th>
+                                <th class="">ID</th>
+                                <th class="">Name</th>
                                 <th class="text-center">Image</th>
+                                <th class="text-center">Active</th>
                                 <th class="text-center">Actions</th>
                             </tr>
                             </thead>
@@ -67,8 +68,8 @@
 
                             @foreach($categories as $category)
                                 <tr>
-                                    <td class="text-center text-muted">#{{$category -> id}}</td>
-                                    <td class="text-center text-muted">{{$category -> name}}</td>
+                                    <td class="text-muted">#{{$category -> id}}</td>
+                                    <td class="text-muted">{{$category -> name}}</td>
                                     <td class="text-center">
                                         <div class="widget-content p-0">
                                             <div class="widget-content-wrapper">
@@ -79,6 +80,12 @@
                                                              width="80" alt=""></div>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div
+                                            class="badge badge-{{ $category->active == 1 ? 'success' : 'warning'}} mt-2">
+                                            {{$category->active == 1 ? 'yes' : 'no'}}
                                         </div>
                                     </td>
 

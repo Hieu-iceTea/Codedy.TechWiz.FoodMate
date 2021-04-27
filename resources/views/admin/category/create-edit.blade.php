@@ -63,6 +63,18 @@
                                 </div>
                             </div>
 
+                            <div class="position-relative row form-group">
+                                <label for="active" class="col-md-3 text-md-right col-form-label">Status</label>
+                                <div class="col-md-9 col-xl-8">
+                                    <div class="position-relative form-check pt-sm-2">
+                                        <input name="active" id="active" type="checkbox" value=1
+                                               {{ (old('active') ?? $category->active ?? '') == 1 ? 'checked' : '' }}
+                                               class="form-check-input">
+                                        <label for="active" class="form-check-label">Active</label>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="position-relative row form-group mb-1">
                                 <div class="col-md-9 col-xl-8 offset-md-2">
                                     <a href="../admin/category" class="border-0 btn btn-outline-danger mr-1">
