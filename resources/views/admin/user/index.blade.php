@@ -79,7 +79,7 @@
                                                         <img style="height: 60px;"
                                                              data-toggle="tooltip" title="Image"
                                                              data-placement="bottom"
-                                                             src="data-images/user/{{$user -> image}}" alt="">
+                                                             src="../front/data-images/user/{{$user -> image}}" alt="">
                                                     </div>
                                                 </div>
                                                 <div class="widget-content-left flex2">

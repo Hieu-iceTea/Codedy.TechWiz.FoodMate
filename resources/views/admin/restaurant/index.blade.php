@@ -74,7 +74,7 @@
                                                         <img width="80"
                                                              data-toggle="tooltip" title="Image"
                                                              data-placement="bottom"
-                                                             src="data-images/restaurants/{{ $restaurant->image }}"
+                                                             src="../front/data-images/restaurants/{{ $restaurant->image }}"
                                                              alt="">
                                                     </div>
                                                 </div>

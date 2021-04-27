@@ -79,7 +79,7 @@
                                                         <img width="80"
                                                              data-toggle="tooltip" title="Image"
                                                              data-placement="bottom"
-                                                             src="data-images/products/{{ $order->orderDetails[0]->product->image }}"
+                                                             src="../front/data-images/products/{{ $order->orderDetails[0]->product->image }}"
                                                              alt="">
                                                     </div>
                                                 </div>

@@ -65,7 +65,7 @@
                                     <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                        class="p-0 btn">
                                         <img width="42" class="rounded-circle"
-                                             src="data-images/user/{{ Auth::user()->image ?? '_default-user.png' }}"
+                                             src="../front/data-images/user/{{ Auth::user()->image ?? '_default-user.png' }}"
                                              alt="">
                                         <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                     </a>
@@ -81,7 +81,7 @@
                                                         <div class="widget-content-wrapper">
                                                             <div class="widget-content-left mr-3">
                                                                 <img width="42" class="rounded-circle"
-                                                                     src="data-images/user/{{ Auth::user()->image ?? '_default-user.png' }}"
+                                                                     src="../front/data-images/user/{{ Auth::user()->image ?? '_default-user.png' }}"
                                                                      alt="">
                                                             </div>
                                                             <div class="widget-content-left">
@@ -122,7 +122,7 @@
     </div>
 
     <div class="app-main">
-        <div class="app-sidebar sidebar-shadow">
+        <div class="app-sidebar sidebar-shadow" style="min-width: 250px; width: 250px">
             <div class="app-header__logo">
                 <div class="logo-src"></div>
                 <div class="header__pane ml-auto">
@@ -158,7 +158,7 @@
             <div class="scrollbar-sidebar">
                 <div class="app-sidebar__inner">
                     <ul class="vertical-nav-menu">
-                        <li class="app-sidebar__heading">Menu</li>
+                        <li class="app-sidebar__heading"></li>
 
                         <ul>
                             <li>
@@ -192,23 +192,25 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="../admin/restaurant"
-                                   class="{{ (request()->segment(2) == 'restaurant') ? 'mm-active' : '' }}">
-                                    <i class="metismenu-icon"></i>Restaurant
-                                </a>
-                            </li>
-                            <li>
                                 <a href="../admin/feedback"
                                    class="{{ (request()->segment(2) == 'feedback') ? 'mm-active' : '' }}">
                                     <i class="metismenu-icon"></i>Feedback
                                 </a>
                             </li>
-                            <li>
-                                <a href="../admin/user"
-                                   class="{{ (request()->segment(2) == 'user') ? 'mm-active' : '' }}">
-                                    <i class="metismenu-icon"></i>User
-                                </a>
-                            </li>
+                            @if(\Illuminate\Support\Facades\Auth::user()->level != \App\Utilities\Constant::user_level_staff)
+                                <li>
+                                    <a href="../admin/restaurant"
+                                       class="{{ (request()->segment(2) == 'restaurant') ? 'mm-active' : '' }}">
+                                        <i class="metismenu-icon"></i>Restaurant
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../admin/user"
+                                       class="{{ (request()->segment(2) == 'user') ? 'mm-active' : '' }}">
+                                        <i class="metismenu-icon"></i>User
+                                    </a>
+                                </li>
+                            @endif
                         </ul>
 
                     </ul>
@@ -216,7 +218,7 @@
             </div>
         </div>
 
-        <div class="app-main__outer">
+        <div class="app-main__outer" style="padding-left: 250px">
 
 
             <!--  MAIN HERE -->
@@ -231,11 +233,11 @@
 </div>
 <div class="app-drawer-overlay d-none animated fadeIn"></div>
 
-<script src="assets/scripts/jquery-3.2.1.min.js"></script>
+<script src="../front/assets/scripts/jquery-3.2.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<script type="text/javascript" src="assets/scripts/main.js"></script>
-<script type="text/javascript" src="assets/scripts/my_script.js"></script>
+<script type="text/javascript" src="../front/assets/scripts/main.js"></script>
+<script type="text/javascript" src="../front/assets/scripts/my_script.js"></script>
 </body>
 
 </html>

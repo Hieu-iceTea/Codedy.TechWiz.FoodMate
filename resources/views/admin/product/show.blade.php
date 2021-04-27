@@ -60,7 +60,7 @@
                                 <p>
                                     <img style="height: 200px;" class="" data-toggle="tooltip"
                                          title="Avatar" data-placement="bottom"
-                                         src="data-images/products/{{$product->image}}" alt="Avatar">
+                                         src="../front/data-images/products/{{$product->image}}" alt="Avatar">
                                 </p>
                             </div>
                         </div>
@@ -121,7 +121,7 @@
                                 {!!$product->description!!}
                             </div>
                         </div>
-                        <a class="nav-link btn" type="submit" href="admin/product/">
+                        <a class="nav-link btn" type="submit" href="../admin/product/">
 
                             <span>Back</span>
                         </a>
