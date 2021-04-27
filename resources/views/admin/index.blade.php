@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="page-title-actions d-none">
-                    <a href="{{ url()->current() . '/create' }}"
+                    <a href="{{ asset('') }}{{ url()->current() . '/create' }}"
                        class="btn-shadow btn-hover-shine mr-3 btn btn-primary">
                                     <span class="btn-icon-wrapper pr-2 opacity-7">
                                         <i class="fa fa-plus fa-w-20"></i>
@@ -95,10 +95,10 @@
                         <div class="btn-actions-pane-right">
                             <div role="group" class="btn-group-sm btn-group">
                                 <a name="view" class="{{ request('view') == 'all' ? 'active' : '' }} btn btn-focus"
-                                   href="../admin?view=all">All Time</a>
+                                   href="{{ asset('') }}admin?view=all">All Time</a>
                                 <a name="view"
                                    class="{{ request('view') == 'last_month' ? 'active' : '' }} btn btn-focus"
-                                   href="../admin?view=last_month">This Month</a>
+                                   href="{{ asset('') }}admin?view=last_month">This Month</a>
                             </div>
                         </div>
                     </div>
@@ -122,7 +122,7 @@
                                                 <div class="widget-content-left mr-3">
                                                     <div class="widget-content-left">
                                                         <img width="40" class=""
-                                                             src="../front/data-images/products/{{$f->image}}"
+                                                             src="{{ asset('') }}front/data-images/products/{{$f->image}}"
                                                              alt="">
                                                     </div>
                                                 </div>
@@ -154,10 +154,10 @@
                         <div class="btn-actions-pane-right">
                             <div role="group" class="btn-group-sm btn-group">
                                 <a name="view" class="{{ request('view') == 'all' ? 'active' : '' }} btn btn-focus"
-                                   href="../admin?view=all">All Time</a>
+                                   href="{{ asset('') }}admin?view=all">All Time</a>
                                 <a name="view"
                                    class="{{ request('view') == 'last_month' ? 'active' : '' }} btn btn-focus"
-                                   href="../admin?view=last_month">This Month</a>
+                                   href="{{ asset('') }}admin?view=last_month">This Month</a>
                             </div>
                         </div>
                     </div>
@@ -181,7 +181,7 @@
                                                 <div class="widget-content-left mr-3">
                                                     <div class="widget-content-left">
                                                         <img width="40" class=""
-                                                             src="../front/data-images/restaurants/{{$f->image}}"
+                                                             src="{{ asset('') }}front/data-images/restaurants/{{$f->image}}"
                                                              alt="">
                                                     </div>
                                                 </div>
