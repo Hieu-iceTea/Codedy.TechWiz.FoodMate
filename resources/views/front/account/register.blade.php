@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <base href="/dashboard/">
+    <base href="{{ asset('') }}/dashboard/">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
@@ -15,7 +15,7 @@
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 
-    <link href="./main.css" rel="stylesheet">
+    <link href="{{ asset('') }}main.css" rel="stylesheet">
 </head>
 
 <body>
@@ -112,7 +112,7 @@
                                 </div>
                                 <div class="mt-4 d-flex align-items-center">
                                     <h5 class="mb-0">Already have an account?
-                                        <a href="../account/login" class="text-primary">
+                                        <a href="{{ asset('') }}account/login" class="text-primary">
                                             Sign in
                                         </a>
                                     </h5>
@@ -154,7 +154,7 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="./assets/scripts/main.js"></script>
+<script type="text/javascript" src="{{ asset('') }}front/assets/scripts/main.js"></script>
 </body>
 
 </html>

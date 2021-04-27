@@ -12,7 +12,7 @@
                     <!-- Product Single -->
                     <div class="product-single">
                         <div class="product-image">
-                            <img src="../front/data-images/products/{{$productDetails->image}}" alt="">
+                            <img src="{{ asset('') }}front/data-images/products/{{$productDetails->image}}" alt="">
                         </div>
                         <div class="product-content">
                             <form action="../cart/add/{{ $productDetails->id }}">
@@ -44,7 +44,7 @@
                                     </div>
                                 </div>
                                 <div class="text-center mt-4">
-                                    <a href="../menu" class="btn btn-link">Back to menu</a>
+                                    <a href="{{ asset('') }}menu" class="btn btn-link">Back to menu</a>
                                 </div>
                             </form>
                         </div>
@@ -59,15 +59,15 @@
     <section class="section section-lg dark bg-dark">
 
         <!-- BG Image -->
-        <div class="bg-image bg-parallax"><img src="data-images/photos/bg-croissant.jpg" alt="">
+        <div class="bg-image bg-parallax"><img src="{{ asset('') }}front/data-images/photos/bg-croissant.jpg" alt="">
         </div>
 
         <div class="container text-center">
             <div class="col-lg-8 offset-lg-2">
                 <h2 class="mb-3">Would you like to visit Us?</h2>
                 <h5 class="text-muted">Book a table even right now or make an online order!</h5>
-                <a href="../menu" class="btn btn-primary"><span>Order Online</span></a>
-                <a href="../menu" class="btn btn-outline-primary"><span>Book a table</span></a>
+                <a href="{{ asset('') }}menu" class="btn btn-primary"><span>Order Online</span></a>
+                <a href="{{ asset('') }}menu" class="btn btn-outline-primary"><span>Book a table</span></a>
             </div>
         </div>
 

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <base href="/dashboard/">
+    <base href="{{ asset('') }}/dashboard/">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
@@ -15,7 +15,7 @@
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 
-    <link href="./main.css" rel="stylesheet">
+    <link href="{{ asset('') }}main.css" rel="stylesheet">
 </head>
 
 <body>
@@ -82,7 +82,7 @@
                             <span class="d-block">Welcome back,</span>
                             <span>Please sign in to your account.</span>
                         </h4>
-                        <h6 class="mt-3">No account? <a href="../account/register" class="text-primary">Sign up now</a>
+                        <h6 class="mt-3">No account? <a href="{{ asset('') }}account/register" class="text-primary">Sign up now</a>
                         </h6>
                         <div class="divider row"></div>
                         <div>
@@ -115,7 +115,7 @@
                                 <div class="divider row"></div>
                                 <div class="d-flex align-items-center">
                                     <div class="ml-auto">
-                                        <a href="javascript:void(0);" class="btn-lg btn btn-link">Recover Password</a>
+                                        <a href="{{ asset('') }}javascript:void(0);" class="btn-lg btn btn-link">Recover Password</a>
                                         <button class="btn btn-primary btn-lg">Login to Dashboard</button>
                                     </div>
                                 </div>
@@ -127,7 +127,7 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="./assets/scripts/main.js"></script>
+<script type="text/javascript" src="{{ asset('') }}front/assets/scripts/main.js"></script>
 </body>
 
 </html>
