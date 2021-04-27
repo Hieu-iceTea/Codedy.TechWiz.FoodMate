@@ -192,23 +192,25 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="../admin/restaurant"
-                                   class="{{ (request()->segment(2) == 'restaurant') ? 'mm-active' : '' }}">
-                                    <i class="metismenu-icon"></i>Restaurant
-                                </a>
-                            </li>
-                            <li>
                                 <a href="../admin/feedback"
                                    class="{{ (request()->segment(2) == 'feedback') ? 'mm-active' : '' }}">
                                     <i class="metismenu-icon"></i>Feedback
                                 </a>
                             </li>
-                            <li>
-                                <a href="../admin/user"
-                                   class="{{ (request()->segment(2) == 'user') ? 'mm-active' : '' }}">
-                                    <i class="metismenu-icon"></i>User
-                                </a>
-                            </li>
+                            @if(\Illuminate\Support\Facades\Auth::user()->level != \App\Utilities\Constant::user_level_staff)
+                                <li>
+                                    <a href="../admin/restaurant"
+                                       class="{{ (request()->segment(2) == 'restaurant') ? 'mm-active' : '' }}">
+                                        <i class="metismenu-icon"></i>Restaurant
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../admin/user"
+                                       class="{{ (request()->segment(2) == 'user') ? 'mm-active' : '' }}">
+                                        <i class="metismenu-icon"></i>User
+                                    </a>
+                                </li>
+                            @endif
                         </ul>
 
                     </ul>
