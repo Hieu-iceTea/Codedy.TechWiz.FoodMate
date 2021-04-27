@@ -18,13 +18,13 @@ class HomeController extends Controller
     {
         if ($request->view == 'this_month') {
             $products = DB::select('select name, image, price, country,od.created_at, count(*) as total
-                                from `codedy.techwiz.foodmate`.products
+                                from  products
                                          join order_details od on products.id = od.product_id
                                 where month(od.created_at  ) = month(CURRENT_DATE)
                                 group by product_id
                                 order by total desc
                                 limit 10');
-            $restaurantId = DB::select('select r.name,r.image, price,r.address, count(*) as total from `codedy.techwiz.foodmate`.products
+            $restaurantId = DB::select('select r.name,r.image, price,r.address, count(*) as total from  products
                                 join order_details od on products.id = od.product_id
                                 join restaurants r on products.restaurant_id = r.id
                                 where month(od.created_at  ) = month(CURRENT_DATE)
@@ -33,13 +33,13 @@ class HomeController extends Controller
                                 limit 10');
 
                                         } else {
-            $restaurantId = DB::select('select r.name,r.image, price,r.address, count(*) as total from `codedy.techwiz.foodmate`.products
+            $restaurantId = DB::select('select r.name,r.image, price,r.address, count(*) as total from  products
                                 join order_details od on products.id = od.product_id
                                 join restaurants r on products.restaurant_id = r.id
                                 group by restaurant_id
                                 order by total desc
                                 limit 10');
-            $products = DB::select('select name,image, price,country , count(*) as total from `codedy.techwiz.foodmate`.products
+            $products = DB::select('select name,image, price,country , count(*) as total from  products
                                 join order_details od on products.id = od.product_id
                                 group by product_id
                                 order by total desc
