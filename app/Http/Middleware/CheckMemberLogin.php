@@ -26,9 +26,11 @@ class CheckMemberLogin
                     return redirect()->guest('account/login');
                 }
             } else { //nếu đã đăng nhập
-                if ($request->is('*/account') || $request->is('*/checkout') || $request->is('*/my-order')) {
+                if ($request->is('*/profile') || $request->is('*/checkout') || $request->is('*/my-order')) {
                     if (Auth::user()->level != Constant::user_level_customer) {
                         Auth::logout();
+
+                        return redirect()->back();
                     }
                 }
             }
