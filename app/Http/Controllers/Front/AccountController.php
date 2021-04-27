@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserRequest;
 use App\Models\Order;
 use App\Models\User;
 use App\Utilities\Constant;
@@ -32,15 +33,20 @@ class AccountController extends Controller
         $fieldType = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'user_name';
 
         $credentials = [
-            $fieldType => $request->email,
+            $fieldType => $request->user_name,
             'password' => $request->password,
-            'level' => Constant::user_level_customer, //Tài khoản cấp độ khách hàng bình thường.
+            //'level' => Constant::user_level_customer, //Tài khoản cấp độ khách hàng bình thường.
         ];
 
         $remember = $request->remember;
 
         if (Auth::attempt($credentials, $remember)) {
-            return redirect()->intended(session('url.intended') ?? ''); //Mặc định là: trang chủ
+
+            if (Auth::user()->level != Constant::user_level_customer) {
+                return redirect('admin');
+            }
+
+            return redirect()->intended(str_contains(session('url.intended') ?? '', 'register') ? '' : (session('url.intended') ?? '')); //Mặc định là: trang chủ
         } else {
             return back()->withErrors('ERROR: Email or password is wrong');
         }
@@ -58,12 +64,8 @@ class AccountController extends Controller
         return view('front.account.register');
     }
 
-    public function postRegister(Request $request)
+    public function postRegister(UserRequest $request)
     {
-        if ($request->password != $request->password_confirmation) {
-            return back()->withErrors('ERROR: Confirm password does not match.');
-        }
-
         $data = $request->all();
 
         $data['password'] = bcrypt($request->password);
@@ -79,7 +81,6 @@ class AccountController extends Controller
     public function myOrderIndex()
     {
         $orders = Order::where('user_id', Auth::id())->get();
-
 
 
         return view('front.account.my-order.index', compact('orders'));
