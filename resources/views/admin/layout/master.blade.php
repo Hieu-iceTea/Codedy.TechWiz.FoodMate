@@ -65,7 +65,7 @@
                                     <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                        class="p-0 btn">
                                         <img width="42" class="rounded-circle"
-                                             src="data-images/user/{{ Auth::user()->image ?? '_default-user.png' }}"
+                                             src="../front/data-images/user/{{ Auth::user()->image ?? '_default-user.png' }}"
                                              alt="">
                                         <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                     </a>
@@ -81,7 +81,7 @@
                                                         <div class="widget-content-wrapper">
                                                             <div class="widget-content-left mr-3">
                                                                 <img width="42" class="rounded-circle"
-                                                                     src="data-images/user/{{ Auth::user()->image ?? '_default-user.png' }}"
+                                                                     src="../front/data-images/user/{{ Auth::user()->image ?? '_default-user.png' }}"
                                                                      alt="">
                                                             </div>
                                                             <div class="widget-content-left">
@@ -231,11 +231,11 @@
 </div>
 <div class="app-drawer-overlay d-none animated fadeIn"></div>
 
-<script src="assets/scripts/jquery-3.2.1.min.js"></script>
+<script src="../front/assets/scripts/jquery-3.2.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<script type="text/javascript" src="assets/scripts/main.js"></script>
-<script type="text/javascript" src="assets/scripts/my_script.js"></script>
+<script type="text/javascript" src="../front/assets/scripts/main.js"></script>
+<script type="text/javascript" src="../front/assets/scripts/my_script.js"></script>
 </body>
 
 </html>

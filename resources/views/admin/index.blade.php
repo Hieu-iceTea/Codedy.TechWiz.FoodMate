@@ -122,7 +122,7 @@
                                                 <div class="widget-content-left mr-3">
                                                     <div class="widget-content-left">
                                                         <img width="40" class=""
-                                                             src="data-images/products/{{$f->image}}"
+                                                             src="../front/data-images/products/{{$f->image}}"
                                                              alt="">
                                                     </div>
                                                 </div>
@@ -181,7 +181,7 @@
                                                 <div class="widget-content-left mr-3">
                                                     <div class="widget-content-left">
                                                         <img width="40" class=""
-                                                             src="data-images/restaurants/{{$f->image}}"
+                                                             src="../front/data-images/restaurants/{{$f->image}}"
                                                              alt="">
                                                     </div>
                                                 </div>

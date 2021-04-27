@@ -77,7 +77,7 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="assets/scripts/main.js"></script>
+<script type="text/javascript" src="../front/assets/scripts/main.js"></script>
 </body>
 
 </html>

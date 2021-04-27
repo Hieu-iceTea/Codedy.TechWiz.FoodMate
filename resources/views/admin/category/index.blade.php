@@ -75,7 +75,7 @@
                                                 <div class="widget-content-left flex2">
                                                     <div class="widget-heading">
                                                         <img class="figure-img"
-                                                             src="data-images/categories/{{$category -> image}}"
+                                                             src="../front/data-images/categories/{{$category -> image}}"
                                                              width="80" alt=""></div>
                                                 </div>
                                             </div>

@@ -58,7 +58,7 @@
                                 <p>
                                     <img style="height: 200px;" class="rounded-circle" data-toggle="tooltip"
                                          title="Avatar" data-placement="bottom"
-                                         src="data-images/user/{{$user -> image}}" alt="Avatar">
+                                         src="../front/data-images/user/{{$user -> image}}" alt="Avatar">
                                 </p>
                             </div>
                         </div>

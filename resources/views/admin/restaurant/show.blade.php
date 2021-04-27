@@ -59,7 +59,7 @@
                                 <p>
                                     <img style="height: 200px;" data-toggle="tooltip"
                                          title="Avatar" data-placement="bottom"
-                                         src="data-images/restaurants/{{ $restaurant->image }}" alt="Avatar">
+                                         src="../front/data-images/restaurants/{{ $restaurant->image }}" alt="Avatar">
                                 </p>
                             </div>
                         </div>
