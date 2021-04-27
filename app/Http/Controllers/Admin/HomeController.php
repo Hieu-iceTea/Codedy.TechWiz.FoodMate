@@ -31,6 +31,7 @@ class HomeController extends Controller
                                 group by restaurant_id
                                 order by total desc
                                 limit 10');
+
                                         } else {
             $restaurantId = DB::select('select r.name,r.image, price,r.address, count(*) as total from `codedy.techwiz.foodmate`.products
                                 join order_details od on products.id = od.product_id

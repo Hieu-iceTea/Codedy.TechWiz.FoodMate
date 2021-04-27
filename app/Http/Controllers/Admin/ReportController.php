@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use App\Models\Restaurant;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ReportController extends Controller
 {
@@ -15,87 +19,78 @@ class ReportController extends Controller
     public function index(Request $request)
     {
         if ($request->view == 'this_month'){
-            $products = DB::select('select name, image, price, country,od.created_at, count(*) as total
+            $products = DB::select('select name, image, price, country, count(*) as total
                                     from `codedy.techwiz.foodmate`.products
                                     join order_details od on products.id = od.product_id
-                                    where od.created_at < NOW()
+                                    join orders o on products.restaurant_id = o.restaurant_id
+                                    where month(od.created_at  ) = month(CURRENT_DATE)
+                                    and where o.status = 2
                                     group by product_id
                                     order by total desc
                                     limit 10');
 
-            $restaurantId = DB::select('select r.name,r.image, price,r.address, count(*) as total from `codedy.techwiz.foodmate`.products
-                                        join order_details od on products.id = od.product_id
-                                        join restaurants r on products.restaurant_id = r.id
-                                        where od.created_at
-                                        group by product_id
-                                        order by total desc
-                                        limit 10');
+            $restaurants = DB::select('select name,image,address, sum(total_amount) as total from `codedy.techwiz.foodmate`.restaurants
+                                join orders o on restaurants.id = o.restaurant_id
+                                where o.status = 2 and  month(o.created_at  ) = month(CURRENT_DATE)
+                                group by restaurant_id
+                                order by total desc
+                                limit 10');
         }
          else if ($request->view == 'last_month') {
-            $products = DB::select('select name, image, price, country,od.created_at, count(*) as total
+            $products = DB::select('select name, image, price, country, count(*) as total
                                     from `codedy.techwiz.foodmate`.products
                                     join order_details od on products.id = od.product_id
-                                    where od.created_at < NOW() - INTERVAL 1 month
+                                    join orders o on products.restaurant_id = o.restaurant_id
+                                    where month(o.created_at  ) < NOW() - INTERVAL 1 month
+                                    and where o.status = 2
                                     group by product_id
                                     order by total desc
                                     limit 10');
 
-            $restaurantId = DB::select('select r.name,r.image, price,r.address, count(*) as total from `codedy.techwiz.foodmate`.products
-                                        join order_details od on products.id = od.product_id
-                                        join restaurants r on products.restaurant_id = r.id
-                                        where od.created_at < NOW() - INTERVAL 1 month
-                                        group by product_id
-                                        order by total desc
-                                        limit 10');
+            $restaurants = DB::select('select name,image,address, sum(total_amount) as total from `codedy.techwiz.foodmate`.restaurants
+                                join orders o on restaurants.id = o.restaurant_id
+                                where o.status = 2 and  month(o.created_at  ) < NOW() - INTERVAL 1 month
+                                group by restaurant_id
+                                order by total desc
+                                limit 10');
         }
          else if ($request->view == 'this_year') {
-             $products = DB::select('select name, image, price, country,od.created_at, count(*) as total
+             $products = DB::select('select name, image, price, country, count(*) as total
                                     from `codedy.techwiz.foodmate`.products
                                     join order_details od on products.id = od.product_id
-                                    where YEAR(od.created_at) = YEAR(NOW())
+                                    join orders o on products.restaurant_id = o.restaurant_id
+                                    where month(o.created_at  ) < YEAR(o.created_at) = YEAR(NOW())
+                                    and where o.status = 2
                                     group by product_id
                                     order by total desc
                                     limit 10');
 
-             $restaurantId = DB::select('select r.name,r.image, price,r.address, count(*) as total from `codedy.techwiz.foodmate`.products
-                                        join order_details od on products.id = od.product_id
-                                        join restaurants r on products.restaurant_id = r.id
-                                        where YEAR(od.created_at) = YEAR(NOW())
-                                        group by product_id
-                                        order by total desc
-                                        limit 10');
+             $restaurants = DB::select('select name,image,address, sum(total_amount) as total from `codedy.techwiz.foodmate`.restaurants
+                                join orders o on restaurants.id = o.restaurant_id
+                                where o.status = 2 and  YEAR(o.created_at) = YEAR(NOW())
+                                group by restaurant_id
+                                order by total desc
+                                limit 10');
          }
          else {
-            $restaurantId = DB::select('select r.name,r.image, price,r.address, count(*) as total from `codedy.techwiz.foodmate`.products
-                                        join order_details od on products.id = od.product_id
-                                        join restaurants r on products.restaurant_id = r.id
-                                        group by product_id
-                                        order by total desc
-                                        limit 10');
+            $restaurants = DB::select('select name,image,address, sum(total_amount) as total from `codedy.techwiz.foodmate`.restaurants
+                                join orders o on restaurants.id = o.restaurant_id
+                                where o.status = 2
+                                group by restaurant_id
+                                order by total desc
+                                limit 10');
 
             $products = DB::select('select name,image, price,country , count(*) as total from `codedy.techwiz.foodmate`.products
                                     join order_details od on products.id = od.product_id
+                                     join orders o on products.restaurant_id = o.restaurant_id
+                                     where o.status = 2
                                     group by product_id
                                     order by total desc
                                     limit 10');
         }
 
 
-        $restaurantTMonth = DB::select('select name, image, price, country,od.created_at, count(*) as total
-                                        from `codedy.techwiz.foodmate`.products
-                                        join order_details od on products.id = od.product_id
-                                        where od.created_at < NOW() - INTERVAL 1 month
-                                        group by product_id
-                                        order by total desc
-                                        limit 10');
-
-
-        $orderMonth = Order::whereMonth(
-            'created_at', '=', Carbon::now()->subMonth()->month
-        );
-        $restaurants = Restaurant::all();
-        $revenueMonth = $orderMonth->sum('total_amount');
-        return view('admin.report.index', compact('orderMonth', 'restaurants', 'revenueMonth', 'products', 'restaurantId', 'restaurantTMonth'));
+        return view('admin.report.index', compact('restaurants','products' ));
     }
 
 

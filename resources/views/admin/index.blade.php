@@ -59,7 +59,7 @@
     <div class="row">
         <div class="col-lg-6 col-xl-6 mb-lg-5">
             <div class="main-card mb-3 card">
-                <div class="card-header"><i class="header-icon lnr-dinner mr-3 text-muted opacity-6"> </i>Top Ordered
+                <div class="card-header"><i class="header-icon lnr-dinner mr-3 text-muted opacity-6"> </i>Top 10 Ordered
                     Item
                     <div class="btn-actions-pane-right">
                         <div role="group" class="btn-group-sm btn-group">
@@ -115,7 +115,7 @@
         <div class="col-lg-6 col-xl-6 mb-lg-5">
             <div class="main-card mb-3 card">
                 <div class="card-header"><i class="header-icon lnr-store mr-3 text-muted opacity-6"> </i>
-                    Top Restaurant Selling
+                    Top 10 Restaurant Selling
                     <div class="btn-actions-pane-right">
                         <div role="group" class="btn-group-sm btn-group">
                             <a name="view" class="{{ request('view') == 'all' ? 'active' : '' }} btn btn-focus" href="../admin?view=all">All Time</a>
