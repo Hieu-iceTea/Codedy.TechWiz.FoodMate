@@ -132,8 +132,8 @@
         </div>
 
         <div class="module module-logo">
-            <a href="index.html">
-                <img src="assets/img/logo-cloud-kitchen.png" alt="">
+            <a href="../">
+                <img src="assets/img/logo-cloud-kitchen-black.png" alt="">
             </a>
         </div>
 
@@ -228,7 +228,7 @@
                 </div>
                 <!-- Footer 2nd Row -->
                 <div class="footer-second-row">
-                    <span class="text-muted">Copyright Codedy TechWiz 2021</span>
+                    <span class="text-muted">Copyright © Codedy TechWiz 2021</span>
                 </div>
             </div>
 
@@ -300,7 +300,7 @@
     <!-- Panel Mobile -->
     <nav id="panel-mobile">
         <div class="module module-logo bg-dark dark">
-            <a href="#">
+            <a href="../">
                 <img src="assets/img/logo-cloud-kitchen.png" alt="" width="88">
             </a>
             <button class="close" data-toggle="panel-mobile"><i class="ti ti-close"></i></button>
@@ -498,5 +498,4 @@
 </body>
 
 
-<!-- Mirrored from preview.suelo.pl/soup-html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Apr 2021 09:36:04 GMT -->
 </html>

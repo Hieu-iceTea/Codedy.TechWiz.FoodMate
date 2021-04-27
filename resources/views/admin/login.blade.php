@@ -71,7 +71,7 @@
 
                         </div>
                     </div>
-                    <div class="text-center text-white opacity-8 mt-3">Copyright © CodeGym 2021</div>
+                    <div class="text-center text-white opacity-8 mt-3">Copyright © Codedy TechWiz 2021</div>
                 </div>
             </div>
         </div>
