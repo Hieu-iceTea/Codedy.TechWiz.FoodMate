@@ -19,10 +19,12 @@ class CategoryController extends Controller
     {
         $keyword = $request->get('search');
 
-        $categories=ProductCategory::where('id','=',$keyword)
-            ->orWhere('id','like','%'.$keyword.'%')
-            ->orderBy('id','desc')
+
+        $categories = ProductCategory::where('id', '=', $keyword)
+            ->orWhere('id', 'like', '%' . $keyword . '%')
+            ->orderBy('id', 'desc')
             ->paginate();
+
 
         //giúp chuyển trang page sẽ đính kèm theo từ khóa search của người dùng:
         $categories->appends(['search' => $keyword]);
@@ -44,29 +46,25 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(CategoryRequest $request)
     {
         $data = $request->all();
-
         unset($data['image_old']);
-
-        //File
-        $file = $request->image;
-        $file_name = Common::uploadFile($file, 'front/data-images/categories/');
-        $data['image'] = $file_name;
-
+        if ($request->hasFile('image') != null) {
+            $data['image'] = Common::uploadFile($request->file('image'), 'front/data-images/categories');
+        }
         $category = ProductCategory::create($data);
 
-        return redirect('admin/category/'.$category->id);
+        return redirect('admin/category/' . $category->id);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -79,11 +77,12 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
+
         $category = ProductCategory::findOrFail($id);
 
         return view('admin.category.create-edit', compact('category'));
@@ -92,8 +91,8 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(CategoryRequest $request, $id)
@@ -108,7 +107,7 @@ class CategoryController extends Controller
             //Thêm file mới:
             $data['image'] = Common::uploadFile($request->file('image'), 'front/data-images/categories/');
 
-            //Xóa file cũ:
+//            Xóa file cũ:
             $file_name_old = $request->get('image_old');
             if ($file_name_old != '') {
                 unlink('front/data-images/categories/' . $file_name_old);
@@ -123,7 +122,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

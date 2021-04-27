@@ -116,7 +116,7 @@
                                         </div>
                                         <div class="form-group col-sm-12">
                                             <label>Delivery address:</label>
-                                            <textarea class="form-control" name="delivery_address" required>{{ Auth::user()->street  ?? ''}}, {{ Auth::user()->city  ?? ''}}</textarea>
+                                            <textarea class="form-control" name="delivery_address" required></textarea>
                                         </div>
                                     </div>
 
