@@ -24,7 +24,6 @@ class UserRequest extends FormRequest
     public function rules()
     {
         $rules=[];
-
         //user/*
         if ($this->is('admin/user/*')) {
             $except = ',1,deleted'; //deleted <> 1 : Không bao gồm những bản ghi đã bị xóa

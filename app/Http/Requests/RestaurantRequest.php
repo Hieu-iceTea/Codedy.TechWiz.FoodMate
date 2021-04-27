@@ -23,11 +23,10 @@ class RestaurantRequest extends FormRequest
      */
     public function rules()
     {
+        $rules=[];
         //Áp dụng tất cả, nếu 'create' thì image là bắt buộc.
-        if ($this->is('admin/restaurant/create')) {
-            $rules = [
-                'image' => 'required|image',
-            ];
+        if ($this->isMethod('POST')) {
+            $rules['image'] = 'required|image';
         }
         $id = $this->segment(3);
         if (isset($id)) {

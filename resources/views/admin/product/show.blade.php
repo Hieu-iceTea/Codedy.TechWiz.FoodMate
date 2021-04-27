@@ -44,6 +44,7 @@
                                                             <span class="btn-icon-wrapper opacity-8">
                                                                 <i class="fa fa-trash fa-w-20"></i>
                                                             </span>
+                        <span class="ml-1"> Delete</span>
                     </button>
                 </form>
             </li>
@@ -120,10 +121,6 @@
                                 {!!$product->description!!}
                             </div>
                         </div>
-                        <a class="nav-link btn" type="submit" href="../admin/product/">
-
-                            <span>Back</span>
-                        </a>
                     </div>
                 </div>
             </div>
