@@ -26,6 +26,12 @@ class Constant
         self::order_status_Reject => 'Reject',
         self::order_status_CanceledByCustomer => 'Canceled by customer',
     ];
+    public static $order_status_badges = [
+        self::order_status_Unconfirmed => 'warning',
+        self::order_status_Accept => 'success',
+        self::order_status_Reject => 'danger',
+        self::order_status_CanceledByCustomer => 'secondary',
+    ];
 
     //User
     const user_level_host = 1;

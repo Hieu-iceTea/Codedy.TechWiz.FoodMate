@@ -26,6 +26,10 @@ class User extends Authenticatable
         return $this->hasMany(Feedback::class, 'user_id', 'id');
     }
 
+    public function restaurant(){
+        return $this->belongsTo(Restaurant::class, 'restaurant_id', 'id');
+    }
+
     /**
      * The attributes that are mass assignable.
      *

@@ -7,8 +7,10 @@ use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Restaurant;
+use App\Utilities\Constant;
 use Illuminate\Http\Request;
 use App\Utilities\Common;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -19,15 +21,29 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $products = Product::orderBy('id','desc')->paginate(10);
+        $products = Product::all()->toQuery();
 
-        if($request->get('search')!=null){
-        $products = Product::where('name', 'Like', '%'. $request->get('search') .'%')
-            ->orWhere('id', 'Like', '%'. $request->get('search') .'%')
-            ->paginate(10);
+        //Truy vấn theo nhà hàng:
+        if (Auth::user()->level == Constant::user_level_staff) {
+            $restaurant_id = Auth::user()->restaurant_id;
+            $products = $products->where('restaurant_id', $restaurant_id);
         }
 
-        return view('admin.product.index',compact('products'));
+        //Tìm theo ID:
+        $keyword = $request->get('search');
+        $products = $products->Where('id', 'like', '%' . $keyword . '%');
+
+        //Tìm theo Name:
+        $keyword = $request->get('search');
+        $products = $products->Where('name', 'like', '%' . $keyword . '%');
+
+        //Sắp xếp & phân trang:
+        $products = $products->orderBy('id', 'desc')->paginate();
+
+        //giúp chuyển trang page sẽ đính kèm theo từ khóa search của người dùng:
+        $products->appends(['search' => $keyword]);
+
+        return view('admin.product.index', compact('products'));
     }
 
     /**
@@ -41,13 +57,13 @@ class ProductController extends Controller
 
         $categories = ProductCategory::all();
         $restaurants = Restaurant::all();
-        return view('admin.product.create-edit',compact('products', 'categories','restaurants'));
+        return view('admin.product.create-edit', compact('products', 'categories', 'restaurants'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(ProductRequest $request)
@@ -68,7 +84,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      *
      * @return \Illuminate\Http\Response
      */
@@ -81,7 +97,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -89,14 +105,14 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $categories = ProductCategory::all();
         $restaurants = Restaurant::all();
-        return view('admin.product.create-edit',compact('product', 'categories','restaurants'));
+        return view('admin.product.create-edit', compact('product', 'categories', 'restaurants'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(ProductRequest $request, $id)
@@ -126,7 +142,7 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

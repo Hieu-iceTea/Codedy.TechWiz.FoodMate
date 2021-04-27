@@ -13,7 +13,7 @@
                         <i class="pe-7s-ticket icon-gradient bg-mean-fruit"></i>
                     </div>
                     <div>
-                        Contact
+                        Feedback
                         <div class="page-title-subheading">
                             View, create, update, delete and manage.
                         </div>

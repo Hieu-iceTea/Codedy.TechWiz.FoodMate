@@ -40,7 +40,8 @@
                         <form>
                             <div class="input-group">
                                 <input type="search" name="search" id="search"
-                                       placeholder="Search everything" class="form-control">
+                                       placeholder="Search ..." class="form-control"
+                                       value="{{ request('search') }}">
                                 <span class="input-group-append">
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="fa fa-search"></i>&nbsp;
@@ -76,7 +77,7 @@
                                             <div class="widget-content-wrapper">
                                                 <div class="widget-content-left mr-3">
                                                     <div class="widget-content-left">
-                                                        <img style="height: 60px;"
+                                                        <img width="80"
                                                              data-toggle="tooltip" title="Image"
                                                              data-placement="bottom"
                                                              src="../front/data-images/products/{{$product->image}}"
@@ -92,8 +93,9 @@
                                     </td>
                                     <td class="text-center">${{$product->price}}</td>
                                     <td class="text-center">
-                                        <div class="badge badge-success mt-2">
-                                            {{$product->featured == 1 ? 'true' : 'false'}}
+                                        <div
+                                            class="badge badge-{{ $product->featured == 1 ? 'success' : 'warning'}} mt-2">
+                                            {{$product->featured == 1 ? 'yes' : 'no'}}
                                         </div>
                                     </td>
                                     <td class="text-center">

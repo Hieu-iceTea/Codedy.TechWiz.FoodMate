@@ -40,7 +40,8 @@
                         <form>
                             <div class="input-group">
                                 <input type="search" name="search" id="search"
-                                       placeholder="Search everything" class="form-control">
+                                       placeholder="Search ..." class="form-control"
+                                       value="{{ request('search') }}">
                                 <span class="input-group-append">
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="fa fa-search"></i>&nbsp;
@@ -68,7 +69,8 @@
 
                             @foreach($users as $user)
                                 <tr>
-                                    <td class="text-center text-muted">#{{ $user->id < 10 ? '0' . $user->id : $user->id }}</td>
+                                    <td class="text-center text-muted">
+                                        #{{ $user->id < 10 ? '0' . $user->id : $user->id }}</td>
                                     <td>
                                         <div class="widget-content p-0">
                                             <div class="widget-content-wrapper">
@@ -93,7 +95,12 @@
                                     <td class="text-center">{{ \App\Utilities\Constant::$user_levels[$user->level] }}</td>
                                     <td class="text-center">{{ $user->phone }}</td>
                                     <td class="text-center">{{ $user->city }}</td>
-                                    <td class="text-center">{{ $user->active == 1 ? 'Yes' : 'No' }}</td>
+                                    <td class="text-center">
+                                        <div
+                                            class="badge badge-{{ $user->active == 1 ? 'success' : 'warning'}} mt-2">
+                                            {{$user->active == 1 ? 'yes' : 'no'}}
+                                        </div>
+                                    </td>
                                     <td class="text-center">
                                         <a href="../admin/user/{{ $user->id }}"
                                            class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
@@ -150,11 +157,11 @@
                         @endif
                     </div>
 
+                </div>
+
             </div>
-
         </div>
-    </div>
 
-    <!-- End Main -->
+        <!-- End Main -->
 
 @endsection
