@@ -40,7 +40,7 @@ class AccountController extends Controller
         $remember = $request->remember;
 
         if (Auth::attempt($credentials, $remember)) {
-            return redirect()->intended(''); //Mặc định là: trang chủ
+            return redirect()->intended(session('url.intended') ?? ''); //Mặc định là: trang chủ
         } else {
             return back()->withErrors('ERROR: Email or password is wrong');
         }
