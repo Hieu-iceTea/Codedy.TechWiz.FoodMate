@@ -23,31 +23,6 @@
             </div>
         </div>
 
-        <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
-            <li class="nav-item">
-                <a href="{{ url()->current() . '/edit'}}" class="nav-link">
-                                <span class="btn-icon-wrapper pr-2 opacity-8">
-                                    <i class="fa fa-edit fa-w-20"></i>
-                                </span>
-                    <span>Edit</span>
-                </a>
-            </li>
-
-            <li class="nav-item delete">
-                <form action="" action="{{ url()->current() . '/' }}">
-                    @csrf
-                    @method('DELETE')
-                    <button class="nav-link btn" type="submit"
-                            onclick="return confirm('Do you really want to delete this item?')">
-                                    <span class="btn-icon-wrapper pr-2 opacity-8">
-                                        <i class="fa fa-trash fa-w-20"></i>
-                                    </span>
-                        <span>Delete</span>
-                    </button>
-                </form>
-            </li>
-        </ul>
-
         <div class="row">
             <div class="col-md-12">
                 <div class="main-card mb-3 card">
