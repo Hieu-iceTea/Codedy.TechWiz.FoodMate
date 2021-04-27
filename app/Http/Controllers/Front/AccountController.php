@@ -35,12 +35,17 @@ class AccountController extends Controller
         $credentials = [
             $fieldType => $request->user_name,
             'password' => $request->password,
-            'level' => Constant::user_level_customer, //Tài khoản cấp độ khách hàng bình thường.
+            //'level' => Constant::user_level_customer, //Tài khoản cấp độ khách hàng bình thường.
         ];
 
         $remember = $request->remember;
 
         if (Auth::attempt($credentials, $remember)) {
+
+            if (Auth::user()->level != Constant::user_level_customer) {
+                return redirect('admin');
+            }
+
             return redirect()->intended(str_contains(session('url.intended') ?? '', 'register') ? '' : (session('url.intended') ?? '')); //Mặc định là: trang chủ
         } else {
             return back()->withErrors('ERROR: Email or password is wrong');
