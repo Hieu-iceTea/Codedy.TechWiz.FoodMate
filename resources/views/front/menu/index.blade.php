@@ -75,7 +75,7 @@
                         @if(count($products) > 0)
                             <ul class="nav nav-menu bg-dark dark">
                                 @foreach($categories as $category)
-                                    <li><a href="../#{{ $category->name }}">{{ $category->name }}</a></li>
+                                    <li><a href="#{{ $category->name }}">{{ $category->name }}</a></li>
                                 @endforeach
                             </ul>
                         @endif
