@@ -12,8 +12,7 @@
                     <!-- Product Single -->
                     <div class="product-single">
                         <div class="product-image">
-                            <img src="../front/data-images/products/{{$productDetails->image}}" alt=""
-                                 style="height: 600px;">
+                            <img src="../front/data-images/products/{{$productDetails->image}}" alt="">
                         </div>
                         <div class="product-content">
                             <form action="../cart/add/{{ $productDetails->id }}">
