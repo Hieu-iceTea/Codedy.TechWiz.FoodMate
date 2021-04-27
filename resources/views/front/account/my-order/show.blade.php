@@ -25,7 +25,7 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-xl-4 col-lg-5">
+                <div class="col-xl-6 col-lg-6">
                     <div class="cart-details shadow bg-white stick-to-content mb-4">
                         <div class="bg-dark dark p-4"><h5 class="mb-0">Products list</h5></div>
                         <table class="cart-table-show ">
@@ -67,7 +67,7 @@
 
                     </div>
                 </div>
-                <div class="col-xl-8 col-lg-7 order-lg-first">
+                <div class="col-xl-6 col-lg-6 order-lg-first">
 
                     @include('components.errors')
 
@@ -104,33 +104,45 @@
                         <div class="row mb-5">
                             <div class="form-group col-sm-6">
                                 <label>First Name:</label>
-                                <p>{{ $order->first_name }}</p>
+                                <p>{{ Auth::user()->first_name }}</p>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label>Last Name:</label>
-                                <p>{{ $order->last_name }}</p>
+                                <p>{{ Auth::user()->last_name }}</p>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label>Street and number:</label>
-                                <p>{{ $order->street }}</p>
+                                <p>{{ Auth::user()->street }}</p>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label>City:</label>
-                                <p>{{ $order->city }}</p>
+                                <p>{{ Auth::user()->city }}</p>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label>Phone number:</label>
-                                <p>{{ $order->phone }}</p>
+                                <p>{{ Auth::user()->phone }}</p>
                             </div>
                             <div class="form-group col-sm-6">
                                 <label>E-mail address:</label>
-                                <p>{{ $order->email }}</p>
+                                <p>{{ Auth::user()->email }}</p>
                             </div>
                         </div>
 
-                        <h4 class="border-bottom pb-4"><i class="ti ti-wallet mr-3 text-primary"></i>Payment
+                        @if($order->status == \App\Utilities\Constant::order_status_Reject)
+                            <h4 class="border-bottom pb-4">
+                                <i class="ti ti-close mr-3 text-primary"> </i>
+                                Reason reject
+                            </h4>
+                            <div class="row text-lg">
+                                <div class="col-md-12 col-sm-12 form-group">
+                                    {{ $order->reason_reject }}
+                                </div>
+                            </div>
+                        @endif
+
+                        <h4 class="border-bottom pb-4 d-none"><i class="ti ti-wallet mr-3 text-primary"></i>Payment
                         </h4>
-                        <div class="row text-lg">
+                        <div class="row text-lg d-none">
                             @foreach(\App\Utilities\Constant::$product_pay_types as $key => $value)
                                 <div class="col-md-4 col-sm-6 form-group">
                                     <label class="custom-control custom-radio">

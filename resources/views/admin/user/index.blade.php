@@ -106,7 +106,7 @@
                                            class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
                                             Details
                                         </a>
-                                        <a href="../{{ url()->current() . '/' . $user->id . '/edit'}}"
+                                        <a href="{{ url()->current() . '/' . $user->id . '/edit'}}"
                                            data-toggle="tooltip" title="Edit"
                                            data-placement="bottom" class="btn btn-outline-warning border-0 btn-sm">
                                                         <span class="btn-icon-wrapper opacity-8">

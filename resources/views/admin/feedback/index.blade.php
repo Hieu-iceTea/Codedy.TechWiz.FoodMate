@@ -70,7 +70,7 @@
                                     </td>
                                     <td class="text-center">{{ $feedback->rating }}</td>
                                     <td class="text-center">
-                                        <a href="../{{ url()->current() . '/' . $feedback->id }}"
+                                        <a href="../admin/feedback/{{ $feedback->id }}"
                                            class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
                                             Details
                                         </a>
