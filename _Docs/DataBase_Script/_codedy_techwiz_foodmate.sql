@@ -1,6 +1,6 @@
-# Created_by:
+# Created_by: Hieu_iceTea
 # Created_at: 18:00 2021-04-24
-# Updated_at: 12:00 2021-04-27
+# Updated_at: 21:00 2021-04-28
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = #
 #                                           Create DataBase                                           #
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `product_categories`
 
     `name`       VARCHAR(64) NOT NULL,
     `image`      CHAR(128)   NOT NULL,
-    `active`     BOOLEAN     DEFAULT TRUE,
+    `active`     BOOLEAN      DEFAULT TRUE,
 
     `created_by` NVARCHAR(32) DEFAULT 'codedy_techwiz_foodmate',
     `created_at` TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
@@ -249,51 +249,51 @@ VALUE (5, 'Burgers', 'menu-title-burgers.jpg', TRUE);
 INSERT INTO product_categories (Id, Name, Image, Active)
 VALUE (6, 'Pasta', 'menu-title-pasta.jpg', TRUE);
 INSERT INTO product_categories (Id, Name, Image, Active)
-VALUE (7, 'Pizza', 'menu-title-pizza.jpg', FALSE);
+VALUE (7, 'Pizza', 'menu-title-pizza.jpg', TRUE);
 INSERT INTO product_categories (Id, Name, Image, Active)
-VALUE (8, 'Sushi', 'menu-title-sushi.jpg', FALSE);
+VALUE (8, 'Sushi', 'menu-title-sushi.jpg', TRUE);
 INSERT INTO product_categories (Id, Name, Image, Active)
-VALUE (9, 'Desserts', 'menu-title-desserts.jpg', FALSE);
+VALUE (9, 'Desserts', 'menu-title-desserts.jpg', TRUE);
 INSERT INTO product_categories (Id, Name, Image, Active)
-VALUE (10, 'Drinks', 'menu-title-drinks.jpg', FALSE);
+VALUE (10, 'Drinks', 'menu-title-drinks.jpg', TRUE);
 
 
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
 VALUE (1, 1, 1, 'Best Lentil Soup', 'Includes vegetables and flour',10.59, 'Best Lentil Soup.jpg', 'Viet Nam', 'Snacks', 'My lentil soup is made with most of the ingredients in the pantry but includes hearty greens and a squeeze of lemon for a fresh flavor. It is seasoned with a few of my spices and lots of freshly ground black pepper', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (2, 1, 2, 'Crispy Baked Falafel', 'Includes several healthy vegetables',13.89, 'Crispy Baked Falafel.jpg', 'American', 'Lunch', 'No kidding! If you are a mom of a picky eater or someone constantly worried about including various veggies in your family’s diet and hoping to relish the goodness of all vegetables in one go – pick vegetable flours.', TRUE);
+VALUE (2, 1, 1, 'Crispy Baked Falafel', 'Includes several healthy vegetables',13.89, 'Crispy Baked Falafel.jpg', 'American', 'Lunch', 'No kidding! If you are a mom of a picky eater or someone constantly worried about including various veggies in your family’s diet and hoping to relish the goodness of all vegetables in one go – pick vegetable flours.', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
 VALUE (3, 1, 1, 'Peanut Slaw with Soba Noodles', 'cabbage, carrots, scallions, peanut butter',18.39, 'Peanut Slaw with Soba Noodles.jpg', 'Viet Nam', 'Snacks', 'Its spicy (mild). It is beans and pasta. It is a friend of all vegetables. Its a salad ... not really a salad. It has a crunchy flavor from soft drinks and juices, and its extremely water-free and a mixture of carbs called soba noodles, and its also colorful and crunchy and fresh, so its the same.', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (4, 1, 2, 'Black Bean Sweet Potato Enchiladas', 'Include black beans, sweet potatoes and some special spices',15.29, 'Black Bean Sweet Potato Enchiladas.jpg', 'Japan', 'Breakfast', 'This is a delicious vegetarian dish that will suit everyone, with the black beans and sweet potatoes combined to make the black Bean Sweet Potato Enchiladas. This dish is easy to eat so we thought it would be a dish suitable for everyone', TRUE);
+VALUE (4, 1, 1, 'Black Bean Sweet Potato Enchiladas', 'Include black beans, sweet potatoes and some special spices',15.29, 'Black Bean Sweet Potato Enchiladas.jpg', 'Japan', 'Breakfast', 'This is a delicious vegetarian dish that will suit everyone, with the black beans and sweet potatoes combined to make the black Bean Sweet Potato Enchiladas. This dish is easy to eat so we thought it would be a dish suitable for everyone', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
 VALUE (5, 1, 1, 'Spaghetti Squash Burrito Bowls', 'pumpkin, olive oil, monosodium glutamate and chili powder',16.39, 'Spaghetti Squash Burrito Bowls.jpg', 'American', 'Snacks', 'This is a dish with all vegetable ingredients so it will be very suitable for those on a diet, although this is also a dish full of nutrients. I look forward to you coming to our store or ordering it online to try our food', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (6, 1, 2, 'Spicy Sweet Potato', 'The main ingredient is sweet potato',12.89, 'Spicy Sweet Potato.jpg', 'ThaiLan', 'Lunch', 'Spicy roasted sweet potatoes make a great treat for chicken, pork or beef and they also taste great when combined with eggs, making for an easy breakfast. Try tossing leftovers into a green leaf salad with some feta cheese. I recommend you to try this one once because of its special taste', TRUE);
+VALUE (6, 1, 1, 'Spicy Sweet Potato', 'The main ingredient is sweet potato',12.89, 'Spicy Sweet Potato.jpg', 'ThaiLan', 'Lunch', 'Spicy roasted sweet potatoes make a great treat for chicken, pork or beef and they also taste great when combined with eggs, making for an easy breakfast. Try tossing leftovers into a green leaf salad with some feta cheese. I recommend you to try this one once because of its special taste', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (7, 2, 1, 'Vegan Eggplant Salad', 'Peppers, garlic, fresh herbs, lemon juice',10.59, 'engg.jpg', 'Viet Nam', 'Dinner', 'Grilled aubergine salad with chickpeas and tomato is a recipe inspired by Mediterranean flavors. Its vegan, gluten-free and healthy. This is also a dish recommended by nutrition experts because it is full of nutrients', FALSE);
+VALUE (7, 2, 2, 'Vegan Eggplant Salad', 'Peppers, garlic, fresh herbs, lemon juice',10.59, 'engg.jpg', 'Viet Nam', 'Dinner', 'Grilled aubergine salad with chickpeas and tomato is a recipe inspired by Mediterranean flavors. Its vegan, gluten-free and healthy. This is also a dish recommended by nutrition experts because it is full of nutrients', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (8, 2, 3, 'Vegan Potato Salad', 'Potatoes, tomatoes, onions, peppers, herbs, house spices, and olive oil.',13.89, 'vegan.jpg', 'Viet Nam', 'Dinner', 'this vegan potato salad is a must for your summer picnics and parties! A flavorful dressing, dill pickles, and crunchy celery and onion make this recipe a favorite. ', FALSE);
+VALUE (8, 2, 2, 'Vegan Potato Salad', 'Potatoes, tomatoes, onions, peppers, herbs, house spices, and olive oil.',13.89, 'vegan.jpg', 'Viet Nam', 'Dinner', 'this vegan potato salad is a must for your summer picnics and parties! A flavorful dressing, dill pickles, and crunchy celery and onion make this recipe a favorite. ', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (9, 2, 1, 'Vegan Onion Rings', 'Carrots, cabbage, onions, olive oil',18.39, 'onion.jpg', 'Viet Nam', 'Snacks', 'You will love these vegan onion rings! They are extremely crunchy and delicious. Plus, theyre baked in the oven, making them much healthier than fried onion slices. This dish will also be very attractive to your children', FALSE);
+VALUE (9, 2, 2, 'Vegan Onion Rings', 'Carrots, cabbage, onions, olive oil',18.39, 'onion.jpg', 'Viet Nam', 'Snacks', 'You will love these vegan onion rings! They are extremely crunchy and delicious. Plus, theyre baked in the oven, making them much healthier than fried onion slices. This dish will also be very attractive to your children', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (10, 2, 3, 'Vegan Hummus with Pita', 'cucumber, tomato, red wine vinegar, salt and black pepper',15.29, 'VeganHummus.jpg', 'Viet Nam', 'Snacks', 'Im not lying when I say that this is a best-selling sandwich in our store. I was skeptical when I saw no cheese or meat in the recipe - how could it really be called a sandwich without those two ?? Thats a completely dumb thought of mine. It turns out that not only can it be called a sandwich, it can be called an absolutely amazing!', FALSE);
+VALUE (10, 2, 2, 'Vegan Hummus with Pita', 'cucumber, tomato, red wine vinegar, salt and black pepper',15.29, 'VeganHummus.jpg', 'Viet Nam', 'Snacks', 'Im not lying when I say that this is a best-selling sandwich in our store. I was skeptical when I saw no cheese or meat in the recipe - how could it really be called a sandwich without those two ?? Thats a completely dumb thought of mine. It turns out that not only can it be called a sandwich, it can be called an absolutely amazing!', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (11, 2, 1, 'Vegan Spicy Falafel Wrap', 'Onions, cilantro, parsley, and tahini',16.39, 'Veganpicy.jpg', 'Viet Nam', 'Breakfast', 'This Spicy Vegan Falafel Wrap is an Indian version of very famous middle eastern street food falafel wrap. To give the Indian touch to traditional vegan falafel wrap, we have added some more spices to make it more aromatic and spicy. The falafel wrap recipe using the very basic ingredients of chickpeas, cilantro, onions, garlic, cumins, in addition we have added peppercorns, cinnamon, cloves and cayenne (red chili powder) to add to the spice.', FALSE);
+VALUE (11, 2, 2, 'Vegan Spicy Falafel Wrap', 'Onions, cilantro, parsley, and tahini',16.39, 'Veganpicy.jpg', 'Viet Nam', 'Breakfast', 'This Spicy Vegan Falafel Wrap is an Indian version of very famous middle eastern street food falafel wrap. To give the Indian touch to traditional vegan falafel wrap, we have added some more spices to make it more aromatic and spicy. The falafel wrap recipe using the very basic ingredients of chickpeas, cilantro, onions, garlic, cumins, in addition we have added peppercorns, cinnamon, cloves and cayenne (red chili powder) to add to the spice.', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (12, 2, 3, 'Original Acai Bowl', 'granola, fresh banana, blueberries and strawberries',12.89, 'original.jpg', 'Chinese', 'Breakfast', 'Introducing Acai Smoothie Bowls , a frozen smoothie blend topped with tangy fruit and crunchy granola. With delectable flavors and non-GMO ingredients, its a light and refreshing snack you can take anywhere. Our Acai Original Frozen Smoothie Bowl features a refreshing blend of  bananas, and honey topped with strawberries, blueberries, honey oat granola, and coconut. With only 210 calories, its the perfect snack for any time of day. Just grab, thaw and enjoy!', FALSE);
+VALUE (12, 2, 2, 'Original Acai Bowl', 'granola, fresh banana, blueberries and strawberries',12.89, 'original.jpg', 'Chinese', 'Breakfast', 'Introducing Acai Smoothie Bowls , a frozen smoothie blend topped with tangy fruit and crunchy granola. With delectable flavors and non-GMO ingredients, its a light and refreshing snack you can take anywhere. Our Acai Original Frozen Smoothie Bowl features a refreshing blend of  bananas, and honey topped with strawberries, blueberries, honey oat granola, and coconut. With only 210 calories, its the perfect snack for any time of day. Just grab, thaw and enjoy!', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (13, 3, 2, 'Minced Pork on Rice', 'Rice, Pork, Green onion, Soup',10.59, 'minced-pork-on-rice.jpg', 'China', 'Breakfast', 'This dish is based on one of Taiwans most loved comfort foods, though adapted it using more common kitchen ingredients. Feel free to substitute with your choice of meat. Serve over rice / noodles or cauliflower rice for a low carb option and enjoy.', TRUE);
+VALUE (13, 3, 3, 'Minced Pork on Rice', 'Rice, Pork, Green onion, Soup',10.59, 'minced-pork-on-rice.jpg', 'China', 'Breakfast', 'This dish is based on one of Taiwans most loved comfort foods, though adapted it using more common kitchen ingredients. Feel free to substitute with your choice of meat. Serve over rice / noodles or cauliflower rice for a low carb option and enjoy.', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
 VALUE (14, 3, 3, 'Wonton Noodle Soup', 'rice flour, vegetables, minced meat, soup',13.89, 'wonton-noodle-soup.jpg', 'Viet Nam', 'Snacks', 'Cantonese Wonton Noodles is a basic, indisputable noodle that you will find at most Cantonese restaurants. But if you are not near Chinatown or the Cantonese location, you will definitely want to try this at our restaurant. Its easy to put together. If you are interested in this dish then you come to our store or order one of our to try it', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (15, 3, 2, 'Chiayi Chicken Rice', 'Jidori chicken, shallot oil, house pickles,
+VALUE (15, 3, 3, 'Chiayi Chicken Rice', 'Jidori chicken, shallot oil, house pickles,
 garnished with scallions. Gluten Free',18.39, 'chiayi-chicken-rice.jpg', 'Korean', 'Lunch', 'Taiwanese chicken rice originated from Chiayi, a city in the southern part of Taiwan.  Traditionally its made with turkey, as its cheaper and more available back in the day.  If you visit Chiayi in Taiwan, you will see restaurants and food stalls selling turkey/chicken rice every where. In its appearance, this dish is deceptively simple -- seemingly just a bowl of white rice topped with some shredded chicken and sauce.  The flavor, however, will surprise you with its depth and savoriness.  If you like Taiwanese braised pork rice (Lu Rou Fan), then you must try this chicken rice.  To me, they are equally delicious and addictive.  I always end up eating more whenever I made this chicken rice!', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
 VALUE (16, 3, 3, 'Slack Season Noodles', 'Chicken and pork broth, minced pork, garlic,
 shrimp',15.29, 'slack-season-noodles.jpg', 'American', 'Breakfast', 'Like many dishes in Taiwan, this one combines meat and seafood. The broth is often enriched with a sea flavor by simmering the head and shells of the shrimp in a basic pork stock. The noodles are then topped with a simmered pork sauce often served with rice or noodles - a meat sauce recipe can be found here - plus the only cooked shrimp that is solemnly placed on top.', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (17, 3, 2, 'Pork Meat Soup Dumplings', 'Rice flour, char siu, minced pork',16.39, 'porkmeatsoupdumplings.jpg', 'China', 'Breakfast', 'The Chinese soup dumplings are probably the most perfect food ever made. This dreamy snack is probably the most famous one from Jiangnan region, China. It is often associated with Shanghai city (the largest city in the region by population and also the largest city in China!), Which is why soup dumplings are often referred to as “Banh Bao”. Shanghai soup bag ”.', FALSE);
+VALUE (17, 3, 3, 'Pork Meat Soup Dumplings', 'Rice flour, char siu, minced pork',16.39, 'porkmeatsoupdumplings.jpg', 'China', 'Breakfast', 'The Chinese soup dumplings are probably the most perfect food ever made. This dreamy snack is probably the most famous one from Jiangnan region, China. It is often associated with Shanghai city (the largest city in the region by population and also the largest city in China!), Which is why soup dumplings are often referred to as “Banh Bao”. Shanghai soup bag ”.', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
 VALUE (18, 3, 3, 'Shanghai Sauteed Flat Noodle', 'Rice flour, pork, green onion, vegetables, chili, sugar, salt',12.89, 'shanghaisauteedflatnoodle.jpg', 'Viet Nam', 'Dinner', 'Plump, handmade noodles are the preference and have been for centuries.  Watching Chinese noodle-makers at work in food stalls along the streets of Shanghai, pulling dough and chopping with cleavers at lightening speed is truly awe-inspiring.  And whatever variations of noodles are served, the most popular remain ones based on rich brown sauces such as the one featured in this authentic recipe.  Not encumbered with a lot other ingredients, the central feature of this dish is, of course, the noodles. ', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
@@ -325,7 +325,7 @@ VALUE (25, 5, 1, 'Original Chicken Sandwich', 'Beef, cheese, potato, onion, frie
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
 VALUE (26, 5, 1, 'Croissanwich Meal for Two', 'Beef, cheese, potato, onion, fries',13.89, 'Croissa.jpg', 'American', 'Dinner', 'Our King Croissanwich with Double Sausage is now made with 100% butter for a soft, flaky croissant piled high with fluffy eggs, two helpings of melted American cheese, and a hearty serving of savory sizzling sausage.', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (27, 5, 2, 'SMOKED BACON BRISKET BURGER', 'Certified Angus Beef, smoked aged cheddar cheese, brisket, applewood smoked bacon, pickles, bbq sauce, toasted brioche bun',18.39, 'Smashburger.jpg', 'American', 'Lunch', 'Brisket Bacon Burger is made with certified Angus beef and covered with smoked brisket for 10 hours, then layered with Applewood bacon, smoked cheese, pickles and BBQ sauce on a brioche sandwich. Delivering an explosive taste in every delicious bite, Smashburger latest innovation will satisfy any meat-eaters cravings for meat.', FALSE);
+VALUE (27, 5, 2, 'Smoked Bacon Brisket Burger', 'Certified Angus Beef, smoked aged cheddar cheese, brisket, applewood smoked bacon, pickles, bbq sauce, toasted brioche bun',18.39, 'Smashburger.jpg', 'American', 'Lunch', 'Brisket Bacon Burger is made with certified Angus beef and covered with smoked brisket for 10 hours, then layered with Applewood bacon, smoked cheese, pickles and BBQ sauce on a brioche sandwich. Delivering an explosive taste in every delicious bite, Smashburger latest innovation will satisfy any meat-eaters cravings for meat.', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
 VALUE (28, 5, 3, 'Mighty McMuffin Meal ', 'Beef, cheese, potato, onion, fries',15.29, 'Product_thumb_McMuffin-Mighty.jpg', 'American', 'Lunch', 'Mighty McMuffin is a messy Sausage & Eggs McMuffin throws two pieces of bacon and ketchup into the mix. The result is a dangerously addictive breakfast even by Macca standards: a single serving of 1950kJ energy, 11.4g of saturated fat, 31.5g of carbohydrates, 5.7g of sugar and 1220mg. sodium. Thats a pretty big total for something you can polish in four or five bites.', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
@@ -345,50 +345,50 @@ VALUE (35, 6, 6, 'Tagliatelle', 'Bolognese Bianco (Chicken, Veal, Pork) and Parm
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
 VALUE (36, 6, 7, 'Mint Pangrattato', 'Red Pepper, San Marzano Tomatoes, Extra Virgin Olive Oil, Salt, Basil',12.89, 'pangratto.jpg', 'American', 'Dinner', 'In Sardinia, you can ask any passerby - albeit in Sardu, the local language - what the secret to the island’s cuisine is and, should you understand the vernacular, they will tell you that the perfect Sardinian dish relies not on elaborate preparation but the use of as few ingredients as possible. Each, however, must be exquisite. ', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (37, 7, 1, 'Margherita Pizza', 'Tomato sauce, mozzarella cheese and
+VALUE (37, 7, 4, 'Margherita Pizza', 'Tomato sauce, mozzarella cheese and
 basil.',10.59, 'margherita-pizza.jpg', 'American', 'Lunch', 'Is a classic American pizza, with traditional American flavor and character', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (38, 7, 2, 'Pepperoni Pizza', 'Pepperoni, tomato sauce, mozzarella, and
+VALUE (38, 7, 4, 'Pepperoni Pizza', 'Pepperoni, tomato sauce, mozzarella, and
 provolone.',13.89, 'repperoni-pizza.jpg', 'ThaiLan', 'Dinner', 'using a special cheese called Pepperoni, n with a special taste gives the eater a new and attractive feeling.', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (39, 7, 3, 'Italian Sausage Pizza', 'Tomato sauce, spicy sausage, smoked
+VALUE (39, 7, 4, 'Italian Sausage Pizza', 'Tomato sauce, spicy sausage, smoked
 mozzarella, potato, mama Lils peppers,…',18.39, 'italian-sausage-pizza.jpg', 'Korean', 'Lunch', 'An Italian pizza that uses special spicy sausage with mozzarella bacon to create a distinctive spicy flavor and is only suitable for adults and people to eat spicy.', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (40, 7, 9, 'Cheese Pizza', 'Tomato sauce, mozzarella and provolone.',15.29, 'cheese-pizza.jpg', 'Japan', 'Breakfast', 'Cheese pizza uses cheese as the main flavor to make a difference to the cake and create a new impression on the eaters.', FALSE);
+VALUE (40, 7, 4, 'Cheese Pizza', 'Tomato sauce, mozzarella and provolone.',15.29, 'cheese-pizza.jpg', 'Japan', 'Breakfast', 'Cheese pizza uses cheese as the main flavor to make a difference to the cake and create a new impression on the eaters.', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (41, 7, 8, 'Mushroom Pizza', 'Garlic, fontina, scallion, ricotta, and parmigiano.',16.39, 'mushroom-pizza.jpg', 'Viet Nam', 'Lunch', 'This pizza uses parmigiano mushrooms to create a highlight for the cake, parmigiano mushrooms combined with the leaves to create a special aroma that attracts people to eat.', TRUE);
+VALUE (41, 7, 4, 'Mushroom Pizza', 'Garlic, fontina, scallion, ricotta, and parmigiano.',16.39, 'mushroom-pizza.jpg', 'Viet Nam', 'Lunch', 'This pizza uses parmigiano mushrooms to create a highlight for the cake, parmigiano mushrooms combined with the leaves to create a special aroma that attracts people to eat.', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (42, 7, 7, 'Fennel Diavolo Pizza', 'Garlic, spicy fennel, calabrese salami, red
+VALUE (42, 7, 4, 'Fennel Diavolo Pizza', 'Garlic, spicy fennel, calabrese salami, red
 onion, mozzarella, fennel pollen,…',12.89, 'fennel-diavolo-pizza.jpg', 'American', 'Snacks', 'Is a pizza that combines many different ingredients and spices to create harmony and give people a delicious pizza.', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (43, 8, 1, 'Salmon Avocado Roll', 'Salmon and avocado',10.59, 'salmon-avocado-roll.jpg', 'Viet Nam', 'Snacks', 'The combination of salmon and avocado creates a rich and creamy sushi dish', TRUE);
+VALUE (43, 8, 5, 'Salmon Avocado Roll', 'Salmon and avocado',10.59, 'salmon-avocado-roll.jpg', 'Viet Nam', 'Snacks', 'The combination of salmon and avocado creates a rich and creamy sushi dish', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (44, 8, 2, 'Spicy Tuna Roll', 'tuna and cucumber',13.89, 'spicy-tuna-roll.jpg', 'Japan', 'Dinner', 'Soft tuna and crispy cucumber combine to create a harmonious combination for delicious sushi', FALSE);
+VALUE (44, 8, 5, 'Spicy Tuna Roll', 'tuna and cucumber',13.89, 'spicy-tuna-roll.jpg', 'Japan', 'Dinner', 'Soft tuna and crispy cucumber combine to create a harmonious combination for delicious sushi', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (45, 8, 3, 'Baked Salmon Roll', 'salmon and cheese',18.39, 'baked-salmon-roll.jpg', 'American', 'Lunch', 'Grilled salmon with special sauce and cheese topped with a new flavor and california wrap create an eye-catching feeling for sushi.', TRUE);
+VALUE (45, 8, 5, 'Baked Salmon Roll', 'salmon and cheese',18.39, 'baked-salmon-roll.jpg', 'American', 'Lunch', 'Grilled salmon with special sauce and cheese topped with a new flavor and california wrap create an eye-catching feeling for sushi.', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (46, 8, 6, 'California Rool', 'Rice and butter',15.29, 'california-roll.jpg', 'ThaiLan', 'Dinner', 'Rice and avocado create a novel combination for sushi. With familiar ingredients, but this novel combination will bring everyone delicious and attractive sushi dishes ', FALSE);
+VALUE (46, 8, 5, 'California Rool', 'Rice and butter',15.29, 'california-roll.jpg', 'ThaiLan', 'Dinner', 'Rice and avocado create a novel combination for sushi. With familiar ingredients, but this novel combination will bring everyone delicious and attractive sushi dishes ', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
 VALUE (47, 8, 5, 'Salmon Sushi', 'Rice and salmon',16.39, 'salmon-sushi.jpg', 'Japan', 'Breakfast', 'Salmon sushi is no longer a strange dish to everyone, a familiar delicious sushi that everyone should try at least once in their life.', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (48, 8, 4, 'Shrimp Tempura Roll', 'Shrimp tempura, avocado and
+VALUE (48, 8, 5, 'Shrimp Tempura Roll', 'Shrimp tempura, avocado and
 cucumber roll and Topped with eel sauce.',12.89, 'shrim-tempura-roll.jpg', 'American', 'Snacks', 'Rice roll with shrimp, avocado, cucumber and eel sauce these 4 ingredients work together to create delicious and exotic sushi. 4 unrelated ingredients but when combined to create an unforgettable taste for first time eaters ', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (49, 9, 1, 'Little Bowl', 'Coconut milk, jelly, pearls',10.59, 'LittleBowl.jpg', 'VietNam', 'Snacks', 'Very small bowls, such as the tea bowl, are often called cups, while plates with especially deep wells are often called bowls. In many cultures bowls are the most common kind of vessel used for serving and eating food. Historically small bowls were also used for serving both tea and alcoholic drinks.', TRUE);
+VALUE (49, 9, 6, 'Little Bowl', 'Coconut milk, jelly, pearls',10.59, 'LittleBowl.jpg', 'VietNam', 'Snacks', 'Very small bowls, such as the tea bowl, are often called cups, while plates with especially deep wells are often called bowls. In many cultures bowls are the most common kind of vessel used for serving and eating food. Historically small bowls were also used for serving both tea and alcoholic drinks.', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (50, 9, 2, 'Cheap Corner', 'Rice, meat, vegetables',13.89, 'CheapCorner.jpg', 'VietNam', 'Snacks', 'Product Description. If you are looking for comfort, style and competitive prices youve found the right sofa for you', TRUE);
+VALUE (50, 9, 6, 'Cheap Corner', 'Rice, meat, vegetables',13.89, 'CheapCorner.jpg', 'VietNam', 'Snacks', 'Product Description. If you are looking for comfort, style and competitive prices youve found the right sofa for you', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (51, 9, 3, 'Local Desserts', 'Ice blended, jelly, yogurt',18.39, 'LocalDesserts.jpg', 'VietNam', 'Breakfast', 'There is widespread use of rice flour in East Asian desserts, which often include local ingredients', TRUE);
+VALUE (51, 9, 6, 'Local Desserts', 'Ice blended, jelly, yogurt',18.39, 'LocalDesserts.jpg', 'VietNam', 'Breakfast', 'There is widespread use of rice flour in East Asian desserts, which often include local ingredients', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (52, 9, 1, 'Vietnamese Ice Cream', 'Cream, sticky rice, dry coconut',15.29, 'VietnameseIcecream.jpg', 'VietNam', 'Dinner', 'Ice cream (derived from earlier iced cream or cream ice) is a sweetened frozen food typically eaten as a snack or dessert. It may be made from dairy milk or cream and is flavoured with a sweetener, either sugar or an alternative, and any spice, such as cocoa or vanilla', FALSE);
+VALUE (52, 9, 6, 'Vietnamese Ice Cream', 'Cream, sticky rice, dry coconut',15.29, 'VietnameseIcecream.jpg', 'VietNam', 'Dinner', 'Ice cream (derived from earlier iced cream or cream ice) is a sweetened frozen food typically eaten as a snack or dessert. It may be made from dairy milk or cream and is flavoured with a sweetener, either sugar or an alternative, and any spice, such as cocoa or vanilla', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (53, 9, 2, 'Dough Tampas', 'Wheat flour, milk, chocolate',16.39, 'DoughTampas.jpg', 'VietNam', 'Lunch', 'Description. Meet Dough: a quirky and whimsical bistro and bakery by Datz. This is the place for delicious morning pastries, eclectic lunch, an afterschool snack', FALSE);
+VALUE (53, 9, 6, 'Dough Tampas', 'Wheat flour, milk, chocolate',16.39, 'DoughTampas.jpg', 'VietNam', 'Lunch', 'Description. Meet Dough: a quirky and whimsical bistro and bakery by Datz. This is the place for delicious morning pastries, eclectic lunch, an afterschool snack', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (54, 9, 3, 'Dessert Place', 'Ice cream, chocolate, milk',12.89, 'DessertPlace.jpg', 'VietNam', 'Breakfast', 'Ice cream and chocolate taste great together', FALSE);
+VALUE (54, 9, 6, 'Dessert Place', 'Ice cream, chocolate, milk',12.89, 'DessertPlace.jpg', 'VietNam', 'Breakfast', 'Ice cream and chocolate taste great together', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (55, 10, 1, 'US-Beveragee', 'Water, fruit, ice, sugar',10.59, 'US-Beveragee.jpg', 'USA', 'Lunch', 'Cool non-alcoholic drinks and fruity flavors', TRUE);
+VALUE (55, 10, 7, 'US-Beveragee', 'Water, fruit, ice, sugar',10.59, 'US-Beveragee.jpg', 'USA', 'Lunch', 'Cool non-alcoholic drinks and fruity flavors', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (56, 10, 2, 'Soda', 'Fruit, soda, sugar, ice cold',13.89, 'Soda.jpg', 'USA', 'Dinner', 'Great combination of soda and fruit flavor', TRUE);
+VALUE (56, 10, 7, 'Soda', 'Fruit, soda, sugar, ice cold',13.89, 'Soda.jpg', 'USA', 'Dinner', 'Great combination of soda and fruit flavor', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
 VALUE (57, 10, 3, 'Fruit Juice', 'Fruit, sugar, ice cold',18.39, 'FruitJuice.jpg', 'Korean', 'Breakfast', 'Fruit juice is 100% pure juice made from the flesh of fresh fruit or from whole fruit, depending on the type used. It is not permitted to add sugars, sweeteners, preservatives, flavourings or colourings to fruit juice. Fruit juices are usually described as: From concentrate.', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
@@ -422,9 +422,9 @@ VALUE (9, 'Xian Famous Foods', 'xianfood.png', '778 Wall Street, New York, NY, U
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
 VALUE (1, 6, 1, '8, Ton That Thuyet, My Dinh, Ha Noi',1, 60, 1, '');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
-VALUE (2, 6, 3, '24, Pham hung, My Dinh, Ha Noi',1, 10, 2, '');
+VALUE (2, 6, 2, '24, Pham hung, My Dinh, Ha Noi',1, 10, 2, '');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
-VALUE (3, 6, 1, '15, Me Tri, Tu Liem, Ha noi',1, 10, 3, 'Not enough materials to make dishes.');
+VALUE (3, 6, 3, '15, Me Tri, Tu Liem, Ha noi',1, 10, 3, 'Not enough materials to make dishes.');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
 VALUE (4, 6, 1, '111, Phan Trong Tue, Thanh Tri, Ha Noi',1, 10, 4, '');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
@@ -440,149 +440,149 @@ VALUE (9, 6, 1, '543, Tran Hung Dao, Ba Dinh, Ha Noi',1, 10, 1, '');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
 VALUE (10, 2, 1, '87, Truong Dinh, Hoang Mai, Ha Noi',1, 40, 2, '');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
-VALUE (11, 3, 1, '97, Ngoc hoi, Thanh Tri, Ha Noi',1, 60, 3, 'Not enough materials to make dishes.');
+VALUE (11, 3, 2, '97, Ngoc hoi, Thanh Tri, Ha Noi',1, 60, 3, 'Not enough materials to make dishes.');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
-VALUE (12, 4, 1, '96, Nguyen Ngoc Nai, Hoan Kiem, Ha Noi',1, 105, 4, '');
+VALUE (12, 4, 2, '96, Nguyen Ngoc Nai, Hoan Kiem, Ha Noi',1, 105, 4, '');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
-VALUE (13, 5, 1, '74, Luong Ngoc Khuyen, Ha Dong, Ha Noi',1, 85, 1, '');
+VALUE (13, 5, 3, '74, Luong Ngoc Khuyen, Ha Dong, Ha Noi',1, 85, 1, '');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
-VALUE (14, 2, 1, '63, Tran Duy Hung, Cau Giay, Ha Noi',1, 75, 2, '');
+VALUE (14, 2, 3, '63, Tran Duy Hung, Cau Giay, Ha Noi',1, 75, 2, '');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
-VALUE (15, 3, 1, '100, Phu Doan, Ba Dinh, Ha Noi',1, 60, 3, 'Over service time.');
+VALUE (15, 3, 5, '100, Phu Doan, Ba Dinh, Ha Noi',1, 60, 3, 'Over service time.');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
-VALUE (16, 4, 1, '63, Tam hiep, Mai Dich, Ha Noi',1, 80, 4, '');
+VALUE (16, 4, 6, '63, Tam hiep, Mai Dich, Ha Noi',1, 80, 4, '');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
-VALUE (17, 5, 1, '64, Tran Thu Do, Thanh Tri, Ha Noi',1, 35, 1, '');
+VALUE (17, 5, 7, '64, Tran Thu Do, Thanh Tri, Ha Noi',1, 35, 1, '');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
-VALUE (18, 2, 1, '74, Tu Hiep, Hoang Mai, Ha Noi',1, 70, 2, '');
+VALUE (18, 2, 8, '74, Tu Hiep, Hoang Mai, Ha Noi',1, 70, 2, '');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
-VALUE (19, 3, 1, '192, Pho Voi, Mai Dich, Ha Noi',1, 40, 3, 'Not enough materials to make dishes.');
+VALUE (19, 3, 8, '192, Pho Voi, Mai Dich, Ha Noi',1, 40, 3, 'Not enough materials to make dishes.');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
-VALUE (20, 4, 1, '12, Nui Truc, Ba Dinh, Ha Noi',1, 60, 4, '');
+VALUE (20, 4, 4, '12, Nui Truc, Ba Dinh, Ha Noi',1, 60, 4, '');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
-VALUE (21, 5, 1, '127, Tran Thai Tong, Hai Ba Trung, Ha Noi',1, 35, 1, '');
+VALUE (21, 5, 7, '127, Tran Thai Tong, Hai Ba Trung, Ha Noi',1, 35, 1, '');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
-VALUE (22, 2, 1, '439, Van Dien, Thanh Tri, Ha Noi',1, 35, 2, '');
+VALUE (22, 2, 7, '439, Van Dien, Thanh Tri, Ha Noi',1, 35, 2, '');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
-VALUE (23, 3, 1, '91, Nguyen Trai, Thanh Xuan, Ha Noi',1, 60, 3, 'Not enough materials to make dishes.');
+VALUE (23, 3, 5, '91, Nguyen Trai, Thanh Xuan, Ha Noi',1, 60, 3, 'Not enough materials to make dishes.');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
-VALUE (24, 4, 1, '382, Tay Mo, Ha Dong, Ha Noi',1, 45, 4, '');
+VALUE (24, 4, 4, '382, Tay Mo, Ha Dong, Ha Noi',1, 45, 4, '');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject)
-VALUE (25, 5, 1, '97, Lien Hoa, My Dinh, Ha Noi',1, 70, 1, '');
+VALUE (25, 5, 4, '97, Lien Hoa, My Dinh, Ha Noi',1, 70, 1, '');
 
 
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (1, 1, 1, 2, 10, 20);
+VALUE (1, 1, 1, 2, 10.59, 21.18);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (2, 1, 3, 1, 10, 10);
+VALUE (2, 1, 2, 1, 13.89, 13.89);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (3, 1, 5, 1, 10, 10);
+VALUE (3, 1, 3, 1, 18.39, 18.39);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (4, 1, 7, 1, 10, 10);
+VALUE (4, 1, 4, 1, 15.29, 15.29);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (5, 1, 9, 1, 10, 10);
+VALUE (5, 1, 5, 1, 16.39, 16.39);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (6, 2, 2, 1, 10, 10);
+VALUE (6, 1, 6, 2, 12.89, 25.78);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (7, 3, 19, 1, 10, 10);
+VALUE (7, 2, 7, 1, 10.59, 10.59);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (8, 4, 21, 1, 10, 10);
+VALUE (8, 2, 8, 1, 13.89, 13.89);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (9, 5, 23, 1, 10, 10);
+VALUE (9, 2, 9, 1, 18.39, 18.39);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (10, 6, 25, 1, 10, 10);
+VALUE (10, 2, 10, 3, 15.29, 45.87);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (11, 7, 26, 1, 10, 10);
+VALUE (11, 2, 11, 1, 16.39, 16.39);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (12, 8, 37, 2, 10, 20);
+VALUE (12, 2, 12, 2, 12.89, 25.78);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (13, 8, 43, 1, 10, 10);
+VALUE (13, 3, 13, 1, 10.59, 10.59);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (14, 8, 49, 1, 10, 10);
+VALUE (14, 3, 14, 1, 13.89, 13.89);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (15, 9, 52, 1, 10, 10);
+VALUE (15, 3, 15, 1, 18.39, 18.39);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (16, 10, 11, 2, 15, 30);
+VALUE (16, 3, 16, 2, 15.29, 30.58);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (17, 10, 31, 1, 1, 10);
+VALUE (17, 3, 17, 1, 16.39, 16.39);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (18, 11, 55, 2, 15, 30);
+VALUE (18, 3, 18, 2, 12.89, 25.78);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (19, 11, 31, 3, 10, 30);
+VALUE (19, 11, 19, 3, 10.59, 31.77);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (20, 12, 37, 1, 10, 20);
+VALUE (20, 12, 20, 1, 13.89, 13.89);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (21, 12, 1, 2, 20, 40);
+VALUE (21, 12, 21, 2, 18.39, 36.78);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (22, 12, 19, 3, 15, 45);
+VALUE (22, 12, 22, 3, 15.29, 45.87);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (23, 13, 25, 1, 25, 25);
+VALUE (23, 13, 23, 1, 16.39, 16.39);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (24, 13, 31, 2, 30, 60);
+VALUE (24, 13, 24, 2, 12.89, 25.78);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (25, 14, 43, 3, 10, 30);
+VALUE (25, 14, 25, 3, 10.59, 31.77);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (26, 14, 55, 3, 15, 45);
+VALUE (26, 14, 26, 3, 13.89, 41.67);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (27, 15, 21, 3, 10, 30);
+VALUE (27, 15, 27, 3, 18.39, 55.17);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (28, 15, 26, 2, 15, 30);
+VALUE (28, 15, 28, 2, 15.29, 30.58);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (29, 16, 3, 4, 15, 60);
+VALUE (29, 16, 29, 4, 16.39, 65.56);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (30, 16, 11, 2, 10, 20);
+VALUE (30, 16, 30, 2, 12.89, 25.78);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (31, 17, 21, 1, 10, 10);
+VALUE (31, 17, 31, 1, 10.59, 10.59);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (32, 17, 31, 1, 15, 15);
+VALUE (32, 17, 32, 1, 13.89, 13.89);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (33, 18, 37, 2, 15, 30);
+VALUE (33, 18, 33, 2, 18.39, 36.78);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (34, 18, 43, 4, 10, 40);
+VALUE (34, 18, 34, 4, 15.29, 61.16);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (35, 19, 21, 1, 10, 10);
+VALUE (35, 19, 35, 1, 16.39, 16.39);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (36, 19, 23, 1, 15, 15);
+VALUE (36, 19, 36, 7, 12.89, 90.23);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (37, 19, 25, 1, 15, 15);
+VALUE (37, 19, 37, 8, 10.59, 84.72);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (38, 20, 19, 2, 15, 30);
+VALUE (38, 20, 38, 2, 13.89, 27.78);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (39, 20, 37, 3, 10, 30);
+VALUE (39, 20, 39, 3, 18.39, 55.17);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (40, 21, 37, 2, 10, 20);
+VALUE (40, 21, 40, 2, 15.29, 30.58);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (41, 21, 49, 1, 15, 15);
+VALUE (41, 21, 41, 1, 16.39, 16.39);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (42, 22, 26, 2, 10, 20);
+VALUE (42, 22, 42, 2, 12.89, 25.78);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (43, 22, 31, 1, 15, 15);
+VALUE (43, 22, 43, 1, 10.59, 10.59);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (44, 23, 7, 3, 10, 30);
+VALUE (44, 23, 44, 3, 13.89, 41.67);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (45, 23, 9, 2, 15, 30);
+VALUE (45, 23, 45, 2, 18.39, 36.78);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (46, 24, 21, 3, 10, 30);
+VALUE (46, 24, 46, 3, 15.29, 45.87);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (47, 24, 37, 1, 15, 15);
+VALUE (47, 24, 47, 1, 16.39, 16.39);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (48, 25, 19, 2, 15, 30);
+VALUE (48, 25, 48, 2, 12.89, 25.78);
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount)
-VALUE (49, 25, 49, 4, 10, 40);
+VALUE (49, 25, 49, 4, 10.59, 42.36);
 
 
 INSERT INTO feedbacks (id, user_id, name, email, message, rating)
 VALUE (1, 5, 'Nguyen Dinh Hieu', 'DinhHieu8896gmail.com', 'Very excellent products.', 5);
 INSERT INTO feedbacks (id, user_id, name, email, message, rating)
-VALUE (2, NULL, 'Vu Quang Huy', 'HuyVQTH1909003@fpt.edu.vn', 'Best solution for online food sale.', 4);
+VALUE (2, 4, 'Vu Quang Huy', 'HuyVQTH1909003@fpt.edu.vn', 'Best solution for online food sale.', 4);
 INSERT INTO feedbacks (id, user_id, name, email, message, rating)
 VALUE (3, 3, 'Nong Phan Manh Hung', 'HungNPMTH1908050@fpt.edu.vn', 'The software has every feature that my company needs.', 5);
 INSERT INTO feedbacks (id, user_id, name, email, message, rating)
-VALUE (4, NULL, 'Nguyen Trung Anh', 'AnhNTTH1908059@fpt.edu.vn', 'Thanks a lot of development team. I used the product and very satisfied.', 3);
+VALUE (4, 2, 'Nguyen Trung Anh', 'AnhNTTH1908059@fpt.edu.vn', 'Thanks a lot of development team. I used the product and very satisfied.', 3);
 INSERT INTO feedbacks (id, user_id, name, email, message, rating)
-VALUE (5, 2, 'Truong Thanh Tu', 'truongthanhtu@gmail.com', 'Good service shops', 3);
+VALUE (5, NULL, 'Truong Thanh Tu', 'truongthanhtu@gmail.com', 'Good service shops', 3);
 INSERT INTO feedbacks (id, user_id, name, email, message, rating)
-VALUE (6, 4, 'Pham Tuan', 'phamtuan@gmail.com', 'Very good food and good service quality', 5);
+VALUE (6, NULL, 'Pham Tuan', 'phamtuan@gmail.com', 'Very good food and good service quality', 5);
 INSERT INTO feedbacks (id, user_id, name, email, message, rating)
 VALUE (7, NULL, 'Do Thi Chan Hoa', 'dothichanhoa@gmail.com', 'I appreciate the quality of your food', 4);
 INSERT INTO feedbacks (id, user_id, name, email, message, rating)
