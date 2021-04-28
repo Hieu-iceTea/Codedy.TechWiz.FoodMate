@@ -163,7 +163,7 @@
                         <ul>
                             <li>
                                 <a href="../admin"
-                                   class="{{ (request()->segment(2) == '') ? 'mm-active' : '' }}">
+                                   class="{{ (request()->segment(2) == '' || request()->segment(2) == 'dashboard') ? 'mm-active' : '' }}">
                                     <i class="metismenu-icon"></i>Dashboard
                                 </a>
                             </li>

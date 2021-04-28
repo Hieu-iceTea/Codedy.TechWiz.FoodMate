@@ -20,11 +20,13 @@ class MenuController extends Controller
         $tag = $request->get('tag');
 
         //Lấy danh sách category_id đang active, sau đó lấy danh sách sản phẩm có category là active:
-        $category_active_ids = array_unique(array_column(ProductCategory::where('active', true)->get()->toArray(), 'id'));
-        $products = Product::whereIn('product_category_id', $category_active_ids);
+        //$category_active_ids = array_unique(array_column(ProductCategory::where('active', true)->get()->toArray(), 'id'));
+        //$products = Product::whereIn('product_category_id', $category_active_ids);
 
         //Tìm theo tên
-        $products = $products->where('name', 'like', '%' . $search . '%');
+        //$products = $products->where('name', 'like', '%' . $search . '%');
+
+        $products = Product::where('name', 'like', '%' . $search . '%');
 
         //restaurant_id
         if ($restaurant_id != null) {
