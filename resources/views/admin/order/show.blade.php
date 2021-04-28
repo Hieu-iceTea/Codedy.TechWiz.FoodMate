@@ -15,8 +15,7 @@
                     <div>
                         Order
                         <div class="page-title-subheading">
-                            View, create, update, delete and manage.
-                        </div>
+                            List, Details, Accept, Reject order                        </div>
                     </div>
                 </div>
 
