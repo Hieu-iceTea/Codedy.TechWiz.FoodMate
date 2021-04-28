@@ -117,7 +117,7 @@
                                         <div class="form-group col-sm-12">
                                             <label>Delivery address:</label>
                                             <textarea class="form-control" name="delivery_address" placeholder="Delivery address"
-                                                      required>{{ \Illuminate\Support\Facades\Auth::user()->address }}</textarea>
+                                                      required maxlength="128">{{ \Illuminate\Support\Facades\Auth::user()->address }}</textarea>
                                         </div>
                                     </div>
 
