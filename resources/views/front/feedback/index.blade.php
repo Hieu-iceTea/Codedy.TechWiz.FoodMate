@@ -34,19 +34,19 @@
 
                                 <div class="form-group">
                                     <label>Your name</label>
-                                    <input name="name" type="text" class="form-control" required>
+                                    <input name="name" type="text" class="form-control" required value="{{ old('name') }}">
                                 </div>
                                 <div class="form-group">
                                     <label>Your e-mail</label>
-                                    <input name="email" type="email" class="form-control" required>
+                                    <input name="email" type="email" class="form-control" required value="{{ old('email') }}">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group mb-3">
                                     <label>Your message</label>
                                     <textarea name="message" id="message" cols="30" rows="5"
-                                              class="form-control" required></textarea>
+                                              class="form-control" required>{{ old('message') }}</textarea>
                                 </div>
                                 <div class="personal-rating">
-                                    <h6>Your Rating</h6>
+                                    <h6 class="mt-4 mb-3">Your ratings for our website</h6>
                                     <div class="rate-custom">
                                         <input type="radio" id="star5" name="rating" value="5"/>
                                         <label for="star5" title="text">5 stars</label>
@@ -62,7 +62,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-block"><span>Send message</span>
+                                    <button type="submit" class="btn btn-primary btn-block mt-4">
+                                        <span>Submit feedback</span>
                                     </button>
                                 </div>
                             </form>
