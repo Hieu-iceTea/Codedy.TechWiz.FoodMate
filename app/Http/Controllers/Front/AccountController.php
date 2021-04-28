@@ -118,7 +118,7 @@ class AccountController extends Controller
         return view('front.account.profile.change-password', compact('user'));
     }
 
-    public function profileUpdate(Request $request)
+    public function profileUpdate(UserRequest $request)
     {
         $data = $request->all();
 
