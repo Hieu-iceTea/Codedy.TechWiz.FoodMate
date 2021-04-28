@@ -59,7 +59,7 @@ class ReportController extends Controller
                                     from   products
                                     join order_details od on products.id = od.product_id
                                     join orders o on products.restaurant_id = o.restaurant_id
-                                    where month(o.created_at  ) < YEAR(o.created_at) = YEAR(NOW())
+                                    where YEAR(o.created_at) = YEAR(NOW())
                                     and o.status = 2
                                     group by product_id
                                     order by total desc

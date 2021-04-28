@@ -15,7 +15,7 @@
                     <div>
                         Feedback
                         <div class="page-title-subheading">
-                            View, create, update, delete and manage.
+                            View list and Details feedback
                         </div>
                     </div>
                 </div>

@@ -80,8 +80,9 @@ class AccountController extends Controller
 
     public function myOrderIndex()
     {
-        $orders = Order::where('user_id', Auth::id())->get();
+        $orders = Order::Orderby('id', 'desc')-> where('user_id', Auth::id())->simplePaginate(3);
 
+        $orders->appends('id');
 
         return view('front.account.my-order.index', compact('orders'));
     }
@@ -96,6 +97,16 @@ class AccountController extends Controller
 
         return view('front.account.my-order.show', compact('order'));
     }
+    
+    public function myOrderUpdate($id)
+    {
+        $data['status'] = Constant::order_status_CanceledByCustomer;
+
+        Order::findOrFail($id)->update($data);
+
+        return redirect('../account/my-order');
+    }
+
 
     public function profileShow()
     {
@@ -144,14 +155,6 @@ class AccountController extends Controller
         return redirect('account/profile');
     }
 
-    public function myOrderUpdate($id)
-    {
-        $data['deleted'] = Constant::order_status_CanceledByCustomer;
-
-        Order::findOrFail($id)->update($data);
-
-        return redirect('../account/my-order');
-    }
 
     public function profileDestroy()
     {

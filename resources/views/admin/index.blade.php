@@ -15,7 +15,7 @@
                     <div>
                         Dashboard
                         <div class="page-title-subheading">
-                            View, create, update, delete and manage.
+                            General information.
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                             <div class="widget-content-outer">
                                 <div class="widget-content-wrapper">
                                     <div class="widget-content-left">
-                                        <div class="widget-heading">Total Restaurent</div>
+                                        <div class="widget-heading">Total Restaurant</div>
                                         <div class="widget-subheading">Registered restaurants</div>
                                     </div>
                                     <div class="widget-content-right">

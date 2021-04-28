@@ -67,15 +67,15 @@
 
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-6 order-lg-first">
+                <div class="col-xl-6 col-lg-6 order-lg-first container">
 
                     @include('components.errors')
 
-                    <div class="bg-white p-4 p-md-5 mb-4">
+                    <div class="bg-white p-4 p-md-5 mb-4 row">
 
-                        <h4 class="border-bottom pb-4">
-                            <i class="ti ti-user mr-3 text-primary"></i>
-                            Your informations
+                        <div class=" border-bottom pb-4 ">
+
+                            <div class="h4 float-left "> <i class="ti ti-user text-primary"></i>Your informations</div>
 
 
                             @if($order->status == \App\Utilities\Constant::order_status_Unconfirmed)
@@ -91,16 +91,16 @@
                                     </form>
                                 </span>
                             @else
-                                <span class="float-right">
+                                <div class="float-right h6 col-sm" >
                                     Status:
-                                    <span class="font-weight-bold">
+                                    <span class="text-primary">
                                         {{ \App\Utilities\Constant::$order_status[$order->status] }}
                                     </span>
-                                </span>
+                                </div>
                             @endif
 
 
-                        </h4>
+                        </div>
                         <div class="row mb-5">
                             <div class="form-group col-sm-6">
                                 <label>First Name:</label>
