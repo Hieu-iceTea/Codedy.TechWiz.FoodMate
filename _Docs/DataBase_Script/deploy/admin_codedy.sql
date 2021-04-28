@@ -6,16 +6,16 @@
 #                                           Create DataBase                                           #
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = #
 
-# SET @DATABASE_Name = 'epiz_26682605_Codedy_TechWiz_FoodMate';
+# SET @DATABASE_Name = 'admin_codedy';
 
 # Create DataBase
-# DROP DATABASE IF EXISTS `epiz_26682605_Codedy_TechWiz_FoodMate`;
-# CREATE DATABASE IF NOT EXISTS `epiz_26682605_Codedy_TechWiz_FoodMate` CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+# DROP DATABASE IF EXISTS `admin_codedy`;
+# CREATE DATABASE IF NOT EXISTS `admin_codedy` CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-USE `epiz_26682605_Codedy_TechWiz_FoodMate`;
+USE `admin_codedy`;
 
 SET time_zone = '+07:00';
-ALTER DATABASE `epiz_26682605_Codedy_TechWiz_FoodMate` CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+ALTER DATABASE `admin_codedy` CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 #SET SQL_MODE = 'ALLOW_INVALID_DATES';
 
@@ -603,5 +603,4 @@ INSERT INTO feedbacks (id, user_id, name, email, message, rating)
     VALUE (15, NULL, 'Truong Lam', 'truonglam@gmail.com', 'Fast delivery and very good food', 5);
 INSERT INTO feedbacks (id, user_id, name, email, message, rating)
     VALUE (16, NULL, 'Vu Thanh Lam', 'vuthanhlam@gmial.com', 'delicious food', 4);
-
 
