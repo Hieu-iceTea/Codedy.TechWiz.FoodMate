@@ -39,7 +39,7 @@
                         <th>Number</th>
                         <th>Name</th>
                         <th>Address</th>
-                        <th>Revenue</th>
+                        <th>Revenue($)</th>
                     </tr>
                     </thead>
                     <tbody {{$i = 1}}>

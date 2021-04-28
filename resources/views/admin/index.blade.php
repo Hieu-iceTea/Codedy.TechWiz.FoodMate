@@ -108,7 +108,7 @@
                             <tr>
                                 <th class="text-center">#</th>
                                 <th>Name</th>
-                                <th class="text-center">Revenue</th>
+                                <th class="text-center">Revenue($)</th>
                                 <th class="text-center">Orders</th>
                             </tr>
                             </thead>
@@ -167,7 +167,7 @@
                             <tr>
                                 <th class="text-center">#</th>
                                 <th>Name</th>
-                                <th class="text-center">Revenue</th>
+                                <th class="text-center">Revenue($)</th>
                                 <th class="text-center">Orders</th>
                             </tr>
                             </thead>
