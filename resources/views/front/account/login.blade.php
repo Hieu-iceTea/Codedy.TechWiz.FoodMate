@@ -24,7 +24,7 @@
                 <div class="col-lg-10 col-md-10 mb-5 mb-md-0 mx-auto">
                     <div class="example-box">
                         <div class="example-box-content">
-                            <form method="post" class="validate-form">
+                            <form method="post">
                                 @csrf
 
                                 @include('components.notifications')
@@ -32,7 +32,7 @@
 
                                 <div class="form-group">
                                     <label>Username or email</label>
-                                    <input name="user_name" type="text" class="form-control" required>
+                                    <input name="user_name" value="{{ old('user_name') }}" type="text" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>

@@ -51,15 +51,18 @@
                                 <div class="row">
                                     <div class="form-group col-sm-12">
                                         <label>Old password:</label>
-                                        <input class="form-control" name="old_password" placeholder="Old password ...">
+                                        <input class="form-control" type="password" name="old_password"
+                                               placeholder="Old password ...">
                                     </div>
                                     <div class="form-group col-sm-12">
                                         <label>New password:</label>
-                                        <input class="form-control" name="new_password" placeholder="New password ...">
+                                        <input class="form-control" type="password" name="new_password"
+                                               placeholder="New password ...">
                                     </div>
                                     <div class="form-group col-sm-12">
                                         <label>New password confirmation:</label>
-                                        <input class="form-control" name="new_password_confirmation" placeholder="New password confirmation ...">
+                                        <input class="form-control" type="password" name="new_password_confirmation"
+                                               placeholder="New password confirmation ...">
                                     </div>
                                 </div>
                             </div>

@@ -80,7 +80,7 @@
                                             <td class="price" style="width: 110px">
                                                 <form action="../cart/update/{{ $cart->rowId }}">
                                                     <input class="form-control border-light" style="font-weight: bold"
-                                                           type="number" name="qty" value="{{ $cart->qty }}"
+                                                           type="number" name="qty" value="{{ $cart->qty }}" min=1
                                                            onchange="this.form.submit();">
                                                 </form>
 
