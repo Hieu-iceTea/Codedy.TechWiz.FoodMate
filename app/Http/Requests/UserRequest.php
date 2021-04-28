@@ -61,6 +61,27 @@ class UserRequest extends FormRequest
             $rules['password'] = 'nullable|max:64|confirmed|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/';
         }
 
+        //account/*
+        if ($this->is('admin/user/*')) {
+            $id = Auth::id();
+            if (isset($id)) {
+                $except = ',' . $id . ',id,deleted,0'; //kiểm tra trùng lặp, loại bỏ ID hiện tại & deleted = 0 (Không bao gồm những bản ghi đã bị xóa)
+            } else {
+                $except = ',1,deleted'; //deleted <> 1 : Không bao gồm những bản ghi đã bị xóa
+            }
+
+            $rules = [
+                'email' => 'required|min:6|max:64|unique:user,email' . $except,
+                'first_name' => 'required|regex:/^([^0-9]*)$/',
+                'last_name' => 'required|regex:/^([^0-9]*)$/',
+                //'phone' => 'required|numeric',
+                'address' => 'required',
+            ];
+
+            //Không bắt buộc phải sửa password, nếu có sửa thì mới validate
+            $rules['password'] = 'nullable|max:64|confirmed|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/';
+        }
+
         return $rules;
     }
 

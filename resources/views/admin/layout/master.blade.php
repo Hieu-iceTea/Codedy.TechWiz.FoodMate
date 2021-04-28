@@ -108,10 +108,15 @@
                             <div class="widget-content-left  ml-3 header-user-info">
                                 <div class="widget-heading">{{ Auth::user()->user_name }}</div>
                                 <div class="widget-subheading">
-                                    Restaurant:
-                                    <span class="font-weight-bold">
+                                    @if(\Illuminate\Support\Facades\Auth::user()->level != \App\Utilities\Constant::user_level_staff)
+                                        System administrator account
+                                    @else
+                                        Staff of:
+                                        <span class="font-weight-bold">
                                         {{ Auth::user()->restaurant->name ?? '' }}
                                     </span>
+                                    @endif
+
                                 </div>
                             </div>
                         </div>
@@ -197,20 +202,19 @@
                                     <i class="metismenu-icon"></i>Feedback
                                 </a>
                             </li>
-                            @if(\Illuminate\Support\Facades\Auth::user()->level != \App\Utilities\Constant::user_level_staff)
-                                <li>
-                                    <a href="../admin/restaurant"
-                                       class="{{ (request()->segment(2) == 'restaurant') ? 'mm-active' : '' }}">
-                                        <i class="metismenu-icon"></i>Restaurant
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="../admin/user"
-                                       class="{{ (request()->segment(2) == 'user') ? 'mm-active' : '' }}">
-                                        <i class="metismenu-icon"></i>User
-                                    </a>
-                                </li>
-                            @endif
+                            <li>
+                                <a href="../admin/restaurant"
+                                   class="{{ (request()->segment(2) == 'restaurant') ? 'mm-active' : '' }}">
+                                    <i class="metismenu-icon"></i>Restaurant
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../admin/user"
+                                   class="{{ (request()->segment(2) == 'user') ? 'mm-active' : '' }}">
+                                    <i class="metismenu-icon"></i>User
+                                </a>
+                            </li>
+
                         </ul>
 
                     </ul>

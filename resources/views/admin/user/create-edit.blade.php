@@ -16,7 +16,11 @@
                     <div>
                         User
                         <div class="page-title-subheading">
-                            View, create, update, delete and manage.
+                            @if(\Illuminate\Support\Facades\Auth::user()->level != \App\Utilities\Constant::user_level_staff)
+                                View, create, update, delete and manage.
+                            @else
+                                My profile
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -27,7 +31,9 @@
             <div class="col-md-12">
                 <div class="main-card mb-3 card">
                     <div class="card-body">
-                        <form method="post" action="../{{ request()->segment(3) == 'create' ? 'admin/user' : 'admin/user/' . $user->id }}" enctype="multipart/form-data">
+                        <form method="post"
+                              action="../{{ request()->segment(3) == 'create' ? 'admin/user' : 'admin/user/' . $user->id }}"
+                              enctype="multipart/form-data">
                             @csrf
 
                             @if(request()->segment(3) != 'create')
@@ -44,7 +50,8 @@
                                     <img style="height: 200px; cursor: pointer;"
                                          class="thumbnail rounded-circle" data-toggle="tooltip"
                                          title="Click to change the image" data-placement="bottom"
-                                         src="{{ isset($user->image) ? '../front/data-images/user/' . $user->image : '../dashboard/assets/images/add-image-icon.jpg' }}" alt="Avatar">
+                                         src="{{ isset($user->image) ? '../front/data-images/user/' . $user->image : '../dashboard/assets/images/add-image-icon.jpg' }}"
+                                         alt="Avatar">
                                     <input name="image" type="file" onchange="changeImg(this)"
                                            class="image form-control-file" style="display: none;" value="">
                                     <input type="hidden" name="image_old" value="">
@@ -54,13 +61,18 @@
                                 </div>
                             </div>
 
-                            <div class="position-relative row form-group">
-                                <label for="user_name" class="col-md-3 text-md-right col-form-label">User Name</label>
-                                <div class="col-md-9 col-xl-8">
-                                    <input required name="user_name" id="user_name" placeholder="User_name" type="text"
-                                           class="form-control" value="{{ old('user_name') ?? $user->user_name ?? '' }}">
+                            @if(\Illuminate\Support\Facades\Auth::user()->level != \App\Utilities\Constant::user_level_staff)
+                                <div class="position-relative row form-group">
+                                    <label for="user_name" class="col-md-3 text-md-right col-form-label">User
+                                        Name</label>
+                                    <div class="col-md-9 col-xl-8">
+                                        <input required name="user_name" id="user_name" placeholder="User_name"
+                                               type="text"
+                                               class="form-control"
+                                               value="{{ old('user_name') ?? $user->user_name ?? '' }}">
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
 
                             <div class="position-relative row form-group">
                                 <label for="email"
@@ -90,25 +102,25 @@
                                 </div>
                             </div>
 
-                            <div class="position-relative row form-group">
-                                <label for="level" class="col-md-3 text-md-right col-form-label">Level</label>
-                                <div class="col-md-9 col-xl-8">
-                                    <select name="level" id="level" class="form-control">
-                                        <option>-- Level --</option>
+                            @if(\Illuminate\Support\Facades\Auth::user()->level != \App\Utilities\Constant::user_level_staff)
+                                <div class="position-relative row form-group">
+                                    <label for="level" class="col-md-3 text-md-right col-form-label">Level</label>
+                                    <div class="col-md-9 col-xl-8">
+                                        <select name="level" id="level" class="form-control">
+                                            <option>-- Level --</option>
 
-                                        @foreach(\App\Utilities\Constant::$user_levels as $user_level)
-                                            <option
-                                                value = {{ array_search($user_level, \App\Utilities\Constant::$user_levels) }}
-                                                {{ (old('level') ?? $user->level ?? '') == array_search($user_level, \App\Utilities\Constant::$user_levels) ? 'selected' : '' }}>
-                                                {{ $user_level }}
-                                            </option>
-                                        @endforeach
+                                            @foreach(\App\Utilities\Constant::$user_levels as $user_level)
+                                                <option
+                                                    value= {{ array_search($user_level, \App\Utilities\Constant::$user_levels) }}
+                                                    {{ (old('level') ?? $user->level ?? '') == array_search($user_level, \App\Utilities\Constant::$user_levels) ? 'selected' : '' }}>
+                                                    {{ $user_level }}
+                                                </option>
+                                            @endforeach
 
-                                    </select>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-
-
+                            @endif
 
                             <div class="position-relative row form-group">
                                 <label for="gender" class="col-md-3 text-md-right col-form-label">Gender</label>
@@ -143,7 +155,8 @@
                                        class="col-md-3 text-md-right col-form-label">Last Name</label>
                                 <div class="col-md-9 col-xl-8">
                                     <input required name="last_name" id="last_name" placeholder="Last_name" type="tel"
-                                           class="form-control" value="{{ old('last_name') ?? $user->last_name ?? '' }}">
+                                           class="form-control"
+                                           value="{{ old('last_name') ?? $user->last_name ?? '' }}">
                                 </div>
                             </div>
 
@@ -157,34 +170,27 @@
                             </div>
 
                             <div class="position-relative row form-group">
-                                <label for="city"
-                                       class="col-md-3 text-md-right col-form-label">City</label>
+                                <label for="address"
+                                       class="col-md-3 text-md-right col-form-label">Address</label>
                                 <div class="col-md-9 col-xl-8">
-                                    <input required name="city" id="city" placeholder="City" type="tel"
-                                           class="form-control" value="{{ old('city') ?? $user->city ?? '' }}">
+                                    <input required name="address" id="address" placeholder="Address" type="text"
+                                           class="form-control" value="{{ old('address') ?? $user->address ?? '' }}">
                                 </div>
                             </div>
 
-                            <div class="position-relative row form-group">
-                                <label for="street"
-                                       class="col-md-3 text-md-right col-form-label">Street</label>
-                                <div class="col-md-9 col-xl-8">
-                                    <input required name="street" id="street" placeholder="Street" type="tel"
-                                           class="form-control" value="{{ old('street') ?? $user->street ?? '' }}">
-                                </div>
-                            </div>
-
-                            <div class="position-relative row form-group">
-                                <label for="active" class="col-md-3 text-md-right col-form-label">Status</label>
-                                <div class="col-md-9 col-xl-8">
-                                    <div class="position-relative form-check pt-sm-2">
-                                        <input name="active" id="active" type="checkbox" value=1
-                                               {{ (old('active') ?? $user->active ?? '') == 1 ? 'checked' : '' }}
-                                               class="form-check-input">
-                                        <label for="active" class="form-check-label">Active</label>
+                            @if(\Illuminate\Support\Facades\Auth::user()->level != \App\Utilities\Constant::user_level_staff)
+                                <div class="position-relative row form-group">
+                                    <label for="active" class="col-md-3 text-md-right col-form-label">Status</label>
+                                    <div class="col-md-9 col-xl-8">
+                                        <div class="position-relative form-check pt-sm-2">
+                                            <input name="active" id="active" type="checkbox" value=1
+                                                   {{ (old('active') ?? $user->active ?? '') == 1 ? 'checked' : '' }}
+                                                   class="form-check-input">
+                                            <label for="active" class="form-check-label">Active</label>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endif
 
                             <div class="position-relative row form-group mb-1">
                                 <div class="col-md-9 col-xl-8 offset-md-2">

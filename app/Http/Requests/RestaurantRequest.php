@@ -23,11 +23,13 @@ class RestaurantRequest extends FormRequest
      */
     public function rules()
     {
-        $rules=[];
+        $rules = [];
+
         //Áp dụng tất cả, nếu 'create' thì image là bắt buộc.
         if ($this->isMethod('POST')) {
             $rules['image'] = 'required|image';
         }
+
         $id = $this->segment(3);
         if (isset($id)) {
             $except = ',' . $id . ',id,deleted,0'; //kiểm tra trùng lặp, loại bỏ ID hiện tại & deleted = 0 (Không bao gồm những bản ghi đã bị xóa)
@@ -35,10 +37,12 @@ class RestaurantRequest extends FormRequest
             $except = ',1,deleted'; //deleted <> 1 : Không bao gồm những bản ghi đã bị xóa
         }
 
-            $rules = [
-                'name' => 'required|max:255|unique:restaurants,name'.$id,
-                'address' => 'required|max:255',
-                'description' => 'required',
-            ];
+        $rules = [
+            'name' => 'required|max:255|unique:restaurants,name,' . $id,
+            'address' => 'required|max:255',
+            'description' => 'required',
+        ];
+
+        return $rules;
     }
 }

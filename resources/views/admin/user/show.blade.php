@@ -15,7 +15,11 @@
                     <div>
                         User
                         <div class="page-title-subheading">
-                            View, create, update, delete and manage.
+                            @if(\Illuminate\Support\Facades\Auth::user()->level != \App\Utilities\Constant::user_level_staff)
+                                View, create, update, delete and manage.
+                            @else
+                                My profile
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -33,19 +37,21 @@
                 </a>
             </li>
 
-            <li class="nav-item delete">
-                <form action="{{ url()->current() . '/' }}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <button class="nav-link btn" type="submit"
-                            onclick="return confirm('Do you really want to delete this item?')">
+            @if(\Illuminate\Support\Facades\Auth::user()->level != \App\Utilities\Constant::user_level_staff)
+                <li class="nav-item delete">
+                    <form action="{{ url()->current() . '/' }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button class="nav-link btn" type="submit"
+                                onclick="return confirm('Do you really want to delete this item?')">
                                     <span class="btn-icon-wrapper pr-2 opacity-8">
                                         <i class="fa fa-trash fa-w-20"></i>
                                     </span>
-                        <span>Delete</span>
-                    </button>
-                </form>
-            </li>
+                            <span>Delete</span>
+                        </button>
+                    </form>
+                </li>
+            @endif
         </ul>
 
         <div class="row">
@@ -117,16 +123,9 @@
                         </div>
 
                         <div class="position-relative row form-group">
-                            <label for="city" class="col-md-3 text-md-right col-form-label">City</label>
+                            <label for="address" class="col-md-3 text-md-right col-form-label">Address</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>{{ $user->city }}</p>
-                            </div>
-                        </div>
-
-                        <div class="position-relative row form-group">
-                            <label for="street" class="col-md-3 text-md-right col-form-label">Street</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>{{ $user->street }}</p>
+                                <p>{{ $user->address }}</p>
                             </div>
                         </div>
 

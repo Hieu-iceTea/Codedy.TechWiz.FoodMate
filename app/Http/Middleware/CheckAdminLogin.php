@@ -34,8 +34,12 @@ class CheckAdminLogin
             //Nếu tài khoản là Staff thì không được dùng user & restaurant:
             if (Auth::check()) {
                 if (\Illuminate\Support\Facades\Auth::user()->level == \App\Utilities\Constant::user_level_staff) {
-                    if ($request->is('*/user') || $request->is('*/restaurant')) {
-                        return redirect('admin');
+                    if ($request->is('*/user')) {
+                        return redirect('admin/user/' . Auth::id());
+                    }
+
+                    if ($request->is('*/restaurant')) {
+                        return redirect('admin/restaurant/' . Auth::user()->restaurant_id);
                     }
                 }
             }

@@ -15,7 +15,11 @@
                     <div>
                         User
                         <div class="page-title-subheading">
-                            View, create, update, delete and manage.
+                            @if(\Illuminate\Support\Facades\Auth::user()->level != \App\Utilities\Constant::user_level_staff)
+                                View, create, update, delete and manage.
+                            @else
+                                My profile
+                            @endif
                         </div>
                     </div>
                 </div>

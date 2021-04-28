@@ -15,7 +15,11 @@
                     <div>
                         Restaurant
                         <div class="page-title-subheading">
-                            View, create, update, delete and manage.
+                            @if(\Illuminate\Support\Facades\Auth::user()->level != \App\Utilities\Constant::user_level_staff)
+                                View, create, update, delete and manage.
+                            @else
+                                My restaurant
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -26,7 +30,7 @@
         <ul class="body-tabs body-tabs-layout tabs-animated body-tabs-animated nav">
 
             <li class="nav-item">
-                <a href="{{ url()->current() . '/' . $restaurant->id . '/edit'}}" class="nav-link">
+                <a href="{{ url()->current() . '/edit'}}" class="nav-link">
                                 <span class="btn-icon-wrapper pr-2 opacity-8">
                                     <i class="fa fa-edit fa-w-20"></i>
                                 </span>
@@ -34,19 +38,25 @@
                 </a>
             </li>
 
-            <li class="nav-item delete">
-                <form action="{{ url()->current() . '/' }}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <button class="nav-link btn" type="submit"
-                            onclick="return confirm('Do you really want to delete this item?')">
+            @if(\Illuminate\Support\Facades\Auth::user()->level != \App\Utilities\Constant::user_level_staff)
+
+                <li class="nav-item delete">
+                    <form action="{{ url()->current() . '/' }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button class="nav-link btn" type="submit"
+                                onclick="return confirm('Do you really want to delete this item?')">
                     <span class="btn-icon-wrapper pr-2 opacity-8">
                         <i class="fa fa-trash fa-w-20"></i>
                     </span>
-                        <span>Delete</span>
-                    </button>
-                </form>
-            </li>
+                            <span>Delete</span>
+                        </button>
+                    </form>
+                </li>
+
+            @endif
+
+
         </ul>
 
         <div class="row">
