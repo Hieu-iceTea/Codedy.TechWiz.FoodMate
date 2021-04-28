@@ -32,6 +32,9 @@
 
                             <div class="bg-white p-4 p-md-5 mb-4">
 
+                                @include('components.errors')
+                                @include('components.notifications')
+
                                 <h4 class="border-bottom pb-4">
                                     <i class="ti ti-user mr-3 text-primary"></i>
                                     Your informations
@@ -46,23 +49,30 @@
                                 <div class="row">
                                     <div class="form-group col-sm-6">
                                         <label>First Name:</label>
-                                        <input class="form-control" name="first_name" value="{{ $user->first_name }}">
+                                        <input class="form-control" name="first_name"
+                                               value="{{ old('first_name') ?? $user->first_name }}"
+                                               required>
                                     </div>
                                     <div class="form-group col-sm-6">
                                         <label>Last Name:</label>
-                                        <input class="form-control" name="last_name" value="{{ $user->last_name }}">
+                                        <input class="form-control" name="last_name"
+                                               value="{{ old('last_name') ?? $user->last_name }}"
+                                               required>
                                     </div>
                                     <div class="form-group col-sm-6">
                                         <label>Phone number:</label>
-                                        <input class="form-control" name="phone" value="{{ $user->phone }}">
+                                        <input class="form-control" name="phone"
+                                               value="{{ old('phone') ?? $user->phone }}" required>
                                     </div>
                                     <div class="form-group col-sm-6">
                                         <label>E-mail address:</label>
-                                        <input class="form-control" name="email" value="{{ $user->email }}">
+                                        <input class="form-control" name="email"
+                                               value="{{ old('email') ?? $user->email }}" required>
                                     </div>
                                     <div class="form-group col-sm-12">
                                         <label>Address:</label>
-                                        <textarea class="form-control" name="address" required>{{ $user->address }}</textarea>
+                                        <textarea class="form-control" name="address"
+                                                  required>{{ old('address') ?? $user->address }}</textarea>
                                     </div>
                                 </div>
                             </div>

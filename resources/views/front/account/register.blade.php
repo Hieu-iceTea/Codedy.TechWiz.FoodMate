@@ -24,7 +24,7 @@
                 <div class="col-lg-10 col-md-10 mb-5 mb-md-0 mx-auto">
                     <div class="example-box">
                         <div class="example-box-content">
-                            <form method="post" class="validate-form">
+                            <form method="post">
                                 @csrf
 
                                 @include('components.notifications')

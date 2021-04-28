@@ -38,25 +38,25 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Your e-mail</label>
-                                    <input name="email" type="email" class="form-control" required >
+                                    <input name="email" type="email" class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Your message</label>
-                                    <textarea name="message" id="message" cols="30" rows="5" class="form-control" required
-                                              ></textarea>
+                                    <textarea name="message" id="message" cols="30" rows="5"
+                                              class="form-control" required></textarea>
                                 </div>
                                 <div class="personal-rating">
                                     <h6>Your Rating</h6>
-                                    <div class="rate-custom" >
-                                        <input type="radio" id="star5" name="rating" value="5" />
+                                    <div class="rate-custom">
+                                        <input type="radio" id="star5" name="rating" value="5"/>
                                         <label for="star5" title="text">5 stars</label>
-                                        <input type="radio" id="star4" name="rating" value="4" />
+                                        <input type="radio" id="star4" name="rating" value="4"/>
                                         <label for="star4" title="text">4 stars</label>
-                                        <input type="radio" id="star3" name="rating" value="3" />
+                                        <input type="radio" id="star3" name="rating" value="3"/>
                                         <label for="star3" title="text">3 stars</label>
-                                        <input type="radio" id="star2" name="rating" value="2" />
+                                        <input type="radio" id="star2" name="rating" value="2"/>
                                         <label for="star2" title="text">2 stars</label>
-                                        <input type="radio" id="star1" name="rating" value="1" />
+                                        <input type="radio" id="star1" name="rating" value="1"/>
                                         <label for="star1" title="text">1 star</label>
                                     </div>
                                 </div>
