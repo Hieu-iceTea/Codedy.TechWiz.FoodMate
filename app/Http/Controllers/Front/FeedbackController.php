@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\FeedbackPostRequest;
 use App\Models\Contact;
 use App\Models\Feedback;
 use Illuminate\Http\Request;
@@ -14,11 +15,11 @@ class FeedbackController extends Controller
         return view('front.feedback.index');
     }
 
-    public function addFeedback(Request $request)
+    public function addFeedback(FeedbackPostRequest $request)
     {
         $data = $request->all();
 
-        Feedback::create($data);
+        Feedback::Create($data);
 
         return redirect('feedback/result')
             ->with('notification', 'We take note of your feedback');

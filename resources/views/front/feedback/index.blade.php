@@ -25,9 +25,11 @@
                     <div class="example-box">
                         <div class="example-box-title">Leave feedback for us</div>
                         <div class="example-box-content">
-                            <form method="post" class="validate-form">
-                                @csrf
 
+                            <form method="post">
+                                @csrf
+                                @include('components.errors')
+                                @include('components.notifications')
                                 <input type="hidden" name="user_id" value="{{ Auth::id() }}">
 
                                 <div class="form-group">
@@ -36,16 +38,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Your e-mail</label>
-                                    <input name="email" type="email" class="form-control" required>
+                                    <input name="email" type="email" class="form-control" required >
                                 </div>
                                 <div class="form-group">
                                     <label>Your message</label>
-                                    <textarea name="message" id="message" cols="30" rows="5" class="form-control"
-                                              required></textarea>
+                                    <textarea name="message" id="message" cols="30" rows="5" class="form-control" required
+                                              ></textarea>
                                 </div>
                                 <div class="personal-rating">
                                     <h6>Your Rating</h6>
-                                    <div class="rate-custom">
+                                    <div class="rate-custom" >
                                         <input type="radio" id="star5" name="rating" value="5" />
                                         <label for="star5" title="text">5 stars</label>
                                         <input type="radio" id="star4" name="rating" value="4" />
@@ -59,8 +61,8 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group form-submit">
-                                    <button type="submit" class="btn btn-primary btn-block"><span>Send message!</span>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block"><span>Send message</span>
                                     </button>
                                 </div>
                             </form>
