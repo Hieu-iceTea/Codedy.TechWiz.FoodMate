@@ -44,12 +44,12 @@
                                 <tr>
                                     <td>
                                         <img
-                                            src="data-images/products/{{ $order->orderDetails[0]->product->image }}"
+                                            src="data-images/products/{{ $order->orderDetails[0]->product->image ?? '' }}"
                                             style="height: 80px" alt="">
                                     </td>
                                     <td class="title">
                                         <span class="name">
-                                            {{ $order->orderDetails[0]->product->name }}
+                                            {{ $order->orderDetails[0]->product->name ?? '' }}
 
                                             @if(count($order->orderDetails) > 1)
                                                 (and {{ count($order->orderDetails) - 1  }} other items)
@@ -58,7 +58,7 @@
                                     </td>
                                     <input type="text" name="id" value="{{$order->id}}" hidden>
                                     <td class="title">{{ \App\Utilities\Constant::$order_status[$order->status] }}</td>
-                                    <td class="price">{{ $order->orderDetails[0]->product->price }}$</td>
+                                    <td class="price">{{ $order->orderDetails[0]->product->price ?? '' }}$</td>
                                     <td class="actions">
                                         <a href="../account/my-order/{{ $order->id }}" class="action-icon">
                                             <i class="ti ti-eye"></i>
