@@ -28,17 +28,12 @@ class ProductController extends Controller
             $restaurant_id = Auth::user()->restaurant_id;
             $products = $products->where('restaurant_id', $restaurant_id);
         }
-
         //Tìm theo ID:
         $keyword = $request->get('search');
-        $products = $products->Where('id', 'like', '%' . $keyword . '%');
 
-        //Tìm theo Name:
-        $keyword = $request->get('search');
-        $products = $products->Where('name', 'like', '%' . $keyword . '%');
-
-        //Sắp xếp & phân trang:
-        $products = $products->orderBy('id', 'desc')->paginate();
+        $products = $products->where('id', 'like', '%' . $keyword . '%')
+            ->orWhere('name', 'like', '%' . $keyword . '%')
+            ->orderBy('id', 'desc')->paginate();
 
         //giúp chuyển trang page sẽ đính kèm theo từ khóa search của người dùng:
         $products->appends(['search' => $keyword]);

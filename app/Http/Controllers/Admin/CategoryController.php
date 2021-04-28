@@ -21,7 +21,7 @@ class CategoryController extends Controller
 
 
         $categories = ProductCategory::where('id', '=', $keyword)
-            ->orWhere('id', 'like', '%' . $keyword . '%')
+            ->orWhere('name', 'like', '%' . $keyword . '%')
             ->orderBy('id', 'desc')
             ->paginate();
 
