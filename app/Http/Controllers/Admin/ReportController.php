@@ -41,7 +41,7 @@ class ReportController extends Controller
                                     from   products
                                     join order_details od on products.id = od.product_id
                                     join orders o on products.restaurant_id = o.restaurant_id
-                                    where month(o.created_at  ) < NOW() - INTERVAL 1 month
+                                    where month(o.created_at  ) < month(NOW() - 1)
                                     and  o.status = 2
                                     group by product_id
                                     order by total desc
@@ -49,7 +49,7 @@ class ReportController extends Controller
 
             $restaurants = DB::select('select name,image,address, sum(total_amount) as total from   restaurants
                                 join orders o on restaurants.id = o.restaurant_id
-                                where o.status = 2 and  month(o.created_at  ) < NOW() - INTERVAL 1 month
+                                where o.status = 2 and  month(o.created_at  ) < month(NOW() - 1)
                                 group by restaurant_id
                                 order by total desc
                                 limit 10');
