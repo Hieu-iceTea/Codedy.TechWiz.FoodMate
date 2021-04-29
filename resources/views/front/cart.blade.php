@@ -69,45 +69,49 @@
                                     </h5>
 
                                 </div>
-                                <table class="cart-table-show">
-                                    <tr>
-                                        <th style="width: 160px">Image</th>
-                                        <th>Name</th>
-                                        <th class="text-right">Price</th>
-                                        <th class="text-center">Qty</th>
-                                        <th class="text-right">Total</th>
-                                        <th class="text-right"></th>
-                                    </tr>
-                                    @foreach($carts as $cart)
-                                        <tr data-rowId="{{ $cart->rowId }}">
-                                            <td>
-                                                <img src="data-images/products/{{ $cart->options->image }}"
-                                                     style="height: 80px" alt="">
-                                            </td>
-                                            <td class="title">
+                                <div class="table-responsive">
+                                    <table class="cart-table-show table-hover">
+                                        <tr>
+                                            <th style="width: 160px; min-width: 150px">Image</th>
+                                            <th>Name</th>
+                                            <th class="text-right">Price</th>
+                                            <th class="text-center">Qty</th>
+                                            <th class="text-right">Total</th>
+                                            <th class="text-right"></th>
+                                        </tr>
+                                        @foreach($carts as $cart)
+                                            <tr data-rowId="{{ $cart->rowId }}">
+                                                <td>
+                                                    <img src="data-images/products/{{ $cart->options->image }}"
+                                                         style="height: 80px" alt="">
+                                                </td>
+                                                <td class="title">
                                         <span class="name">
                                             <a href="../menu/{{ $cart->id }}" data-toggle="modal">{{ $cart->name }}</a>
                                         </span>
-                                            </td>
-                                            <td class="price">${{ $cart->price }}</td>
-                                            <td class="price" style="width: 110px">
-                                                <form action="../cart/update/{{ $cart->rowId }}">
-                                                    <input class="form-control border-light" style="font-weight: bold"
-                                                           type="number" name="qty" value="{{ $cart->qty }}" min=1
-                                                           onchange="updateCart('{{ $cart->rowId }}', this.form['qty'].value)">
-                                                </form>
+                                                </td>
+                                                <td class="price">${{ $cart->price }}</td>
+                                                <td class="price" style="width: 110px">
+                                                    <form action="../cart/update/{{ $cart->rowId }}">
+                                                        <input class="form-control border-light"
+                                                               style="font-weight: bold; width: 65px"
+                                                               type="number" name="qty" value="{{ $cart->qty }}" min=1
+                                                               onchange="updateCart('{{ $cart->rowId }}', this.form['qty'].value)">
+                                                    </form>
 
-                                            </td>
-                                            <td class="price cart-item-total-show">${{ $cart->price * $cart->qty }}</td>
-                                            <td class="actions">
-                                                <button class="action-icon"
-                                                        onclick="confirm('Delete this item?') === true ? deleteCart('{{ $cart->rowId }}') : ''">
-                                                    <i class="ti ti-close"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </table>
+                                                </td>
+                                                <td class="price cart-item-total-show">
+                                                    ${{ $cart->price * $cart->qty }}</td>
+                                                <td class="actions">
+                                                    <button class="action-icon"
+                                                            onclick="confirm('Delete this item?') === true ? deleteCart('{{ $cart->rowId }}') : ''">
+                                                        <i class="ti ti-close"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </table>
+                                </div>
                             </div>
                         @endforeach
                     </div>
