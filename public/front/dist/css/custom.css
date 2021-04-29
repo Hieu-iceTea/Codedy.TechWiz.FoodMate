@@ -1,7 +1,6 @@
 /* Tùy biến CSS */
 
 
-
 .cart-table-show {
     line-height: 1.25;
     width: 100%
@@ -43,32 +42,45 @@
     height: 46px;
     padding: 0 10px;
 }
+
 .rate-custom:not(:checked) > input {
     display: none;
 }
+
 .rate-custom:not(:checked) > label {
-    float:right;
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:30px;
-    color:#ccc;
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
 }
+
 .rate-custom:not(:checked) > label:before {
     content: '★ ';
 }
+
 .rate-custom > input:checked ~ label {
     color: #ffc700;
 }
+
 .rate-custom:not(:checked) > label:hover,
 .rate-custom:not(:checked) > label:hover ~ label {
     color: #deb217;
 }
+
 .rate-custom > input:checked + label:hover,
 .rate-custom > input:checked + label:hover ~ label,
 .rate-custom > input:checked ~ label:hover,
 .rate-custom > input:checked ~ label:hover ~ label,
 .rate-custom > label:hover ~ input:checked ~ label {
     color: #c59b08;
+}
+
+@media (max-width: 767px) {
+    .section-bg-edge .image {
+        opacity: 1;
+        margin-top: 2px;
+    }
 }
