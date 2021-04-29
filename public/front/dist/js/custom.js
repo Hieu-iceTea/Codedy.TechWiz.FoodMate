@@ -16,7 +16,7 @@ function addCart(productId) {
         url: "../cart/add/" + productId,
         data: {},
         success: function (response) {
-            alert('Add successful!\nProduct: ')
+            alert('Add successful!\nProduct: ' + response['cart'].name)
 
             // - Cách 1: Tải lại trang:
             //location.reload();
