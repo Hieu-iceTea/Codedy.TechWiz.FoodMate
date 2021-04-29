@@ -94,10 +94,10 @@
                         Item
                         <div class="btn-actions-pane-right">
                             <div role="group" class="btn-group-sm btn-group">
-                                <a name="view" class="{{ request('view') == 'all' ? 'active' : '' }} btn btn-focus"
+                                <a name="view" class="{{ (request('view') == 'all' || request('view') == '') ? 'active' : '' }} btn btn-focus"
                                    href="../admin?view=all">All Time</a>
                                 <a name="view"
-                                   class="{{ request('view') == 'last_month' ? 'active' : '' }} btn btn-focus"
+                                   class="{{ request('view') == 'this_month' ? 'active' : '' }} btn btn-focus"
                                    href="../admin?view=this_month">This Month</a>
                             </div>
                         </div>
@@ -153,10 +153,10 @@
                         Top 10 Restaurant Selling
                         <div class="btn-actions-pane-right">
                             <div role="group" class="btn-group-sm btn-group">
-                                <a name="view" class="{{ request('view') == 'all' ? 'active' : '' }} btn btn-focus"
+                                <a name="view" class="{{ (request('view') == 'all' || request('view') == '') ? 'active' : '' }} btn btn-focus"
                                    href="../admin?view=all">All Time</a>
                                 <a name="view"
-                                   class="{{ request('view') == 'last_month' ? 'active' : '' }} btn btn-focus"
+                                   class="{{ request('view') == 'this_month' ? 'active' : '' }} btn btn-focus"
                                    href="../admin?view=this_month">This Month</a>
                             </div>
                         </div>
