@@ -94,11 +94,11 @@
                                                 <form action="../cart/update/{{ $cart->rowId }}">
                                                     <input class="form-control border-light" style="font-weight: bold"
                                                            type="number" name="qty" value="{{ $cart->qty }}" min=1
-                                                           onchange="this.form.submit();">
+                                                           onchange="updateCart('{{ $cart->rowId }}', this.form['qty'].value)">
                                                 </form>
 
                                             </td>
-                                            <td class="price">${{ $cart->price * $cart->qty }}</td>
+                                            <td class="price cart-item-total-show">${{ $cart->price * $cart->qty }}</td>
                                             <td class="actions">
                                                 <button class="action-icon"
                                                         onclick="confirm('Delete this item?') === true ? deleteCart('{{ $cart->rowId }}') : ''">
