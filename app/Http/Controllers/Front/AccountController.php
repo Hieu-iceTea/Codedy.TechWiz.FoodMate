@@ -80,7 +80,7 @@ class AccountController extends Controller
 
     public function myOrderIndex()
     {
-        $orders = Order::Orderby('id', 'desc')-> where('user_id', Auth::id())->simplePaginate(3);
+        $orders = Order::Orderby('id', 'desc')-> where('user_id', Auth::id())->simplePaginate(5);
 
         $orders->appends('id');
 
@@ -97,7 +97,7 @@ class AccountController extends Controller
 
         return view('front.account.my-order.show', compact('order'));
     }
-    
+
     public function myOrderUpdate($id)
     {
         $data['status'] = Constant::order_status_CanceledByCustomer;
