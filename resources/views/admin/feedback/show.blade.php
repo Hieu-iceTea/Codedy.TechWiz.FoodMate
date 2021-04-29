@@ -55,7 +55,17 @@
                         <div class="position-relative row form-group">
                             <label for="email" class="col-md-3 text-md-right col-form-label">Rating</label>
                             <div class="col-md-9 col-xl-8">
-                                <p>{{ $feedback->rating }}</p>
+                                <p>
+                                    @for($i=0; $i<$feedback->rating; $i++)
+                                        <i class="fa fa-star text-warning"></i>
+                                    @endfor
+
+                                    @for($i=0; $i<5-$feedback->rating; $i++)
+                                        <i class="fa fa-star text-black-50"></i>
+                                    @endfor
+
+                                    ({{ $feedback->rating }} star)
+                                </p>
                             </div>
                         </div>
                     </div>

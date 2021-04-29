@@ -68,7 +68,17 @@
                                             {{ $feedback->message }}
                                         @endif
                                     </td>
-                                    <td class="text-center">{{ $feedback->rating }}</td>
+                                    <td class="text-center">
+                                        @for($i=0; $i<$feedback->rating; $i++)
+                                            <i class="fa fa-star text-warning"></i>
+                                        @endfor
+
+                                        @for($i=0; $i<5-$feedback->rating; $i++)
+                                            <i class="fa fa-star text-black-50"></i>
+                                        @endfor
+
+                                        ({{ $feedback->rating }} star)
+                                    </td>
                                     <td class="text-center">
                                         <a href="../admin/feedback/{{ $feedback->id }}"
                                            class="btn btn-hover-shine btn-outline-primary border-0 btn-sm">
