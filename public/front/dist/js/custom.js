@@ -16,8 +16,6 @@ function addCart(productId) {
         url: "../cart/add/" + productId,
         data: {},
         success: function (response) {
-            alert('Add successful!\nProduct: ' + response['cart'].name)
-
             // - Cách 1: Tải lại trang:
             //location.reload();
 
@@ -29,6 +27,13 @@ function addCart(productId) {
 
             $('#panel-cart .cart-products-total-show').text(response['total']); //tổng tiền ở menu bên trái trong giỏ hàng
             $('#panel-cart .cart-total-show').text(response['total']); //tổng tiền ở menu bên trái trong giỏ hàng
+
+
+            $('#addCart .product-modal-name').text(response['cart'].name); //tổng tiền ở menu bên trái trong giỏ hàng
+            $('#addCart .product-modal-qty-price').text(response['cart'].qty + ' item x $' + response['cart'].price); //tổng tiền ở menu bên trái trong giỏ hàng
+            $('#addCart .product-modal-price').text(response['cart'].price * response['cart'].qty); //tổng tiền ở menu bên trái trong giỏ hàng
+
+
 
             // [02] - - Xử lý item trong giỏ hàng (ở đây là mỗi thẻ <tr> trong bảng <table>): - - - - - - - - - - - - - - -
             //thẻ <tr> mới chứa item mới của cart mới thêm:
@@ -62,6 +67,9 @@ function addCart(productId) {
             cartTable.removeClass('d-none');
             $('#panel-cart .cart-summary').removeClass('d-none');
             $('#panel-cart .cart-empty').addClass('d-none');
+
+            //alert('Add successful!\nProduct: ' + response['cart'].name)
+            $('#addCart').modal('show');
 
             //console.log(response); //hiện thị log() nếu cần.
         },
