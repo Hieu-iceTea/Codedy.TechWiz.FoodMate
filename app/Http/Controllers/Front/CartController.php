@@ -28,7 +28,6 @@ class CartController extends Controller
         ]);
 
         if ($request->ajax()) {
-
             $response['count'] = Cart::count();
             $response['total'] = Cart::total();
 
@@ -49,9 +48,18 @@ class CartController extends Controller
         return view('front.cart', compact('carts', 'total', 'subtotal'));
     }
 
-    public function delete($rowId)
+    public function delete(Request $request, $rowId)
     {
         Cart::remove($rowId);
+
+        if ($request->ajax()) {
+            $response['rowId_deleted'] = $rowId;
+
+            $response['count'] = Cart::count();
+            $response['total'] = Cart::total();
+
+            return $response;
+        }
 
         return back();
     }

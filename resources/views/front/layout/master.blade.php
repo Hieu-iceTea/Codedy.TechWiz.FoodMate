@@ -252,7 +252,7 @@
 
                 <table class="cart-table-show {{ count(Cart::content()) <= 0 ? 'd-none' : '' }}">
                     @foreach(Cart::content() as $cart)
-                        <tr data-product_id="{{ $cart->id }}">
+                        <tr data-rowId="{{ $cart->rowId }}">
                             <td class="title">
                                     <span class="name">
                                         <a href="../#product-modal-hide"
@@ -262,7 +262,7 @@
                             <td class="price">${{ $cart->price *  $cart->qty }}</td>
                             <td class="actions">
                                 <button class="close border-0 bg-transparent"
-                                        onclick="confirm('Delete this item?') === true ? window.location='../cart/delete/{{ $cart->rowId }}' : ''">
+                                        onclick="confirm('Delete this item?') === true ? deleteCart('{{ $cart->rowId }}') : ''">
                                     <i class="ti ti-close"></i>
                                 </button>
                             </td>
@@ -342,7 +342,8 @@
                 <div class="row align-items-center">
                     <div class="col-9">
                         <h6 class="mb-1 product-modal-name">Product name</h6>
-                        <span class="text-muted product-modal-ingredients product-modal-qty-price">Qty item x $Price</span>
+                        <span
+                            class="text-muted product-modal-ingredients product-modal-qty-price">Qty item x $Price</span>
                     </div>
                     <div class="col-3 text-lg text-right">$<span class="product-modal-price">Price</span></div>
                 </div>
