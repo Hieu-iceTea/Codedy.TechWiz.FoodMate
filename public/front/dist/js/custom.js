@@ -10,7 +10,7 @@ $(document).ready(function () {
 });
 
 
-function addCart(productId, qty) {
+function addCart(productId, qty = 1) {
     $.ajax({
         type: "GET",
         url: "../cart/add/" + productId,
