@@ -13,7 +13,7 @@ class Order extends Model
     protected $table = 'orders';
     protected $primaryKey = 'id';
     protected $guarded = [];
-    protected $perPage = 5;
+    protected $perPage = 8;
 
     public function orderDetails(){
         return $this->hasMany(OrderDetail::class, 'order_id', 'id');

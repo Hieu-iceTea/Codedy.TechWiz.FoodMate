@@ -13,7 +13,7 @@ class Feedback extends Model
     protected $table = 'feedbacks';
     protected $primaryKey = 'id';
     protected $guarded = [];
-    protected $perPage = 5;
+    protected $perPage = 8;
 
     public function user(){
         return $this->belongsTo(User::class, 'user_id', 'id');

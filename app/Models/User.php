@@ -14,7 +14,7 @@ class User extends Authenticatable
 
     protected $table = 'user';
     protected $primaryKey = 'id';
-    protected $perPage = 5;
+    protected $perPage = 8;
 
     public function orders()
     {

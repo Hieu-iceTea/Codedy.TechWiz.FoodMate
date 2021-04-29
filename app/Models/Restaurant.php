@@ -13,7 +13,7 @@ class Restaurant extends Model
     protected $table = 'restaurants';
     protected $primaryKey = 'id';
     protected $guarded = [];
-    protected $perPage = 5;
+    protected $perPage = 8;
 
     public  function products(){
         return $this->hasMany(Product::class, 'restaurant_id', 'id');
