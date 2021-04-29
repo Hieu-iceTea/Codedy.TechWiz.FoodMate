@@ -78,9 +78,7 @@
     color: #c59b08;
 }
 
-@media (max-width: 767px) {
-    .section-bg-edge .image {
-        opacity: 1;
-        margin-top: 2px;
-    }
+.section-bg-edge .image {
+    opacity: 1;
+    margin-top: 2px;
 }
