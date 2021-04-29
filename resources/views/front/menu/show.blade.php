@@ -21,7 +21,7 @@
                                     <span class="product-caption h3">{{$productDetails->country}}</span>
                                     <span class="product-caption text-muted">{{$productDetails->ingredients}}</span>
                                 </div>
-                                <p class="lead">{{$productDetails->description}}</p>
+                                <p class="lead">{!! $productDetails->description !!}</p>
                                 <hr class="hr-primary">
                                 <div class="row">
                                     <div class="col-md-6">
@@ -33,18 +33,23 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group text-center">
-                                            <input type="number" name="qty" min=1
-                                                   class="form-control input-qty form-control-lg" value="1">
+                                            <input type="number" name="qty" min=1 value=1
+                                                   class="form-control input-qty form-control-lg"
+                                                   style="height:calc(4.75rem + 2px)">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <button type="button" class="btn btn-outline-primary btn-lg btn-block" onclick="addCart({{ $productDetails->id }}, this.form['qty'].value)">
+                                        <button type="button" class="btn btn-outline-primary btn-lg btn-block"
+                                                onclick="addCart({{ $productDetails->id }}, this.form['qty'].value)">
                                             <span>Add to cart</span>
                                         </button>
                                     </div>
                                 </div>
                                 <div class="text-center mt-4">
-                                    <a href="../menu" class="btn btn-link">Back to menu</a>
+                                    <a href="../menu" class="btn btn-link">
+                                        <i class="mr-2 fa fa-chevron-left" style="opacity: 0.7"></i>
+                                        Back to menu
+                                    </a>
                                 </div>
                             </form>
                         </div>
