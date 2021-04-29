@@ -466,7 +466,7 @@ VALUE (22, 2, 7, '439, Van Dien, Thanh Tri, Ha Noi',1, 35.00, 4, '', '2021-03-22
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
 VALUE (23, 3, 7, '91, Nguyen Trai, Thanh Xuan, Ha Noi',1, 60.00, 3, 'Not enough materials to make dishes.', '2021-03-22');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-VALUE (24, 4, 8, '382, Tay Mo, Ha Dong, Ha Noi',1, 45.00, 2, '', '2021-04-22');
+VALUE (24, 6, 1, '382, Tay Mo, Ha Dong, Ha Noi',1, 45.00, 2, '', '2021-04-22');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
 VALUE (25, 5, 8, '97, Lien Hoa, My Dinh, Ha Noi',1, 70.00, 1, '', '2021-03-22');
 
@@ -552,7 +552,7 @@ VALUE (39, 17, 35, 1, 16.39, 16.39, '2021-03-22');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
 VALUE (40, 17, 36, 7, 12.89, 90.23, '2021-03-22');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
-VALUE (41, 18, 5, 1, 16.39, 16.39, '2021-03-22');
+VALUE (41, 18, 1, 1, 16.39, 16.39, '2021-03-22');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
 VALUE (42, 20, 38, 2, 13.89, 27.78, '2021-03-22');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
@@ -564,7 +564,7 @@ VALUE (45, 22, 41, 1, 16.39, 16.39, '2021-03-22');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
 VALUE (46, 23, 42, 2, 12.89, 25.78, '2021-03-22');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
-VALUE (47, 24, 43, 1, 10.59, 10.59, '2021-03-22');
+VALUE (47, 24, 5, 1, 10.59, 10.59, '2021-03-22');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
 VALUE (48, 25, 44, 3, 13.89, 41.67, '2021-03-22');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
