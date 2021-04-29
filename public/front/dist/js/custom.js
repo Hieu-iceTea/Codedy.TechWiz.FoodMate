@@ -56,6 +56,33 @@ function deleteCart(rowId) {
     });
 }
 
+function destroyCart() {
+    $.ajax({
+        type: "GET",
+        url: "../cart/destroy/",
+        data: {},
+        success: function (response) {
+            // panel-cart:
+            var cartTable = $('#panel-cart .cart-table-show'); //truy vấn bảng cart
+            cartTable.removeClass('d-none');
+            $('#panel-cart .cart-summary').removeClass('d-none');
+            $('#panel-cart .cart-empty').addClass('d-none');
+
+            // page cart:
+            $('.cart-details-all').addClass('d-none');
+            $('.cart-summary').addClass('d-none');
+            $('.cart-note').addClass('d-none');
+            $('.cart-empty').removeClass('d-none');
+
+            //alert('Destroy all cart successful!')
+            console.log(response);
+        },
+        error: function (response) {
+            alert('Destroy all failed.');
+            console.log(response);
+        },
+    });
+}
 
 //Common method - Cart (Hàm hùng chung phần giỏ hàng)
 function updateHtmlCart_IconCart(response) {
@@ -171,9 +198,4 @@ function updateHtmlCart_PageCart(response) {
     } else {
         cartTable.append(new_item_tr_cartTable);
     }
-
-    // [03] - - Hiển thị bảng cart & ẩn phần hiển thị "cart-empty" - - - - - - - - - - - - - - - - - - - - - - - -
-    cartTable.removeClass('d-none');
-    $('#panel-cart .cart-summary').removeClass('d-none');
-    $('#panel-cart .cart-empty').addClass('d-none');
 }

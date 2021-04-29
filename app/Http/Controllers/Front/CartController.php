@@ -66,7 +66,7 @@ class CartController extends Controller
 
     public function destroy(Request $request)
     {
-        if (count($request->rowIds) > 0) {
+        if (count($request->rowIds ?? []) > 0) {
             foreach ($request->rowIds as $rowId) {
                 Cart::remove($rowId);
             }

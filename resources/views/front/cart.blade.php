@@ -28,7 +28,20 @@
                 <div class="col-xl-10 col-lg-12 m-auto">
 
                     <div class="cart-details shadow bg-white mb-4">
-                        <div class="bg-dark dark p-4"><h5 class="mb-0">You cart</h5></div>
+                        <div class="bg-dark dark p-4">
+                            <h5 class="mb-0">
+                                You cart
+
+                                <span class="float-right {{ count(Cart::content()) <= 0 ?  'd-none' : ''}}">
+                                    <button class="action-icon border-0 bg-transparent"
+                                            onclick="confirm('Destroy all cart?') === true ? destroyCart() : ''">
+                                        <i class="ti ti-close"></i>
+                                    </button>
+                                </span>
+                            </h5>
+
+                        </div>
+
                     </div>
 
                     <div class="cart-details-all {{ count(Cart::content()) <= 0 ?  'd-none' : ''}}">
@@ -133,7 +146,7 @@
                         <div class="mb-3 mr-1 text-right cart-note">
                             <span class="text-warning font-weight-bold" style="font-size: 110%">
                                * Note: Your cart is separated into
-                                <span style="text-decoration: underline; font-size: 120%">
+                                <span style="text-decoration: underline; font-size: 110%">
                                      {{ count(Cart::content()->groupBy('options.restaurant_id')) }} orders
                                 </span>
                                 because you have selected the product of many different restaurants.
