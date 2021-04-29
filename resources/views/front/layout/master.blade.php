@@ -6,16 +6,17 @@
     <!-- Meta -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="CODEDY @ Cloud Kitchen - TechWiz 2021">
 
     <!-- Title -->
-    <title>@yield('title') | Cloud Kitchen</title>
+    <title>@yield('title') | Cloud Kitchen - TechWiz 2021 @ CODEDY</title>
 
     <!-- Favicons -->
-    <link rel="shortcut icon" href="assets/img/favicon.png">
-    <link rel="apple-touch-icon" href="assets/img/favicon_60x60.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon_76x76.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicon_120x120.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicon_152x152.png">
+    <link rel="shortcut icon" href="../favicon-front.png">
+    <!--<link rel="apple-touch-icon" href="assets/img/favicon_60x60.png">-->
+    <!--<link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon_76x76.png">-->
+    <!--<link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicon_120x120.png">-->
+    <!--<link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicon_152x152.png">-->
 
     <!-- Fonts -->
     <link
@@ -111,7 +112,8 @@
                     <a href="../#" class="module module-cart right" data-toggle="panel-cart">
                         <span class="cart-icon">
                             <i class="ti ti-shopping-cart"></i>
-                            <span class="notification {{ Cart::count() <= 0 ? 'd-none' : '' }}">{{ Cart::count() }}</span>
+                            <span
+                                class="notification {{ Cart::count() <= 0 ? 'd-none' : '' }}">{{ Cart::count() }}</span>
                         </span>
                         <span class="cart-value">$<span class="value-show">{{ Cart::total() }}</span></span>
                     </a>
