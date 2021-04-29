@@ -10,11 +10,11 @@ $(document).ready(function () {
 });
 
 
-function addCart(productId) {
+function addCart(productId, qty) {
     $.ajax({
         type: "GET",
         url: "../cart/add/" + productId,
-        data: {},
+        data: {qty: qty},
         success: function (response) {
             // - Cách 1: Tải lại trang:
             //location.reload();

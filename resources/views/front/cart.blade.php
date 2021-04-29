@@ -86,7 +86,7 @@
                                             </td>
                                             <td class="title">
                                         <span class="name">
-                                            <a href="#product-modal-hide" data-toggle="modal">{{ $cart->name }}</a>
+                                            <a href="../menu/{{ $cart->id }}" data-toggle="modal">{{ $cart->name }}</a>
                                         </span>
                                             </td>
                                             <td class="price">${{ $cart->price }}</td>
