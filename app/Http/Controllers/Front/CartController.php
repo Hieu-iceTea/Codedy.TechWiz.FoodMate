@@ -14,7 +14,7 @@ class CartController extends Controller
         $qty = $request->get('qty');
         $product = Product::findOrFail($id);
 
-        Cart::add([
+        $response['cart'] = Cart::add([
             'id' => $id,
             'name' => $product->name,
             'qty' => $qty ?? 1,
@@ -26,6 +26,13 @@ class CartController extends Controller
                 'restaurant_id' => $product->restaurant->id,
             ],
         ]);
+
+        if ($request->ajax()) {
+            $response['count'] = Cart::count();
+            $response['total'] = Cart::total();
+
+            return $response;
+        }
 
         return redirect('cart');
     }
@@ -41,16 +48,25 @@ class CartController extends Controller
         return view('front.cart', compact('carts', 'total', 'subtotal'));
     }
 
-    public function delete($rowId)
+    public function delete(Request $request, $rowId)
     {
         Cart::remove($rowId);
+
+        if ($request->ajax()) {
+            $response['rowId_deleted'] = $rowId;
+
+            $response['count'] = Cart::count();
+            $response['total'] = Cart::total();
+
+            return $response;
+        }
 
         return back();
     }
 
     public function destroy(Request $request)
     {
-        if (count($request->rowIds) > 0) {
+        if (count($request->rowIds ?? []) > 0) {
             foreach ($request->rowIds as $rowId) {
                 Cart::remove($rowId);
             }
@@ -63,7 +79,15 @@ class CartController extends Controller
 
     public function update($rowId, Request $request)
     {
-        Cart::update($request->rowId, $request->qty);
+        $response['cart'] = Cart::update($rowId, $request->qty);
+
+        if ($request->ajax()) {
+            $response['count'] = Cart::count();
+            $response['total'] = Cart::total();
+            $response['subtotal'] = Cart::subtotal();
+
+            return $response;
+        }
 
         return redirect()->back();
     }

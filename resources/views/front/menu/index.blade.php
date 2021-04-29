@@ -135,10 +135,10 @@
                                                                         data-product-base-price>{{ $product->price }}</span></span>
                                                             </div>
                                                             <div class="col-sm-6 text-sm-right mt-2 mt-sm-0">
-                                                                <a href="../cart/add/{{ $product->id }}"
-                                                                   class="btn btn-outline-secondary btn-sm">
+                                                                <button onclick="addCart({{ $product->id }})"
+                                                                        class="btn btn-outline-secondary btn-sm">
                                                                     <span>Add to cart</span>
-                                                                </a>
+                                                                </button>
                                                             </div>
                                                         </div>
                                                     </div>

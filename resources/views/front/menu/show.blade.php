@@ -33,12 +33,12 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group text-center">
-                                            <input type="number" name="qty"
+                                            <input type="number" name="qty" min=1
                                                    class="form-control input-qty form-control-lg" value="1">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
-                                        <button type="submit" class="btn btn-outline-primary btn-lg btn-block">
+                                        <button type="button" class="btn btn-outline-primary btn-lg btn-block" onclick="addCart({{ $productDetails->id }}, this.form['qty'].value)">
                                             <span>Add to cart</span>
                                         </button>
                                     </div>

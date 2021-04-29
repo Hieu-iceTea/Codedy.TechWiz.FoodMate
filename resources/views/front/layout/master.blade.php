@@ -61,16 +61,16 @@
                             <li><a href="../feedback">Feedback</a></li>
                             <li><a href="../contact">Contact</a></li>
                             <li class="has-dropdown">
-                            @if(Auth::check())
+                                @if(Auth::check())
 
-                                                <a href="../#" style="text-transform: none" class="font-weight-bold">
-                                                    Welcome, {{ Auth::user()->user_name ?? '' }}
-                                                </a>
+                                    <a href="../#" style="text-transform: none" class="font-weight-bold">
+                                        Welcome, {{ Auth::user()->user_name ?? '' }}
+                                    </a>
 
-                            @else
-                                <a href="../#">Account</a>
+                                @else
+                                    <a href="../#">Account</a>
 
-                            @endif
+                                @endif
                                 <div class="dropdown-container">
                                     <ul class="dropdown-mega">
 
@@ -127,7 +127,8 @@
     <header id="header-mobile" class="light">
 
         <div class="module module-nav-toggle">
-            <a href="../#" id="nav-toggle" data-toggle="panel-mobile"><span></span><span></span><span></span><span></span></a>
+            <a href="../#" id="nav-toggle"
+               data-toggle="panel-mobile"><span></span><span></span><span></span><span></span></a>
         </div>
 
         <div class="module module-logo">
@@ -248,48 +249,50 @@
                 <button class="close" data-toggle="panel-cart"><i class="ti ti-close"></i></button>
             </div>
             <div class="panel-cart-content cart-details">
-                @if(count(Cart::content()) > 0)
-                    <table class="cart-table-show">
-                        @foreach(Cart::content() as $cart)
-                            <tr>
-                                <td class="title">
+
+                <table class="cart-table-show {{ count(Cart::content()) <= 0 ? 'd-none' : '' }}">
+                    @foreach(Cart::content() as $cart)
+                        <tr data-rowId="{{ $cart->rowId }}">
+                            <td class="title">
                                     <span class="name">
-                                        <a href="../#product-modal-hide" data-toggle="modal">{{ $cart->name }}</a></span>
-                                    <span class="caption text-muted">{{ $cart->qty }} item x ${{ $cart->price  }}</span>
-                                </td>
-                                <td class="price">${{ $cart->price *  $cart->qty }}</td>
-                                <td class="actions">
-                                    <button class="close border-0 bg-transparent"
-                                            onclick="confirm('Delete this item?') === true ? window.location='../cart/delete/{{ $cart->rowId }}' : ''">
-                                        <i class="ti ti-close"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </table>
-                    <div class="cart-summary">
-                        <div class="row">
-                            <div class="col-7 text-right text-muted">Order total:</div>
-                            <div class="col-5"><strong>$<span
-                                        class="cart-products-total-show">{{ Cart::total() }}</span></strong></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-7 text-right text-muted">Devliery:</div>
-                            <div class="col-5"><strong>$<span class="cart-delivery-show">0.00</span></strong></div>
-                        </div>
-                        <hr class="hr-sm">
-                        <div class="row text-lg">
-                            <div class="col-7 text-right text-muted">Total:</div>
-                            <div class="col-5"><strong>$<span
-                                        class="cart-total-show">{{ Cart::total() }}</span></strong></div>
-                        </div>
+                                        <a href="../#product-modal-hide"
+                                           data-toggle="modal">{{ $cart->name }}</a></span>
+                                <span class="caption text-muted">{{ $cart->qty }} item x ${{ $cart->price  }}</span>
+                            </td>
+                            <td class="price">${{ $cart->price *  $cart->qty }}</td>
+                            <td class="actions">
+                                <button class="close border-0 bg-transparent"
+                                        onclick="confirm('Delete this item?') === true ? deleteCart('{{ $cart->rowId }}') : ''">
+                                    <i class="ti ti-close"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
+                <div class="cart-summary {{ count(Cart::content()) <= 0 ? 'd-none' : '' }}">
+                    <div class="row">
+                        <div class="col-7 text-right text-muted">Order total:</div>
+                        <div class="col-5"><strong>$<span
+                                    class="cart-products-total-show">{{ Cart::total() }}</span></strong></div>
                     </div>
-                @else
-                    <div class="cart-empty">
-                        <i class="ti ti-shopping-cart"></i>
-                        <p>Your cart is empty...</p>
+                    <div class="row">
+                        <div class="col-7 text-right text-muted">Devliery:</div>
+                        <div class="col-5"><strong>$<span class="cart-delivery-show">0.00</span></strong></div>
                     </div>
-                @endif
+                    <hr class="hr-sm">
+                    <div class="row text-lg">
+                        <div class="col-7 text-right text-muted">Total:</div>
+                        <div class="col-5"><strong>$<span
+                                    class="cart-total-show">{{ Cart::total() }}</span></strong></div>
+                    </div>
+                </div>
+
+
+                <div class="cart-empty {{ count(Cart::content()) > 0 ? 'd-none' : '' }}">
+                    <i class="ti ti-shopping-cart"></i>
+                    <p>Your cart is empty...</p>
+                </div>
+
             </div>
         </div>
         <a href="../cart"
@@ -311,7 +314,8 @@
             <a href="../#" class="icon icon-social icon-circle icon-sm icon-google"><i class="fa fa-google"></i></a>
             <a href="../#" class="icon icon-social icon-circle icon-sm icon-twitter"><i class="fa fa-twitter"></i></a>
             <a href="../#" class="icon icon-social icon-circle icon-sm icon-youtube"><i class="fa fa-youtube"></i></a>
-            <a href="../#" class="icon icon-social icon-circle icon-sm icon-instagram"><i class="fa fa-instagram"></i></a>
+            <a href="../#" class="icon icon-social icon-circle icon-sm icon-instagram"><i
+                    class="fa fa-instagram"></i></a>
         </div>
     </nav>
 
@@ -321,139 +325,39 @@
 </div>
 
 <!-- Modal / Product -->
-<div class="modal fade product-modal" id="product-modal" role="dialog">
-    <div class="modal-dialog" role="document">
+<div class="modal fade" id="modalAddCart" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header modal-header-lg dark bg-dark">
                 <div class="bg-image"><img src="data-images/photos/modal-add.jpg" alt=""></div>
-                <h4 class="modal-title">Specify your dish</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="ti ti-close"></i>
+                <h4 class="modal-title">
+                    <i class="ti ti-check"></i>
+                    Add an item to cart successfully
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="ti ti-close"></i>
                 </button>
             </div>
             <div class="modal-product-details">
                 <div class="row align-items-center">
                     <div class="col-9">
-                        <h6 class="mb-1 product-modal-name">Boscaiola Pasta</h6>
-                        <span class="text-muted product-modal-ingredients">Pasta, Cheese, Tomatoes, Olives</span>
+                        <h6 class="mb-1 product-modal-name">Product name</h6>
+                        <span
+                            class="text-muted product-modal-ingredients product-modal-qty-price">Qty item x $Price</span>
                     </div>
-                    <div class="col-3 text-lg text-right">$<span class="product-modal-price">9.00</span></div>
+                    <div class="col-3 text-lg text-right">$<span class="product-modal-price">Price</span></div>
                 </div>
             </div>
-            <div class="modal-body panel-details-container">
-                <!-- Panel Details / Size -->
-                <div class="panel-details panel-details-size">
-                    <h5 class="panel-details-title">
-                        <label class="custom-control custom-radio">
-                            <input name="radio_title_size" type="radio" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                        </label>
-                        <a href="../#panel-details-sizes-list" data-toggle="collapse">Size</a>
-                    </h5>
-                    <div id="panel-details-sizes-list" class="collapse show">
-                        <div class="panel-details-content">
-                            <div class="product-modal-sizes">
-                                <div class="form-group">
-                                    <label class="custom-control custom-radio">
-                                        <input name="radio_size" type="radio" class="custom-control-input" checked>
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Small - 100g ($9.99)</span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="custom-control custom-radio">
-                                        <input name="radio_size" type="radio" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Medium - 200g ($14.99)</span>
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="custom-control custom-radio">
-                                        <input name="radio_size" type="radio" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">Large - 350g ($21.99)</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Panel Details / Additions -->
-                <div class="panel-details panel-details-additions">
-                    <h5 class="panel-details-title">
-                        <label class="custom-control custom-radio">
-                            <input name="radio_title_additions" type="radio" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                        </label>
-                        <a href="../#panel-details-additions-content" data-toggle="collapse">Additions</a>
-                    </h5>
-                    <div id="panel-details-additions-content" class="collapse">
-                        <div class="panel-details-content">
-                            <!-- Additions List -->
-                            <div class="row product-modal-additions">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-indicator"></span>
-                                            <span class="custom-control-description">Tomato ($1.29)</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-indicator"></span>
-                                            <span class="custom-control-description">Ham ($1.29)</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-indicator"></span>
-                                            <span class="custom-control-description">Chicken ($1.29)</span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-indicator"></span>
-                                            <span class="custom-control-description">Cheese($1.29)</span>
-                                        </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input">
-                                            <span class="custom-control-indicator"></span>
-                                            <span class="custom-control-description">Bacon ($1.29)</span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Panel Details / Other -->
-                <div class="panel-details panel-details-form">
-                    <h5 class="panel-details-title">
-                        <label class="custom-control custom-radio">
-                            <input name="radio_title_other" type="radio" class="custom-control-input">
-                            <span class="custom-control-indicator"></span>
-                        </label>
-                        <a href="../#panel-details-other" data-toggle="collapse">Other</a>
-                    </h5>
-                    <div id="panel-details-other" class="collapse">
-                        <form action="#">
-                            <textarea cols="30" rows="4" class="form-control"
-                                      placeholder="Put this any other informations..."></textarea>
-                        </form>
-                    </div>
-                </div>
+            <div class="row">
+                <button type="button" data-dismiss="modal"
+                        class="modal-btn btn btn-secondary btn-lg col-6 pr-3 border-right">
+                    <span>Continue pick dish</span>
+                </button>
+                <a href="../cart" type="button" data-dismiss="modal"
+                   class="modal-btn btn btn-secondary btn-lg col-6 border-left">
+                    <span>Go to cart</span>
+                </a>
             </div>
-            <button type="button" class="modal-btn btn btn-secondary btn-block btn-lg" data-action="add-to-cart"><span>Add to Cart</span>
-            </button>
-            <button type="button" class="modal-btn btn btn-secondary btn-block btn-lg" data-action="update-cart"><span>Update</span>
-            </button>
         </div>
     </div>
 </div>
@@ -490,6 +394,7 @@
 <script src="dist/js/core.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <!-- JS Custom -->
 <script src="dist/js/custom.js"></script>
