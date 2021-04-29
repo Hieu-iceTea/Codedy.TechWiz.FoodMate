@@ -69,7 +69,7 @@
                                     </div>
                                     <div class="form-group col-12">
                                         <label>Address</label>
-                                        <textarea name="address" class="form-control">{{ old('address') }}"</textarea>
+                                        <textarea name="address" class="form-control">{{ old('address') }}</textarea>
                                     </div>
 
                                     <div class="form-group form-submit col-12 mt-3">
