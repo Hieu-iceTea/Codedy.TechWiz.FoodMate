@@ -111,7 +111,7 @@
                     <a href="../#" class="module module-cart right" data-toggle="panel-cart">
                         <span class="cart-icon">
                             <i class="ti ti-shopping-cart"></i>
-                            <span class="notification">{{ Cart::count() }}</span>
+                            <span class="notification {{ Cart::count() <= 0 ? 'd-none' : '' }}">{{ Cart::count() }}</span>
                         </span>
                         <span class="cart-value">$<span class="value-show">{{ Cart::total() }}</span></span>
                     </a>
@@ -139,7 +139,7 @@
 
         <a href="../#" class="module module-cart" data-toggle="panel-cart">
             <i class="ti ti-shopping-cart"></i>
-            <span class="notification">{{ Cart::count() }}</span>
+            <span class="notification {{ Cart::count() <= 0 ? 'd-none' : '' }}">{{ Cart::count() }}</span>
         </a>
 
     </header>

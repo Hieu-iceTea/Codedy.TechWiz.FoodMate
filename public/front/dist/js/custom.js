@@ -21,7 +21,6 @@ function addCart(productId, qty = 1) {
 
             // - Cách 2: Không tải lại trang:
             updateHtmlCart_ModalAddCart(response);
-
             updateHtmlCart_IconCart(response);
 
             //alert('Add successful!\nProduct: ' + response['cart'].name) //Hiển thị alert bình thường
@@ -67,6 +66,8 @@ function destroyCart() {
             cartTable.removeClass('d-none');
             $('#panel-cart .cart-summary').removeClass('d-none');
             $('#panel-cart .cart-empty').addClass('d-none');
+            $('.module-cart .notification').text('0'); //tổng số cart ở icon giỏ hàng
+            $('.module-cart .notification').addClass('d-none');
 
             // page cart:
             $('.cart-details-all').addClass('d-none');
@@ -110,6 +111,7 @@ function updateHtmlCart_IconCart(response) {
     // [01] - - Xử lý thay đổi số giỏ hàng, tổng tiền : - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     $('.module-cart .notification').text(response['count']); //tổng số cart ở icon giỏ hàng
     $('.module-cart .value-show').text(response['total']); //tổng tiền ở icon giỏ hàng
+    $('.module-cart .notification').removeClass('d-none'); //Hiển thị icon tổng tiền ở icon giỏ hàng
 
     $('#panel-cart .cart-products-total-show').text(response['total']); //tổng tiền ở menu bên trái trong giỏ hàng
     $('#panel-cart .cart-total-show').text(response['total']); //tổng tiền ở menu bên trái trong giỏ hàng
@@ -123,6 +125,9 @@ function updateHtmlCart_IconCart(response) {
             cartTable.addClass('d-none');
             $('#panel-cart .cart-summary').addClass('d-none');
             $('#panel-cart .cart-empty').removeClass('d-none');
+
+            $('.module-cart .notification').text('0'); //tổng số cart ở icon giỏ hàng
+            $('.module-cart .notification').addClass('d-none');
         }
 
         return; //Thoát khỏi hàm này luôn, vì xóa rồi thì không cần cập nhật thông tin của item-cart này nữa
