@@ -98,7 +98,7 @@
                                    href="../admin?view=all">All Time</a>
                                 <a name="view"
                                    class="{{ request('view') == 'last_month' ? 'active' : '' }} btn btn-focus"
-                                   href="../admin?view=last_month">This Month</a>
+                                   href="../admin?view=this_month">This Month</a>
                             </div>
                         </div>
                     </div>
@@ -157,7 +157,7 @@
                                    href="../admin?view=all">All Time</a>
                                 <a name="view"
                                    class="{{ request('view') == 'last_month' ? 'active' : '' }} btn btn-focus"
-                                   href="../admin?view=last_month">This Month</a>
+                                   href="../admin?view=this_month">This Month</a>
                             </div>
                         </div>
                     </div>
