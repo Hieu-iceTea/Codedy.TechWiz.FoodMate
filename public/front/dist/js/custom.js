@@ -20,6 +20,7 @@ function addCart(productId) {
             //location.reload();
 
 
+
             // - Cách 2: Không tải lại trang:
             // [01] - - Xử lý thay đổi số giỏ hàng, tổng tiền : - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
             $('.module-cart .notification').text(response['count']); //tổng số cart ở icon giỏ hàng
@@ -28,11 +29,9 @@ function addCart(productId) {
             $('#panel-cart .cart-products-total-show').text(response['total']); //tổng tiền ở menu bên trái trong giỏ hàng
             $('#panel-cart .cart-total-show').text(response['total']); //tổng tiền ở menu bên trái trong giỏ hàng
 
-
-            $('#addCart .product-modal-name').text(response['cart'].name); //tổng tiền ở menu bên trái trong giỏ hàng
-            $('#addCart .product-modal-qty-price').text(response['cart'].qty + ' item x $' + response['cart'].price); //tổng tiền ở menu bên trái trong giỏ hàng
-            $('#addCart .product-modal-price').text(response['cart'].price * response['cart'].qty); //tổng tiền ở menu bên trái trong giỏ hàng
-
+            $('#addCart .product-modal-name').text(response['cart'].name); //Tên sản phẩm ở MODAL
+            $('#addCart .product-modal-qty-price').text(response['cart'].qty + ' item x $' + response['cart'].price); //Số lượng & đơn giá ở MODAL
+            $('#addCart .product-modal-price').text(response['cart'].price * response['cart'].qty); //tổng tiền ở MODAL
 
 
             // [02] - - Xử lý item trong giỏ hàng (ở đây là mỗi thẻ <tr> trong bảng <table>): - - - - - - - - - - - - - - -
@@ -68,8 +67,8 @@ function addCart(productId) {
             $('#panel-cart .cart-summary').removeClass('d-none');
             $('#panel-cart .cart-empty').addClass('d-none');
 
-            //alert('Add successful!\nProduct: ' + response['cart'].name)
-            $('#addCart').modal('show');
+            //alert('Add successful!\nProduct: ' + response['cart'].name) //Hiển thị alert bình thường
+            $('#addCart').modal('show'); //Hiển thị modal sẽ đẹp và xịn xò hơn. Hehe :D
 
             //console.log(response); //hiện thị log() nếu cần.
         },
