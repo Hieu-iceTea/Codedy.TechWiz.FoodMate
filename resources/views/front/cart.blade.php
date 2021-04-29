@@ -72,7 +72,7 @@
                                 <div class="table-responsive">
                                     <table class="cart-table-show table-hover">
                                         <tr>
-                                            <th style="width: 160px; min-width: 150px">Image</th>
+                                            <th>Image</th>
                                             <th>Name</th>
                                             <th class="text-right">Price</th>
                                             <th class="text-center">Qty</th>
@@ -83,7 +83,7 @@
                                             <tr data-rowId="{{ $cart->rowId }}">
                                                 <td>
                                                     <img src="data-images/products/{{ $cart->options->image }}"
-                                                         style="height: 80px" alt="">
+                                                         style="max-height: 80px; min-width: 90px" alt="">
                                                 </td>
                                                 <td class="title">
                                         <span class="name">
