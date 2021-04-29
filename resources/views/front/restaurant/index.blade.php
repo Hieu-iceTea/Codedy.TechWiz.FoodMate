@@ -37,8 +37,7 @@
                     <h5 class="text-muted mb-5">{{$restaurant->address}}</h5>
                     {!!$restaurant->description!!}
                     <br>
-                    <a href="../menu/?restaurant_id={{$restaurant->id}}" class="btn btn-outline-primary btn-lg mt-5"></i><span>Visit Now</span></a>
-                    <a href="../restaurant/{{$restaurant->id}}" class="btn btn-outline-primary btn-lg mt-5"></i><span>Details</span></a>
+                    <a href="../restaurant/{{$restaurant->id}}" class="btn btn-outline-primary btn-lg mt-5"></i><span>Menu & details</span></a>
 
                 </div>
             </div>
