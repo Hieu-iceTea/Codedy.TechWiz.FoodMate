@@ -14,7 +14,7 @@ class CartController extends Controller
         $qty = $request->get('qty');
         $product = Product::findOrFail($id);
 
-        Cart::add([
+        $response['cart'] = Cart::add([
             'id' => $id,
             'name' => $product->name,
             'qty' => $qty ?? 1,
@@ -26,6 +26,14 @@ class CartController extends Controller
                 'restaurant_id' => $product->restaurant->id,
             ],
         ]);
+
+        if ($request->ajax()) {
+
+            $response['count'] = Cart::count();
+            $response['total'] = Cart::total();
+
+            return $response;
+        }
 
         return redirect('cart');
     }

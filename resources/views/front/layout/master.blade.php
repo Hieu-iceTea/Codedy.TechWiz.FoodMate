@@ -61,16 +61,16 @@
                             <li><a href="../feedback">Feedback</a></li>
                             <li><a href="../contact">Contact</a></li>
                             <li class="has-dropdown">
-                            @if(Auth::check())
+                                @if(Auth::check())
 
-                                                <a href="../#" style="text-transform: none" class="font-weight-bold">
-                                                    Welcome, {{ Auth::user()->user_name ?? '' }}
-                                                </a>
+                                    <a href="../#" style="text-transform: none" class="font-weight-bold">
+                                        Welcome, {{ Auth::user()->user_name ?? '' }}
+                                    </a>
 
-                            @else
-                                <a href="../#">Account</a>
+                                @else
+                                    <a href="../#">Account</a>
 
-                            @endif
+                                @endif
                                 <div class="dropdown-container">
                                     <ul class="dropdown-mega">
 
@@ -127,7 +127,8 @@
     <header id="header-mobile" class="light">
 
         <div class="module module-nav-toggle">
-            <a href="../#" id="nav-toggle" data-toggle="panel-mobile"><span></span><span></span><span></span><span></span></a>
+            <a href="../#" id="nav-toggle"
+               data-toggle="panel-mobile"><span></span><span></span><span></span><span></span></a>
         </div>
 
         <div class="module module-logo">
@@ -248,48 +249,51 @@
                 <button class="close" data-toggle="panel-cart"><i class="ti ti-close"></i></button>
             </div>
             <div class="panel-cart-content cart-details">
-                @if(count(Cart::content()) > 0)
-                    <table class="cart-table-show">
-                        @foreach(Cart::content() as $cart)
-                            <tr>
-                                <td class="title">
+
+                <table class="cart-table-show {{ count(Cart::content()) <= 0 ? 'd-none' : '' }}">
+                    @foreach(Cart::content() as $cart)
+                        <tr data-product_id="{{ $cart->id }}">
+                            <td class="title">
                                     <span class="name">
-                                        <a href="../#product-modal-hide" data-toggle="modal">{{ $cart->name }}</a></span>
-                                    <span class="caption text-muted">{{ $cart->qty }} item x ${{ $cart->price  }}</span>
-                                </td>
-                                <td class="price">${{ $cart->price *  $cart->qty }}</td>
-                                <td class="actions">
-                                    <button class="close border-0 bg-transparent"
-                                            onclick="confirm('Delete this item?') === true ? window.location='../cart/delete/{{ $cart->rowId }}' : ''">
-                                        <i class="ti ti-close"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </table>
-                    <div class="cart-summary">
-                        <div class="row">
-                            <div class="col-7 text-right text-muted">Order total:</div>
-                            <div class="col-5"><strong>$<span
-                                        class="cart-products-total-show">{{ Cart::total() }}</span></strong></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-7 text-right text-muted">Devliery:</div>
-                            <div class="col-5"><strong>$<span class="cart-delivery-show">0.00</span></strong></div>
-                        </div>
-                        <hr class="hr-sm">
-                        <div class="row text-lg">
-                            <div class="col-7 text-right text-muted">Total:</div>
-                            <div class="col-5"><strong>$<span
-                                        class="cart-total-show">{{ Cart::total() }}</span></strong></div>
-                        </div>
+                                        <a href="../#product-modal-hide"
+                                           data-toggle="modal">{{ $cart->name }}</a></span>
+                                <span class="caption text-muted">{{ $cart->qty }} item x ${{ $cart->price  }}</span>
+                            </td>
+                            <td class="price">${{ $cart->price *  $cart->qty }}</td>
+                            <td class="actions">
+                                <button class="close border-0 bg-transparent"
+                                        onclick="confirm('Delete this item?') === true ? window.location='../cart/delete/{{ $cart->rowId }}' : ''">
+                                    <i class="ti ti-close"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
+                <div class="cart-summary {{ count(Cart::content()) <= 0 ? 'd-none' : '' }}">
+                    <div class="row">
+                        <div class="col-7 text-right text-muted">Order total:</div>
+                        <div class="col-5"><strong>$<span
+                                    class="cart-products-total-show">{{ Cart::total() }}</span></strong></div>
                     </div>
-                @else
-                    <div class="cart-empty">
-                        <i class="ti ti-shopping-cart"></i>
-                        <p>Your cart is empty...</p>
+                    <div class="row">
+                        <div class="col-7 text-right text-muted">Devliery:</div>
+                        <div class="col-5"><strong>$<span class="cart-delivery-show">0.00</span></strong></div>
                     </div>
-                @endif
+                    <hr class="hr-sm">
+                    <div class="row text-lg">
+                        <div class="col-7 text-right text-muted">Total:</div>
+                        <div class="col-5"><strong>$<span
+                                    class="cart-total-show">{{ Cart::total() }}</span></strong></div>
+                    </div>
+                </div>
+
+
+
+                <div class="cart-empty {{ count(Cart::content()) > 0 ? 'd-none' : '' }}">
+                    <i class="ti ti-shopping-cart"></i>
+                    <p>Your cart is empty...</p>
+                </div>
+
             </div>
         </div>
         <a href="../cart"
@@ -311,7 +315,8 @@
             <a href="../#" class="icon icon-social icon-circle icon-sm icon-google"><i class="fa fa-google"></i></a>
             <a href="../#" class="icon icon-social icon-circle icon-sm icon-twitter"><i class="fa fa-twitter"></i></a>
             <a href="../#" class="icon icon-social icon-circle icon-sm icon-youtube"><i class="fa fa-youtube"></i></a>
-            <a href="../#" class="icon icon-social icon-circle icon-sm icon-instagram"><i class="fa fa-instagram"></i></a>
+            <a href="../#" class="icon icon-social icon-circle icon-sm icon-instagram"><i
+                    class="fa fa-instagram"></i></a>
         </div>
     </nav>
 
