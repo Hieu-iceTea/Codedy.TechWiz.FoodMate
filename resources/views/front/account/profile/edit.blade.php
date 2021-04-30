@@ -24,7 +24,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-10 col-lg-12 m-auto">
-                    <form action="../account/profile" method="post">
+                    <form action="../account/profile" method="post"  enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="cart-details shadow bg-white mb-4">
@@ -37,7 +37,7 @@
 
                                 <h4 class="border-bottom pb-4">
                                     <i class="ti ti-user mr-3 text-primary"></i>
-                                    Your informations
+                                    Your information
 
                                     <span class="float-right">
                                         <button class="btn btn-sm btn-primary">
@@ -47,6 +47,21 @@
                                     </span>
                                 </h4>
                                 <div class="row">
+                                    <div class="form-group col-12 text-center">
+                                        <img style="height: 200px; cursor: pointer;"
+                                             class="thumbnail rounded-circle" data-toggle="tooltip"
+                                             title="Click here to upload your avatar" data-placement="bottom"
+                                             src="{{ isset($user->image) ? '../front/data-images/user/' . $user->image : '../dashboard/assets/images/add-image-icon.jpg' }}"
+                                             alt="Avatar">
+                                        <input name="image" type="file" accept="image/x-png,image/gif,image/jpeg"
+                                               onchange="changeImg(this)"
+                                               class="image form-control-file" style="display: none;">
+                                        <input type="hidden" name="image_old" value="{{ $user->image }}">
+                                        <small class="form-text text-muted mt-2">
+                                            Avatar is optional. (Click on the image to change)
+                                        </small>
+                                    </div>
+
                                     <div class="form-group col-sm-6">
                                         <label>First Name:</label>
                                         <input class="form-control" name="first_name"

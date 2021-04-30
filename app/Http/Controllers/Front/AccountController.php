@@ -143,6 +143,9 @@ class AccountController extends Controller
     {
         $data = $request->all();
 
+        //Bỏ trường này khỏi $data
+        unset($data['image_old']);
+
         //Đổi mật khẩu:
         if ($request->get('new_password') != null) {
             if ($request->get('new_password') != $request->get('new_password_confirmation')) {
@@ -158,6 +161,18 @@ class AccountController extends Controller
             }
 
             $data['password'] = bcrypt($request->new_password);
+        }
+
+        //Xử lý file:
+        if ($request->hasFile('image')) {
+            //Thêm file mới:
+            $data['image'] = Common::uploadFile($request->file('image'), 'front/data-images/user/');
+
+            //Xóa file cũ:
+            $file_name_old = $request->get('image_old');
+            if ($file_name_old != '') {
+                unlink('front/data-images/user/' . $file_name_old);
+            }
         }
 
         User::findOrFail(Auth::id())->update($data);
