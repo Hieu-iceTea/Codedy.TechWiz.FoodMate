@@ -21,12 +21,12 @@ class CheckAdminLogin
         if ($request->is('admin') || $request->is('admin/*')) {
             //Nếu chưa đăng nhập
             if (Auth::guest()) {
-                return redirect()->guest('admin/login');
+                return redirect()->guest('admin/login')->withErrors('Please login to continue...');
             } else { //Nếu đã đăng nhập
                 if (Auth::user()->level != Constant::user_level_host && Auth::user()->level != Constant::user_level_admin && Auth::user()->level != Constant::user_level_staff) {
                     Auth::logout();
 
-                    return redirect()->guest('admin/login');
+                    return redirect()->guest('admin/login')->withErrors('Please login to continue...');
                 }
             }
 

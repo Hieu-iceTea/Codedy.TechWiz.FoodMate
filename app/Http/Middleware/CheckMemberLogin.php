@@ -21,8 +21,12 @@ class CheckMemberLogin
         if (!($request->is('admin') || $request->is('admin/*'))) {
             //Nếu chưa đăng nhập:
             if (Auth::guest()) {
-                if ($request->is('*/account') || $request->is('*/my-order')) {
-                    return redirect()->guest('account/login');
+                if ($request->is('*/login') || $request->is('*/logout')) {
+                    return $next($request);
+                }
+
+                if ($request->is('*/account') || $request->is('account/*')) {
+                    return redirect()->guest('account/login')->withErrors('Please login to continue...');
                 }
             } else { //nếu đã đăng nhập
                 if ($request->is('account/*') || $request->is('cart') || $request->is('checkout')) {

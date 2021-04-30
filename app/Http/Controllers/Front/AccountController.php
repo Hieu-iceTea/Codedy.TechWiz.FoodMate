@@ -75,7 +75,7 @@ class AccountController extends Controller
         User::create($data);
 
         return redirect('account/login')
-            ->with('notification', 'Register Success! Please login.');
+            ->with('notification', 'Register Success! Please check your email. Login now below.');
     }
 
     public function myOrderIndex()
