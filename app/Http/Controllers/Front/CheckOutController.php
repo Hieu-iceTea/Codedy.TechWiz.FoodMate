@@ -62,7 +62,7 @@ class CheckOutController extends Controller
             $this->sendEmail($mail_data); //Gọi hàm gửi email đã định nghĩa.
 
             //03. Xóa giỏ hàng
-            Cart::destroy();
+            //Cart::destroy();
 
             //04. Trả về kết quả thông báo
             return redirect('checkout/result')
