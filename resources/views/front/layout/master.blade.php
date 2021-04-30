@@ -80,7 +80,7 @@
                                                 <div class="mt-2 mb-3">
                                                     <img style="height: 80px;" class="rounded-circle"
                                                          src="data-images/user/{{ Auth::user()->image ?? '_default-user.png' }}"
-                                                         alt="">
+                                                         alt="image-user">
                                                 </div>
                                                 <div class="mb-4">
                                                 <span style="text-transform: none" class="font-weight-bold">

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Models\Order;
 use App\Models\User;
+use App\Utilities\Common;
 use App\Utilities\Constant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,6 +24,10 @@ class AccountController extends Controller
     {
         if (!session()->has('url.intended')) {
             session(['url.intended' => url()->previous()]);
+
+            if (str_contains(url()->previous(), 'register')) {
+                session(['url.intended' => str_replace('register', '', url()->previous())]);
+            }
         }
 
         return view('front.account.login');
@@ -46,7 +51,7 @@ class AccountController extends Controller
                 return redirect('admin');
             }
 
-            return redirect()->intended(str_contains(session('url.intended') ?? '', 'register') ? '' : (session('url.intended') ?? '')); //Mặc định là: trang chủ
+            return redirect()->intended(session('url.intended') ?? ''); //Mặc định là: trang chủ
         } else {
             return back()->withErrors('ERROR: Email or password is wrong');
         }
@@ -72,6 +77,11 @@ class AccountController extends Controller
         $data['level'] = Constant::user_level_customer; //đăng ký tài khoản cấp: khách hàng bình thường.
         $data['active'] = true; //TODO: Tính năng kích hoạt tài khoản bằng email chưa có, nên để mặc định khi tạo là active=true.
 
+        //Xử lý file:
+        if ($request->hasFile('image')) {
+            $data['image'] = Common::uploadFile($request->file('image'), 'front/data-images/user');
+        }
+
         User::create($data);
 
         return redirect('account/login')
@@ -80,7 +90,7 @@ class AccountController extends Controller
 
     public function myOrderIndex()
     {
-        $orders = Order::Orderby('id', 'desc')-> where('user_id', Auth::id())->simplePaginate();
+        $orders = Order::Orderby('id', 'desc')->where('user_id', Auth::id())->simplePaginate();
 
         $orders->appends('id');
 

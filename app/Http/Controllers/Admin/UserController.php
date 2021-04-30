@@ -60,7 +60,7 @@ class UserController extends Controller
         //Xử lý file:
         if ($request->hasFile('image')) {
             $file = $request->image;
-            $file_name = Common::uploadFile($file, 'front/data-images/user/');
+            $file_name = Common::uploadFile($file, 'front/data-images/user');
             $data['image'] = $file_name;
         }
 

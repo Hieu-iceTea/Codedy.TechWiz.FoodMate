@@ -11,9 +11,13 @@ class Common
 {
     /**
      *
+     * //Xử lý file:<br>
+     * if ($request->hasFile('image')) {<br>
+     * $data['image'] = Common::uploadFile($request->file('image'), 'image_path');<br>
+     * }
      *
-     * @param $file 'Không để ký tự / ở đầu hoặc cuối'
-     * @param $path
+     * @param $file 'Chú ý thêm trường này trong <form>: enctype="multipart/form-data"'
+     * @param $path 'Không để ký tự / ở đầu hoặc cuối'
      * @return string
      */
     public static function uploadFile($file, $path)

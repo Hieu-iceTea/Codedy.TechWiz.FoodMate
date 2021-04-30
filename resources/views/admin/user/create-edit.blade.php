@@ -52,8 +52,8 @@
                                          title="Click to change the image" data-placement="bottom"
                                          src="{{ isset($user->image) ? '../front/data-images/user/' . $user->image : '../dashboard/assets/images/add-image-icon.jpg' }}"
                                          alt="Avatar">
-                                    <input name="image" type="file" onchange="changeImg(this)"
-                                           class="image form-control-file" style="display: none;" value="">
+                                    <input name="image" type="file" onchange="changeImg(this)" accept="image/x-png,image/gif,image/jpeg"
+                                           class="image form-control-file" style="display: none;">
                                     <input type="hidden" name="image_old" value="">
                                     <small class="form-text text-muted">
                                         {{ isset($user->image) ? 'Look at it, it looks great! (Click on the image to change)' : 'No images, upload them! (Click on the image to change)' }}

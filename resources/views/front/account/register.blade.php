@@ -24,7 +24,7 @@
                 <div class="col-lg-10 col-md-10 mb-5 mb-md-0 mx-auto">
                     <div class="example-box">
                         <div class="example-box-content">
-                            <form method="post">
+                            <form method="post" enctype="multipart/form-data">
                                 @csrf
 
                                 @include('components.notifications')
@@ -32,10 +32,23 @@
 
                                 <div class="row">
 
+                                    <div class="form-group col-12 text-center">
+                                        <img style="height: 200px; cursor: pointer;"
+                                             class="thumbnail rounded-circle" data-toggle="tooltip"
+                                             title="Click here to upload your avatar" data-placement="bottom"
+                                             src="{{ isset($user->image) ? '../front/data-images/user/' . $user->image : '../dashboard/assets/images/add-image-icon.jpg' }}"
+                                             alt="Avatar">
+                                        <input name="image" type="file" accept="image/x-png,image/gif,image/jpeg" onchange="changeImg(this)"
+                                               class="image form-control-file" style="display: none;">
+                                        <small class="form-text text-muted mt-2">
+                                            Avatar is optional. (Click on the image to change)
+                                        </small>
+                                    </div>
 
                                     <div class="form-group col-12">
                                         <label>Username</label>
-                                        <input name="user_name" value="{{ old('user_name') }}" type="text" class="form-control"
+                                        <input name="user_name" value="{{ old('user_name') }}" type="text"
+                                               class="form-control"
                                                required>
                                     </div>
                                     <div class="form-group col-6">
@@ -73,7 +86,7 @@
                                     </div>
 
                                     <div class="form-group form-submit col-12 mt-3">
-                                        <button type="submit" class="btn btn-primary btn-block"><span>Login</span>
+                                        <button type="submit" class="btn btn-primary btn-block"><span>Register</span>
                                         </button>
                                     </div>
                                 </div>
