@@ -8,6 +8,10 @@
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Login | Admin - CODEDY FoodMate</title>
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="../favicon-admin.png">
+
     <meta name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
     <meta name="description" content="CODEDY @ Cloud Kitchen - TechWiz 2021">
