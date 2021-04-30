@@ -175,13 +175,13 @@
                                 <span><a href="../" class="title text-primary">Home</a></span>
                             </li>
                             <li>
-                                <span><a href="../menu" class="title text-primary">Order</a></span>
+                                <span><a href="../menu" class="title text-primary">Menu</a></span>
                             </li>
                             <li>
                                 <span><a href="../restaurant" class="title text-primary">Restaurant</a></span>
                             </li>
                             <li>
-                                <span><a href="../about" class="title text-primary">Abount</a></span>
+                                <span><a href="../about" class="title text-primary">About</a></span>
                             </li>
                             <li>
                                 <span><a href="../feedback" class="title text-primary">Feedback</a></span>
@@ -189,10 +189,11 @@
                         </ul>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <h4 class="text-muted">Account Information</h4>
+                        <h4 class="text-muted">Your Account</h4>
                         <ul class="list-posts">
                             <li><span><a href="../account/login" class="title text-primary">Login</a></span></li>
                             <li><span><a href="../account/register" class="title text-primary">Register</a></span></li>
+                            <li><span><a href="../account/my-order" class="title text-primary">Order history</a></span></li>
                         </ul>
                     </div>
 
@@ -204,14 +205,18 @@
                                 <span class="title text-primary">Could Kitchen</span>
                             </li>
                             <li>
-                                <span class="title text-primary">So 8, Ton That Thuyet, My Dinh, Ha Noi</span>
+                                <span class="title text-primary">8, Ton That Thuyet, My Dinh, Ha Noi</span>
                             </li>
                             <li>
                                 <span style="font-variant: lining-nums;"
-                                      class="title text-primary"><strong>Phone: </strong>+48 21200 2122 221</span>
+                                      class="title text-primary"><strong>Phone: </strong>
+                                    <a href="../contact">+84 868 6633 15</a>
+                                </span>
                             </li>
                             <li>
-                                <span class="title text-primary"><strong>Email: </strong>codedy@gmail.com</span>
+                                <span class="title text-primary"><strong>Email: </strong>
+                                    <a href="../contact">codedy.dev@gmail.com</a>
+                                </span>
                             </li>
 
                         </ul>

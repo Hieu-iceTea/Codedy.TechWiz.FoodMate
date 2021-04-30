@@ -26,16 +26,16 @@
                 <div class="col-lg-4 offset-lg-1 col-md-6 mb-5 mb-md-0">
                     <img src="assets/img/logo-cloud-kitchen-black.png" alt="" class="mb-5" width="130">
                     <h4 class="mb-0">Cloud Kitchen</h4>
-                    <span class="text-muted">So 8, Ton That Thuyet, My Dinh, Ha Noi</span>
+                    <span class="text-muted">8, Ton That Thuyet, My Dinh, Ha Noi</span>
                     <hr class="hr-md">
                     <div class="row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <h6 class="mb-1 text-muted">Phone:</h6>
-                            +84 1686880888
+                            +84 868 6633 15
                         </div>
                         <div class="col-sm-6">
                             <h6 class="mb-1 text-muted">E-mail:</h6>
-                            <a href="../#">CloudKitchen@gmail.com</a>
+                            codedy.dev@gmail.com
                         </div>
                     </div>
                     <hr class="hr-md">
