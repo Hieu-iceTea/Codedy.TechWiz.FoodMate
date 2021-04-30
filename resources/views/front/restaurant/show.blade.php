@@ -3,7 +3,7 @@
 @section('title', 'Restaurant')
 
 @section('meta_description', $restaurant->name)
-@section('og_image', asset('') . 'data-images/products/' . $restaurant->image)
+@section('og_image', asset('') . 'front/data-images/restaurants/' . $restaurant->image)
 
 @section('body')
 

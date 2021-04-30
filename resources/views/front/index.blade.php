@@ -2,8 +2,10 @@
 
 @section('title', 'Home')
 
-@section('body')
+@section('meta_description', 'Hieu iceTea')
+@section('og_image', asset('') . 'front/data-images/user' . 'DinhHieu8896.jpg')
 
+@section('body')
 
     <!-- Section - Main -->
     <section class="section section-main section-main-1 bg-light">
