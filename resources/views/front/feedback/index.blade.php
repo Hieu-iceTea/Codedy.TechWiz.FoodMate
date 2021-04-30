@@ -33,20 +33,24 @@
                                 <input type="hidden" name="user_id" value="{{ Auth::id() }}">
 
                                 <div class="form-group">
-                                    <label>Your name</label>
-                                    <input name="name" type="text" class="form-control" required value="{{ old('name') }}">
+                                    <label>Your name:</label>
+                                    <input name="name" type="text" class="form-control" required
+                                           value="{{ old('name') }}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Your e-mail</label>
-                                    <input name="email" type="email" class="form-control" required value="{{ old('email') }}">
+                                    <label>Your e-mail:</label>
+                                    <input name="email" type="email" class="form-control" required
+                                           value="{{ old('email') }}">
                                 </div>
-                                <div class="form-group mb-3">
-                                    <label>Your message</label>
+
+                                <div class="form-group mb-3" data-local-scroll>
+                                    <label>Your message:</label>
                                     <textarea name="message" id="message" cols="30" rows="5"
                                               class="form-control" required>{{ old('message') }}</textarea>
                                 </div>
+
                                 <div class="personal-rating">
-                                    <h6 class="mt-4 mb-3">Your ratings for our website</h6>
+                                    <h6 class="mt-4 mb-3">Your ratings for our website:</h6>
                                     <div class="rate-custom">
                                         <input type="radio" id="star5" name="rating" value="5"/>
                                         <label for="star5" title="text">5 stars</label>
@@ -75,5 +79,31 @@
         </div>
 
     </section>
+
+
+    {{-- ckeditor --}}
+    <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('message');
+        // CKEDITOR.config.height = 100; //pixels wide.
+    </script>
+
+    <script>
+        /*CKEDITOR.replace('message', {
+            filebrowserBrowseUrl: '../plugins/ckfinder_php_3.5.1.1/ckfinder.html',
+            filebrowserUploadUrl: '../plugins/ckfinder_php_3.5.1.1/core/connector/php/connector.php?command=QuickUpload&type=Files'
+        });*/
+
+        // CKEDITOR.replace('message', {
+        //     filebrowserBrowseUrl: '../plugins/ckfinder_php_3.5.1.1/ckfinder.html',
+        //     filebrowserImageBrowseUrl: '../plugins/ckfinder_php_3.5.1.1/ckfinder.html?type=Images',
+        //     filebrowserFlashBrowseUrl: '../plugins/ckfinder_php_3.5.1.1/ckfinder.html?type=Flash',
+        //     filebrowserUploadUrl: '../plugins/ckfinder_php_3.5.1.1/connector?command=QuickUpload&type=Files',
+        //     filebrowserImageUploadUrl: '../plugins/ckfinder_php_3.5.1.1/connector?command=QuickUpload&type=Images',
+        //     filebrowserFlashUploadUrl: '../plugins/ckfinder_php_3.5.1.1/connector?command=QuickUpload&type=Flash'
+        // });
+
+        //https://ckeditor.com/docs/ckfinder/ckfinder3/#!/guide/dev_ckeditor
+    </script>
 
 @endsection

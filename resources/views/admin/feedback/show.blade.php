@@ -47,8 +47,9 @@
                         <div class="position-relative row form-group">
                             <label for="description"
                                    class="col-md-3 text-md-right col-form-label">Message</label>
-                            <div class="col-md-9 col-xl-8">
-                                <p>{{ $feedback->message }}</p>
+                            <div class="col-md-9 col-xl-8" style="font-size: 20px">
+                                {!! $feedback->message !!}
+                                {{--<p>{!! $feedback->message !!}</p>--}}
                             </div>
                         </div>
 

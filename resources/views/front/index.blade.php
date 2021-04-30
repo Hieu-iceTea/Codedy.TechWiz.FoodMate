@@ -84,7 +84,7 @@
                                     <i class="fa fa-star"></i>
                                 @endfor
                             </div>
-                            <p>{{ $feedbacks[0]->message }}</p>
+                            <p>{!! $feedbacks[0]->message !!}</p>
                         </div>
 
                         <footer>
@@ -105,7 +105,7 @@
                                     <i class="fa fa-star"></i>
                                 @endfor
                             </div>
-                            <p>{{ $feedbacks[1]->message }}</p>
+                            <p>{!! $feedbacks[1]->message !!}</p>
                         </div>
                         <footer>
                             <img src="data-images/user/{{ $feedbacks[1]->user->image ?? '_default-user.png' }}"
@@ -193,7 +193,8 @@
                 @foreach($product_categories as $product_categories)
                     <div class="menu-sample " style="width: 100%; display: inline-block;">
                         <a href="../menu#{{ $product_categories->name }}">
-                            <img style="opacity: 0.5; width: 100%; height: 350px; display: inline-block;" src="data-images/categories/{{ $product_categories->image }}"
+                            <img style="opacity: 0.5; width: 100%; height: 350px; display: inline-block;"
+                                 src="data-images/categories/{{ $product_categories->image }}"
                                  alt="" class="image">
                             <h3 class="title">{{ $product_categories->name }}</h3>
                         </a>

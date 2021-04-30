@@ -59,14 +59,10 @@
                             @foreach($feedbacks as $feedback)
                                 <tr>
                                     <td class="text-center text-muted">#{{ $feedback->id }}</td>
-                                    <td >{{ $feedback->name ?? '' }}</td>
+                                    <td>{{ $feedback->name ?? '' }}</td>
                                     <td class="text-center">{{ $feedback->email }}</td>
                                     <td class="text-center">
-                                        @if(strlen($feedback->message) > 50)
-                                            {{ substr($feedback->message, 0, 50)  . ' ...' }}
-                                        @else
-                                            {{ $feedback->message }}
-                                        @endif
+                                        {!! strlen($feedback->message) > 50 ? substr($feedback->message, 0, 50) . '...' : $feedback->message !!}
                                     </td>
                                     <td class="text-center">
                                         @for($i=0; $i<$feedback->rating; $i++)
