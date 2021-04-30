@@ -384,9 +384,37 @@
                 </button>
             </div>
             <div class="modal-body">
-                <h3>We are COVID-19 safe!</h3>
+                <h3>
+                    Hi TechWiz.
+                    <br>
+                    We are COVID-19 safe!
+                </h3>
+                <p>
+                    We are CODEDY-team, from FPT Aptech, Viet Nam. <br>
+                    Participate in the TechWiz 2021 contest with the most demanding standards on Covid-19 prevention and
+                    safety.
+                    Wish the world will soon overcome this disease.
+                </p>
                 <button class="btn btn-secondary" data-dismiss="modal"><span>Ok, thanks!</span></button>
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cookies Bar -->
+<div id="cookies-bar" class="body-bar cookies-bar">
+    <div class="body-bar-container container">
+        <div class="body-bar-text">
+            <h4 class="mb-2">Cookies</h4>
+            <p>
+                This website uses cookies to ensure you get the best experience on our website.
+                <a style="text-decoration: underline" href="../contact">Contact now</a>
+                or
+                <a style="text-decoration: underline" href="../feedback">feedback for us</a>.
+            </p>
+        </div>
+        <div class="body-bar-action">
+            <button class="btn btn-primary" data-accept="cookies"><span>Accept</span></button>
         </div>
     </div>
 </div>
