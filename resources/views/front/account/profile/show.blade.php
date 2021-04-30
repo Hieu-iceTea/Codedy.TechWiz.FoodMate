@@ -25,7 +25,6 @@
             <div class="row">
                 <div class="col-xl-10 col-lg-12 m-auto">
                     <div>
-                        @csrf
                         <div class="cart-details shadow bg-white mb-4">
                             <div class="bg-dark dark p-4"><h5 class="mb-0">Profile</h5></div>
 
