@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `products`
 
     `name`                VARCHAR(128)               NOT NULL,
     `ingredients`         VARCHAR(256)               NOT NULL,
-    `price`               DECIMAL(16) UNSIGNED       NOT NULL,
+    `price`               DECIMAL(16, 2) UNSIGNED    NOT NULL,
     `image`               VARCHAR(128),
     `country`             VARCHAR(32),
     `tag`                 VARCHAR(128),
@@ -118,14 +118,14 @@ CREATE TABLE IF NOT EXISTS `orders`
     `id`               INT AUTO_INCREMENT,
 
     `user_id`          INT UNSIGNED,
-    `restaurant_id`    INT UNSIGNED         NOT NULL,
+    `restaurant_id`    INT UNSIGNED            NOT NULL,
 
-    `delivery_address` VARCHAR(128)         NOT NULL,
+    `delivery_address` VARCHAR(128)            NOT NULL,
 
-    `payment_type`     INT UNSIGNED         NOT NULL,
-    `total_amount`     DECIMAL(16) UNSIGNED NOT NULL,
+    `payment_type`     INT UNSIGNED            NOT NULL,
+    `total_amount`     DECIMAL(16, 2) UNSIGNED NOT NULL,
 
-    `status`           INT UNSIGNED         NOT NULL,
+    `status`           INT UNSIGNED            NOT NULL,
     `reason_reject`    VARCHAR(128),
 
     `created_by`       NVARCHAR(32) DEFAULT 'codedy_techwiz_foodmate',
@@ -145,12 +145,12 @@ CREATE TABLE IF NOT EXISTS `order_details`
 (
     `id`           INT AUTO_INCREMENT,
 
-    `order_id`     INT UNSIGNED         NOT NULL,
-    `product_id`   INT UNSIGNED         NOT NULL,
+    `order_id`     INT UNSIGNED            NOT NULL,
+    `product_id`   INT UNSIGNED            NOT NULL,
 
-    `qty`          INT(16) UNSIGNED     NOT NULL,
-    `amount`       DECIMAL(16) UNSIGNED NOT NULL,
-    `total_amount` DECIMAL(16) UNSIGNED NOT NULL,
+    `qty`          INT(16) UNSIGNED        NOT NULL,
+    `amount`       DECIMAL(16, 2) UNSIGNED NOT NULL,
+    `total_amount` DECIMAL(16, 2) UNSIGNED NOT NULL,
 
     `created_by`   NVARCHAR(32) DEFAULT 'codedy_techwiz_foodmate',
     `created_at`   TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
@@ -215,25 +215,27 @@ CREATE TABLE IF NOT EXISTS `feedbacks`
 #Default password: 123456
 
 INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (10, NULL, 'Host', 'host.codedy@gmail.com', '$2y$10$oW..IGNT/CH2muKpN/8LAuNJ1ahnwLoyCBWRQyBj4p6ITOJFb.gs2', 1, '2020-08-08', 'host.jpg', 1, 'CODEDY', 'Host', '032 87 99 000', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+VALUE (11, NULL, 'ThiDK', 'ThiDK@fpt.edu.vn ', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2021-08-08', 'ThiDK.jpg', 2, 'Đặng Kim', 'Thi', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (9, NULL, 'Admin', 'admin.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 2, '2020-08-08', 'admin.jpg', 1, 'CODEDY', 'Admin', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+VALUE (10, NULL, 'DinhHieu8896', 'HieuNDTH1908028@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2021-08-08', 'DinhHieu8896.jpg', 1, 'Nguyễn Đình', 'Hiếu', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (8, 3, 'Staff_B', 'staff_b.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'staff_b.jpg', 2, 'CODEDY', 'Staff B', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+VALUE (9, NULL, 'HungNPMTH1908050', 'HungNPMTH1908050@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2021-08-08', 'HungNPMTH1908050.jpg', 1, 'Nông Phan Mạnh', 'Hùng', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (7, 1, 'Staff_A', 'staff_a.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2020-08-08', 'staff_a.jpg', 1, 'CODEDY', 'Staff A', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+VALUE (8, NULL, 'HuyVQTH1909003', 'HuyVQTH1909003@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2021-08-08', 'HuyVQTH1909003.jpg', 1, 'Vũ Quang', 'Huy', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (6, NULL, 'Customer', 'customer.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2020-08-08', 'member.jpg', 1, 'CODEDY', 'Customer', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+VALUE (7, NULL, 'AnhNTTH1908059', 'AnhNTTH1908059@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2021-08-08', 'AnhNTTH1908059.jpg', 1, 'Nguyễn Trung', 'Anh', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (5, NULL, 'DinhHieu8896', 'DinhHieu8896gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2020-08-08', 'DinhHieu8896.jpg', 1, 'Nguyễn Đình', 'Hiếu', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+VALUE (6, NULL, 'Customer', 'codedy.dev@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2021-08-08', 'customer.jpg', 1, 'CODEDY', 'Customer', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (4, NULL, 'HuyVQTH1909003', 'HuyVQTH1909003@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2020-08-08', 'HuyVQTH1909003.jpg', 1, 'Vũ Quang', 'Huy', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+VALUE (5, 3, 'Staff_B', 'staff_b.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2021-08-08', 'staff_b.jpg', 2, 'CODEDY', 'Staff B', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (3, NULL, 'HungNPMTH1908050', 'HungNPMTH1908050@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2020-08-08', 'HungNPMTH1908050.jpg', 1, 'Nông Phan Mạnh', 'Hùng', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+VALUE (4, 1, 'Staff_A', 'staff_a.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2021-08-08', 'staff_a.jpg', 1, 'CODEDY', 'Staff A', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (2, NULL, 'AnhNTTH1908059', 'AnhNTTH1908059@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2020-08-08', 'AnhNTTH1908059.jpg', 1, 'Nguyễn Trung', 'Anh', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+VALUE (3, NULL, 'Admin_Demo', 'admin_demo.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 2, '2021-08-08', 'admin_demo.jpg', 1, 'CODEDY', 'Admin Demo', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', FALSE);
 INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (1, NULL, 'Admin_Demo', 'admin_demo.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 2, '2020-08-08', 'admin_demo.jpg', 1, 'CODEDY', 'Admin_Demo', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', FALSE);
+VALUE (2, NULL, 'Admin', 'admin.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 2, '2021-08-08', 'admin.jpg', 1, 'CODEDY', 'Admin', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
+VALUE (1, NULL, 'Host', 'host.codedy@gmail.com', '$2y$10$oW..IGNT/CH2muKpN/8LAuNJ1ahnwLoyCBWRQyBj4p6ITOJFb.gs2', 1, '2021-08-08', 'host.jpg', 1, 'CODEDY', 'Host', '032 87 99 000', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 
 
 INSERT INTO product_categories (Id, Name, Image, Active)
@@ -386,9 +388,9 @@ VALUE (53, 9, 9, 'Dough Tampas', 'Wheat flour, milk, chocolate',16.39, 'DoughTam
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
 VALUE (54, 9, 9, 'Dessert Place', 'Ice cream, chocolate, milk',12.89, 'DessertPlace.jpg', 'VietNam', 'Breakfast', 'Ice cream and chocolate taste great together', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (55, 10, 1, 'US-Beveragee', 'Water, fruit, ice, sugar',10.59, 'US-Beveragee.jpg', 'USA', 'Lunch', 'Cool non-alcoholic drinks and fruity flavors', TRUE);
+VALUE (55, 10, 1, 'Milk Tea', 'Tea, milk, sugar, pearls and fruit syrup',15.89, 'MilkTea.jpg', 'Korean', 'Snacks', 'The term ""milk tea"" refers to any tea drink with milk added. It can be as simple as a splash of milk in a hot cup of tea, or it can be a complex recipe including various ingredients, like the popular bubble tea. ... Milk tea is enjoyed throughout the world as both a hot and cold beverage.', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (56, 10, 1, 'Soda', 'Fruit, soda, sugar, ice cold',13.89, 'Soda.jpg', 'USA', 'Dinner', 'Great combination of soda and fruit flavor', TRUE);
+VALUE (56, 10, 1, 'Cappuccino', 'Coffee, milk, cream',12.68, 'capuchino.jpg', 'Italy', 'Dinner', 'As cappuccino is defined today, in addition to a single shot of espresso, the most important factors in preparing a cappuccino are the texture and temperature of the milk. When a barista steams the milk for a cappuccino, microfoam is created by introducing very tiny bubbles of air into the milk, giving the milk a velvety texture. The traditional cappuccino consists of a single espresso, on which the barista pours the hot foamed milk, resulting in a 2 cm (3⁄4 in) thick milk foam on top. Variations could be made adding another shot of espresso resulting in a double cappuccino. Attaining the correct ratio of foam requires close attention while steaming the milk, thus making the cappuccino one of the most difficult espresso-based beverages to make properly. A skilled barista may obtain artistic shapes (latte art while pouring the milk on the top of the espresso coffee).', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
 VALUE (57, 10, 1, 'Fruit Juice', 'Fruit, sugar, ice cold',18.39, 'FruitJuice.jpg', 'Korean', 'Breakfast', 'Fruit juice is 100% pure juice made from the flesh of fresh fruit or from whole fruit, depending on the type used. It is not permitted to add sugars, sweeteners, preservatives, flavourings or colourings to fruit juice. Fruit juices are usually described as: From concentrate.', TRUE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
@@ -396,25 +398,25 @@ VALUE (58, 10, 1, 'Matcha Mojito', 'White rum, sugar, lemon juice, soda water an
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
 VALUE (59, 10, 1, 'Cocktail Cafe', 'Base wines, colorants, fragrances, coffee and decorations',16.39, 'CocktailCafe.jpg', 'Korean', 'Snacks', 'A cocktail is an alcoholic mixed drink, which is either a combination of spirits, or one or more spirits mixed with other ingredients such as fruit juice, flavored syrup, or cream.', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-VALUE (60, 10, 1, 'Milk Tea', 'Tea, milk, sugar, pearls and fruit syrup',12.89, 'MilkTea.jpg', 'Korean', 'Snacks', 'The term ""milk tea"" refers to any tea drink with milk added. It can be as simple as a splash of milk in a hot cup of tea, or it can be a complex recipe including various ingredients, like the popular bubble tea. ... Milk tea is enjoyed throughout the world as both a hot and cold beverage.', FALSE);
+VALUE (60, 10, 1, 'US-Beveragee', 'Water, fruit, ice, sugar',10.59, 'US-Beveragee.jpg', 'USA', 'Lunch', 'Cool non-alcoholic drinks and fruity flavors', TRUE);
 
 
 INSERT INTO restaurants (id, name, image, address, description)
-VALUE (1, 'Essence Restaurant', 'EssenceRestaurant.PNG', '154 East 79th Street, Manhattan New York, USA', 'Located on 154 East 79th Street, Manhattan New York, the award-winning renowned Essence Restaurant offers you a variety of delicious authentic Western menus for all-day dining. With an extensive drink menu including fresh fruit shakes, coffee, cocktails and wines, the restaurant guarantees a nutritious meal with delicious food, great service in the right space and brandy , all with the most affordable prices in town.');
+VALUE (1, 'Essence Restaurant', 'EssenceRestaurant.PNG', '154 East 79th Street, Manhattan New York, USA', 'With an extensive drink menu including fresh fruit shakes, coffee, cocktails and wines, the restaurant guarantees a nutritious meal with delicious food, great service in the right space and brandy , all with the most affordable prices in town.');
 INSERT INTO restaurants (id, name, image, address, description)
-VALUE (2, 'Chestnut Restaurant & Sky Bar', 'ChestnutRestaurant.PNG', '35-4, Insadong-gil, Jongno-gu, Seoul, South Korea', 'Vegan Chestnut & Sky Bar restaurant serves a variety of meals including salads, skin rolls, sandwiches, vegetarian burgers, lentils bowls and pasta dinner. Serves craft beers, tap water kombucha, cold-pressed smoothies and juices. The kitchen stopped at 9pm. Reservations are accepted, but not on the same day, Saturday or holiday');
+VALUE (2, 'Chestnut Restaurant & Sky Bar', 'ChestnutRestaurant.PNG', '35-4, Insadong-gil, Jongno-gu, Seoul, South Korea', 'Vegan Chestnut & Sky Bar restaurant serves a variety of meals including salads, skin rolls, sandwiches, vegetarian burgers, lentils bowls and pasta dinner. Serves craft beers, tap water kombucha, cold-pressed smoothies and juices. The kitchen stopped at 9pm.');
 INSERT INTO restaurants (id, name, image, address, description)
 VALUE (3, 'Poke Hanoi', 'poke_hanoi.png', '11B Hang Khay | Alley | Level 3 Hoan Kiem, Hanoi Vietnam', 'Poke Hanoi serves Hawaiian Poke. Poke Is a Hawaiian dish made of raw cube of fish marinated, in sauces. We serve our poke with rice, salads and a variety of toppings which you can choose yourself. Perfect place to eat healthy, we also serve smoothie bowls.');
 INSERT INTO restaurants (id, name, image, address, description)
 VALUE (4, 'Chops Old Quarter', 'chopsolder.PNG', '12 Hang Bac Hanoi Old Quarter, Hoan Kiem, Hanoi', 'Serving food from 8am until late Chops has got you covered. With our daily brunch menu serving delights from French Toast to a good old English Fry Up. And our burger menu that runs all day serving up the best burgers Hanoi has to offer, or if your feeling a bit healthier they try one of our amazing salads');
 INSERT INTO restaurants (id, name, image, address, description)
-VALUE (5, 'Burgers Berlin', 'BurgersBerlin.jpg', '112 Sonntag, Berlin, Germany', 'Burgers Berlin is currently a major fast food restaurant. Every day, more than 1000 diners come to Burgers Berlin restaurants to enjoy high quality food, excellent taste and affordable prices. The predecessor was Insta-Burger King, founded by Matthew Burns and Keith J. Kramer in 1953. The Insta-Broiler blister cooking recipe produces meatballs with excellent taste.');
+VALUE (5, 'Burgers Berlin', 'BurgersBerlin.jpg', '112 Sonntag, Berlin, Germany', 'Burgers Berlin is currently a major fast food restaurant. Every day, more than 1000 diners come to Burgers Berlin restaurants to enjoy high quality food, excellent taste and affordable prices. The predecessor was Insta-Burger King, founded by Matthew Burns and Keith J.');
 INSERT INTO restaurants (id, name, image, address, description)
-VALUE (6, 'Hoang Cuisine', 'HoangCuisine.PNG', '2nd Floor, 20 Bat Dan Street Hang Bo Ward, Hanoi, Vietnam', 'Based on our experiences working in tourism industry, we have many chances to know more about not only culture but also customs from people all over the world coming to Vietnam. Therefore, with our passion about food and to show our hospitality to every single customer, we would like to run this restaurant to introduce our pride - Vietnamese cuisine to all our friends from different countries.');
+VALUE (6, 'Hoang Cuisine', 'HoangCuisine.PNG', '2nd Floor, 20 Bat Dan Street Hang Bo Ward, Hanoi, Vietnam', 'Based on our experiences working in tourism industry, we have many chances to know more about not only culture but also customs from people all over the world coming to Vietnam. We would like to introduce our pride - Vietnamese cuisine to all our friends from different countries.');
 INSERT INTO restaurants (id, name, image, address, description)
 VALUE (7, 'Green Cuisine', 'tungkitchen.jpg', '15 Ta Hien, Hang Buom, Hoan Kiem, Hanoi', 'Even if diners are willing to pay a minimum of $ 325 per person, it can be difficult to book a table at this food temple. However, it is hard to resist the appeal of Thomas Kellers famous ""Chicken egg salad"", accompanied by 8 perfect dishes without any repeating ingredients in each dish.');
 INSERT INTO restaurants (id, name, image, address, description)
-VALUE (8, 'The Handpulled Noodle', 'TheHandpulledNoodle.PNG', '196 Spring St Soho, New York City, USA', 'The Sichuan dishes here look very nice with delicious taste. Diners coming here not only can enjoy the food but also watch the artists performing the painting on the zither in the evening. Some dishes that we should not miss are: shark fin soup, grilled lobster with salt and chilli, duck drinking Chengdu tea. Sitting on a luxury restaurant, diners eat and drink while watching the skyline. The average cost per person is about 45 $.');
+VALUE (8, 'The Handpulled Noodle', 'TheHandpulledNoodle.PNG', '196 Spring St Soho, New York City, USA', 'The Sichuan dishes here look very nice with delicious taste. Diners coming here not only can enjoy the food but also watch the artists performing the painting on the zither in the evening. Sitting on a luxury restaurant, diners eat and drink while watching the skyline.');
 INSERT INTO restaurants (id, name, image, address, description)
 VALUE (9, 'Xian Famous Foods', 'xianfood.png', '778 Wall Street, New York, NY, USA', 'In fact, Xian Famous Foods has many similarities with Sichuan, but the flavor is different because of its sour taste, many salt grains and the dish often has a small bacon added. When visiting a famous high-class restaurant, visitors should enjoy the restaurants famous dishes such as fish head cooked with crushed eggplant, sauteed pork.');
 
@@ -428,47 +430,47 @@ VALUE (3, 6, 3, '15, Me Tri, Tu Liem, Ha noi',1, 42.87, 3, 'Not enough materials
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
 VALUE (4, 6, 1, '111, Phan Trong Tue, Thanh Tri, Ha Noi',1, 58.16, 4, '', '2021-02-02');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-VALUE (5, 5, 1, '56, Giai Phong, Hoang Mai, Ha Noi',1, 45.87, 2, '', '2021-04-02');
+VALUE (5, 6, 1, '56, Giai Phong, Hoang Mai, Ha Noi',1, 45.87, 2, '', '2021-04-02');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-VALUE (6, 4, 1, '19, Pho Hue, Hoan Kiem, Ha Noi',1, 94.54, 3, 'Not enough materials to make dishes.', '2021-02-02');
+VALUE (6, 6, 1, '19, Pho Hue, Hoan Kiem, Ha Noi',1, 94.54, 3, 'Not enough materials to make dishes.', '2021-02-02');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-VALUE (7, 3, 1, '78, Xuan Thuy, Cau Giay, Ha Noi',1, 18.39, 2, '', '2021-02-02');
+VALUE (7, 6, 1, '78, Xuan Thuy, Cau Giay, Ha Noi',1, 18.39, 2, '', '2021-02-02');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
 VALUE (8, 6, 1, '356, To Huu, Ha Dong, Ha Noi',1, 45.87, 4, '', '2021-02-02');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
 VALUE (9, 6, 4, '543, Tran Hung Dao, Ba Dinh, Ha Noi',1, 10.00, 2, '', '2021-03-03');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-VALUE (10, 2, 3, '87, Truong Dinh, Hoang Mai, Ha Noi',1, 40.00, 1, '', '2021-03-03');
+VALUE (10, 7, 3, '87, Truong Dinh, Hoang Mai, Ha Noi',1, 40.00, 1, '', '2021-03-03');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-VALUE (11, 3, 4, '97, Ngoc hoi, Thanh Tri, Ha Noi',1, 170.48, 2, '', '2021-03-03');
+VALUE (11, 6, 4, '97, Ngoc hoi, Thanh Tri, Ha Noi',1, 170.48, 2, '', '2021-03-03');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-VALUE (12, 4, 3, '96, Nguyen Ngoc Nai, Hoan Kiem, Ha Noi',1, 105.00, 3, 'Not enough materials to make dishes.', '2021-03-04');
+VALUE (12, 8, 3, '96, Nguyen Ngoc Nai, Hoan Kiem, Ha Noi',1, 105.00, 3, 'Not enough materials to make dishes.', '2021-03-04');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-VALUE (13, 5, 3, '74, Luong Ngoc Khuyen, Ha Dong, Ha Noi',1, 85.00, 2, '', '2021-04-05');
+VALUE (13, 10, 3, '74, Luong Ngoc Khuyen, Ha Dong, Ha Noi',1, 85.00, 2, '', '2021-04-05');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-VALUE (14, 2, 5, '63, Tran Duy Hung, Cau Giay, Ha Noi',1, 75.00, 4, '', '2021-03-06');
+VALUE (14, 6, 5, '63, Tran Duy Hung, Cau Giay, Ha Noi',1, 75.00, 4, '', '2021-03-06');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-VALUE (15, 3, 5, '100, Phu Doan, Ba Dinh, Ha Noi',1, 60.00, 2, '', '2021-04-04');
+VALUE (15, 9, 5, '100, Phu Doan, Ba Dinh, Ha Noi',1, 60.00, 2, '', '2021-04-04');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-VALUE (16, 4, 7, '63, Tam hiep, Mai Dich, Ha Noi',1, 80.00, 1, '', '2021-03-22');
+VALUE (16, 6, 7, '63, Tam hiep, Mai Dich, Ha Noi',1, 80.00, 1, '', '2021-03-22');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-VALUE (17, 5, 6, '64, Tran Thu Do, Thanh Tri, Ha Noi',1, 229.04, 2, '', '2021-03-22');
+VALUE (17, 6, 6, '64, Tran Thu Do, Thanh Tri, Ha Noi',1, 229.04, 2, '', '2021-03-22');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-VALUE (18, 2, 1, '74, Tu Hiep, Hoang Mai, Ha Noi',1, 70.00, 3, 'Not enough materials to make dishes.', '2021-03-22');
+VALUE (18, 6, 1, '74, Tu Hiep, Hoang Mai, Ha Noi',1, 70.00, 3, 'Not enough materials to make dishes.', '2021-03-22');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-VALUE (19, 3, 1, '192, Pho Voi, Mai Dich, Ha Noi',1, 40.00, 2, '', '2021-04-22');
+VALUE (19, 6, 1, '192, Pho Voi, Mai Dich, Ha Noi',1, 40.00, 2, '', '2021-04-22');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-VALUE (20, 4, 7, '12, Nui Truc, Ba Dinh, Ha Noi',1, 60.00, 1, '', '2021-03-22');
+VALUE (20, 8, 7, '12, Nui Truc, Ba Dinh, Ha Noi',1, 60.00, 1, '', '2021-03-22');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-VALUE (21, 5, 7, '127, Tran Thai Tong, Hai Ba Trung, Ha Noi',1, 35.00, 2, '', '2021-03-22');
+VALUE (21, 6, 7, '127, Tran Thai Tong, Hai Ba Trung, Ha Noi',1, 35.00, 2, '', '2021-03-22');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-VALUE (22, 2, 7, '439, Van Dien, Thanh Tri, Ha Noi',1, 35.00, 4, '', '2021-03-22');
+VALUE (22, 7, 7, '439, Van Dien, Thanh Tri, Ha Noi',1, 35.00, 4, '', '2021-03-22');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-VALUE (23, 3, 7, '91, Nguyen Trai, Thanh Xuan, Ha Noi',1, 60.00, 3, 'Not enough materials to make dishes.', '2021-03-22');
+VALUE (23, 9, 7, '91, Nguyen Trai, Thanh Xuan, Ha Noi',1, 60.00, 3, 'Not enough materials to make dishes.', '2021-03-22');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
 VALUE (24, 6, 1, '382, Tay Mo, Ha Dong, Ha Noi',1, 45.00, 2, '', '2021-04-22');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-VALUE (25, 5, 8, '97, Lien Hoa, My Dinh, Ha Noi',1, 70.00, 1, '', '2021-03-22');
+VALUE (25, 10, 8, '97, Lien Hoa, My Dinh, Ha Noi',1, 70.00, 1, '', '2021-03-22');
 
 
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
@@ -572,13 +574,13 @@ VALUE (49, 19, 6, 2, 12.89, 25.78, '2021-03-22');
 
 
 INSERT INTO feedbacks (id, user_id, name, email, message, rating)
-VALUE (1, 5, 'Nguyen Dinh Hieu', 'DinhHieu8896gmail.com', 'Very excellent products.', 5);
+VALUE (1, 10, 'Nguyen Dinh Hieu', 'DinhHieu8896gmail.com', 'Very excellent products.', 5);
 INSERT INTO feedbacks (id, user_id, name, email, message, rating)
-VALUE (2, 4, 'Vu Quang Huy', 'HuyVQTH1909003@fpt.edu.vn', 'Best solution for online food sale.', 4);
+VALUE (2, 8, 'Vu Quang Huy', 'HuyVQTH1909003@fpt.edu.vn', 'Best solution for online food sale.', 4);
 INSERT INTO feedbacks (id, user_id, name, email, message, rating)
-VALUE (3, 3, 'Nong Phan Manh Hung', 'HungNPMTH1908050@fpt.edu.vn', 'The software has every feature that my company needs.', 5);
+VALUE (3, 9, 'Nong Phan Manh Hung', 'HungNPMTH1908050@fpt.edu.vn', 'The software has every feature that my company needs.', 5);
 INSERT INTO feedbacks (id, user_id, name, email, message, rating)
-VALUE (4, 2, 'Nguyen Trung Anh', 'AnhNTTH1908059@fpt.edu.vn', 'Thanks a lot of development team. I used the product and very satisfied.', 3);
+VALUE (4, 7, 'Nguyen Trung Anh', 'AnhNTTH1908059@fpt.edu.vn', 'Thanks a lot of development team. I used the product and very satisfied.', 3);
 INSERT INTO feedbacks (id, user_id, name, email, message, rating)
 VALUE (5, NULL, 'Truong Thanh Tu', 'truongthanhtu@gmail.com', 'Good service shops', 3);
 INSERT INTO feedbacks (id, user_id, name, email, message, rating)
