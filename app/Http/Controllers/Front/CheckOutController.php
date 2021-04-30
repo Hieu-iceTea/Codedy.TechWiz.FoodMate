@@ -8,6 +8,8 @@ use App\Models\OrderDetail;
 use App\Utilities\Constant;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class CheckOutController extends Controller
 {
@@ -44,12 +46,23 @@ class CheckOutController extends Controller
             }
 
             //Gửi email:
-            //$total = Cart::total();
-            //$subtotal = Cart::subtotal();
-            //$this->sendEmail($order, $total, $subtotal); //Gọi hàm gửi email đã định nghĩa.
+            $user = Auth::user();
+            $mail_data = [
+                'order_infos' => [
+                    'full_name' => $user->last_name . ', ' . $user->first_name,
+                    'address' => $data_order['delivery_address'],
+                    'phone' => $user->phone,
+                    'email' => $user->email,
+                    'total' => Cart::total(1, '.', ','),
+                ],
+
+                'carts' => Cart::content(),
+            ];
+
+            $this->sendEmail($mail_data); //Gọi hàm gửi email đã định nghĩa.
 
             //03. Xóa giỏ hàng
-            Cart::destroy();
+            //Cart::destroy();
 
             //04. Trả về kết quả thông báo
             return redirect('checkout/result')
@@ -69,5 +82,18 @@ class CheckOutController extends Controller
         }
 
         return view('front.checkout.result', compact('notification', 'error'));
+    }
+
+    private function sendEmail($mail_data)
+    {
+        $email_to = $mail_data['order_infos']['email'];
+
+        Mail::send('emails.order-notification.email-index',
+            compact('mail_data'),
+            function ($message) use ($email_to) {
+                $message->from('CODEDY.dev@gmail.com', 'CODEDY.dev - Cloud Kitchen');
+                $message->to($email_to, $email_to);
+                $message->subject('Order Notification');
+            });
     }
 }
