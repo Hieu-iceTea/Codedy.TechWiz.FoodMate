@@ -1,0 +1,15 @@
+
+Vào JS, tìm đoạn sau:
+a:not([target="_blank"]):not([href^="#"])
+
+
+
+Ghi tiếp sau đoạn đó mã sau:
+:not([href^="javascript:void(0)"]):not([href^="javascript: void(0);"]):not([class^="cke_button"]):not([class^="cke_dialog_tab"]):not([class^="cke_combo_button"])
+
+
+
+
+Chi tiết hướng dẫn:
+https://www.root93.co.id/2019/12/mengatasi-masalah-ckeditor-dan.html
+https://www.youtube.com/watch?v=jOaDO_0Zfcs
