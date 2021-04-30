@@ -184,6 +184,12 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="../admin/feedback"
+                                   class="{{ (request()->segment(2) == 'feedback') ? 'mm-active' : '' }}">
+                                    <i class="metismenu-icon"></i>Feedback
+                                </a>
+                            </li>
+                            <li>
                                 <a href="../admin/order"
                                    class="{{ (request()->segment(2) == 'order') ? 'mm-active' : '' }}">
                                     <i class="metismenu-icon"></i>Order
@@ -199,12 +205,6 @@
                                 <a href="../admin/category"
                                    class="{{ (request()->segment(2) == 'category') ? 'mm-active' : '' }}">
                                     <i class="metismenu-icon"></i>Category
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../admin/feedback"
-                                   class="{{ (request()->segment(2) == 'feedback') ? 'mm-active' : '' }}">
-                                    <i class="metismenu-icon"></i>Feedback
                                 </a>
                             </li>
                             <li>

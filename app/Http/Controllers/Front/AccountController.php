@@ -80,7 +80,7 @@ class AccountController extends Controller
 
     public function myOrderIndex()
     {
-        $orders = Order::Orderby('id', 'desc')-> where('user_id', Auth::id())->simplePaginate(5);
+        $orders = Order::Orderby('id', 'desc')-> where('user_id', Auth::id())->simplePaginate();
 
         $orders->appends('id');
 

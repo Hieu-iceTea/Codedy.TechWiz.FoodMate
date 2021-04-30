@@ -81,6 +81,7 @@
                                                 <div class="widget-content-left mr-3">
                                                     <div class="widget-content-left">
                                                         <img style="height: 60px;"
+                                                             class="rounded-circle"
                                                              data-toggle="tooltip" title="Image"
                                                              data-placement="bottom"
                                                              src="../front/data-images/user/{{$user -> image}}" alt="">

@@ -22,7 +22,7 @@
     <!-- Section -->
     <section class="section bg-light">
 
-        <div class="container">
+        <div class="container {{ \Illuminate\Support\Facades\Auth::guest() ? 'd-none' : '' }}">
             <div class="row">
                 <div class="col-xl-10 col-lg-12 m-auto">
                     <div class="cart-details shadow bg-white mb-4">
@@ -74,6 +74,22 @@
                     </div>
                     <div class="float-right">
                         <span>{{$orders -> links()}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container {{ \Illuminate\Support\Facades\Auth::check() ? 'd-none' : '' }}">
+            <div class="row">
+                <div class="col-xl-10 col-lg-12 m-auto">
+                    <div class="cart-details shadow bg-white mb-4">
+                        <div class="bg-dark dark p-4">
+                            <h5 class="mb-0">
+                                Please
+                                <a href="../account/login" style="text-decoration: underline">login</a>
+                                to view your order history!</h5>
+                        </div>
                     </div>
                 </div>
             </div>
