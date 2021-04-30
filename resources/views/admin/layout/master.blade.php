@@ -132,7 +132,7 @@
     </div>
 
     <div class="app-main">
-        <div class="app-sidebar sidebar-shadow" style="min-width: 250px; width: 250px">
+        <div class="app-sidebar sidebar-shadow">
             <div class="app-header__logo">
                 <div class="logo-src"></div>
                 <div class="header__pane ml-auto">
@@ -227,7 +227,7 @@
             </div>
         </div>
 
-        <div class="app-main__outer" style="padding-left: 250px">
+        <div class="app-main__outer">
 
 
             <!--  MAIN HERE -->
