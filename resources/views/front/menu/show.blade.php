@@ -18,6 +18,10 @@
                             <form action="../cart/add/{{ $productDetails->id }}">
                                 <div class="product-header text-center">
                                     <h1 class="product-title">{{$productDetails->name}}</h1>
+                                    <span class="product-caption my-3">
+                                        Restaurant:
+                                        <a href="../restaurant/{{$productDetails->restaurant->id}}">{{$productDetails->restaurant->name}}</a>
+                                    </span>
                                     <span class="product-caption h3">{{$productDetails->country}}</span>
                                     <span class="product-caption text-muted">{{$productDetails->ingredients}}</span>
                                 </div>
