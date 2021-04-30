@@ -28,26 +28,27 @@
                     <div class="cart-details shadow bg-white mb-4">
                         <div class="bg-dark dark p-4"><h5 class="mb-0">My orders list</h5></div>
 
-                        <table class="cart-table-show">
-                            <tr>
-                                <th style="width: 160px">Image</th>
-                                <th>Items</th>
-                                <th>Status</th>
-                                <th class="text-right">Total</th>
-                                <th class="text-right">
-                                    Action
-                                </th>
-                            </tr>
-
-
-                            @foreach($orders as $order)
+                        <div class="table-responsive">
+                            <table class="cart-table-show table-hover">
                                 <tr>
-                                    <td>
-                                        <img
-                                            src="data-images/products/{{ $order->orderDetails[0]->product->image ?? '' }}"
-                                            style="height: 80px" alt="">
-                                    </td>
-                                    <td class="title">
+                                    <th style="width: 160px">Image</th>
+                                    <th>Items</th>
+                                    <th>Status</th>
+                                    <th class="text-right">Total</th>
+                                    <th class="text-right">
+                                        Action
+                                    </th>
+                                </tr>
+
+
+                                @foreach($orders as $order)
+                                    <tr>
+                                        <td>
+                                            <img
+                                                src="data-images/products/{{ $order->orderDetails[0]->product->image ?? '' }}"
+                                                style="max-height: 80px; min-width: 90px" alt="">
+                                        </td>
+                                        <td class="title">
                                         <span class="name">
                                             {{ $order->orderDetails[0]->product->name ?? '' }}
 
@@ -55,23 +56,24 @@
                                                 (and {{ count($order->orderDetails) - 1  }} other items)
                                             @endif
                                         </span>
-                                    </td>
-                                    <input type="text" name="id" value="{{$order->id}}" hidden>
-                                    <td class="title">{{ \App\Utilities\Constant::$order_status[$order->status] }}</td>
-                                    <td class="price">{{ $order->orderDetails[0]->product->price ?? '' }}$</td>
-                                    <td class="actions">
-                                        <a href="../account/my-order/{{ $order->id }}" class="action-icon">
-                                            <i class="ti ti-eye"></i>
-                                            Detail
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </table>
+                                        </td>
+                                        <input type="text" name="id" value="{{$order->id}}" hidden>
+                                        <td class="title">{{ \App\Utilities\Constant::$order_status[$order->status] }}</td>
+                                        <td class="price">{{ $order->orderDetails[0]->product->price ?? '' }}$</td>
+                                        <td class="actions">
+                                            <a href="../account/my-order/{{ $order->id }}" class="action-icon">
+                                                <i class="ti ti-eye"></i>
+                                                Detail
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </table>
+                        </div>
 
                     </div>
                     <div class="float-right">
-                        <span >{{$orders -> links()}}</span>
+                        <span>{{$orders -> links()}}</span>
                     </div>
                 </div>
             </div>
