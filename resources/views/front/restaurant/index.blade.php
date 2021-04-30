@@ -23,25 +23,28 @@
 
                 <div class="row mb-4">
                     <div class="form-group col-sm-12">
-                        <input type="text" name="search" value="{{ request('search') }}" placeholder="Enter location or name of restaurant..."
+                        <input type="text" name="search" value="{{ request('search') }}"
+                               placeholder="Enter location or name of restaurant..."
                                class="form-control">
                     </div>
                 </div>
             </form>
-            @foreach($restaurants as $restaurant)
+        @foreach($restaurants as $restaurant)
             <!-- Restaurant -->
-            <div class="special-offer mb-5 animated" data-animation="fadeIn">
-              <img src="data-images/restaurants/{{$restaurant->image}}" alt="" class="special-offer-image">
-                <div class="special-offer-content">
-                    <a href="../restaurant/{{$restaurant->id}}"><h2 class="mb-2">{{$restaurant->name}}</h2></a>
-                    <h5 class="text-muted mb-5">{{$restaurant->address}}</h5>
-                    {!!$restaurant->description!!}
-                    <br>
-                    <a href="../restaurant/{{$restaurant->id}}" class="btn btn-outline-primary btn-lg mt-5"></i><span>Menu & details</span></a>
+                <div class="special-offer mb-5 animated" data-animation="fadeIn">
+                    <img src="data-images/restaurants/{{$restaurant->image}}" alt="" class="special-offer-image">
+                    <div class="special-offer-content">
+                        <a href="../restaurant/{{$restaurant->id}}/{{ Str::slug($restaurant->name) }}.html"><h2
+                                class="mb-2">{{$restaurant->name}}</h2></a>
+                        <h5 class="text-muted mb-5">{{$restaurant->address}}</h5>
+                        {!!$restaurant->description!!}
+                        <br>
+                        <a href="../restaurant/{{$restaurant->id}}/{{ Str::slug($restaurant->name) }}.html"
+                           class="btn btn-outline-primary btn-lg mt-5"></i><span>Menu & details</span></a>
 
+                    </div>
                 </div>
-            </div>
-                @endforeach
+            @endforeach
         </div>
     </div>
 

@@ -101,14 +101,14 @@
                                                 <div class="col-lg-4 col-6">
                                                     <!-- Menu Item -->
                                                     <div class="menu-item menu-grid-item">
-                                                        <a href="../menu/{{ $product->id }}">
+                                                        <a href="../menu/{{ $product->id }}/{{ Str::slug($product->name) }}.html">
                                                             <img class="mb-4"
                                                                  src="data-images/products/{{ $product->image }}"
                                                                  alt="">
                                                         </a>
 
                                                         <h6 class="mb-0">
-                                                            <a href="../menu/{{ $product->id }}">
+                                                            <a href="../menu/{{ $product->id }}/{{ Str::slug($product->name) }}.html">
                                                                 {{ strlen($product->name) > 25 ? substr($product->name, 0, 25) . ' ...' : $product->name }}
                                                             </a>
                                                         </h6>
@@ -121,7 +121,7 @@
                                                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                                                                 Restaurant:
                                                             </span>
-                                                            <a href="../restaurant/{{ $product->restaurant->id }}">
+                                                            <a href="../restaurant/{{ $product->restaurant->id }}/{{ Str::slug($product->restaurant->name) }}.html">
                                                                 <span class="text-sm">
                                                                     {{ strlen($product->restaurant->name) > 20 ? substr($product->restaurant->name, 0, 20) . ' ...' : $product->restaurant->name }}
                                                                 </span>

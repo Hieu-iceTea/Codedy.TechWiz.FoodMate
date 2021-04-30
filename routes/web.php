@@ -28,12 +28,14 @@ Route::prefix('/')->middleware('CheckMemberLogin')->group(function () {
 
     Route::prefix('/menu')->group(function () {
         Route::get('/', [App\Http\Controllers\Front\MenuController::class, 'index']);
-        Route::get('/{id}', [App\Http\Controllers\Front\MenuController::class, 'show']);
+        //Route::get('/{id}', [App\Http\Controllers\Front\MenuController::class, 'show']);
+        Route::get('/{id}/{slug}.html', [App\Http\Controllers\Front\MenuController::class, 'show']);
     });
 
     Route::prefix('/restaurant')->group(function () {
         Route::get('/', [App\Http\Controllers\Front\RestaurantController::class, 'index']);
-        Route::get('/{id}', [App\Http\Controllers\Front\RestaurantController::class, 'show']);
+        //Route::get('/{id}', [App\Http\Controllers\Front\RestaurantController::class, 'show']);
+        Route::get('/{id}/{slug}.html', [App\Http\Controllers\Front\RestaurantController::class, 'show']);
     });
 
     Route::prefix('/cart')->group(function () {
