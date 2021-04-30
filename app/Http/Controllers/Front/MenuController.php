@@ -10,6 +10,7 @@ use App\Models\Restaurant;
 use App\Utilities\Constant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class MenuController extends Controller
 {
@@ -46,9 +47,13 @@ class MenuController extends Controller
         return view('front.menu.index', compact('categories', 'products', 'restaurant_name'));
     }
 
-    public function show($id)
+    public function show($id, Request $request)
     {
         $productDetails = Product::findOrFail($id);
+
+        if ($request->slug == null) {
+            return redirect('menu/' . $id . '/' . Str::slug($productDetails->name) . '.html');
+        }
 
         return view('front.menu.show', compact('productDetails'));
     }

@@ -8,6 +8,7 @@ use App\Models\ProductCategory;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class RestaurantController extends Controller
 {
@@ -25,8 +26,9 @@ class RestaurantController extends Controller
     {
         $restaurant = Restaurant::findOrFail($id);
 
-
-
+        if ($request->slug == null) {
+            return redirect('restaurant/' . $id . '/' . Str::slug($restaurant->name) . '.html');
+        }
 
         $restaurant_id = $id;
         $search = $request->get('search');
@@ -55,9 +57,6 @@ class RestaurantController extends Controller
 
         $categories = ProductCategory::whereIn('id', array_unique(array_column($products->toArray(), 'product_category_id')))->get();
         $restaurant_name = Restaurant::find($restaurant_id)->name ?? '';
-
-
-
 
         return view('front.restaurant.show',compact('restaurant', 'categories', 'products', 'restaurant_name'));
     }

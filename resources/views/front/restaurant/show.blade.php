@@ -2,8 +2,10 @@
 
 @section('title', 'Restaurant')
 
-@section('body')
+@section('meta_description', $restaurant->name)
+@section('og_image', asset('') . 'data-images/products/' . $restaurant->image)
 
+@section('body')
 
     <!-- Section -->
     <section class="section section-bg-edge mb-3 mt-2">

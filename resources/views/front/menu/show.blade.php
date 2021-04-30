@@ -2,6 +2,9 @@
 
 @section('title', 'Menu')
 
+@section('meta_description', $productDetails->name)
+@section('og_image', asset('') . 'data-images/products/' . $productDetails->image)
+
 @section('body')
 
     <!-- Section -->

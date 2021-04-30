@@ -5,14 +5,43 @@
     <base href="{{ asset('front') }}/">
     <!-- Meta -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="CODEDY @ Cloud Kitchen - TechWiz 2021">
+    <meta name="description" content="@yield('meta_description') CODEDY @ Cloud Kitchen - TechWiz 2021 - FPT Aptech">
+    <meta name="keywords" content="@yield('meta_description'), CODEDY, Cloud Kitchen, TechWiz, FPT Aptech"/>
+
+    <meta name="language" content="vi">
+    <meta name="language" content="en">
+    <meta http-equiv="content-language" content="vi">
+    <meta http-equiv="content-language" content="en">
+
+    <meta name="copyright" content="CODEDY">
+    <meta name="author" content="Hieu iceTea, DinhHieu8896@gmail.com">
 
     <!-- Title -->
     <title>@yield('title') | Cloud Kitchen - TechWiz 2021 @ CODEDY</title>
 
+    <meta name="robots" content="noodp,index,follow"/>
+    <meta name='revisit-after' content='1 days'/>
+
+    <meta name="geo.region" content="VN-HN"/>
+    <meta name="geo.placename" content="Hà Nội"/>
+    <meta name="geo.position" content="21.024813;105.853297"/>
+    <meta name="ICBM" content="21.024813, 105.853297"/>
+
+    <meta property="og:title" content="@yield('title') | Cloud Kitchen - TechWiz 2021 @ CODEDY"/>
+    <meta property="og:type" content="food"/>
+    <meta property="og:url" content="{{ url()->current() }}"/>
+    <meta property="og:image" content="@yield('og_image')"/>
+    <meta name="url" content="{{ asset('') }}">
+
+    <meta name="fb:page_id" content="43929265776" />
+
+    <meta name="og:email" content="codedy.dev@gmail.com"/>
+    <meta name="og:phone_number" content="+84868663315"/>
+
     <!-- Favicons -->
-    <link rel="shortcut icon" href="../favicon-front.png">
+    <link rel="shortcut icon" href="../favicon-front.png" type="image/x-icon">
     <!--<link rel="apple-touch-icon" href="assets/img/favicon_60x60.png">-->
     <!--<link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon_76x76.png">-->
     <!--<link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicon_120x120.png">-->
@@ -193,7 +222,8 @@
                         <ul class="list-posts">
                             <li><span><a href="../account/login" class="title text-primary">Login</a></span></li>
                             <li><span><a href="../account/register" class="title text-primary">Register</a></span></li>
-                            <li><span><a href="../account/my-order" class="title text-primary">Order history</a></span></li>
+                            <li><span><a href="../account/my-order" class="title text-primary">Order history</a></span>
+                            </li>
                         </ul>
                     </div>
 
