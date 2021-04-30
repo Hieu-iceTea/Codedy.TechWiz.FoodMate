@@ -35,7 +35,7 @@
     <meta property="og:image" content="@yield('og_image')"/>
     <meta name="url" content="{{ asset('') }}">
 
-    <meta name="fb:page_id" content="43929265776" />
+    <meta name="fb:page_id" content="107928264386009" />
 
     <meta name="og:email" content="codedy.dev@gmail.com"/>
     <meta name="og:phone_number" content="+84868663315"/>
