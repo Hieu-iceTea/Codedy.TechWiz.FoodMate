@@ -10,7 +10,12 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-4">
                     <h1 class="mb-0">Register</h1>
-                    <h4 class="text-muted mb-0">Register your new account</h4>
+                    {{--<h4 class="text-muted mb-0">Register your new account</h4>--}}
+                    <h4 class="text-muted mb-0">
+                        It only takes a
+                        <span class="text-primary">few seconds</span>
+                        to create your account
+                    </h4>
                 </div>
             </div>
         </div>
@@ -21,7 +26,7 @@
 
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-10 col-md-10 mb-5 mb-md-0 mx-auto">
+                <div class="col-lg-10 col-md-10 mb-0 mb-md-0 mx-auto">
                     <div class="example-box">
                         <div class="example-box-content">
                             <form method="post" enctype="multipart/form-data">
@@ -93,6 +98,14 @@
                             </form>
                         </div>
                     </div>
+
+                    <div class="form-group text-center mt-4">
+                        Already have an account?
+                        <a href="../account/login" style="text-decoration: underline">
+                            <span>Login now</span>
+                        </a>
+                    </div>
+
                 </div>
 
             </div>

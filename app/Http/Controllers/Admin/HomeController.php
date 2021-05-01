@@ -67,7 +67,7 @@ class HomeController extends Controller
         $credentials = [
             $fieldType => $request->email,
             'password' => $request->password,
-            'level' => [Constant::user_level_host, Constant::user_level_admin, Constant::user_level_staff],
+            //'level' => [Constant::user_level_host, Constant::user_level_admin, Constant::user_level_staff], //xử lý trong Middleware
         ];
 
         $remember = $request->remember;

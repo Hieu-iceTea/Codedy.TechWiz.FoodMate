@@ -38,7 +38,7 @@
                                     <div class="h5 modal-title text-center">
                                         <h4 class="mt-2">
                                             <div>Welcome back,</div>
-                                            <span>Please sign in to your account below.</span>
+                                            <span>Please login to admin account below.</span>
                                         </h4>
                                     </div>
 

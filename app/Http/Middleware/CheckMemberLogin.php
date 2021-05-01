@@ -26,7 +26,7 @@ class CheckMemberLogin
                 }
 
                 if ($request->is('*/account') || $request->is('account/*')) {
-                    return redirect()->guest('account/login')->withErrors('Please login to continue...');
+                    return redirect()->guest('account/login')->withErrors('Please login to your account to continue...');
                 }
             } else { //nếu đã đăng nhập
                 if ($request->is('account/*') || $request->is('cart') || $request->is('checkout')) {

@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-4">
                     <h1 class="mb-0">Login</h1>
-                    <h4 class="text-muted mb-0">Log in to your account</h4>
+                    <h4 class="text-muted mb-0">Please login to your account</h4>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
 
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-10 col-md-10 mb-5 mb-md-0 mx-auto">
+                <div class="col-lg-10 col-md-10 mb-0 mb-md-0 mx-auto">
                     <div class="example-box">
                         <div class="example-box-content">
                             <form method="post">
@@ -32,7 +32,8 @@
 
                                 <div class="form-group">
                                     <label>Username or email</label>
-                                    <input name="user_name" value="{{ old('user_name') }}" type="text" class="form-control" required>
+                                    <input name="user_name" value="{{ old('user_name') }}" type="text"
+                                           class="form-control" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
@@ -45,6 +46,14 @@
                                 </div>
                             </form>
                         </div>
+                    </div>
+
+                    <div class="form-group text-center mt-4">
+                        {{--Do not have an account?--}}
+                        New to Cloud-Kitchen?
+                        <a href="../account/register" style="text-decoration: underline">
+                            <span>Create your account</span>
+                        </a>
                     </div>
                 </div>
 
