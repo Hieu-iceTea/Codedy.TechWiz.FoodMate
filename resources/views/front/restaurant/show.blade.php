@@ -1,8 +1,8 @@
 @extends('front.layout.master')
 
-@section('title', 'Restaurant')
+@section('title', 'Restaurant | ' . $restaurant->name)
 
-@section('meta_description', $restaurant->name)
+@section('meta_description', $restaurant->name . ' -')
 @section('og_image', asset('') . 'front/data-images/restaurants/' . $restaurant->image)
 
 @section('body')

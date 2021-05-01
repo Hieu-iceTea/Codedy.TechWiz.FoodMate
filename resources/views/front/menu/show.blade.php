@@ -1,8 +1,8 @@
 @extends('front.layout.master')
 
-@section('title', 'Menu')
+@section('title', 'Menu | ' . $productDetails->name)
 
-@section('meta_description', $productDetails->name)
+@section('meta_description', $productDetails->name . ' -')
 @section('og_image', asset('') . 'front/data-images/products/' . $productDetails->image)
 
 @section('body')
