@@ -35,7 +35,7 @@
     <meta property="og:image" content="@yield('og_image')"/>
     <meta name="url" content="{{ asset('') }}">
 
-    <meta name="fb:page_id" content="107928264386009" />
+    <meta name="fb:page_id" content="107928264386009"/>
 
     <meta name="og:email" content="codedy.dev@gmail.com"/>
     <meta name="og:phone_number" content="+84868663315"/>
@@ -119,13 +119,14 @@
                                             </li>
 
                                             <li><a href="../account/profile">Profile</a></li>
-                                            <li><a href="../account/my-order">My Order</a></li>
+
                                             <li><a href="../account/logout">Logout</a></li>
                                         @else
                                             <li><a href="../account/login">Login</a></li>
                                             <li><a href="../account/register">Register</a></li>
                                         @endif
 
+                                        <li><a href="../account/my-order">Orders History</a></li>
 
                                     </ul>
                                     <div class="dropdown-image">
