@@ -38,16 +38,19 @@
                                 <div class="row">
 
                                     <div class="form-group col-12 text-center">
-                                        <img style="height: 200px; cursor: pointer;"
-                                             class="thumbnail rounded-circle" data-toggle="tooltip"
-                                             title="Click here to upload your avatar" data-placement="bottom"
-                                             src="{{ isset($user->image) ? '../front/data-images/user/' . $user->image : '../dashboard/assets/images/add-image-icon.jpg' }}"
-                                             alt="Avatar">
-                                        <input name="image" type="file" accept="image/x-png,image/gif,image/jpeg" onchange="changeImg(this)"
-                                               class="image form-control-file" style="display: none;">
-                                        <small class="form-text text-muted mt-2">
-                                            Avatar is optional. (Click on the image to change)
-                                        </small>
+                                        <label>Your avatar</label>
+                                        <div class="text-center">
+                                            <img style="height: 180px; cursor: pointer;"
+                                                 class="thumbnail rounded-circle" data-toggle="tooltip"
+                                                 title="Click here to upload your avatar" data-placement="bottom"
+                                                 src="{{ isset($user->image) ? '../front/data-images/user/' . $user->image : '../dashboard/assets/images/add-image-icon.jpg' }}"
+                                                 alt="Avatar">
+                                            <input name="image" type="file" accept="image/x-png,image/gif,image/jpeg" onchange="changeImg(this)"
+                                                   class="image form-control-file" style="display: none;">
+                                            <small class="form-text text-muted mt-2">
+                                                Avatar is optional. (Click on the image to change)
+                                            </small>
+                                        </div>
                                     </div>
 
                                     <div class="form-group col-12">
