@@ -92,9 +92,12 @@ class AccountController extends Controller
     {
         $orders = Order::Orderby('id', 'desc')->where('user_id', Auth::id())->simplePaginate();
 
-        $orders->appends('id');
+        $count_total_item  = count(Order::where('user_id', Auth::id())->get()); //vì dùng simplePaginate() nên không lấy được tổng bản ghi (dùng dòng lệnh này chống cháy)
 
-        return view('front.account.my-order.index', compact('orders'));
+        //dd($orders);
+        //$orders->appends('id');
+
+        return view('front.account.my-order.index', compact('orders', 'count_total_item'));
     }
 
     public function myOrderShow($id)

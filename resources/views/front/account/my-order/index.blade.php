@@ -26,11 +26,18 @@
             <div class="row">
                 <div class="col-xl-10 col-lg-12 m-auto">
                     <div class="cart-details shadow bg-white mb-4">
-                        <div class="bg-dark dark p-4"><h5 class="mb-0">My orders list</h5></div>
+                        <div class="bg-dark dark p-4">
+                            <h5 class="mb-0">
+                                <i class="ti ti-time mr-2"></i>
+                                List of my orders history
+                                ({{ $count_total_item }})
+                            </h5>
+                        </div>
 
                         <div class="table-responsive">
                             <table class="cart-table-show table-hover">
                                 <tr>
+                                    <th>ID</th>
                                     <th style="width: 160px">Image</th>
                                     <th>Items</th>
                                     <th>Status</th>
@@ -40,22 +47,22 @@
                                     </th>
                                 </tr>
 
-
                                 @foreach($orders as $order)
                                     <tr>
+                                        <td class="title">#{{ $order->id < 10 ? '0' . $order->id : $order->id }}</td>
                                         <td>
                                             <img
                                                 src="data-images/products/{{ $order->orderDetails[0]->product->image ?? '' }}"
                                                 style="max-height: 80px; min-width: 90px" alt="">
                                         </td>
                                         <td class="title">
-                                        <span class="name">
-                                            {{ $order->orderDetails[0]->product->name ?? '' }}
+                                            <span class="name">
+                                                {{ $order->orderDetails[0]->product->name ?? '' }}
 
-                                            @if(count($order->orderDetails) > 1)
-                                                (and {{ count($order->orderDetails) - 1  }} other items)
-                                            @endif
-                                        </span>
+                                                @if(count($order->orderDetails) > 1)
+                                                    (and {{ count($order->orderDetails) - 1  }} other items)
+                                                @endif
+                                            </span>
                                         </td>
                                         <input type="text" name="id" value="{{$order->id}}" hidden>
                                         <td class="title">{{ \App\Utilities\Constant::$order_status[$order->status] }}</td>
@@ -72,8 +79,19 @@
                         </div>
 
                     </div>
-                    <div class="float-right">
-                        <span>{{$orders -> links()}}</span>
+                    <div class="justify-content-center">
+                        <span class="d-inline-block ml-1">
+                            Showing
+                            {{ ($orders->currentPage() * $orders->perPage()) - $orders->perPage() + 1 }}
+                            to
+                            {{ ($orders->currentPage() * $orders->perPage() - (8 - count($orders))) }}
+                            of
+                            {{ $count_total_item }}
+                            results
+                        </span>
+                        <span class="d-inline-block float-right">
+                            {{$orders -> links()}}
+                        </span>
                     </div>
                 </div>
             </div>
