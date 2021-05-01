@@ -94,7 +94,7 @@
                                     </div>
 
                                     <div class="form-group form-submit col-12 mt-3">
-                                        <button type="submit" class="btn btn-primary btn-block"><span>Register</span>
+                                        <button type="submit" class="btn btn-primary btn-block"><span>Create account</span>
                                         </button>
                                     </div>
                                 </div>
