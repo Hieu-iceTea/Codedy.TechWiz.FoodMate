@@ -50,7 +50,7 @@
                                                  class="thumbnail"
                                                  data-toggle="tooltip" title="Click to add image"
                                                  data-placement="bottom"
-                                                 src="{{ request()->segment(3) != 'create' ? '/front/data-images/products/'.$product->image : 'assets/images/add-image-icon.jpg'}}"
+                                                 src="{{ isset($product->image) ? '../front/data-images/products/' . $product->image : '../dashboard/assets/images/add-image-icon.jpg' }}"
                                                  alt="Add Image">
                                             <input name="image" id="image" type="file" onchange="changeImg(this)"
                                                    class="image form-control-file" style="display: none;">

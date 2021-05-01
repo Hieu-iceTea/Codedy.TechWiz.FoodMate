@@ -28,7 +28,9 @@
                 <div class="main-card mb-3 card">
                     <div class="card-body">
 
-                        <form method="post" action="../{{ request()->segment(3) == 'create' ? 'admin/category' : 'admin/category/' . $category->id }}" enctype="multipart/form-data">
+                        <form method="post"
+                              action="../{{ request()->segment(3) == 'create' ? 'admin/category' : 'admin/category/' . $category->id }}"
+                              enctype="multipart/form-data">
                             @csrf
 
                             @if(request()->segment(3) != 'create')
@@ -45,9 +47,11 @@
                                     <img style="height: 200px; cursor: pointer;"
                                          class="thumbnail " data-toggle="tooltip"
                                          title="Click to change the image" data-placement="bottom"
-                                         src="{{ isset($category->image) ? '../front/data-images/categories/' . $category->image : '../dashboard/assets/images/add-image-icon.jpg' }}" alt="Avatar">
+                                         src="{{ isset($category->image) ? '../front/data-images/categories/' . $category->image : '../dashboard/assets/images/add-image-icon.jpg' }}"
+                                         alt="Category-image">
                                     <input name="image" type="file" onchange="changeImg(this)"
-                                           class="image form-control-file" style="display: none;" value="{{ old('image') ?? $category->image ?? ''}}">
+                                           class="image form-control-file" style="display: none;"
+                                           value="{{ old('image') ?? $category->image ?? ''}}">
                                     <input type="hidden" name="image_old" value="{{ $category->image ?? '' }}">
                                     <small class="form-text text-muted">
                                         {{ isset($caetgory->image) ? 'Look at it, it looks great! (Click on the image to change)' : 'No images, upload them! (Click on the image to change)' }}
