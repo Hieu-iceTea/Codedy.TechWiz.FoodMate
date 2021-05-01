@@ -99,7 +99,8 @@
 
 
                                 <div class="col-md-9 col-xl-8">
-                                    <select disabled name="restaurant_id" id="restaurant_id" class="form-control">
+                                    <select class="form-control"
+                                        {{ \Illuminate\Support\Facades\Auth::user()->level == \App\Utilities\Constant::user_level_staff ? 'disabled' : 'name=restaurant_id id=restaurant_id' }}>
                                         <option value="">----Select Item----</option>
                                         @foreach($restaurants as $restaurant)
                                             <option value="{{ $restaurant->id }}"
@@ -108,6 +109,10 @@
                                             </option>
                                         @endforeach
                                     </select>
+
+                                    <input type="hidden"
+                                           {{ \Illuminate\Support\Facades\Auth::user()->level == \App\Utilities\Constant::user_level_staff ? 'name=restaurant_id id=restaurant_id' : '' }}
+                                           value="{{ $product->restaurant_id ?? Auth::user()->restaurant_id ?? '' }}">
                                 </div>
 
 
