@@ -104,7 +104,8 @@
                                         <option value="">----Select Item----</option>
                                         @foreach($restaurants as $restaurant)
                                             <option value="{{ $restaurant->id }}"
-                                                {{ $product->restaurant_id ?? Auth::user()->restaurant_id ?? '' == $restaurant->id ? 'selected' : '' }}>
+
+                                                {{ ($product->restaurant_id ?? Auth::user()->restaurant_id ?? '') == $restaurant->id ? 'selected' : '' }}>
                                                 {{ $restaurant->name }}
                                             </option>
                                         @endforeach
