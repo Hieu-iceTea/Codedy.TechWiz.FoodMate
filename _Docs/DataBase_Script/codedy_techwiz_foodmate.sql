@@ -422,13 +422,13 @@ VALUE (9, 'Xian Famous Foods', 'xianfood.png', '778 Wall Street, New York, NY, U
 
 
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-VALUE (1, 6, 1, '8, Ton That Thuyet, My Dinh, Ha Noi',1, 68.75, 1, '', '2021-05-01');
+VALUE (1, 6, 1, '382, Tay Mo, Ha Dong, Ha Noi',1, 12.56, 1, '', '2021-05-03');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
 VALUE (2, 6, 2, '24, Pham hung, My Dinh, Ha Noi',1, 130.91, 2, '', '2021-03-18');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
 VALUE (3, 6, 3, '15, Me Tri, Tu Liem, Ha noi',1, 42.87, 2, '', '2020-03-01');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-VALUE (4, 6, 1, '111, Phan Trong Tue, Thanh Tri, Ha Noi',1, 58.16, 4, '', '2021-03-02');
+VALUE (4, 6, 1, '111, Phan Trong Tue, Thanh Tri, Ha Noi',1, 36.78, 4, '', '2021-03-02');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
 VALUE (5, 6, 1, '56, Giai Phong, Hoang Mai, Ha Noi',1, 45.87, 2, '', '2021-05-02');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
@@ -468,19 +468,21 @@ VALUE (22, 7, 7, '439, Van Dien, Thanh Tri, Ha Noi',1, 35.00, 4, '', '2021-04-22
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
 VALUE (23, 9, 7, '91, Nguyen Trai, Thanh Xuan, Ha Noi',1, 60.00, 3, 'Not enough materials to make dishes.', '2021-04-22');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-VALUE (24, 6, 1, '382, Tay Mo, Ha Dong, Ha Noi',1, 45.00, 2, '', '2021-05-03');
+VALUE (24, 6, 1, '8, Ton That Thuyet, My Dinh, Ha Noi',1, 68.75, 2, '', '2021-05-01');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
 VALUE (25, 10, 8, '97, Lien Hoa, My Dinh, Ha Noi',1, 70.00, 1, '', '2021-04-22');
+INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
+VALUE (26, 10, 1, '8, Ton That Thuyet, My Dinh, Ha Noi',1, 55.56, 2, '', '2021-05-01');
 
 
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
-VALUE (1, 1, 1, 2, 10.59, 21.18, '2021-05-01');
+VALUE (1, 24, 1, 2, 10.59, 21.18, '2021-05-01');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
-VALUE (2, 1, 2, 1, 13.89, 13.89, '2021-05-01');
+VALUE (2, 24, 2, 1, 13.89, 13.89, '2021-05-01');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
-VALUE (3, 1, 3, 1, 18.39, 18.39, '2021-05-01');
+VALUE (3, 24, 3, 1, 18.39, 18.39, '2021-05-01');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
-VALUE (4, 1, 4, 1, 15.29, 15.29, '2021-05-01');
+VALUE (4, 24, 4, 1, 15.29, 15.29, '2021-05-01');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
 VALUE (5, 2, 7, 1, 10.59, 10.59, '2021-04-18');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
@@ -500,15 +502,15 @@ VALUE (12, 3, 14, 1, 13.89, 13.89, '2020-03-01');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
 VALUE (13, 3, 15, 1, 18.39, 18.39, '2020-03-01');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
-VALUE (14, 4, 45, 2, 18.39, 36.78, '2021-03-02');
+VALUE (14, 4, 2, 2, 18.39, 36.78, '2021-03-02');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
-VALUE (15, 5, 46, 3, 15.29, 45.87, '2021-03-02');
+VALUE (15, 5, 6, 3, 15.29, 45.87, '2021-03-02');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
-VALUE (16, 6, 47, 1, 16.39, 16.39, '2021-03-02');
+VALUE (16, 6, 3, 1, 16.39, 16.39, '2021-03-02');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
-VALUE (17, 7, 48, 2, 12.89, 25.78, '2021-03-02');
+VALUE (17, 7, 2, 2, 12.89, 25.78, '2021-03-02');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
-VALUE (18, 8, 49, 4, 10.59, 42.36, '2021-03-02');
+VALUE (18, 8, 59, 4, 16.39, 65.56, '2021-03-02');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
 VALUE (19, 10, 18, 2, 12.89, 25.78, '2021-04-03');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
@@ -566,11 +568,17 @@ VALUE (45, 22, 41, 1, 16.39, 16.39, '2021-04-22');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
 VALUE (46, 23, 42, 2, 12.89, 25.78, '2021-04-22');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
-VALUE (47, 24, 5, 1, 10.59, 10.59, '2021-04-22');
+VALUE (47, 1, 5, 1, 10.59, 10.59, '2021-04-22');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
 VALUE (48, 25, 44, 3, 13.89, 41.67, '2021-04-22');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
 VALUE (49, 19, 6, 2, 12.89, 25.78, '2021-04-22');
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
+VALUE (50, 26, 2, 1, 13.89, 13.89, '2021-05-01');
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
+VALUE (51, 26, 56, 2, 12.68, 25.36, '2021-05-01');
+INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
+VALUE (52, 26, 4, 1, 15.29, 15.29, '2021-05-01');
 
 
 INSERT INTO feedbacks (id, user_id, name, email, message, rating)
