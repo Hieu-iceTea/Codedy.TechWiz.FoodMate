@@ -6,16 +6,16 @@
 #                                           Create DataBase                                           #
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = #
 
-# SET @DATABASE_Name = 'codedy_techwiz_foodmate';
+# SET @DATABASE_Name = 'epiz_26682605_Codedy_TechWiz_FoodMate';
 
 # Create DataBase
-DROP DATABASE IF EXISTS `codedy_techwiz_foodmate`;
-CREATE DATABASE IF NOT EXISTS `codedy_techwiz_foodmate` CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+DROP DATABASE IF EXISTS `epiz_26682605_Codedy_TechWiz_FoodMate`;
+CREATE DATABASE IF NOT EXISTS `epiz_26682605_Codedy_TechWiz_FoodMate` CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-USE `codedy_techwiz_foodmate`;
+USE `epiz_26682605_Codedy_TechWiz_FoodMate`;
 
 SET time_zone = '+07:00';
-ALTER DATABASE `codedy_techwiz_foodmate` CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+ALTER DATABASE `epiz_26682605_Codedy_TechWiz_FoodMate` CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 #SET SQL_MODE = 'ALLOW_INVALID_DATES';
 
@@ -215,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `feedbacks`
 #Default password: 123456
 
 INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (11, NULL, 'ThiDK', 'ThiDK@fpt.edu.vn ', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2021-08-08', 'ThiDK.jpg', 2, 'Đặng Kim', 'Thi', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+    VALUE (11, NULL, 'ThiDK', 'ThiDK@fpt.edu.vn ', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2021-08-08', 'ThiDK.jpg', 2, 'Đặng Kim', 'Thi', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
     VALUE (10, NULL, 'DinhHieu8896', 'HieuNDTH1908028@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2021-08-08', 'DinhHieu8896.jpg', 1, 'Nguyễn Đình', 'Hiếu', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
@@ -432,7 +432,7 @@ INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, 
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
     VALUE (5, 6, 1, '56, Giai Phong, Hoang Mai, Ha Noi',1, 45.87, 2, '', '2021-05-02');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-    VALUE (6, 6, 1, '19, Pho Hue, Hoan Kiem, Ha Noi',1, 94.54, 3, 'Not enough materials to make dishes.', '2021-03-02');
+    VALUE (6, 6, 1, '19, Pho Hue, Hoan Kiem, Ha Noi',1, 94.54, 2, '', '2021-03-02');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
     VALUE (7, 6, 1, '78, Xuan Thuy, Cau Giay, Ha Noi',1, 18.39, 2, '', '2021-03-02');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
@@ -444,7 +444,7 @@ INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, 
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
     VALUE (11, 6, 4, '97, Ngoc hoi, Thanh Tri, Ha Noi',1, 170.48, 2, '', '2021-04-03');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-    VALUE (12, 8, 3, '96, Nguyen Ngoc Nai, Hoan Kiem, Ha Noi',1, 105.00, 3, 'Over service time.', '2021-04-04');
+    VALUE (12, 8, 3, '96, Nguyen Ngoc Nai, Hoan Kiem, Ha Noi',1, 105.00, 3, 'Not enough materials to make dishes.', '2021-04-04');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
     VALUE (13, 10, 3, '74, Luong Ngoc Khuyen, Ha Dong, Ha Noi',1, 85.00, 2, '', '2021-05-05');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
@@ -458,7 +458,7 @@ INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, 
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
     VALUE (18, 6, 1, '74, Tu Hiep, Hoang Mai, Ha Noi',1, 70.00, 3, 'Over service time.', '2021-04-22');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-    VALUE (19, 6, 1, '192, Pho Voi, Mai Dich, Ha Noi',1, 40.00, 2, '', '2021-05-03');
+    VALUE (19, 6, 1, '192, Pho Voi, Mai Dich, Ha Noi',1, 40.00, 1, '', '2021-05-03');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
     VALUE (20, 8, 7, '12, Nui Truc, Ba Dinh, Ha Noi',1, 60.00, 2, '', '2021-05-03');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
