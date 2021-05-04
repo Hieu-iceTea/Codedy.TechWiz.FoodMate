@@ -426,7 +426,7 @@ INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, 
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
     VALUE (2, 6, 2, '24, Pham hung, My Dinh, Ha Noi',1, 130.91, 2, '', '2021-03-18');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-    VALUE (3, 6, 3, '15, Me Tri, Tu Liem, Ha noi',1, 42.87, 2, '', '2020-03-01');
+    VALUE (3, 6, 3, '15, Me Tri, Tu Liem, Ha noi',1, 42.87, 3, 'Not enough materials to make dishes.', '2020-03-01');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
     VALUE (4, 6, 1, '111, Phan Trong Tue, Thanh Tri, Ha Noi',1, 36.78, 4, '', '2021-03-02');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
@@ -438,15 +438,15 @@ INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, 
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
     VALUE (8, 6, 1, '356, To Huu, Ha Dong, Ha Noi',1, 45.87, 4, '', '2021-03-02');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-    VALUE (9, 6, 4, '543, Tran Hung Dao, Ba Dinh, Ha Noi',1, 10.00, 2, '', '2021-04-03');
+    VALUE (9, 6, 9, '543, Tran Hung Dao, Ba Dinh, Ha Noi',1, 55.17, 2, '', '2021-04-03');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
     VALUE (10, 7, 3, '87, Truong Dinh, Hoang Mai, Ha Noi',1, 40.00, 1, '', '2021-04-03');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
     VALUE (11, 6, 4, '97, Ngoc hoi, Thanh Tri, Ha Noi',1, 170.48, 2, '', '2021-04-03');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-    VALUE (12, 8, 3, '96, Nguyen Ngoc Nai, Hoan Kiem, Ha Noi',1, 105.00, 3, 'Not enough materials to make dishes.', '2021-04-04');
+    VALUE (12, 8, 3, '96, Nguyen Ngoc Nai, Hoan Kiem, Ha Noi',1, 105.00, 2, '', '2021-04-04');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-    VALUE (13, 10, 3, '74, Luong Ngoc Khuyen, Ha Dong, Ha Noi',1, 85.00, 2, '', '2021-05-05');
+    VALUE (13, 10, 2, '74, Luong Ngoc Khuyen, Ha Dong, Ha Noi',1, 85.00, 2, '', '2021-05-05');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
     VALUE (14, 6, 5, '63, Tran Duy Hung, Cau Giay, Ha Noi',1, 75.00, 4, '', '2021-04-06');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
@@ -460,13 +460,13 @@ INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, 
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
     VALUE (19, 6, 1, '192, Pho Voi, Mai Dich, Ha Noi',1, 40.00, 1, '', '2021-05-03');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-    VALUE (20, 8, 7, '12, Nui Truc, Ba Dinh, Ha Noi',1, 60.00, 2, '', '2021-05-03');
+    VALUE (20, 8, 2, '12, Nui Truc, Ba Dinh, Ha Noi',1, 60.00, 2, '', '2021-05-03');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
     VALUE (21, 6, 7, '127, Tran Thai Tong, Hai Ba Trung, Ha Noi',1, 35.00, 2, '', '2021-04-22');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-    VALUE (22, 7, 7, '439, Van Dien, Thanh Tri, Ha Noi',1, 35.00, 4, '', '2021-04-22');
+    VALUE (22, 7, 2, '439, Van Dien, Thanh Tri, Ha Noi',1, 35.00, 4, '', '2021-04-22');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-    VALUE (23, 9, 7, '91, Nguyen Trai, Thanh Xuan, Ha Noi',1, 60.00, 3, 'Not enough materials to make dishes.', '2021-04-22');
+    VALUE (23, 9, 2, '91, Nguyen Trai, Thanh Xuan, Ha Noi',1, 60.00, 3, 'Not enough materials to make dishes.', '2021-04-22');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
     VALUE (24, 6, 1, '8, Ton That Thuyet, My Dinh, Ha Noi',1, 68.75, 2, '', '2021-05-01');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
@@ -514,7 +514,7 @@ INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, 
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
     VALUE (19, 10, 18, 2, 12.89, 25.78, '2021-04-03');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
-    VALUE (20, 9, 19, 3, 10.59, 31.77, '2021-04-03');
+    VALUE (20, 9, 51, 3, 18.39, 55.17, '2021-04-03');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
     VALUE (21, 11, 20, 1, 13.89, 13.89, '2021-04-03');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
@@ -528,7 +528,7 @@ INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, 
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
     VALUE (26, 12, 16, 2, 15.29, 30.58, '2021-04-04');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
-    VALUE (27, 13, 17, 1, 16.39, 16.39, '2021-04-05');
+    VALUE (27, 13, 12, 1, 16.39, 16.39, '2021-04-05');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
     VALUE (28, 14, 25, 3, 10.59, 31.77, '2021-04-06');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
@@ -558,15 +558,15 @@ INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, 
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
     VALUE (41, 18, 1, 1, 16.39, 16.39, '2021-04-22');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
-    VALUE (42, 20, 38, 2, 13.89, 27.78, '2021-05-03');
+    VALUE (42, 20, 12, 2, 13.89, 27.78, '2021-05-03');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
-    VALUE (43, 20, 39, 3, 18.39, 55.17, '2021-05-03');
+    VALUE (43, 20, 9, 3, 18.39, 55.17, '2021-05-03');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
     VALUE (44, 21, 40, 2, 15.29, 30.58, '2021-04-22');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
-    VALUE (45, 22, 41, 1, 16.39, 16.39, '2021-04-22');
+    VALUE (45, 22, 10, 1, 16.39, 16.39, '2021-04-22');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
-    VALUE (46, 23, 42, 2, 12.89, 25.78, '2021-04-22');
+    VALUE (46, 23, 7, 2, 12.89, 25.78, '2021-04-22');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
     VALUE (47, 1, 5, 1, 10.59, 10.59, '2021-04-22');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
