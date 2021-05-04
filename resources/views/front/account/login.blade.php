@@ -30,20 +30,37 @@
                                 @include('components.notifications')
                                 @include('components.errors')
 
-                                <div class="form-group">
-                                    <label>Username or email</label>
-                                    <input name="user_name" value="{{ old('user_name') }}" type="text"
-                                           class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input name="password" type="password" class="form-control" required>
+                                <div class="row">
+
+                                    <div class="form-group col-12">
+                                        <label>Username or email</label>
+                                        <input name="user_name" value="{{ old('user_name') }}" type="text"
+                                               class="form-control" required>
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label>Password</label>
+                                        <input name="password" type="password" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group col-6 mt-3">
+                                        <label class="custom-control custom-checkbox">
+                                            <input name="remember" type="checkbox" class="custom-control-input">
+                                            <span class="custom-control-indicator"></span>
+                                            <span class="custom-control-description">Remember me</span>
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group col-6 text-right mt-3">
+                                        <a href="../account/reset-password">Forgot password?</a>
+                                    </div>
+
+                                    <div class="form-group col-12 form-submit mt-3">
+                                        <button type="submit" class="btn btn-primary btn-block"><span>Login</span>
+                                        </button>
+                                    </div>
+
                                 </div>
 
-                                <div class="form-group form-submit mt-3">
-                                    <button type="submit" class="btn btn-primary btn-block"><span>Login</span>
-                                    </button>
-                                </div>
                             </form>
                         </div>
                     </div>

@@ -21,7 +21,7 @@ class CheckMemberLogin
         if (!($request->is('admin') || $request->is('admin/*'))) {
             //Nếu chưa đăng nhập:
             if (Auth::guest()) {
-                if ($request->is('*/login') || $request->is('*/logout') || $request->is('*/register')) {
+                if ($request->is('*/login') || $request->is('*/logout') || $request->is('*/register') || $request->is('*/reset-password')) {
                     return $next($request);
                 }
 

@@ -20,6 +20,8 @@ class AccountController extends Controller
         //$this->middleware('guest')->except('logout');
     }
 
+
+
     public function login()
     {
         if (!session()->has('url.intended')) {
@@ -88,6 +90,16 @@ class AccountController extends Controller
             ->with('notification', 'Register Success! Please check your email. Login now below.');
     }
 
+    public function resetPassword() {
+        return view('front.account.reset-password');
+    }
+
+    public function postResetPassword() {
+        //TODO: tính năng khôi phục mật khẩu chưa làm.
+    }
+
+
+
     public function myOrderIndex()
     {
         $orders = Order::Orderby('id', 'desc')->where('user_id', Auth::id())->simplePaginate();
@@ -119,6 +131,7 @@ class AccountController extends Controller
 
         return redirect('../account/my-order');
     }
+
 
 
     public function profileShow()
@@ -182,7 +195,6 @@ class AccountController extends Controller
 
         return redirect('account/profile');
     }
-
 
     public function profileDestroy()
     {

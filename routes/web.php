@@ -63,6 +63,9 @@ Route::prefix('/')->middleware('CheckMemberLogin')->group(function () {
         Route::get('/register', [\App\Http\Controllers\Front\AccountController::class, 'register']);
         Route::post('/register', [\App\Http\Controllers\Front\AccountController::class, 'postRegister']);
 
+        Route::get('/reset-password', [\App\Http\Controllers\Front\AccountController::class, 'resetPassword']);
+        Route::post('/reset-password', [\App\Http\Controllers\Front\AccountController::class, 'postResetPassword']);
+
         Route::prefix('/profile')->group(function () {
             Route::get('/', [App\Http\Controllers\Front\AccountController::class, 'profileShow']);
             Route::get('/edit', [\App\Http\Controllers\Front\AccountController::class, 'profileEdit']);
