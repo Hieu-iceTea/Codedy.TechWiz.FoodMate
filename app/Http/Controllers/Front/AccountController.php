@@ -106,7 +106,7 @@ class AccountController extends Controller
         return view('front.account.reset-password');
     }
 
-    public function postResetPassword(Request $request)
+    public function postResetPassword(UserRequest $request)
     {
         if ($request->get('action') == 'form_sendMail') {
             $email = $request->get('email');
@@ -145,10 +145,6 @@ class AccountController extends Controller
 
         if ($request->get('action') == 'form_newPassword') {
             //Đổi mật khẩu:
-            if ($request->get('password') != $request->get('password_confirmation')) {
-                return back()->withErrors('ERROR: Confirm password does not match.');
-            }
-
             $user = User::firstWhere('reset_password_code', $request->get('code'));
 
             if ($user == null) {

@@ -26,12 +26,14 @@ class UserRequest extends FormRequest
     {
         $rules = [];
 
+        $password_rule = 'max:64|confirmed|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/';
+
         //user/*
         $except = ',1,deleted'; //deleted <> 1 : Không bao gồm những bản ghi đã bị xóa
 
         $rules = [
             'user_name' => 'required|min:6|max:64|unique:user,user_name' . $except,
-            'password' => 'required|max:64|confirmed|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/',
+            'password' => 'required|' . $password_rule,
 
             'email' => 'required|email',
             'first_name' => 'required|regex:/^([^0-9]*)$/',
@@ -58,7 +60,7 @@ class UserRequest extends FormRequest
             ];
 
             //Không bắt buộc phải sửa password, nếu có sửa thì mới validate
-            $rules['password'] = 'nullable|max:64|confirmed|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/';
+            $rules['password'] = 'nullable|' . $password_rule;
         }
 
         //account/*
@@ -79,7 +81,13 @@ class UserRequest extends FormRequest
             ];
 
             //Không bắt buộc phải sửa password, nếu có sửa thì mới validate
-            $rules['password'] = 'nullable|max:64|confirmed|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/';
+            $rules['password'] = 'nullable|' . $password_rule;
+        }
+
+        if ($this->is('account/reset-password')) {
+            $rules = [
+                'password' => 'nullable|' . $password_rule,
+            ];
         }
 
         return $rules;
