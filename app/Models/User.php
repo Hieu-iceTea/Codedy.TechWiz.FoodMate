@@ -50,6 +50,8 @@ class User extends Authenticatable
         'active',
 
         'deleted',
+
+        'reset_password_code',
     ];
 
     /**

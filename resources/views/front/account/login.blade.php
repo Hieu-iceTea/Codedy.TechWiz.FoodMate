@@ -21,7 +21,7 @@
 
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-10 col-md-10 mb-0 mb-md-0 mx-auto">
+                <div class="col-lg-8 col-md-10 mb-0 mb-md-0 mx-auto">
                     <div class="example-box">
                         <div class="example-box-content">
                             <form method="post">

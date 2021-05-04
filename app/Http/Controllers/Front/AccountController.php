@@ -11,6 +11,7 @@ use App\Utilities\Constant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class AccountController extends Controller
 {
@@ -19,7 +20,6 @@ class AccountController extends Controller
     {
         //$this->middleware('guest')->except('logout');
     }
-
 
 
     public function login()
@@ -90,21 +90,86 @@ class AccountController extends Controller
             ->with('notification', 'Register Success! Please check your email. Login now below.');
     }
 
-    public function resetPassword() {
+    public function resetPassword(Request $request)
+    {
+        if ($request->get('code') != null) {
+            $user = User::firstWhere('reset_password_code', $request->get('code'));
+
+            if ($user == null) {
+                return view('front.account.reset-password')
+                    ->withErrors('Link reset your password invalid, or has been used. Please try again. 🙄');
+            } else {
+                return view('front.account.reset-password', compact('user'), ['form_newPassword' => true]);
+            }
+        }
+
         return view('front.account.reset-password');
     }
 
-    public function postResetPassword() {
-        //TODO: tính năng khôi phục mật khẩu chưa làm.
-    }
+    public function postResetPassword(Request $request)
+    {
+        if ($request->get('action') == 'form_sendMail') {
+            $email = $request->get('email');
 
+            $user = User::firstWhere('email', $email);
+
+            //Nếu email tài khoản không tồn tại, thì quay lại thông báo lỗi
+            if ($user == null) {
+                return back()->withErrors('Email does not exist')->withInput();
+            }
+
+            // 01. update DB (thêm reset_password_code):
+            $data_user['reset_password_code'] = uniqid();
+            $user->update($data_user);
+
+            // 02. Gửi email chứa reset_password_code:
+            $email_to = $email;
+            $mail_data = [
+                'reset_password_code' => $data_user['reset_password_code'],
+                'user_name' => $user->user_name,
+                'email' => $user->email,
+            ];
+
+            Mail::send('emails.reset-password.email-index',
+                compact('mail_data'),
+                function ($message) use ($email_to) {
+                    $message->from('CODEDY.dev@gmail.com', 'Cloud Kitchen - CODEDY.dev');
+                    $message->to($email_to, $email_to);
+                    $message->subject('Reset Password');
+                });
+
+            // 03.
+            return redirect('account/reset-password')->with('notification', 'An email containing the password reset link was sent to you. Please check email.')
+                ->withInput();
+        }
+
+        if ($request->get('action') == 'form_newPassword') {
+            //Đổi mật khẩu:
+            if ($request->get('password') != $request->get('password_confirmation')) {
+                return back()->withErrors('ERROR: Confirm password does not match.');
+            }
+
+            $user = User::firstWhere('reset_password_code', $request->get('code'));
+
+            if ($user == null) {
+                return back()->withErrors('ERROR: Link reset your password invalid, or has been used. Please try again. 🙄.');
+            }
+
+            $data['password'] = bcrypt($request->get('password'));
+            $data['reset_password_code'] = '';
+            $user->update($data);
+
+            return redirect('account/login')
+                ->with('notification', 'Change password success! Login now below.');
+        }
+    }
 
 
     public function myOrderIndex()
     {
         $orders = Order::Orderby('id', 'desc')->where('user_id', Auth::id())->simplePaginate();
 
-        $count_total_item  = count(Order::where('user_id', Auth::id())->get()); //vì dùng simplePaginate() nên không lấy được tổng bản ghi (dùng dòng lệnh này chống cháy)
+        $count_total_item = count(Order::where('user_id', Auth::id())->get()); //vì dùng simplePaginate() nên không lấy được tổng bản ghi (dùng dòng lệnh này chống cháy)
 
         //dd($orders);
         //$orders->appends('id');
@@ -131,7 +196,6 @@ class AccountController extends Controller
 
         return redirect('../account/my-order');
     }
-
 
 
     public function profileShow()

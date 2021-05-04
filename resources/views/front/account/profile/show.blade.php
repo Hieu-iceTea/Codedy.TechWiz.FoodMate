@@ -62,8 +62,8 @@
                                     <div class="form-group col-lg-4 col-md-12 mb-4 mb-md-4 mb-lg-0">
                                         <img style="height: 200px;"
                                              class="rounded-circle" data-toggle="tooltip"
-                                             title="Click here to upload your avatar" data-placement="bottom"
-                                             src="{{ isset($user->image) ? '../front/data-images/user/' . $user->image : '../dashboard/assets/images/add-image-icon.jpg' }}"
+                                             title="Your avatar" data-placement="bottom"
+                                             src="{{ isset($user->image) ? '../front/data-images/user/' . $user->image : '../front/data-images/user/_default-user.png' }}"
                                              alt="Avatar">
                                     </div>
 

@@ -27,7 +27,7 @@
 
 
                             <!-- Thông báo: Tính năng chưa có, đang phát triển -->
-                            <p class="text-center mb-0">
+                            <p class="text-center mb-0 d-none">
                                 This function is being developed.
                                 <br>
                                 If you forget your password, please contact the
@@ -40,11 +40,14 @@
 
 
                             <!-- Form: Nhập email -->
-                            <form class="d-none" method="post">
+                            @if(!($form_newPassword ?? false))
+                            <form method="post">
                                 @csrf
 
                                 @include('components.notifications')
                                 @include('components.errors')
+
+                                <input type="hidden" name="action" value="form_sendMail">
 
                                 <div class="row">
 
@@ -64,11 +67,13 @@
                                 </div>
 
                             </form>
+                            @endif
                             <!-- END Form: Nhập email -->
 
 
                             <!-- Form: Nhập mật khẩu mới -->
-                            <form class="d-none" method="post">
+                            @if($form_newPassword ?? false)
+                            <form method="post">
                                 @csrf
 
                                 @include('components.notifications')
@@ -76,12 +81,14 @@
 
                                 <input type="hidden" name="code" value="{{ request('code') }}">
 
+                                <input type="hidden" name="action" value="form_newPassword">
+
                                 <div class="row">
 
                                     <div class="form-group col-12">
                                         <label>Your email:</label>
                                         <p class="font-weight-bold">
-                                            {{ request('email') }}
+                                            {{ $user->email }}
                                         </p>
                                     </div>
 
@@ -105,6 +112,7 @@
                                 </div>
 
                             </form>
+                            @endif
                             <!-- END Form: Nhập mật khẩu mới -->
 
 
@@ -119,7 +127,6 @@
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
 
