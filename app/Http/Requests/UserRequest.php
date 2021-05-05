@@ -70,7 +70,7 @@ class UserRequest extends FormRequest
 
         if ($this->is('account/reset-password')) {
             $rules = [
-                'password' => 'required|' . $password_rule,
+                'password' => 'nullable|' . $password_rule,
             ];
         }
 
