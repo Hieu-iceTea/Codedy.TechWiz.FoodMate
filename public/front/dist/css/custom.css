@@ -1,6 +1,6 @@
 /* Tùy biến CSS */
 
-
+/* cart-table mặc định ẩn đi */
 .cart-table-show {
     line-height: 1.25;
     width: 100%
@@ -37,6 +37,7 @@
     text-align: initial
 }
 
+/* rate-custom */
 .rate-custom {
     float: left;
     height: 46px;
@@ -78,6 +79,26 @@
     color: #c59b08;
 }
 
+/* loader-icon */
+.loader-icon {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Hình ảnh trong restaurant/detail ở chế độ mobile mặc định bị mờ */
 .section-bg-edge .image {
     opacity: 1;
     margin-top: 2px;

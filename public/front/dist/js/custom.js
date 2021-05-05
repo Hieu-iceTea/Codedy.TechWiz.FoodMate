@@ -7,6 +7,16 @@ $(document).ready(function () {
     // ẩn icon cài đặt giao diện
     $('#style-switcher-toggle').css('display', 'none');
     $('#style-switcher').css('display', 'none');
+
+    //loader-icon
+    $('button[type="submit"]').prepend('<span class="loader-icon mr-5" style="zoom: 15%"></span>'); //Thêm "loader-icon" cho tất cả các nút "submit"
+    $('.loader-icon').hide(); //mặc định sẽ ẩn đi, chỉ lúc cần mới hiển thị loader-icon
+    $("form").on("submit", function(){ //Khi submit form thì hiển thị loader-icon
+        $('.loader-icon').show();
+    });
+    // $('.loader-icon').parent().click(function () { //Khi click nút thì hiển thị loader-icon
+    //     $('.loader-icon').show();
+    // });
 });
 
 

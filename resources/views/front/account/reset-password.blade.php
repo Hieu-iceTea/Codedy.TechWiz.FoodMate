@@ -61,8 +61,7 @@
                                         </div>
 
                                         <div class="form-group col-12 form-submit mt-3">
-                                            <button type="submit" class="btn btn-primary btn-block"
-                                                    onClick="this.form.submit(); this.disabled=true;">
+                                            <button type="submit" class="btn btn-primary btn-block">
                                                 <span>Send password reset email</span>
                                             </button>
                                         </div>
