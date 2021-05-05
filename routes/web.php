@@ -53,7 +53,7 @@ Route::prefix('/')->middleware('CheckMemberLogin')->group(function () {
     });
 
     Route::prefix('/account')->group(function () {
-        Route::redirect('/', '/account/profile'); //Chuyển hướng
+        Route::redirect('/', url('/') . '/account/profile'); //Chuyển hướng
 
         Route::get('/login', [\App\Http\Controllers\Front\AccountController::class, 'login']);
         Route::post('/login', [\App\Http\Controllers\Front\AccountController::class, 'checkLogin']);
@@ -98,7 +98,7 @@ Route::prefix('/')->middleware('CheckMemberLogin')->group(function () {
 
 
 Route::prefix('/admin')->middleware('CheckAdminLogin')->group(function () {
-    Route::redirect('/dashboard', '/admin');
+    Route::redirect('/dashboard', url('/') . '/admin');  //Chuyển hướng
 
     Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index']);
 

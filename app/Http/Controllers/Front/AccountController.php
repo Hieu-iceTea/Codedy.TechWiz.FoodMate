@@ -53,7 +53,7 @@ class AccountController extends Controller
                 return redirect('admin');
             }
 
-            return redirect()->intended(session('url.intended') ?? ''); //Mặc định là: trang chủ
+            return redirect()->intended(session('url.intended') ?? 'account/profile'); //Mặc định là: trang profile
         } else {
             return back()->withErrors('ERROR: Email or password is wrong');
         }
