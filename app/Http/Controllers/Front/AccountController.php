@@ -225,8 +225,8 @@ class AccountController extends Controller
         unset($data['image_old']);
 
         //Đổi mật khẩu:
-        if ($request->get('new_password') != null) {
-            if ($request->get('new_password') != $request->get('new_password_confirmation')) {
+        if ($request->get('password') != null) {
+            if ($request->get('password') != $request->get('password_confirmation')) {
                 return back()->withErrors('ERROR: Confirm password does not match.');
             }
 
@@ -234,11 +234,11 @@ class AccountController extends Controller
                 return back()->withErrors('ERROR: Old password does not match.');
             }
 
-            if (Hash::check($request->new_password, Auth::user()->password)) {
+            if (Hash::check($request->password, Auth::user()->password)) {
                 return back()->withErrors('ERROR: New passwords must be different for old passwords.');
             }
 
-            $data['password'] = bcrypt($request->new_password);
+            $data['password'] = bcrypt($request->password);
         }
 
         //Xử lý file:

@@ -28,6 +28,8 @@
                         @csrf
                         @method('PUT')
 
+                        <input type="hidden" name="action" value="change_password">
+
                         <div class="cart-details shadow bg-white mb-4">
                             <div class="bg-dark dark p-4"><h5 class="mb-0">Profile</h5></div>
 
@@ -38,7 +40,7 @@
                                     Change the password
 
                                     <span class="float-right">
-                                        <button class="btn btn-sm btn-primary">
+                                        <button type="submit" class="btn btn-sm btn-primary">
                                             <span class="mr-2 mb-1"><i class="ti ti-save"></i></span>
                                             <span>Save</span>
                                         </button>
@@ -51,17 +53,18 @@
                                 <div class="row">
                                     <div class="form-group col-sm-12">
                                         <label>Old password:</label>
-                                        <input class="form-control" type="password" name="old_password"
+                                        <input class="form-control" type="password" name="old_password" required
                                                placeholder="Old password ...">
                                     </div>
                                     <div class="form-group col-sm-12">
                                         <label>New password:</label>
-                                        <input class="form-control" type="password" name="new_password"
+                                        <input class="form-control" type="password" name="password" required
                                                placeholder="New password ...">
                                     </div>
                                     <div class="form-group col-sm-12">
                                         <label>New password confirmation:</label>
-                                        <input class="form-control" type="password" name="new_password_confirmation"
+                                        <input class="form-control" type="password" name="password_confirmation"
+                                               required
                                                placeholder="New password confirmation ...">
                                     </div>
                                 </div>

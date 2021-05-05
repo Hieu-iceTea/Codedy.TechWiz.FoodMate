@@ -44,6 +44,8 @@ class UserRequest extends FormRequest
 
         //account/*
         if ($this->is('account/*')) {
+
+
             $id = Auth::id();
             if (isset($id)) {
                 $except = ',' . $id . ',id,deleted,0'; //kiểm tra trùng lặp, loại bỏ ID hiện tại & deleted = 0 (Không bao gồm những bản ghi đã bị xóa)
@@ -59,8 +61,17 @@ class UserRequest extends FormRequest
                 'address' => 'required',
             ];
 
-            //Không bắt buộc phải sửa password, nếu có sửa thì mới validate
-            $rules['password'] = 'nullable|' . $password_rule;
+            if ($this->request->get('action') == 'change_password') {
+                $rules = [
+                    'password' => 'required|' . $password_rule
+                ];
+            }
+        }
+
+        if ($this->is('account/reset-password')) {
+            $rules = [
+                'password' => 'required|' . $password_rule,
+            ];
         }
 
         //account/*
@@ -82,12 +93,6 @@ class UserRequest extends FormRequest
 
             //Không bắt buộc phải sửa password, nếu có sửa thì mới validate
             $rules['password'] = 'nullable|' . $password_rule;
-        }
-
-        if ($this->is('account/reset-password')) {
-            $rules = [
-                'password' => 'nullable|' . $password_rule,
-            ];
         }
 
         return $rules;
