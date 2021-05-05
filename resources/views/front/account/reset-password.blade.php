@@ -41,77 +41,80 @@
 
                             <!-- Form: Nhập email -->
                             @if(!($form_newPassword ?? false))
-                            <form method="post">
-                                @csrf
+                                <form method="post">
+                                    @csrf
 
-                                @include('components.notifications')
-                                @include('components.errors')
+                                    @include('components.notifications')
+                                    @include('components.errors')
 
-                                <input type="hidden" name="action" value="form_sendMail">
+                                    <input type="hidden" name="action" value="form_sendMail">
 
-                                <div class="row">
+                                    <div class="row {{ session('hide_form') ? 'd-none' : ''}}">
 
-                                    <div class="form-group col-12">
-                                        <label>Enter your user account's verified email address and we will send you a
-                                            password reset link.</label>
-                                        <input name="email" value="{{ old('email') }}" type="email"
-                                               placeholder="Enter your email address"
-                                               class="form-control" required>
+                                        <div class="form-group col-12">
+                                            <label>Enter your user account's verified email address and we will send you
+                                                a
+                                                password reset link.</label>
+                                            <input name="email" value="{{ old('email') }}" type="email"
+                                                   placeholder="Enter your email address"
+                                                   class="form-control" required>
+                                        </div>
+
+                                        <div class="form-group col-12 form-submit mt-3">
+                                            <button type="submit" class="btn btn-primary btn-block"
+                                                    onClick="this.form.submit(); this.disabled=true;">
+                                                <span>Send password reset email</span>
+                                            </button>
+                                        </div>
+
                                     </div>
 
-                                    <div class="form-group col-12 form-submit mt-3">
-                                        <button type="submit" class="btn btn-primary btn-block"><span>Send password reset email</span>
-                                        </button>
-                                    </div>
-
-                                </div>
-
-                            </form>
-                            @endif
+                                </form>
+                                @endif
                             <!-- END Form: Nhập email -->
 
 
                             <!-- Form: Nhập mật khẩu mới -->
                             @if($form_newPassword ?? false)
-                            <form method="post">
-                                @csrf
+                                <form method="post">
+                                    @csrf
 
-                                @include('components.notifications')
-                                @include('components.errors')
+                                    @include('components.notifications')
+                                    @include('components.errors')
 
-                                <input type="hidden" name="code" value="{{ request('code') }}">
+                                    <input type="hidden" name="code" value="{{ request('code') }}">
 
-                                <input type="hidden" name="action" value="form_newPassword">
+                                    <input type="hidden" name="action" value="form_newPassword">
 
-                                <div class="row">
+                                    <div class="row">
 
-                                    <div class="form-group col-12">
-                                        <label>Your email:</label>
-                                        <p class="font-weight-bold">
-                                            {{ $user->email }}
-                                        </p>
+                                        <div class="form-group col-12">
+                                            <label>Your email:</label>
+                                            <p class="font-weight-bold">
+                                                {{ $user->email }}
+                                            </p>
+                                        </div>
+
+                                        <div class="form-group col-12">
+                                            <label>New password</label>
+                                            <input name="password" type="password" class="form-control" required>
+                                        </div>
+
+                                        <div class="form-group col-12">
+                                            <label>New password confirmation</label>
+                                            <input name="password_confirmation" type="password" class="form-control"
+                                                   required>
+                                        </div>
+
+                                        <div class="form-group col-12 form-submit mt-3">
+                                            <button type="submit" class="btn btn-primary btn-block">
+                                                <span>Change password</span>
+                                            </button>
+                                        </div>
+
                                     </div>
 
-                                    <div class="form-group col-12">
-                                        <label>New password</label>
-                                        <input name="password" type="password" class="form-control" required>
-                                    </div>
-
-                                    <div class="form-group col-12">
-                                        <label>New password confirmation</label>
-                                        <input name="password_confirmation" type="password" class="form-control"
-                                               required>
-                                    </div>
-
-                                    <div class="form-group col-12 form-submit mt-3">
-                                        <button type="submit" class="btn btn-primary btn-block">
-                                            <span>Change password</span>
-                                        </button>
-                                    </div>
-
-                                </div>
-
-                            </form>
+                                </form>
                             @endif
                             <!-- END Form: Nhập mật khẩu mới -->
 

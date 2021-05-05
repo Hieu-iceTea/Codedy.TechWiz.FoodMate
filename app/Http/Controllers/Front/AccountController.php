@@ -139,7 +139,9 @@ class AccountController extends Controller
                 });
 
             // 03.
-            return redirect('account/reset-password')->with('notification', 'An email containing the password reset link was sent to you. Please check email.')
+            return redirect('account/reset-password')
+                ->with('notification', 'Please check email. An email containing the password reset link was sent to you.')
+                ->with('hide_form', true)
                 ->withInput();
         }
 
