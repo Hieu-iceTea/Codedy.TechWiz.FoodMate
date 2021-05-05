@@ -1,0 +1,111 @@
+- - - - - front
+
+data-images/ => front/data-images/
+assets/ => front/assets/
+dist/ => front/dist/
+
+
+
+
+
+
+
+- - - - - dashboard
+
+assets/ => dashboard/assets/
+
+
+
+front/front
+dashboard/dashboard
+
+
+
+../ => ./
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+front/front => front
+
+front: 
+
+src="./ => src="
+src="../ => src="
+href="./ => href="
+href="../ => href="
+
+href="assets => href="front/assets
+
+href="dist => href="front/dist
+
+src="assets => src="front/assets
+src="data-images => src="front/data-images
+src="dist => src="front/dist
+
+
+src=" => src="{{ asset('') }}
+href=" => href="{{ asset('') }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dashboard:
+
+src="./ => src="
+src="../ => src="
+href="./ => href="
+href="../ => href="
+
+
+href="assets => href="dashboard/assets
+src="assets => src="dashboard/assets
+
+
+src=" => src="{{ asset('') }}
+href=" => href="{{ asset('') }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
