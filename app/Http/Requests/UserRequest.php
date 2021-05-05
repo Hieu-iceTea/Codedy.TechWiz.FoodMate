@@ -54,6 +54,7 @@ class UserRequest extends FormRequest
             }
 
             $rules = [
+                'user_name' => 'required|min:6|max:64|unique:user,user_name' . $except,
                 'email' => 'required|min:6|max:64|unique:user,email' . $except,
                 'first_name' => 'required|regex:/^([^0-9]*)$/',
                 'last_name' => 'required|regex:/^([^0-9]*)$/',
@@ -84,6 +85,7 @@ class UserRequest extends FormRequest
             }
 
             $rules = [
+                'user_name' => 'required|min:6|max:64|unique:user,user_name' . $except,
                 'email' => 'required|min:6|max:64|unique:user,email' . $except,
                 'first_name' => 'required|regex:/^([^0-9]*)$/',
                 'last_name' => 'required|regex:/^([^0-9]*)$/',
