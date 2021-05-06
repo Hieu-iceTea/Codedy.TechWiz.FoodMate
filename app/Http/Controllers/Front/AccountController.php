@@ -192,7 +192,7 @@ class AccountController extends Controller
 
         Order::findOrFail($id)->update($data);
 
-        return redirect('../account/my-order');
+        return redirect('account/my-order');
     }
 
 
