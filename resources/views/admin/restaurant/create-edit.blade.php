@@ -11,7 +11,7 @@
                 <div class="page-title-wrapper">
                     <div class="page-title-heading">
                         <div class="page-title-icon">
-                            <i class="pe-7s-map-2 icon-gradient bg-mean-fruit"></i>
+                            <i class="pe-7s-map-2 icon-gradient bg-amy-crisp"></i>
                         </div>
                         <div>
                             Restaurant
