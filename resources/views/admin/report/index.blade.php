@@ -9,9 +9,9 @@
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
                     <div class="page-title-icon">
-                        <i class="pe-7s-medal icon-gradient bg-tempting-azure"></i>
+                        <i class="pe-7s-display2 icon-gradient bg-tempting-azure"></i>
                     </div>
-                    <div>Report table
+                    <div>Report
                         <div class="page-title-subheading">
                         </div>
                     </div>
