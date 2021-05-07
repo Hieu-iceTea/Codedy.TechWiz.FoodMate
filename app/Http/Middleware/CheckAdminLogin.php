@@ -21,12 +21,25 @@ class CheckAdminLogin
         if ($request->is('admin') || $request->is('admin/*')) {
             //Nếu chưa đăng nhập
             if (Auth::guest()) {
+
+                //Nếu chưa đăng nhập mà vào login hoặc logout thì cho qua
+                if ($request->is('*/login') || $request->is('*/logout')) {
+                    return $next($request);
+                }
+
                 if ($request->is('admin')) {
                     return redirect()->guest('admin/login');
                 }
 
                 return redirect()->guest('admin/login')->withErrors('Please login to admin account to continue...');
+
             } else { //Nếu đã đăng nhập
+
+                //Nếu đã đăng nhập mà vẫn vào login thì chuyển hướng
+                if ($request->is('*/login')) {
+                    return redirect('admin');
+                }
+
                 if (Auth::user()->level != Constant::user_level_host && Auth::user()->level != Constant::user_level_admin && Auth::user()->level != Constant::user_level_staff) {
                     Auth::logout();
 

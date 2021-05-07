@@ -21,6 +21,12 @@ class CheckMemberLogin
         if (!($request->is('admin') || $request->is('admin/*'))) {
             //Nếu chưa đăng nhập:
             if (Auth::guest()) {
+
+                //Nếu chưa đăng nhập mà vào login, logout hoặc register thì cho qua
+                if ($request->is('*/login') || $request->is('*/logout') || $request->is('*/register')) {
+                    return $next($request);
+                }
+
                 if ($request->is('*/login') || $request->is('*/logout') || $request->is('*/register') || $request->is('*/reset-password')) {
                     return $next($request);
                 }
@@ -29,6 +35,12 @@ class CheckMemberLogin
                     return redirect()->guest('account/login')->withErrors('Please login to your account to continue...');
                 }
             } else { //nếu đã đăng nhập
+
+                //Nếu đã đăng nhập mà vẫn vào login thì chuyển hướng
+                if ($request->is('*/login')) {
+                    return redirect('account/profile');
+                }
+
                 if ($request->is('account/*') || $request->is('cart') || $request->is('checkout')) {
                     if (Auth::user()->level != Constant::user_level_customer) {
                         Auth::logout();
