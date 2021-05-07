@@ -29,9 +29,12 @@ class CheckOutController extends Controller
             foreach (Cart::content()->groupBy('options.restaurant_id') as $carts) {
                 //01. Thêm Đơn Hàng
                 $data_order['restaurant_id'] = $carts[0]->options->restaurant_id;
+                $data_order['total_amount'] = 0;
                 $order = Order::create($data_order);
 
-                //02. Thêm chi tiết đơn hàng
+
+                //02. Thêm chi tiết đơn hàng, và tính tổng tiền của tất cả order_detail
+                $total_amount = 0;
                 foreach ($carts as $cart) {
                     $data_orderDetail = [
                         'order_id' => $order->id,
@@ -42,7 +45,13 @@ class CheckOutController extends Controller
                         'total_amount' => $cart->qty * $cart->price,
                     ];
                     OrderDetail::create($data_orderDetail);
+
+                    $total_amount += $cart->qty * $cart->price;
                 }
+
+                //03. Tính lại tổng đơn hàng và cập nhật vào DB
+                $data_order_update['total_amount'] = $total_amount;
+                Order::findOrFail($order->id)->update($data_order_update);
             }
 
             //Gửi email:

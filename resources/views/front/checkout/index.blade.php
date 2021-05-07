@@ -89,7 +89,6 @@
                             <form method="post">
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-                                <input type="hidden" name="total_amount" value="{{ Cart::total() }}">
 
                                 <div class="bg-white p-4 p-md-5 mb-4">
 
