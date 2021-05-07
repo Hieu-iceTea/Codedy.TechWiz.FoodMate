@@ -215,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `feedbacks`
 #Default password: 123456
 
 INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-VALUE (12, 3, 'Staff_C', 'staff_c.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2021-08-08', 'staff_c.jpg', 1, 'CODEDY', 'Staff C', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+    VALUE (12, 3, 'Staff_C', 'staff_c.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2021-08-08', 'staff_c.jpg', 1, 'CODEDY', 'Staff C', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
     VALUE (11, NULL, 'ThiDK', 'ThiDK@fpt.edu.vn ', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2021-08-08', 'ThiDK.jpg', 2, 'Đặng Kim', 'Thi', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
@@ -446,7 +446,7 @@ INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, 
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
     VALUE (11, 6, 4, '97, Ngoc hoi, Thanh Tri, Ha Noi',1, 138.71, 2, '', '2021-04-03');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
-    VALUE (12, 8, 3, '96, Nguyen Ngoc Nai, Hoan Kiem, Ha Noi',1, 30.58, 2, '', '2021-04-04');
+    VALUE (12, 8, 3, '96, Nguyen Ngoc Nai, Hoan Kiem, Ha Noi',1, 30.58, 2, '', '2021-05-04');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
     VALUE (13, 10, 2, '74, Luong Ngoc Khuyen, Ha Dong, Ha Noi',1, 16.39, 2, '', '2021-05-05');
 INSERT INTO orders (id, user_id, restaurant_id, delivery_address, payment_type, total_amount, status, reason_reject, created_at)
@@ -528,7 +528,7 @@ INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, 
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
     VALUE (25, 11, 24, 2, 12.89, 25.78, '2021-04-03');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
-    VALUE (26, 12, 16, 2, 15.29, 30.58, '2021-04-04');
+    VALUE (26, 12, 16, 2, 15.29, 30.58, '2021-05-04');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
     VALUE (27, 13, 12, 1, 16.39, 16.39, '2021-04-05');
 INSERT INTO order_details (id, order_id, product_id, qty, amount, total_amount, created_at)
