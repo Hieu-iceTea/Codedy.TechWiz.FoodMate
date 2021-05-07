@@ -83,6 +83,6 @@ class HomeController extends Controller
     {
         Auth::logout();
 
-        return redirect('admin/login');
+        return redirect('account/login'); //sau khi đăng xuất thì hiển thị trang đăng nhập của customer
     }
 }
