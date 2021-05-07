@@ -41,9 +41,16 @@ class CheckMemberLogin
                     return redirect('account/profile');
                 }
 
-                if ($request->is('account/*') || $request->is('cart') || $request->is('checkout')) {
+                if ($request->is('cart') || $request->is('checkout')) {
                     if (Auth::user()->level != Constant::user_level_customer) {
                         Auth::logout();
+                    }
+                }
+
+                if ($request->is('account/*')) {
+                    if (Auth::user()->level != Constant::user_level_customer) {
+                        Auth::logout();
+                        return redirect('account/login')->withErrors('Before that, you logged in to the administrator account. Please login to the customer account to visit the website for customers.');
                     }
                 }
             }
