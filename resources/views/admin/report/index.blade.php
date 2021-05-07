@@ -31,7 +31,7 @@
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <div class="card-header"><i class="header-icon lnr-store mr-3 text-muted opacity-6"> </i>
-                    Top 10 Restaurant Selling
+                    Top 5 Restaurant Selling
                 </div>
                 <table style="width: 100%;" id="" class="table table-hover table-striped table-bordered">
                     <thead>
@@ -60,7 +60,7 @@
             <div class="card-body">
 
                 <div class="card-header"><i class="header-icon lnr-store mr-3 text-muted opacity-6"> </i>
-                    Top 10 Ordered Item
+                    Top 5 Ordered Item
                 </div>
                 <table style="width: 100%;" id="" class="table table-hover table-striped table-bordered">
                     <thead>
