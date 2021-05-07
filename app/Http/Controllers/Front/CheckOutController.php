@@ -75,7 +75,8 @@ class CheckOutController extends Controller
 
             //04. Trả về kết quả thông báo
             return redirect('checkout/result')
-                ->with('notification', 'You will recieve it in 30 minutes. Please check your email..');
+                ->with('notification', 'Please check your email. You will receive it soon...');
+                //->with('notification', 'You will recieve it in 30 minutes. Please check your email..');
         } else {
             return back()->withErrors('Payment methods have not been supported.');
         }

@@ -400,7 +400,7 @@ INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients,
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
     VALUE (59, 10, 1, 'Cocktail Cafe', 'Base wines, colorants, fragrances, coffee and decorations',16.39, 'CocktailCafe.jpg', 'Korean', 'Snacks', 'A cocktail is an alcoholic mixed drink, which is either a combination of spirits, or one or more spirits mixed with other ingredients such as fruit juice, flavored syrup, or cream.', FALSE);
 INSERT INTO products (Id, Product_Category_Id, Restaurant_Id, Name, Ingredients, Price, Image, Country, Tag, Description, Featured)
-    VALUE (60, 10, 1, 'US-Beveragee', 'Water, fruit, ice, sugar',10.59, 'US-Beveragee.jpg', 'USA', 'Lunch', 'Cool non-alcoholic drinks and fruity flavors', TRUE);
+    VALUE (60, 10, 1, 'US-Beverages', 'Water, fruit, ice, sugar',10.59, 'US-Beveragee.jpg', 'USA', 'Lunch', 'Cool non-alcoholic drinks and fruity flavors', TRUE);
 
 
 INSERT INTO restaurants (id, name, image, address, description)
