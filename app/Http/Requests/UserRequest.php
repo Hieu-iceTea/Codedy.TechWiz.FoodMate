@@ -67,6 +67,10 @@ class UserRequest extends FormRequest
                     'password' => 'required|' . $password_rule
                 ];
             }
+
+            if ($this->is('account/register')) {
+                $rules['password'] = 'required|' . $password_rule;
+            }
         }
 
         if ($this->is('account/reset-password')) {
