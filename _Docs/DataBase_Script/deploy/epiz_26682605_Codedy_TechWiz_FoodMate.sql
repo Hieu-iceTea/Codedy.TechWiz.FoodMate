@@ -215,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `feedbacks`
 #Default password: 123456
 
 INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-    VALUE (11, NULL, 'ThiDK', 'ThiDK@fpt.edu.vn ', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2021-08-08', 'ThiDK.jpg', 2, 'Đặng Kim', 'Thi', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+VALUE (11, NULL, 'ThiDK', 'ThiDK@fpt.edu.vn ', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2021-08-08', 'ThiDK.jpg', 2, 'Đặng Kim', 'Thi', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
     VALUE (10, NULL, 'DinhHieu8896', 'HieuNDTH1908028@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2021-08-08', 'DinhHieu8896.jpg', 1, 'Nguyễn Đình', 'Hiếu', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
@@ -225,7 +225,7 @@ INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_ve
 INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
     VALUE (7, NULL, 'AnhNTTH1908059', 'AnhNTTH1908059@fpt.edu.vn', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2021-08-08', 'AnhNTTH1908059.jpg', 1, 'Nguyễn Trung', 'Anh', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
-    VALUE (6, NULL, 'Customer', 'codedy.dev@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2021-08-08', 'customer.jpg', 1, 'CODEDY', 'Customer', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
+    VALUE (6, NULL, 'Customer', 'codedy.demo@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 4, '2021-08-08', 'customer.jpg', 1, 'CODEDY', 'Customer', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
     VALUE (5, 3, 'Staff_B', 'staff_b.codedy@gmail.com', '$2y$10$//Od0OmEqRwFepW3wynrYOwslyvaS.snzBbpWwskF1Zrg5fNI.eTe', 3, '2021-08-08', 'staff_b.jpg', 2, 'CODEDY', 'Staff B', '0868 6633 15', '8, Ton That Thuyet, Ha Noi, Viet Nam', TRUE);
 INSERT INTO user (id, restaurant_id, user_name, email, password, level, email_verified_at, image, gender, first_name, last_name, phone, address, active)
