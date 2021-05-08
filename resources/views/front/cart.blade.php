@@ -92,7 +92,7 @@
                                                 </td>
                                                 <td class="price">${{ $cart->price }}</td>
                                                 <td class="price" style="width: 110px">
-                                                    <form action="../cart/update/{{ $cart->rowId }}">
+                                                    <form action="../cart/update/{{ $cart->rowId }}" onkeydown="return event.key !== 'Enter';">
                                                         <input class="form-control border-light"
                                                                style="font-weight: bold; width: 65px"
                                                                type="number" name="qty" value="{{ $cart->qty }}" min=1
