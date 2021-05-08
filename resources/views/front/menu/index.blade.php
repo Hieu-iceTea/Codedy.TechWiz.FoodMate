@@ -2,6 +2,8 @@
 
 @section('title', 'Menu')
 
+@section('og_image', asset('') . 'openGraph_image_default.jpg')
+
 @section('body')
 
 

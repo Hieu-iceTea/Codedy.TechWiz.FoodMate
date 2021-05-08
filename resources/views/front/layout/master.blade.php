@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="@yield('meta_description') CODEDY @ Cloud Kitchen - TechWiz 2021 - FPT Aptech">
+    <meta name="description" content="@yield('meta_description') - Cloud Kitchen @ Codedy - TechWiz 2021 - FPT Aptech">
     <meta name="keywords" content="@yield('meta_description'), CODEDY, Cloud Kitchen, TechWiz, FPT Aptech"/>
 
     <meta name="language" content="vi">
@@ -19,7 +19,7 @@
     <meta name="author" content="Hieu iceTea, DinhHieu8896@gmail.com">
 
     <!-- Title -->
-    <title>@yield('title') | Cloud Kitchen - TechWiz 2021 @ CODEDY</title>
+    <title>Cloud Kitchen | @yield('title')</title>
 
     <meta name="robots" content="noodp,index,follow"/>
     <meta name='revisit-after' content='1 days'/>

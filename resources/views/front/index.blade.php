@@ -2,7 +2,7 @@
 
 @section('title', 'Home')
 
-@section('meta_description', 'Hieu iceTea')
+@section('meta_description', 'Home page')
 @section('og_image', asset('') . 'openGraph_image_default.jpg')
 
 @section('body')
