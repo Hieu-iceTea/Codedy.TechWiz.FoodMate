@@ -2,8 +2,8 @@
 
 @section('title', 'Home')
 
-@section('meta_description', 'Hieu iceTea')
-@section('og_image', asset('') . 'front/data-images/user/' . 'DinhHieu8896.jpg')
+@section('meta_description', 'Home page')
+@section('og_image', asset('') . 'openGraph_image_default.jpg')
 
 @section('body')
 

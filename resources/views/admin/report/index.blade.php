@@ -9,9 +9,9 @@
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
                     <div class="page-title-icon">
-                        <i class="pe-7s-medal icon-gradient bg-tempting-azure"></i>
+                        <i class="pe-7s-display2 icon-gradient bg-tempting-azure"></i>
                     </div>
-                    <div>Report table
+                    <div>Report
                         <div class="page-title-subheading">
                         </div>
                     </div>
@@ -31,7 +31,7 @@
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <div class="card-header"><i class="header-icon lnr-store mr-3 text-muted opacity-6"> </i>
-                    Top 10 Restaurant Selling
+                    Top 5 Restaurant Selling
                 </div>
                 <table style="width: 100%;" id="" class="table table-hover table-striped table-bordered">
                     <thead>

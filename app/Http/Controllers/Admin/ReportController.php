@@ -34,7 +34,7 @@ class ReportController extends Controller
                                 where o.status = 2 and  month(o.created_at  ) = month(CURRENT_DATE)
                                 group by restaurant_id
                                 order by total desc
-                                limit 10');
+                                limit 5');
         }
          else if ($request->view == 'last_month') {
             $products = DB::select('select name, image, price, country, count(*) as total
@@ -52,7 +52,7 @@ class ReportController extends Controller
                                 where o.status = 2 and  month(o.created_at  ) < month(NOW() - 1)
                                 group by restaurant_id
                                 order by total desc
-                                limit 10');
+                                limit 5');
         }
          else if ($request->view == 'this_year') {
              $products = DB::select('select name, image, price, country, count(*) as total
@@ -70,7 +70,7 @@ class ReportController extends Controller
                                 where o.status = 2 and  YEAR(o.created_at) = YEAR(NOW())
                                 group by restaurant_id
                                 order by total desc
-                                limit 10');
+                                limit 5');
          }
          else {
             $restaurants = DB::select('select name,image,address, sum(total_amount) as total from   restaurants
@@ -78,7 +78,7 @@ class ReportController extends Controller
                                 where o.status = 2
                                 group by restaurant_id
                                 order by total desc
-                                limit 10');
+                                limit 5');
 
             $products = DB::select('select name,image, price,country , count(*) as total from   products
                                     join order_details od on products.id = od.product_id

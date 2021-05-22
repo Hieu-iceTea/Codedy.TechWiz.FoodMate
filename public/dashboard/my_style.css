@@ -63,3 +63,25 @@ nav[aria-label="Pagination Navigation"] a:hover {
 .ui-theme-settings .btn-open-options {
     bottom: 48px;
 }
+
+/* sidebar */
+.app-sidebar {
+    /* Mặc định: 280 */
+    width: 230px;
+    min-width: 230px;
+}
+
+.fixed-sidebar .app-main .app-main__outer {
+    /* Mặc định: 280 */
+    padding-left: 230px;
+}
+
+.closed-sidebar.fixed-sidebar .app-main__outer {
+    /* Giống mặc định, copy vào đây mới thu nhỏ thanh sidebar được */
+    padding-left: 80px;
+}
+
+.app-header__logo {
+    /* Mặc định: 280 */
+    width: 230px;
+}

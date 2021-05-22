@@ -30,7 +30,7 @@ class HomeController extends Controller
                                 where month(od.created_at  ) = month(CURRENT_DATE)
                                 group by restaurant_id
                                 order by total desc
-                                limit 10');
+                                limit 5');
 
                                         } else {
             $restaurantId = DB::select('select r.name,r.image, price,r.address, count(*) as total from  products
@@ -38,7 +38,7 @@ class HomeController extends Controller
                                 join restaurants r on products.restaurant_id = r.id
                                 group by restaurant_id
                                 order by total desc
-                                limit 10');
+                                limit 5');
             $products = DB::select('select name,image, price,country , count(*) as total from  products
                                 join order_details od on products.id = od.product_id
                                 group by product_id
@@ -83,6 +83,6 @@ class HomeController extends Controller
     {
         Auth::logout();
 
-        return redirect('admin/login');
+        return redirect('account/login'); //sau khi đăng xuất thì hiển thị trang đăng nhập của customer
     }
 }

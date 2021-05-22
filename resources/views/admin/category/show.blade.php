@@ -10,7 +10,7 @@
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
                     <div class="page-title-icon">
-                        <i class="pe-7s-ticket icon-gradient bg-mean-fruit"></i>
+                        <i class="pe-7s-ticket icon-gradient bg-malibu-beach"></i>
                     </div>
                     <div>
                         User

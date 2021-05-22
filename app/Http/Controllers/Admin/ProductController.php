@@ -21,19 +21,20 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $products = Product::all()->toQuery();
-
         //Truy vấn theo nhà hàng:
         if (Auth::user()->level == Constant::user_level_staff) {
             $restaurant_id = Auth::user()->restaurant_id;
-            $products = $products->where('restaurant_id', $restaurant_id);
+            $products = Product::where('restaurant_id', $restaurant_id);
+        } else {
+            $products = Product::all();
         }
+
         //Tìm theo ID:
         $keyword = $request->get('search');
+        $products = $products->where('id', 'like', '%' . $keyword . '%');
 
-        $products = $products->where('id', 'like', '%' . $keyword . '%')
-            ->orWhere('name', 'like', '%' . $keyword . '%')
-            ->orderBy('id', 'desc')->paginate();
+        //Sắp xếp theo ID và phân trang
+        $products = $products->orderBy('id', 'desc')->paginate();
 
         //giúp chuyển trang page sẽ đính kèm theo từ khóa search của người dùng:
         $products->appends(['search' => $keyword]);

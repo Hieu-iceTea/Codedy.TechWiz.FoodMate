@@ -26,10 +26,14 @@ class AccountController extends Controller
     {
         if (!session()->has('url.intended')) {
             session(['url.intended' => url()->previous('account/profile')]);
+        }
 
-            if (str_contains(url()->previous(), 'register')) {
-                session(['url.intended' => str_replace('register', '', url()->previous())]);
-            }
+        if (str_contains(url()->previous(), 'register')) {
+            session(['url.intended' => str_replace('register', '', url()->previous())]);
+        }
+
+        if (str_contains(url()->previous(), 'admin')) {
+            session(['url.intended' => url('account/profile')]);
         }
 
         return view('front.account.login');
@@ -192,7 +196,7 @@ class AccountController extends Controller
 
         Order::findOrFail($id)->update($data);
 
-        return redirect('../account/my-order');
+        return redirect('account/my-order');
     }
 
 

@@ -174,7 +174,7 @@ function updateHtmlCart_IconCart(response) {
         '            <a href="../#product-modal-hide" data-toggle="modal">' + response['cart'].name + '</a></span>\n' +
         '        <span class="caption text-muted">' + response['cart'].qty + ' item x $' + response['cart'].price + '</span>\n' +
         '    </td>\n' +
-        '    <td class="price">$' + response['cart'].price * response['cart'].qty + '</td>\n' +
+        '    <td class="price">$' + (response['cart'].price * response['cart'].qty).toFixed(2) + '</td>\n' +
         '    <td class="actions">\n' +
         '        <button class="close border-0 bg-transparent"\n' +
         '                onclick="confirm(\'Delete this item?\') === true ? deleteCart(\'' + response['cart'].rowId + '\') : \'\'">\n' +
@@ -202,7 +202,7 @@ function updateHtmlCart_IconCart(response) {
 function updateHtmlCart_ModalAddCart(response) {
     $('#modalAddCart .product-modal-name').text(response['cart'].name); //Tên sản phẩm ở MODAL
     $('#modalAddCart .product-modal-qty-price').text(response['cart'].qty + ' item x $' + response['cart'].price); //Số lượng & đơn giá ở MODAL
-    $('#modalAddCart .product-modal-price').text(response['cart'].price * response['cart'].qty); //tổng tiền ở MODAL
+    $('#modalAddCart .product-modal-price').text((response['cart'].price * response['cart'].qty).toFixed(2)); //tổng tiền ở MODAL
 }
 
 function updateHtmlCart_PageCart(response) {
@@ -229,5 +229,5 @@ function updateHtmlCart_PageCart(response) {
 
     var cartTable = $('.cart-table-show'); //truy vấn bảng cart
     var exist_item_tr_cartTable = cartTable.find("tr" + "[data-rowId='" + response['cart'].rowId + "']");
-    exist_item_tr_cartTable.find('.cart-item-total-show').text('$' + response['cart'].price * response['cart'].qty);
+    exist_item_tr_cartTable.find('.cart-item-total-show').text('$' + (response['cart'].price * response['cart'].qty).toFixed(2));
 }

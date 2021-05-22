@@ -2,6 +2,8 @@
 
 @section('title', 'My Order')
 
+@section('og_image', asset('') . 'openGraph_image_default.jpg')
+
 @section('body')
 
     <!-- Page Title -->
@@ -66,7 +68,7 @@
                                         </td>
                                         <input type="text" name="id" value="{{$order->id}}" hidden>
                                         <td class="title">{{ \App\Utilities\Constant::$order_status[$order->status] }}</td>
-                                        <td class="price">{{ $order->orderDetails[0]->product->price ?? '' }}$</td>
+                                        <td class="price">{{ $order->total_amount ?? '' }}$</td>
                                         <td class="actions">
                                             <a href="../account/my-order/{{ $order->id }}" class="action-icon">
                                                 <i class="ti ti-eye"></i>

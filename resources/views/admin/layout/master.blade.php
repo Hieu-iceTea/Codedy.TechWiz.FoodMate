@@ -167,62 +167,66 @@
             </div>
             <div class="scrollbar-sidebar">
                 <div class="app-sidebar__inner">
-                    <ul class="vertical-nav-menu">
-                        <li class="app-sidebar__heading"></li>
 
-                        <ul>
-                            <li>
-                                <a href="../admin"
-                                   class="{{ (request()->segment(2) == '' || request()->segment(2) == 'dashboard') ? 'mm-active' : '' }}">
-                                    <i class="metismenu-icon"></i>Dashboard
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../admin/report"
-                                   class="{{ (request()->segment(2) == 'report') ? 'mm-active' : '' }}">
-                                    <i class="metismenu-icon"></i>Report
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../admin/feedback"
-                                   class="{{ (request()->segment(2) == 'feedback') ? 'mm-active' : '' }}">
-                                    <i class="metismenu-icon"></i>Feedback
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../admin/order"
-                                   class="{{ (request()->segment(2) == 'order') ? 'mm-active' : '' }}">
-                                    <i class="metismenu-icon"></i>Order
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../admin/product"
-                                   class="{{ (request()->segment(2) == 'product') ? 'mm-active' : '' }}">
-                                    <i class="metismenu-icon"></i>Product
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../admin/category"
-                                   class="{{ (request()->segment(2) == 'category') ? 'mm-active' : '' }}">
-                                    <i class="metismenu-icon"></i>Category
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../admin/restaurant"
-                                   class="{{ (request()->segment(2) == 'restaurant') ? 'mm-active' : '' }}">
-                                    <i class="metismenu-icon"></i>Restaurant
-                                </a>
-                            </li>
-                            <li>
-                                <a href="../admin/user"
-                                   class="{{ (request()->segment(2) == 'user') ? 'mm-active' : '' }}">
-                                    <i class="metismenu-icon"></i>User
-                                </a>
-                            </li>
-
-                        </ul>
-
+                    <ul class="vertical-nav-menu pt-3">
+                        <li>
+                            <a href="../admin"
+                               class="{{ (request()->segment(2) == '' || request()->segment(2) == 'dashboard') ? 'mm-active' : '' }}">
+                                <i class="metismenu-icon pe-7s-rocket"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../admin/report"
+                               class="{{ (request()->segment(2) == 'report') ? 'mm-active' : '' }}">
+                                <i class="metismenu-icon pe-7s-display2"></i>
+                                Report
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../admin/feedback"
+                               class="{{ (request()->segment(2) == 'feedback') ? 'mm-active' : '' }}">
+                                <i class="metismenu-icon pe-7s-light"></i>
+                                Feedback
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../admin/order"
+                               class="{{ (request()->segment(2) == 'order') ? 'mm-active' : '' }}">
+                                <i class="metismenu-icon pe-7s-shopbag"></i>
+                                Order
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../admin/product"
+                               class="{{ (request()->segment(2) == 'product') ? 'mm-active' : '' }}">
+                                <i class="metismenu-icon pe-7s-plugin"></i>
+                                Product
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../admin/category"
+                               class="{{ (request()->segment(2) == 'category') ? 'mm-active' : '' }}">
+                                <i class="metismenu-icon pe-7s-ticket"></i>
+                                Category
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../admin/restaurant"
+                               class="{{ (request()->segment(2) == 'restaurant') ? 'mm-active' : '' }}">
+                                <i class="metismenu-icon pe-7s-map-2"></i>
+                                Restaurant
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../admin/user"
+                               class="{{ (request()->segment(2) == 'user') ? 'mm-active' : '' }}">
+                                <i class="metismenu-icon pe-7s-users"></i>
+                                User
+                            </a>
+                        </li>
                     </ul>
+
                 </div>
             </div>
         </div>

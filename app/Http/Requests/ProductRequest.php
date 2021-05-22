@@ -24,10 +24,6 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         $rules = [];
-        //product/create
-        if ($this->isMethod('POST')) {
-            $rules['image'] = 'required|image';
-        }
 
         $id = $this->segment(3);
         if (isset($id)) {
@@ -38,14 +34,18 @@ class ProductRequest extends FormRequest
         $rules = [
             'product_category_id' => 'required',
             'restaurant_id' => 'required',
-            'name' => 'required|max:255|unique:products,name,'. $id,
-        'ingredients' => 'required|max:255',
+            'name' => 'required|max:255|unique:products,name,' . $id,
+            'ingredients' => 'required|max:255',
             'price' => 'required|numeric',
             'country' => 'required|max:50',
             'description' => 'required',
             'featured' => 'required',
-
         ];
+
+        //product/create
+        if ($this->isMethod('POST')) {
+            $rules['image'] = 'required|image';
+        }
 
         return $rules;
     }
