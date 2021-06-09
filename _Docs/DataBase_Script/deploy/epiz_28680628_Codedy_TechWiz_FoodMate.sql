@@ -6,16 +6,16 @@
 #                                           Create DataBase                                           #
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = #
 
-# SET @DATABASE_Name = 'epiz_26682605_Codedy_TechWiz_FoodMate';
+# SET @DATABASE_Name = 'epiz_28680628_Codedy_TechWiz_FoodMate';
 
 # Create DataBase
-DROP DATABASE IF EXISTS `epiz_26682605_Codedy_TechWiz_FoodMate`;
-CREATE DATABASE IF NOT EXISTS `epiz_26682605_Codedy_TechWiz_FoodMate` CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+DROP DATABASE IF EXISTS `epiz_28680628_Codedy_TechWiz_FoodMate`;
+CREATE DATABASE IF NOT EXISTS `epiz_28680628_Codedy_TechWiz_FoodMate` CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
-USE `epiz_26682605_Codedy_TechWiz_FoodMate`;
+USE `epiz_28680628_Codedy_TechWiz_FoodMate`;
 
 SET time_zone = '+07:00';
-ALTER DATABASE `epiz_26682605_Codedy_TechWiz_FoodMate` CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+ALTER DATABASE `epiz_28680628_Codedy_TechWiz_FoodMate` CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 #SET SQL_MODE = 'ALLOW_INVALID_DATES';
 
