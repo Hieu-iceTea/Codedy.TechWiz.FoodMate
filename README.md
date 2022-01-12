@@ -7,7 +7,7 @@
     <p align="center">
         <a href="http://github.com/Hieu-iceTea/Codedy.TechWiz.FoodMate"><img src="https://cdn.iconscout.com/icon/free/png-512/github-153-675523.png" height="25px"></a>
     &nbsp;
-        <a href="http://ars.hieu-icetea.epizy.com"><img src="https://lapcamerataihaiphong.com/wp-content/uploads/2018/02/website.png" height="25px"></a>
+        <a href="http://cloud-kitchen.hieu-icetea.epizy.com"><img src="https://lapcamerataihaiphong.com/wp-content/uploads/2018/02/website.png" height="25px"></a>
     &nbsp;
         <a href="http://fb.com"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/480px-Facebook_Logo_%282019%29.png" height="25px"></a>
     </p>
@@ -17,7 +17,7 @@
 
 FoodMate by CODEDY team - TechWiz, FPT Aptech
 
-The project has been deployed at the link: <b> [http://ars.hieu-icetea.epizy.com](http://ars.hieu-icetea.epizy.com). </b>
+The project has been deployed at the link: <b> [http://cloud-kitchen.hieu-icetea.epizy.com](http://cloud-kitchen.hieu-icetea.epizy.com). </b>
 
 Laravel version: 8.x
 
@@ -100,6 +100,6 @@ Contributors:
 
 ## More information
 
-<> Web Deployed: [ars.hieu-icetea.epizy.com](http://ars.hieu-icetea.epizy.com)
+<> Web Deployed: [http://cloud-kitchen.hieu-icetea.epizy.com](http://cloud-kitchen.hieu-icetea.epizy.com)
 
 <> Link GitHub: [github.com/Hieu-iceTea/Codedy.TechWiz.FoodMate](http://github.com/Hieu-iceTea/Codedy.TechWiz.FoodMate)
