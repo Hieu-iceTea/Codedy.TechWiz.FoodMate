@@ -54,6 +54,13 @@
                         </div>
 
                         <div class="position-relative row form-group">
+                            <label for="email" class="col-md-3 text-md-right col-form-label">Created At</label>
+                            <div class="col-md-9 col-xl-8">
+                                <p>{{ $feedback->created_at }}</p>
+                            </div>
+                        </div>
+
+                        <div class="position-relative row form-group">
                             <label for="email" class="col-md-3 text-md-right col-form-label">Rating</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>
