@@ -144,6 +144,14 @@
 
                         <div class="position-relative row form-group">
                             <label for="postcode_zip" class="col-md-3 text-md-right col-form-label">
+                                Created At</label>
+                            <div class="col-md-9 col-xl-8">
+                                <p>{{ $order->created_at ?? '' }}</p>
+                            </div>
+                        </div>
+
+                        <div class="position-relative row form-group">
+                            <label for="postcode_zip" class="col-md-3 text-md-right col-form-label">
                                 Total Amount</label>
                             <div class="col-md-9 col-xl-8">
                                 <p>{{ $order->total_amount ?? '' }}$</p>
