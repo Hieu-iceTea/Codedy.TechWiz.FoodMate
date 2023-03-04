@@ -26,7 +26,7 @@ class ProductController extends Controller
             $restaurant_id = Auth::user()->restaurant_id;
             $products = Product::where('restaurant_id', $restaurant_id);
         } else {
-            $products = Product::all();
+            $products = Product::query();
         }
 
         //Tìm theo ID:
