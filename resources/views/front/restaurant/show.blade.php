@@ -18,7 +18,7 @@
                     <ul class="list-check text-lg">
                         {!!$restaurant->description!!}
                     </ul>
-                    <a href="#menu" class="btn btn-primary"><span>Go to Menu</span></a>
+                    <a href="{{ url()->current() . '#menu' }}" class="btn btn-primary"><span>Go to Menu</span></a>
                     <a href="../restaurant" class="btn btn-link"><span>Back</span></a>
                 </div>
                 <div class="image left bottom col-md-7">
