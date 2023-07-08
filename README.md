@@ -53,12 +53,6 @@ Contributors:
 
     Go to the folder `_Docs/DataBase_Script` in the project root directory, find the file `Codedy.TechWiz.FoodMate_ScriptDatabe_Create_Insert.sql` and run it with MyPHPAdmin.
 
-5. Add shopping cart.
-
-    ```bash
-    composer require bumbummen99/shoppingcart
-    ```
-
 
 5. Start server.
 
